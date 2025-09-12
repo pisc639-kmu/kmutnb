@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E15 EP</title>
+    <title>E15 Summary</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Inter Font -->
@@ -28,11 +28,36 @@
                 <a href="../" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-300 rounded-md py-2 px-3">Home</a>
                 <a href="../timetable" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-300 rounded-md py-2 px-3">Timetable</a>
                 <a href="../summary" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-300 rounded-md py-2 px-3">Summary</a>
+                <a href="../old-exam" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-300 rounded-md py-2 px-3">Old Exam</a>
             </div>
         </div>
     </nav>
     <div class="flex items-center justify-center space-x-4 mt-16">
         <h1 class="text-2xl font-bold mb-4">Summary</h1>
+    </div>
+
+    <div class="container mx-auto mt-8 overflow-x-auto">
+        <table class="w-full border-collapse border border-gray-300 dark:border-gray-700">
+            <thead>
+                <tr class="">
+                    <th class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">Subject</th>
+                    <th class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">8:00 - 9:00</th>
+                    <th class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">9:00 - 10:00</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">Monday</td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
+                </tr>
+                <tr class="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">Tuesday</td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </body>
 </html>
