@@ -1,6 +1,5 @@
 
 
-/*************  ✨ Windsurf Command 🌟  *************/
 def main():
     # add_gdrive_folder_icon_recursive(all_path, recursive=True)
     remove_filename(all_path, "desktop.ini", recursive=True)
@@ -46,7 +45,6 @@ def main():
     print(f"Total storage: {total_size:,} Byte ({add_size_unit(total_size)})")
     prettify_csv_fixed_width("files.csv", "files.csv")
 
-/*******  d85d2a9a-b3a6-45e0-801f-9a471bfa9b32  *******/
 if __name__ == "__main__":
     main()
 
