@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim:wght@300;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=prompt:wght@300;500;700&display=swap');
+
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', 'prompt', 'Itim', sans-serif;
     transition: background-color 0.3s, color 0.3s;
 }
 .dark {
