@@ -9,6 +9,11 @@
     <!-- Inter Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="../../style.css">
+    <script>
+        function openFile(path) {
+            document.getElementById("FileFrame").src = path;
+        }
+    </script>
 </head>
 <body class="dark">
     <!-- Navbar -->
@@ -62,14 +67,14 @@
                 <tr class="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700">
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">Mathematics I</td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="Math 2012.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Math 2012</a></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="Math 2013.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Math 2013</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Math 2012.pdf')">Math 2012</button></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Math 2013.pdf')">Math 2013</button></td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="Math 2016.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Math 2016</a></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="Math 2017.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Math 2017</a></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="Math 2017.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Math 2018</a></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="Math 2017.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Math 2020</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Math 2016.pdf')">Math 2016</button></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Math 2017.pdf')">Math 2017</button></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Math 2017.pdf')">Math 2018</button></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Math 2017.pdf')">Math 2020</button></td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
@@ -80,7 +85,7 @@
                 <tr class="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700">
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">Thai I</td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="Thai 2012.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Thai 2012</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('Thai 2012.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Thai 2012</a></td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
@@ -98,14 +103,14 @@
                 <tr class="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700">
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">Chemistry I</td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="Chemistry 2012.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Chemistry 2012</a></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="Chemistry 2013.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Chemistry 2013</a></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="Chemistry 2014.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Chemistry 2014</a></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="Chemistry 2015.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Chemistry 2015</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('Chemistry 2012.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Chemistry 2012</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('Chemistry 2013.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Chemistry 2013</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('Chemistry 2014.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Chemistry 2014</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('Chemistry 2015.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Chemistry 2015</a></td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="Chemistry 2017.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Chemistry 2017</a></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="Chemistry 2018.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Chemistry 2018</a></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="Chemistry 2019.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Chemistry 2019</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('Chemistry 2017.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Chemistry 2017</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('Chemistry 2018.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Chemistry 2018</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('Chemistry 2019.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Chemistry 2019</a></td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
@@ -116,15 +121,15 @@
                 <tr class="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700">
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">Foundation English I</td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="English 2012.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">English 2012</a></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="English 2013.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">English 2013</a></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="English 2014.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">English 2014</a></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="English 2015.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">English 2015</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('English 2012.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">English 2012</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('English 2013.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">English 2013</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('English 2014.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">English 2014</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('English 2015.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">English 2015</a></td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="English 2017.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">English 2017</a></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="English 2018.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">English 2018</a></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="English 2019.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">English 2019</a></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="English 2020.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">English 2020</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('English 2017.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">English 2017</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('English 2018.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">English 2018</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('English 2019.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">English 2019</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('English 2020.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">English 2020</a></td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
@@ -135,14 +140,14 @@
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">Mechanics I</td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="Physics 2013.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Physics 2013</a></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="Physics 2014.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Physics 2014</a></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="Physics 2015.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Physics 2015</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('Physics 2013.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Physics 2013</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('Physics 2014.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Physics 2014</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('Physics 2015.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Physics 2015</a></td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="Physics 2017.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Physics 2017</a></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="Physics 2018.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Physics 2018</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('Physics 2017.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Physics 2017</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('Physics 2018.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Physics 2018</a></td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="Physics 2020.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Physics 2020</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('Physics 2020.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Physics 2020</a></td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
@@ -152,15 +157,15 @@
                 <tr class="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700">
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">Electrical Drawing I</td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="Drawing 2012.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Drawing 2012</a></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="Drawing 2013.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Drawing 2013</a></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="Drawing 2014.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Drawing 2014</a></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="Drawing 2015.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Drawing 2015</a></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="Drawing 2016.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Drawing 2016</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('Drawing 2012.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Drawing 2012</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('Drawing 2013.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Drawing 2013</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('Drawing 2014.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Drawing 2014</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('Drawing 2015.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Drawing 2015</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('Drawing 2016.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Drawing 2016</a></td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="Drawing 2018.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Drawing 2018</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('Drawing 2018.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Drawing 2018</a></td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="Drawing 2020.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Drawing 2020</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('Drawing 2020.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Drawing 2020</a></td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
@@ -170,15 +175,15 @@
                 <tr class="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700">
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">Electrical Materials and Calculation</td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="Material 2012.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Material 2012</a></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="Material 2013.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Material 2013</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('Material 2012.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Material 2012</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('Material 2013.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Material 2013</a></td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="Material 2015.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Material 2015</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('Material 2015.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Material 2015</a></td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="Material 2017.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Material 2017</a></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="Material 2018.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Material 2018</a></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="Material 2019.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Material 2019</a></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="Material 2020.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Material 2020</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('Material 2017.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Material 2017</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('Material 2018.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Material 2018</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('Material 2019.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Material 2019</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('Material 2020.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Material 2020</a></td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
@@ -188,15 +193,15 @@
                 <tr class="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700">
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">Electric Circuits I</td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="Circuit 2012.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Circuit 2012</a></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="Circuit 2013.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Circuit 2013</a></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="Circuit 2014.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Circuit 2014</a></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="Circuit 2015.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Circuit 2015</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('Circuit 2012.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Circuit 2012</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('Circuit 2013.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Circuit 2013</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('Circuit 2014.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Circuit 2014</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('Circuit 2015.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Circuit 2015</a></td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="Circuit 2017.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Circuit 2017</a></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="Circuit 2018.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Circuit 2018</a></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="Circuit 2019.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Circuit 2019</a></td>
-                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="Circuit 2020.pdf" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Circuit 2020</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('Circuit 2017.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Circuit 2017</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('Circuit 2018.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Circuit 2018</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('Circuit 2019.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Circuit 2019</a></td>
+                    <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"><a href="javascript:openFile('Circuit 2020.pdf');" target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Circuit 2020</a></td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
@@ -205,6 +210,10 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+    <br><br>
+    <div class="container mx-auto">
+        <iframe src="" frameborder="0" width="100%" height="800" id="FileFrame" class="border"></iframe>
     </div>
 </body>
 </html>
