@@ -1,0 +1,13 @@
+renamed folder
+à¸à¸µà¹à¸¡à¸ -> Others
+พ.ค. -> May
+มี.ค -> Mar
+ต.ค -> Oct
+ธ.ค -> Dec
+พ.ย -> Nov
+
+renamed files
+à¹à¸¡à¹à¸à¸£à¸ -> CA
+à¸¸à¸ -> CAS
+ำย -> ep
+สำเนาของ -> CO
