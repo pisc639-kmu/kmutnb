@@ -32,11 +32,11 @@
             //     window.open(path, '_blank');
             // } else {
                 const FrameElement = document.getElementById("FileFrame");
-                FrameElement.src = path;
+                FrameElement.src = "https://docs.google.com/viewerng/viewer?embedded=true&url=raw.githubusercontent.com/pisc639-kmu/kmutnb/51fbc1c5875154401b2a4af2871f9b2df006101f/old-exam/1-1-f/" + path;
                 if (FrameElement.classList.contains("hidden")){
                     FrameElement.classList.remove("hidden");
                 }
-                window.location.href = "#FileFrame" + "?embedded=true";
+                window.location.href = "#FileFrame";
             // };
         };
     </script>
