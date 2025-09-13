@@ -13,7 +13,7 @@
 </head>
 <body class="dark bg-gray-100 dark:bg-gray-900">
     <!-- Navbar -->
-    <nav class="bg-white dark:bg-gray-800 shadow-md p-4 sticky top-0 z-50 transition-colors duration-300">
+    <nav class="bg-white dark:bg-gray-800 shadow-md p-4 sticky top-0 z-50 transition-colors duration-300 shadow-md shadow-gray-300 dark:shadow-gray-700">
         <div class="container mx-auto flex justify-between items-center">
             <!-- Logo -->
             <a href="../" class="flex items-center space-x-2">
@@ -26,7 +26,7 @@
 
             <!-- Mobile Menu Button -->
             <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-300 rounded-md p-2 transition-transform duration-300">
+                <button id="mobile-menu-button" class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300 rounded-md p-2 transition-transform duration-300 hover:bg-gray-200 dark:hover:bg-gray-700 shadow-lg">
                     <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path id="menu-icon-open" class="transition-opacity duration-300" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                         <path id="menu-icon-close" class="opacity-0 transition-opacity duration-300" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -35,11 +35,11 @@
             </div>
 
             <!-- Desktop Navigation Links -->
-            <div class="hidden md:space-x-8 md:flex flex items-center justify-center space-x-4">
-                <a href="../" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-300 rounded-md py-2 px-3">Home</a>
-                <a href="../timetable" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-300 rounded-md py-2 px-3">Timetable</a>
-                <a href="../summary" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-300 rounded-md py-2 px-3">Summary</a>
-                <a href="../old-exam" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-300 rounded-md py-2 px-3">Old Exam</a>
+            <div class="hidden md:space-x-8 md:flex flex items-center justify-center space-x-4 font-medium transition-colors">
+                <a href="../" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-gray-200 dark:hover:bg-gray-700">Home</a>
+                <a href="../timetable" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-gray-200 dark:hover:bg-gray-700">Timetable</a>
+                <a href="../summary" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-gray-200 dark:hover:bg-gray-700">Summary</a>
+                <a href="../old-exam" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-gray-200 dark:hover:bg-gray-700">Old Exam</a>
             </div>
         </div>
     </nav>
@@ -55,12 +55,12 @@
     </div>
 
     <div class="flex items-center justify-center space-x-4 mt-16">
-        <h1 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Timetable</h1>
+        <h1 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white text-4xl">Timetable</h1>
     </div>
     <div class="container mx-auto mt-8 overflow-x-auto">
-        <table class="w-full border-collapse border border-gray-300 dark:border-gray-700">
+        <table class="w-full border-collapse border border-gray-300 dark:border-gray-600">
             <thead>
-                <tr class="dark:bg-gray-800 text-gray-900 dark:text-white">
+                <tr class="bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white shadow-md">
                     <th class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">Day</th>
                     <th class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">8:00 - 9:00</th>
                     <th class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">9:00 - 10:00</th>
@@ -75,7 +75,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-800 dark:text-white">
+                <tr class="bg-white dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-white">
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">Monday</td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700" colspan="3"><b>Mathematics I</b><br>90 - 607<br>031001131/15<br>รศ.ดร.อภิชาต ศุรธณี</td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
@@ -85,7 +85,7 @@
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
                 </tr>
-                <tr class="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-800 dark:text-white">
+                <tr class="bg-white dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-white">
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">Tuesday</td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700" colspan="2"><b>Chemistry I</b><br>90 - 607<br>031001121/15<br>ผศ.ดร.สุนันทา ช่วยประคอง</td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700" colspan="2"><b>Foundation English I</b><br>90 - 605<br>031001141/15<br>อ.อัญชลี เลากลาง</td>
@@ -95,19 +95,19 @@
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
                 </tr>
-                <tr class="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-800 dark:text-white">
+                <tr class="bg-white dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-white">
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">Wednesday</td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700" colspan="7"><b>Interior Wiring Practice</b><br>90 - 609<br>031001111/5<br>ผศ.ดร.กฤษดา ศรีจันทร์พิยม<br>นาง NADIA AMEER</td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700" colspan="2"><b>Extra-Curricular Activities I</b><br>031001381/21</td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
                 </tr>
-                <tr class="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-800 dark:text-white">
+                <tr class="bg-white dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-white">
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">Thursday</td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700" colspan="7"><b>Dc Circuits Practice</b><br>90 - 601<br>031021224/5<br>ผศ.ดร.ชานินทร์ จูฉิม<br>MR. Prabin Kishor Pury</td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700" colspan="2"><b>Physical Education I</b><br>91 - fl.5<br>031001271/15<br>อาจารย์วราพงศ์ ไกรชมสม<br>อาจารย์ธนะวรรธน์ ไพรพิสุทธิ์</td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700"></td>
                 </tr>
-                <tr class="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-800 dark:text-white">
+                <tr class="bg-white dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-white">
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">Friday</td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700" colspan="2"><b>Electric Circuits I</b><br>90 - 603<br>031021121/5<br>ผศ.ดร.กิตติศักดิ์ แพบัว</b></td>
                     <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700" colspan="3"><b>Electrical Drawing I</b><br>90 - 603<br>031021321/5<br>รองศาสตราจารย์ ดร.รัตนากร ผดุงถิ่น<br>รองศาสตราจารย์ ดร.พินันทา ฉัตรวัฒนา</td>
