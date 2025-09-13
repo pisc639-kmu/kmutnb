@@ -10,14 +10,35 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="../../style.css">
     <script>
-        function openFile(path) {
-            const FrameElement = document.getElementById("FileFrame");
-            FrameElement.src = path;
-            if (FrameElement.classList.contains("hidden")){
-                FrameElement.classList.remove("hidden");
+        function isIOS() {
+            const userAgent = navigator.userAgent;
+            const platform = navigator.platform;
+
+            // Check for common iOS user agent strings
+            if (/iPad|iPhone|iPod/.test(userAgent)) {
+                return true;
             }
-            window.location.href = "#FileFrame";
-        }
+
+            // Specific check for iPad on iOS 13+ which might report as 'MacIntel' platform
+            if (platform === 'MacIntel' && navigator.maxTouchPoints > 1) {
+                return true;
+            }
+
+            return false;
+        };
+
+        function openFile(path) {
+            // if (isIOS()) {
+            //     window.open(path, '_blank');
+            // } else {
+                const FrameElement = document.getElementById("FileFrame");
+                FrameElement.src = path;
+                if (FrameElement.classList.contains("hidden")){
+                    FrameElement.classList.remove("hidden");
+                }
+                window.location.href = "#FileFrame" + "?embedded=true";
+            // };
+        };
     </script>
 </head>
 <body class="dark">
