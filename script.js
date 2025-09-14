@@ -36,3 +36,30 @@ window.addEventListener('resize', () => {
         menuIconClose.classList.add('opacity-0');
     }
 });
+
+// function toggleContent(element) {
+//     element.classList.toggle('rotate-180');
+//     const topContent = element.parentElement;
+//     topContent.classList.toggle('rounded-t-md');
+//     topContent.classList.toggle('rounded-md');
+//     topContent.classList.toggle('hover:bg-gray-200');
+//     topContent.classList.toggle('hover:dark:bg-gray-700');
+//     topContent.classList.toggle('bg-gray-200');
+//     topContent.classList.toggle('dark:bg-gray-700');
+//     const expandedContent = element.parentElement.parentElement.querySelector('.content-expanded');
+//     expandedContent.classList.toggle('hidden');
+// }
+
+function toggleContent(element) {
+    element.querySelector('.expand-button').classList.toggle('rotate-180');
+    const topContent = element.querySelector('.top-content');
+    topContent.classList.toggle('rounded-t-md');
+    topContent.classList.toggle('rounded-md');
+    topContent.classList.toggle('hover:bg-gray-200');
+    topContent.classList.toggle('hover:dark:bg-gray-700');
+    topContent.classList.toggle('bg-gray-200');
+    topContent.classList.toggle('dark:bg-gray-700');
+    const expandedContent = element.parentElement.querySelector('.content-expanded');
+    expandedContent.classList.toggle('hidden');
+}
+

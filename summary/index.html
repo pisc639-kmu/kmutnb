@@ -10,6 +10,11 @@
     <!-- Inter Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="../style.css">
+    <!-- KaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
 </head>
 <body class="dark bg-gray-100 dark:bg-gray-900">
     <!-- Navbar -->
@@ -58,23 +63,68 @@
         <h1 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Summary</h1>
     </div>
 
-    <div class="container mx-auto mt-8 overflow-x-auto shadow-md shadow-gray-400 dark:shadow-gray-800 hover:shadow-gray-500 dark:hover:shadow-gray-950">
-        <table class="w-full border-collapse border border-gray-300 dark:border-gray-700">
-            <thead>
-                <tr class="border-x border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white">
-                    <th class="px-5 py-3">Subject</th>
-                    <th class="px-5 py-3">-</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-800 dark:text-white  border-x border border-gray-300 dark:border-gray-700">
-                    <td class="px-5 py-3">-</td>
-                    <td class="px-5 py-3">-</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <div>
+        <!-- <div class="bg-white dark:bg-gray-800 flex flex-col justify-between m-4 rounded-md shadow-md text-gray-800 dark:text-white">
+            <div class="top-content transform transition-transform duration-300 ease-in-out flex justify-between items-center rounded-md hover:bg-gray-200 dark:hover:bg-gray-700">
+                <h2 class="p-4">Mathematics I</h2>
+                <button class="transform transition-transform transition-colors duration-300 ease-in-out bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-300 m-4 rounded-md py-2 px-3" onclick="toggleContent(this)">
+                    <svg width="24" height="24" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                            <path d="M 1 1 L 7 7 L 13 1" />
+                        </g>
+                    </svg>
+                </button>
+            </div>
+            <div class="content-expanded hidden">
+                <div class="p-4 m-4 text-gray-600 dark:text-gray-300">
+                    <p>
+                        1 + 1 = 2<br>
+                        9 + 10 = 21
+                    </p>
+                </div>
+            </div>
+        </div> -->
+        <div class="bg-white dark:bg-gray-800 flex flex-col justify-between m-4 rounded-md shadow-md text-gray-800 dark:text-white">
+            <button onclick="toggleContent(this)">
+                <div class="top-content flex justify-between items-center rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 shadow-md">
+                    <h2 class="p-4">Mathematics I</h2>
+                    <div class="expand-button transform transition-transform duration-300 ease-in-out m-4">
+                        <svg width="24" height="24" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                                <path d="M 1 1 L 7 7 L 13 1" />
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+            </button>
+            <div class="content-expanded hidden">
+                <div class="p-4 m-4 text-gray-600 dark:text-gray-300">
+                    <div class="">
+                        <ul class="list-none">
+                            <li class="text-2xl">Sets</li>
+                            <li class="before:content-['-'] before:mr-2">Conditional Set $$\{x|x \in \mathbb{N} \land x&lt;10\} = \{1,2,3,4,5,6,7,8,9\}$$</li>
+                            <li class="before:content-['-'] before:mr-2">Union of Sets $$\{1,2,3\} \cup \{2,3,4\} = \{1,2,3,4\}$$</li>
+                            <li class="before:content-['-'] before:mr-2">Intersection of Sets $$\{1,2,3\} \cap \{2,3,4\} = \{2,3\}$$</li>
+                            <li class="before:content-['-'] before:mr-2">Set Complement $$\mathbb{U} = \{1,2,3,4,5,6\}$$ $$\{1,2,3\}' = \{4,5,6\}$$</li>
+                            <li class="before:content-['-'] before:mr-2">Element of $$1 \in \{1,2,3\}$$ $$4 \notin \{1,2,3\}$$</li>
+                            <li class="before:content-['-'] before:mr-2">Subset $$\{1,2,3\} \subset \{1,2,3,4\}$$ $$\{1,3,5\} \not\subset \{1,2,3,4\}$$</li>
+                            <li class="before:content-['-'] before:mr-2">Super set $$\{1,2,3,4\} \supset \{1,2,3\}$$ $$\{1,2,3,4\} \not\supset \{1,3,5\}$$</li>
+                            <li class="before:content-['-'] before:mr-2">Powerset $$P(\{1,2,3\}) = \{\emptyset, \{1\}, \{2\}, \{3\}, \{1,2\}, \{1,3\}, \{2,3\}, \{1,2,3\}\}$$</li>
+                            <hr class="border-t-2 border-gray-300 dark:border-gray-600 my-2">
+                            <li class="text-2xl">Real Numbers</li>
+                            <li class="before:content-['-'] before:mr-2">Integer $$\mathbb{Z} = \{\cdots,-2,-1,0,1,2,\cdots\}$$</li>
+                            <li class="before:content-['-'] before:mr-2">Positive Integer, Natural Numbers \mathbb{Z}^+, $$\mathbb{N} = \{1,2,3,4,5,\cdots\}$$</li>
+                            <li class="before:content-['-'] before:mr-2">Negative Integer $$\mathbb{Z}^- = \{-1,-2,-3,\cdots\}$$</li>
+                            <li class="before:content-['-'] before:mr-2">Zero Integer $$\{0\}$$</li>
+                            <li class="before:content-['-'] before:mr-2">Rational Number $$\mathbb{Q} = \{\frac{a}{b} | a,b \in \mathbb{Z}, b \neq 0\}$$</li>
+                            <li class="before:content-['-'] before:mr-2">Irrational Number $$\mathbb{I} = \mathbb{R} \setminus \mathbb{Q} = \{\sqrt{2},\pi,e,\cdots\}$$</li>
+                        </ul>
+                    </div>
 
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="../script.js"></script>
 </body>
 </html>
