@@ -84,46 +84,156 @@
                 </div>
             </div>
         </div> -->
-        <div class="bg-white dark:bg-gray-800 flex flex-col justify-between m-4 rounded-md shadow-md text-gray-800 dark:text-white">
+        <div class="bg-white dark:bg-gray-800 flex flex-col justify-between m-4 rounded-md shadow-md text-gray-800 dark:text-white border-gray-200 dark:border-gray-700">
             <button onclick="toggleContent(this)">
                 <div class="top-content flex justify-between items-center rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 shadow-md">
-                    <h2 class="p-4">Mathematics I</h2>
+                    <h2 class="p-4 text-2xl">Mathematics I</h2>
                     <div class="expand-button transform transition-transform duration-300 ease-in-out m-4">
-                        <svg width="24" height="24" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-                                <path d="M 1 1 L 7 7 L 13 1" />
-                            </g>
-                        </svg>
+                        <svg width="24" height="24" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M 1 1 L 7 7 L 13 1" /></g></svg>
                     </div>
                 </div>
             </button>
             <div class="content-expanded hidden">
                 <div class="p-4 m-4 text-gray-600 dark:text-gray-300">
-                    <div class="">
-                        <ul class="list-none">
-                            <li class="text-2xl">Sets</li>
-                            <li class="before:content-['-'] before:mr-2">Conditional Set $$\{x|x \in \mathbb{N} \land x&lt;10\} = \{1,2,3,4,5,6,7,8,9\}$$</li>
-                            <li class="before:content-['-'] before:mr-2">Union of Sets $$\{1,2,3\} \cup \{2,3,4\} = \{1,2,3,4\}$$</li>
-                            <li class="before:content-['-'] before:mr-2">Intersection of Sets $$\{1,2,3\} \cap \{2,3,4\} = \{2,3\}$$</li>
-                            <li class="before:content-['-'] before:mr-2">Set Complement $$\mathbb{U} = \{1,2,3,4,5,6\}$$ $$\{1,2,3\}' = \{4,5,6\}$$</li>
-                            <li class="before:content-['-'] before:mr-2">Element of $$1 \in \{1,2,3\}$$ $$4 \notin \{1,2,3\}$$</li>
-                            <li class="before:content-['-'] before:mr-2">Subset $$\{1,2,3\} \subset \{1,2,3,4\}$$ $$\{1,3,5\} \not\subset \{1,2,3,4\}$$</li>
-                            <li class="before:content-['-'] before:mr-2">Super set $$\{1,2,3,4\} \supset \{1,2,3\}$$ $$\{1,2,3,4\} \not\supset \{1,3,5\}$$</li>
-                            <li class="before:content-['-'] before:mr-2">Powerset $$P(\{1,2,3\}) = \{\emptyset, \{1\}, \{2\}, \{3\}, \{1,2\}, \{1,3\}, \{2,3\}, \{1,2,3\}\}$$</li>
-                            <hr class="border-t-2 border-gray-300 dark:border-gray-600 my-2">
-                            <li class="text-2xl">Real Numbers</li>
-                            <li class="before:content-['-'] before:mr-2">Integer $$\mathbb{Z} = \{\cdots,-2,-1,0,1,2,\cdots\}$$</li>
-                            <li class="before:content-['-'] before:mr-2">Positive Integer, Natural Numbers $$\mathbb{Z}^+, \mathbb{N} = \{1,2,3,4,5,\cdots\}$$</li>
-                            <li class="before:content-['-'] before:mr-2">Negative Integer $$\mathbb{Z}^- = \{-1,-2,-3,\cdots\}$$</li>
-                            <li class="before:content-['-'] before:mr-2">Zero Integer $$\mathbb{Z}^0 = \{0\}$$</li>
-                            <li class="before:content-['-'] before:mr-2">Rational Number $$\mathbb{Q} = \{\frac{a}{b} | a,b \in \mathbb{Z}, b \neq 0\}$$ $$\mathbb{Q} = \{0,1,-1,\frac{1}{2},-\frac{1}{2},\frac{1}{3},-\frac{1}{3},\frac{2}{3},-\frac{2}{3},\cdots\}$$</li>
-                            <li class="before:content-['-'] before:mr-2">Irrational Number $$\mathbb{I} = \mathbb{R} \setminus \mathbb{Q} = \{\sqrt{2},\pi,e,\cdots\}$$</li>
-                            <hr class="border-t-2 border-gray-300 dark:border-gray-600 my-2">
-                            <li class="text-2xl">Relation and Function</li>
-                            <li class="before:content-['-'] before:mr-2">Relation $$\mathbb{R} = \{(x,y) | x,y \in \mathbb{R}\}$$</li>
-                        </ul>
-                    </div>
-
+                    <ul class="list-none">
+                        <div class="bg-white dark:bg-gray-800 flex flex-col justify-between rounded-md shadow-md text-gray-800 dark:text-white border border-gray-200 dark:border-gray-700">
+                            <button onclick="toggleContent(this)">
+                                <div class="top-content flex justify-between items-center rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 shadow-md">
+                                    <h2 class="p-2 text-lg">Sets</h2>
+                                    <div class="expand-button transform transition-transform duration-300 ease-in-out m-2">
+                                        <svg width="24" height="24" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M 1 1 L 7 7 L 13 1" /></g></svg>
+                                    </div>
+                                </div>
+                            </button>
+                            <div class="content-expanded hidden">
+                                <div class="p-4 m-4 text-gray-600 dark:text-gray-300">
+                                    <ul class="list-none">
+                                        <li class="before:content-['-'] before:mr-2">Conditional Set $$\{x|x \in \mathbb{N} \land x&lt;10\} = \{1,2,3,4,5,6,7,8,9\}$$</li>
+                                        <li class="before:content-['-'] before:mr-2">Union of Sets $$\{1,2,3\} \cup \{2,3,4\} = \{1,2,3,4\}$$</li>
+                                        <li class="before:content-['-'] before:mr-2">Intersection of Sets $$\{1,2,3\} \cap \{2,3,4\} = \{2,3\}$$</li>
+                                        <li class="before:content-['-'] before:mr-2">Set Complement $$\mathbb{U} = \{1,2,3,4,5,6\}$$ $$\{1,2,3\}' = \{4,5,6\}$$</li>
+                                        <li class="before:content-['-'] before:mr-2">Element of $$1 \in \{1,2,3\}$$ $$4 \notin \{1,2,3\}$$</li>
+                                        <li class="before:content-['-'] before:mr-2">Subset $$\{1,2,3\} \subset \{1,2,3,4\}$$ $$\{1,3,5\} \not\subset \{1,2,3,4\}$$</li>
+                                        <li class="before:content-['-'] before:mr-2">Super set $$\{1,2,3,4\} \supset \{1,2,3\}$$ $$\{1,2,3,4\} \not\supset \{1,3,5\}$$</li>
+                                        <li class="before:content-['-'] before:mr-2">Powerset $$P(\{1,2,3\}) = \{\emptyset, \{1\}, \{2\}, \{3\}, \{1,2\}, \{1,3\}, \{2,3\}, \{1,2,3\}\}$$</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="border-t-2 border-gray-300 dark:border-gray-600 my-2">
+                        <div class="bg-white dark:bg-gray-800 flex flex-col justify-between rounded-md shadow-md text-gray-800 dark:text-white border border-gray-200 dark:border-gray-700">
+                            <button onclick="toggleContent(this)">
+                                <div class="top-content flex justify-between items-center rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 shadow-md">
+                                    <h2 class="p-2 text-lg">Real Number</h2>
+                                    <div class="expand-button transform transition-transform duration-300 ease-in-out m-2">
+                                        <svg width="24" height="24" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M 1 1 L 7 7 L 13 1" /></g></svg>
+                                    </div>
+                                </div>
+                            </button>
+                            <div class="content-expanded hidden">
+                                <div class="p-4 m-4 text-gray-600 dark:text-gray-300">
+                                    <ul class="list-none">
+                                        <li class="before:content-['-'] before:mr-2">Integer $$\mathbb{Z} = \{\cdots,-2,-1,0,1,2,\cdots\}$$</li>
+                                        <li class="before:content-['-'] before:mr-2">Positive Integer, Natural Numbers $$\mathbb{Z}^+, \mathbb{N} = \{1,2,3,4,5,\cdots\}$$</li>
+                                        <li class="before:content-['-'] before:mr-2">Negative Integer $$\mathbb{Z}^- = \{-1,-2,-3,\cdots\}$$</li>
+                                        <li class="before:content-['-'] before:mr-2">Zero Integer $$\mathbb{Z}^0 = \{0\}$$</li>
+                                        <li class="before:content-['-'] before:mr-2">Rational Number $$\mathbb{Q} = \{\frac{a}{b} | a,b \in \mathbb{Z}, b \neq 0\}$$ $$\mathbb{Q} = \{0,1,-1,\frac{1}{2},-\frac{1}{2},\frac{1}{3},-\frac{1}{3},\frac{2}{3},-\frac{2}{3},\cdots\}$$</li>
+                                        <li class="before:content-['-'] before:mr-2">Irrational Number $$\mathbb{I} = \mathbb{R} \setminus \mathbb{Q} = \{\sqrt{2},\pi,e,\cdots\}$$</li>
+                                        <hr class="border-t-2 border-gray-300 dark:border-gray-600 my-2">
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="border-t-2 border-gray-300 dark:border-gray-600 my-2">
+                        <div class="bg-white dark:bg-gray-800 flex flex-col justify-between rounded-md shadow-md text-gray-800 dark:text-white border border-gray-200 dark:border-gray-700">
+                            <button onclick="toggleContent(this)">
+                                <div class="top-content flex justify-between items-center rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 shadow-md">
+                                    <h2 class="p-2 text-lg">Relation and Function</h2>
+                                    <div class="expand-button transform transition-transform duration-300 ease-in-out m-2">
+                                        <svg width="24" height="24" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M 1 1 L 7 7 L 13 1" /></g></svg>
+                                    </div>
+                                </div>
+                            </button>
+                            <div class="content-expanded hidden">
+                                <div class="p-4 m-4 text-gray-600 dark:text-gray-300">
+                                    <ul class="list-none">
+                                        <li class="before:content-['-'] before:mr-2">Set Product $$A \times B = \{(a,b) | a \in A, b \in B\}$$ $$\{1,2\} \times \{a,b\} = \{(1,a),(1,b),(2,a),(2,b)\}$$</li>
+                                        <li class="before:content-['-'] before:mr-2">Inverse of Relation $$r = \{(x,y) | y = 3x+2\}$$ $$r^{-1} = \{(x,y) | x = \frac{y-2}{3}\}$$</li>
+                                        <li class="before:content-['-'] before:mr-2">Domain and Range of Relation $$D(r) = \{x | \exists y, (x,y) \in r\}$$ $$R(r) = \{y | \exists x, (x,y) \in r\}$$ $$r = \{(x,y) | y = x^2\}$$ $$D(r) = \mathbb{R}$$ $$R(r) = \{x|x \in \mathbb{R} \land x > 0\}$$</li>
+                                        <li class="before:content-['-'] before:mr-2">Function $$f(x) = x + 1$$ $$f(3) = 4$$</li>
+                                        <li class="before:content-['-'] before:mr-2">Inverse of Function $$f(x) = x + 1$$ $$f^{-1}(x) = x - 1$$ $$f^{-1}(4) = 3$$</li>
+                                        <li class="before:content-['-'] before:mr-2">Domain and Range of Function $$f(x) = \sqrt{x+3}$$ $$D_f = [-3,\infty)$$ $$R_f = [0,\infty)$$</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="border-t-2 border-gray-300 dark:border-gray-600 my-2">
+                        <div class="bg-white dark:bg-gray-800 flex flex-col justify-between rounded-md shadow-md text-gray-800 dark:text-white border border-gray-200 dark:border-gray-700">
+                            <button onclick="toggleContent(this)">
+                                <div class="top-content flex justify-between items-center rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 shadow-md">
+                                    <h2 class="p-2 text-lg">Trigonometry</h2>
+                                    <div class="expand-button transform transition-transform duration-300 ease-in-out m-2">
+                                        <svg width="24" height="24" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M 1 1 L 7 7 L 13 1" /></g></svg>
+                                    </div>
+                                </div>
+                            </button>
+                            <div class="content-expanded hidden">
+                                <div class="p-4 m-4 text-gray-600 dark:text-gray-300">
+                                    <ul class="list-none">
+                                        <li class="before:content-['-'] before:mr-2">Sin - Sine $$\sin(\theta) = \frac{Opposite}{Hypotenuse}$$</li>
+                                        <li class="before:content-['-'] before:mr-2">Cos - Cosine $$\cos(\theta) = \frac{Adjacent}{Hypotenuse}$$</li>
+                                        <li class="before:content-['-'] before:mr-2">Tan - Tangent $$\tan(\theta) = \frac{Opposite}{Adjacent}$$</li>
+                                        <li class="before:content-['-'] before:mr-2">Sec - Secant $$\sec(\theta) = \frac{1}{\cos(\theta)} = \frac{Hypotenuse}{Adjacent}$$</li>
+                                        <li class="before:content-['-'] before:mr-2">Csc - Cosecant $$\csc(\theta) = \frac{1}{\sin(\theta)} = \frac{Hypotenuse}{Opposite}$$</li>
+                                        <li class="before:content-['-'] before:mr-2">Cot - Cotangent $$\cot(\theta) = \frac{1}{\tan(\theta)} = \frac{Adjacent}{Opposite}$$</li>
+                                        <li class="before:content-['-'] before:mr-2">Extra Formula
+                                            $$\sin^2(\theta) + \cos^2(\theta) = 1$$
+                                            <hr class="border-t-1 border-gray-300 dark:border-gray-600 my-1 mx-20">
+                                            $$\sin(A+B) = \sin(A)\cos(B) + \cos(A)\sin(B)$$
+                                            $$\sin(A-B) = \sin(A)\cos(B) - \cos(A)\sin(B)$$
+                                            $$\cos(A+B) = \cos(A)\cos(B) - \sin(A)\sin(B)$$
+                                            $$\cos(A-B) = \cos(A)\cos(B) + \sin(A)\sin(B)$$
+                                            $$\tan(A+B) = \frac{\tan(A) + \tan(B)}{1 - \tan(A)\tan(B)}$$
+                                            $$\tan(A-B) = \frac{\tan(A) - \tan(B)}{1 + \tan(A)\tan(B)}$$
+                                            <hr class="border-t-1 border-gray-300 dark:border-gray-600 my-1 mx-20">
+                                            $$\sin(2\theta) = 2\sin(\theta)\cos(\theta)$$
+                                            $$\cos(2\theta) = \cos^2(\theta) - \sin^2(\theta)$$
+                                            $$\tan(2\theta) = \frac{2\tan(\theta)}{1 - \tan^2(\theta)}$$
+                                            $$\sin(\frac{\theta}{2}) = \sqrt{\frac{1 - \cos(\theta)}{2}}$$
+                                            $$\cos(\frac{\theta}{2}) = \sqrt{\frac{1 + \cos(\theta)}{2}}$$
+                                            $$\tan(\frac{\theta}{2}) = \frac{\sin(\theta)}{\cos(\theta)}$$
+                                        </li>
+                                        <li class="before:content-['-'] before:mr-2">Inverse Trigonometry Functions
+                                            $$y = \sin(x) \quad x = \sin^{-1}(y) = \arcsin(y)$$
+                                            $$y = \cos(x) \quad x = \cos^{-1}(y) = \arccos(y)$$
+                                            $$y = \tan(x) \quad x = \tan^{-1}(y) = \arctan(y)$$
+                                            $$\sin(\sin^{-1}(x)) = x \quad \sin^{-1}(\sin(\theta)) = \theta$$
+                                            $$\cos(\cos^{-1}(x)) = x \quad \cos^{-1}(\cos(\theta)) = \theta$$
+                                            $$\tan(\tan^{-1}(x)) = x \quad \tan^{-1}(\tan(\theta)) = \theta$$
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="border-t-2 border-gray-300 dark:border-gray-600 my-2">
+                        <div class="bg-white dark:bg-gray-800 flex flex-col justify-between rounded-md shadow-md text-gray-800 dark:text-white border border-gray-200 dark:border-gray-700">
+                            <button onclick="toggleContent(this)">
+                                <div class="top-content flex justify-between items-center rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 shadow-md">
+                                    <h2 class="p-2 text-lg">Folder</h2>
+                                    <div class="expand-button transform transition-transform duration-300 ease-in-out m-2">
+                                        <svg width="24" height="24" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M 1 1 L 7 7 L 13 1" /></g></svg>
+                                    </div>
+                                </div>
+                            </button>
+                            <div class="content-expanded hidden">
+                                <div class="p-4 m-4 text-gray-600 dark:text-gray-300">
+                                    <ul class="list-none">
+                                        <li class="before:content-['-'] before:mr-2">Element $$Expression$$</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </ul>
                 </div>
             </div>
         </div>
