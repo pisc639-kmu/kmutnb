@@ -60,7 +60,7 @@
     </div>
 
     <div class="flex items-center justify-center space-x-4 mt-16">
-        <h1 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Summary</h1>
+        <h1 class="text-3xl font-bold mb-4 text-gray-800 dark:text-white">Summary</h1>
     </div>
 
     <div>
@@ -186,6 +186,86 @@
                                         <li class="before:content-['-'] before:mr-2">Sec - Secant $$\sec(\theta) = \frac{1}{\cos(\theta)} = \frac{Hypotenuse}{Adjacent}$$</li>
                                         <li class="before:content-['-'] before:mr-2">Csc - Cosecant $$\csc(\theta) = \frac{1}{\sin(\theta)} = \frac{Hypotenuse}{Opposite}$$</li>
                                         <li class="before:content-['-'] before:mr-2">Cot - Cotangent $$\cot(\theta) = \frac{1}{\tan(\theta)} = \frac{Adjacent}{Opposite}$$</li>
+                                        <li class="before:content-['-'] before:mr-2">Trigonometry Table
+                                            <div class="container mx-auto mt-8 overflow-x-auto">
+                                                <table class="w-full border-collapse border border-gray-300 dark:border-gray-600">
+                                                    <thead>
+                                                        <tr class="bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white shadow-md">
+                                                            <th class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">Function</th>
+                                                            <th class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$0^{\circ}$$</th>
+                                                            <th class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$15^{\circ}$$</th>
+                                                            <th class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$30^{\circ}$$</th>
+                                                            <th class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$45^{\circ}$$</th>
+                                                            <th class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$60^{\circ}$$</th>
+                                                            <th class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$75^{\circ}$$</th>
+                                                            <th class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$90^{\circ}$$</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr class="bg-white dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-white">
+                                                            <th class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700 bg-gray-200 dark:bg-gray-800">$$sin(\theta)$$</th>
+                                                            <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$0$$</td>
+                                                            <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$\frac{\sqrt{6}-\sqrt{2}}{4}$$</td>
+                                                            <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$\frac{1}{2}$$</td>
+                                                            <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$\frac{\sqrt{2}}{2}$$</td>
+                                                            <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$\frac{\sqrt{3}}{2}$$</td>
+                                                            <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$\frac{\sqrt{6}+\sqrt{2}}{4}$$</td>
+                                                            <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$1$$</td>
+                                                        </tr>
+                                                        <tr class="bg-white dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-white">
+                                                            <th class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700 bg-gray-200 dark:bg-gray-800">$$cos(\theta)$$</th>
+                                                            <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$1$$</td>
+                                                            <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$\frac{\sqrt{6}+\sqrt{2}}{4}$$</td>
+                                                            <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$\frac{\sqrt{3}}{2}$$</td>
+                                                            <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$\frac{\sqrt{2}}{2}$$</td>
+                                                            <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$\frac{1}{2}$$</td>
+                                                            <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$\frac{\sqrt{6}-\sqrt{2}}{4}$$</td>
+                                                            <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$0$$</td>
+                                                        </tr>
+                                                        <tr class="bg-white dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-white">
+                                                            <th class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700 bg-gray-200 dark:bg-gray-800">$$tan(\theta)$$</th>
+                                                            <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$0$$</td>
+                                                            <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$2-\sqrt{3}$$</td>
+                                                            <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$\frac{\sqrt{3}}{3}$$</td>
+                                                            <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$1$$</td>
+                                                            <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$\sqrt{3}$$</td>
+                                                            <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$2+\sqrt{3}$$</td>
+                                                            <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$undefined$$</td>
+                                                        </tr>
+                                                        <tr class="bg-white dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-white">
+                                                            <th class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700 bg-gray-200 dark:bg-gray-800">$$csc(\theta)$$</th>
+                                                            <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$undefined$$</td>
+                                                            <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$\sqrt{6}+\sqrt{2}$$</td>
+                                                            <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$2$$</td>
+                                                            <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$\sqrt{2}$$</td>
+                                                            <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$\frac{2\sqrt{3}}{3}$$</td>
+                                                            <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$\sqrt{6}-\sqrt{2}$$</td>
+                                                            <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$1$$</td>
+                                                        </tr>
+                                                        <tr class="bg-white dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-white">
+                                                            <th class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700 bg-gray-200 dark:bg-gray-800">$$sec(\theta)$$</th>
+                                                            <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$1$$</td>
+                                                            <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$\sqrt{6}-\sqrt{2}$$</td>
+                                                            <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$\frac{2\sqrt{3}}{3}$$</td>
+                                                            <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$\sqrt{2}$$</td>
+                                                            <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$2$$</td>
+                                                            <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$\sqrt{6}+\sqrt{2}$$</td>
+                                                            <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$undefined$$</td>
+                                                        </tr>
+                                                        <tr class="bg-white dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-white">
+                                                            <th class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700 bg-gray-200 dark:bg-gray-800">$$cot(\theta)$$</th>
+                                                            <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$undefined$$</td>
+                                                            <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$2+\sqrt{3}$$</td>
+                                                            <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$\sqrt{3}$$</td>
+                                                            <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$1$$</td>
+                                                            <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$\frac{\sqrt{3}}{3}$$</td>
+                                                            <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$2-\sqrt{3}$$</td>
+                                                            <td class="px-5 py-3 border-x border border-gray-300 dark:border-gray-700">$$0$$</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </li>
                                         <li class="before:content-['-'] before:mr-2">Extra Formula
                                             $$\sin^2(\theta) + \cos^2(\theta) = 1$$
                                             <hr class="border-t-1 border-gray-300 dark:border-gray-600 my-1 mx-20">
