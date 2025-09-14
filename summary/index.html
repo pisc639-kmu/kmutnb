@@ -60,7 +60,7 @@
     </div>
 
     <div class="flex items-center justify-center space-x-4 mt-16">
-        <h1 class="text-3xl font-bold mb-4 text-gray-800 dark:text-white">Summary</h1>
+        <h1 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Summary</h1>
     </div>
 
     <div>
@@ -313,6 +313,46 @@
                                 </div>
                             </div>
                         </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white dark:bg-gray-800 flex flex-col justify-between m-4 rounded-md shadow-md text-gray-800 dark:text-white border-gray-200 dark:border-gray-700">
+            <button onclick="toggleContent(this)">
+                <div class="top-content flex justify-between items-center rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 shadow-md">
+                    <h2 class="p-4 text-2xl">Mechanics I (Not Done Yet)</h2>
+                    <div class="expand-button transform transition-transform duration-300 ease-in-out m-4">
+                        <svg width="24" height="24" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M 1 1 L 7 7 L 13 1" /></g></svg>
+                    </div>
+                </div>
+            </button>
+            <div class="content-expanded hidden">
+                <div class="p-4 m-4 text-gray-600 dark:text-gray-300">
+                    <ul class="list-none">
+                        <div class="bg-white dark:bg-gray-800 flex flex-col justify-between rounded-md shadow-md text-gray-800 dark:text-white border border-gray-200 dark:border-gray-700">
+                            <button onclick="toggleContent(this)">
+                                <div class="top-content flex justify-between items-center rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 shadow-md">
+                                    <h2 class="p-2 text-lg">Newton's Law of Motion</h2>
+                                    <div class="expand-button transform transition-transform duration-300 ease-in-out m-2">
+                                        <svg width="24" height="24" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M 1 1 L 7 7 L 13 1" /></g></svg>
+                                    </div>
+                                </div>
+                            </button>
+                            <div class="content-expanded hidden">
+                                <div class="p-4 m-4 text-gray-600 dark:text-gray-300">
+                                    <ul class="list-none">
+                                        <li class="before:content-['-'] before:mr-2">Formula to remember
+                                            $$\Sigma_F = m a$$
+                                            $$W = mg$$
+                                            $$f = \mu N$$
+                                            $$f = G\frac{m_1 m_2}{r^2}$$
+                                            $$N = mg\cos\theta$$
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="border-t-2 border-gray-300 dark:border-gray-600 my-2">
                     </ul>
                 </div>
             </div>
