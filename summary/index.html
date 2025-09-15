@@ -395,6 +395,67 @@ Newton's Law of Action and Reaction, states that for every action, there is an e
                 </div>
             </div>
         </div>
+        <div class="bg-white dark:bg-gray-800 flex flex-col justify-between m-4 rounded-md shadow-md text-gray-800 dark:text-white border-gray-200 dark:border-gray-700">
+            <button onclick="toggleContent(this)">
+                <div class="top-content flex justify-between items-center rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 shadow-md">
+                    <h2 class="p-4 text-2xl">Chemistry</h2>
+                    <div class="expand-button transform transition-transform duration-300 ease-in-out m-4">
+                        <svg width="24" height="24" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M 1 1 L 7 7 L 13 1" /></g></svg>
+                    </div>
+                </div>
+            </button>
+            <div class="content-expanded hidden">
+                <div class="p-4 m-4 text-gray-600 dark:text-gray-300">
+                    <ul class="list-none">
+                        <div class="bg-white dark:bg-gray-800 flex flex-col justify-between rounded-md shadow-md text-gray-800 dark:text-white border border-gray-200 dark:border-gray-700">
+                            <button onclick="toggleContent(this)">
+                                <div class="top-content flex justify-between items-center rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 shadow-md">
+                                    <h2 class="p-2 text-lg">Types of Thermodynamic Systems</h2>
+                                    <div class="expand-button transform transition-transform duration-300 ease-in-out m-2">
+                                        <svg width="24" height="24" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M 1 1 L 7 7 L 13 1" /></g></svg>
+                                    </div>
+                                </div>
+                            </button>
+                            <div class="content-expanded hidden">
+                                <div class="p-4 m-4 text-gray-600 dark:text-gray-300">
+                                    <ul class="list-none">
+                                        <li class="before:content-['-'] before:mr-2">Open System<br>Exchanges both energy and matter with its surroundings.<br>
+Example: A pan on a stove with water. Heat enters (energy), and water can evaporate or be added (matter). 
+                                        </li>
+                                        <li class="before:content-['-'] before:mr-2">Closed System<br>Definition: Exchanges energy but not matter with its surroundings.<br>
+Example: A sealed pressure cooker. It allows heat to be added or removed (energy), but the steam (matter) is contained.
+                                        </li>
+                                        <li class="before:content-['-'] before:mr-2">Isolated System<br>Definition: Exchanges neither energy nor matter with its surroundings.<br>
+Example: A perfectly insulated thermos flask. In practice, no system is perfectly isolated, but a thermos approximates one by minimizing heat transfer, keeping the contents warm or cold for a period. 
+                                        </li>
+                                        <img src="./img/thermodynamic-systems.png" alt="" class="dark:hue-rotate-180 dark:invert">
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="border-t-2 border-gray-300 dark:border-gray-600 my-2">
+                        <div class="bg-white dark:bg-gray-800 flex flex-col justify-between rounded-md shadow-md text-gray-800 dark:text-white border border-gray-200 dark:border-gray-700">
+                            <button onclick="toggleContent(this)">
+                                <div class="top-content flex justify-between items-center rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 shadow-md">
+                                    <h2 class="p-2 text-lg">Moles</h2>
+                                    <div class="expand-button transform transition-transform duration-300 ease-in-out m-2">
+                                        <svg width="24" height="24" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M 1 1 L 7 7 L 13 1" /></g></svg>
+                                    </div>
+                                </div>
+                            </button>
+                            <div class="content-expanded hidden">
+                                <div class="p-4 m-4 text-gray-600 dark:text-gray-300">
+                                    <ul class="list-none">
+                                        <li>The Formula you need to know<br>Mass(g) = Moles(mol) * Molar Mass(g/mol)$$Mass(g) = \frac{Moles(mol)}{Molar Mass(g/mol)}$$</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="border-t-2 border-gray-300 dark:border-gray-600 my-2">
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="../script.js"></script>
 </body>

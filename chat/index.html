@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E15 Exam Schedule & Timetable</title>
+    <link rel="icon" type="image/png" href="../img/logo-nobg.png">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <!-- Inter Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body class="dark bg-gray-100 dark:bg-gray-900">
+    <!-- Navbar -->
+    <nav class="bg-white dark:bg-gray-800 shadow-md p-4 sticky top-0 z-50 transition-colors duration-300 shadow-md shadow-gray-300 dark:shadow-gray-700">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Logo -->
+            <a href="../" class="flex items-center space-x-2">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-500 dark:text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                </svg> -->
+                <img src="../img/logo-nobg.png" alt="EP" sizes="100vw" class="w-8 h-8">
+                <span class="text-xl font-bold text-gray-800 dark:text-white">E15</span>
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300 rounded-md p-2 transition-transform duration-300 hover:bg-gray-200 dark:hover:bg-gray-700 shadow-lg">
+                    <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path id="menu-icon-open" class="transition-opacity duration-300" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        <path id="menu-icon-close" class="opacity-0 transition-opacity duration-300" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Desktop Navigation Links -->
+            <div class="hidden md:space-x-8 md:flex flex items-center justify-center space-x-4 font-medium transition-colors">
+                <a href="../" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-gray-200 dark:hover:bg-gray-700">Home</a>
+                <a href="../schedule" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-gray-200 dark:hover:bg-gray-700">Exam Schedule & Timetable</a>
+                <a href="../summary" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-gray-200 dark:hover:bg-gray-700">Summary</a>
+                <a href="../old-exam" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-gray-200 dark:hover:bg-gray-700">Old Exam</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md rounded-md m-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800">
+        <div class="p-4 flex flex-col space-y-2">
+            <a href="../" class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-300 rounded-md py-2 px-3">Home</a>
+            <a href="../schedule" class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-300 rounded-md py-2 px-3">Exam Schedule & Timetable</a>
+            <a href="../summary" class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-300 rounded-md py-2 px-3">Summary</a>
+            <a href="../old-exam" class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-300 rounded-md py-2 px-3">Old Exam</a>
+        </div>
+    </div>
+
+    <div class="flex items-center justify-center space-x-4 mt-16">
+        <h1 class="text-4xl font-bold mb-4 text-gray-800 dark:text-white">Chat</h1>
+    </div>
+    <div class="flex flex-col h-screen justify-center items-center">
+        <div id="message-container" class="flex flex-col space-y-4 p-4 overflow-y-auto h-auto">
+            <div class="flex flex-col space-y-2">
+                <div class="flex items-center">
+                    <!-- <img src="https://example.com/avatar.jpg" alt="Avatar" class="w-8 h-8 rounded-full mr-2"> -->
+                    <div class="bg-gray-200 dark:bg-gray-700 p-2 rounded-md">
+                        <p class="text-gray-800 dark:text-white">Hello, how can I help you?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <form id="message-form" class="flex items-center justify-center space-x-4 mt-4 mx-auto">
+                <input type="text" id="message-input" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-500 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white" placeholder="Type your message..." autofocus>
+                <button type="submit" id="send-button" class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md focus:outline-none focus:ring focus:ring-blue-500"></button>
+            </form>
+        </div>
+    </div>
+    <script src="../script.js"></script>
+    <script src="../static/js/app.js"></script>
+</body>
+</html>

@@ -62,4 +62,3 @@ function toggleContent(element) {
     const expandedContent = element.parentElement.querySelector('.content-expanded');
     expandedContent.classList.toggle('hidden');
 }
-
