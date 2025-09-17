@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 from flask_socketio import SocketIO, emit
+from flask_cors import CORS
 import flask, flask_socketio
 import sqlite3
 import os
@@ -7,9 +8,10 @@ import os
 base_dir = os.path.dirname(os.path.abspath(__file__))
 
 app = Flask(__name__, template_folder=base_dir)
+CORS(app, resources={r"/*": {"origins": "*"}})
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 
-socketio = SocketIO(app)
+socketio = SocketIO(app, cors_allowed_origins="*")
 
 def get_db_connection():
     conn = sqlite3.connect('chat.db')
@@ -77,4 +79,4 @@ def handle_message(data):
         emit('new_message', data, broadcast=True)
 
 if __name__ == '__main__':
-    socketio.run(app, host='0.0.0.0', port=5000)
+    socketio.run(app, host='192.168.1.44', allow_unsafe_werkzeug=True, port=5000)

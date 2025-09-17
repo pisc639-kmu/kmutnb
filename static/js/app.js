@@ -1,4 +1,6 @@
-const socket = io('http://localhost:5000');
+// const socket = io('https://d6d517de9c0c.ngrok-free.app');
+// const socket = io('https://pisc-flask.ddns.net:5000');
+const socket = io('http://192.168.1.44:5000');
 
 const form = document.getElementById('message-form');
 const user = "Test";
@@ -21,8 +23,15 @@ function displayMessages(user, message) {
     const messageDiv = document.createElement('div');
     messageDiv.classList.add('message', 'bg-gray-200', 'dark:bg-gray-700', 'p-2', 'rounded-md');
     const messageElement = document.createElement('p');
-    messageElement.classList.add('text-gray-500', 'dark:text-white');   
-    messageElement.innerHTML = `<strong>${user}:</strong> ${message}`;
+    messageElement.classList.add('text-gray-500', 'dark:text-white', 'flex-col');   
+    const userElement = document.createElement('p');
+    userElement.classList.add('text-gray-500', 'dark:text-white'); 
+    userElement.innerText = user;
+    messageElement.appendChild(userElement);
+    const messageText = document.createElement('p');
+    messageText.classList.add('text-gray-800', 'dark:text-white', 'flex-col');
+    messageText.innerHTML = message;
+    messageElement.appendChild(messageText);
     messageDiv.appendChild(messageElement);
     messageContainer.appendChild(messageDiv);
 }
