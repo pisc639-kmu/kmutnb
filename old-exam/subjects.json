@@ -309,6 +309,7 @@
     "392151": "Chemistry I",
     "392152": "Chemistry II",
     "392153": "Chemistry III",
+    "393153": "Chemistry III",
     "392154": "Chemistry IV",
     "392155": "Chemistry V",
     "392156": "Chemistry VI",
@@ -328,5 +329,17 @@
     "394173": "Mathematics III",
     "394174": "Mathematics IV",
     "394175": "Mathematics V",
-    "394176": "Mathematics VI"
+    "394176": "Mathematics VI",
+    "394171001": "Mathematics I",
+    "394171002": "Mathematics I",
+    "394351": "DIFFERENTIAL EQUATION",
+    "394352": "MATRICES AND VECTOR ANALYSIS",
+    "394353": "ENGINEERING STATISTICS",
+    "392353": "ENERGY RESOURCES",
+    "395181": "Social Study I",
+    "395182": "Social Study II",
+    "395183": "Social Study III",
+    "395185": "สังคมศึกษา 3",
+    "396121": "Physical Education",
+    
 }
