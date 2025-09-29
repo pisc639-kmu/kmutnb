@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E15 Summary</title>
+    <link rel="icon" type="image/png" href="../../img/logo-nobg.png">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="../../style.css">
+    <!-- KaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+</head>
+<body class="dark bg-gray-100 dark:bg-gray-900">
+    <!-- Navbar -->
+    <nav class="bg-white dark:bg-gray-800 shadow-md p-4 sticky top-0 z-50 transition-colors duration-300 shadow-md shadow-gray-300 dark:shadow-gray-700">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Logo -->
+            <a href="../../" class="flex items-center space-x-2">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-500 dark:text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                </svg> -->
+                <img src="../../img/logo-nobg.png" alt="EP" sizes="100vw" class="w-8 h-8">
+                <span class="text-xl font-bold text-gray-800 dark:text-white">E15</span>
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300 rounded-md p-2 transition-transform duration-300 hover:bg-gray-200 dark:hover:bg-gray-700 shadow-lg">
+                    <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path id="menu-icon-open" class="transition-opacity duration-300" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        <path id="menu-icon-close" class="opacity-0 transition-opacity duration-300" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Desktop Navigation Links -->
+            <div class="hidden md:space-x-8 md:flex flex items-center justify-center space-x-4 font-medium transition-colors">
+                <a href="../../" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-gray-200 dark:hover:bg-gray-700">Home</a>
+                <a href="../../schedule" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-gray-200 dark:hover:bg-gray-700">Exam Schedule & Timetable</a>
+                <a href="../../summary" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-gray-200 dark:hover:bg-gray-700">Summary</a>
+                <a href="../../old-exam" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-gray-200 dark:hover:bg-gray-700">Old Exam</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md rounded-md m-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800">
+        <div class="p-4 flex flex-col space-y-2">
+            <a href="../../" class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-300 rounded-md py-2 px-3">Home</a>
+            <a href="../../schedule" class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-300 rounded-md py-2 px-3">Exam Schedule & Timetable</a>
+            <a href="../../summary" class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-300 rounded-md py-2 px-3">Summary</a>
+            <a href="../../old-exam" class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-300 rounded-md py-2 px-3">Old Exam</a>
+        </div>
+    </div>
+
+    <div class="flex items-center justify-center space-x-4 mt-16">
+        <h1 class="text-4xl font-bold mb-4 text-gray-800 dark:text-white">Summary</h1>
+    </div>
+    
+    <div id="content" class="space-y-8">
+        <div class="m-2">
+            <h1 class="text-4xl font-bold mb-4 text-gray-800 dark:text-white">ที่เล่นกลายโป็นจริง</h1>
+            <div class="overflow-x-auto bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white rounded-md border border-gray-200 dark:border-gray-700 shadow-md p-1 flex flex-row">
+                <div class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white rounded-md border border-gray-200 dark:border-gray-700 shadow-md m-1 w-full">
+                    <h2 class="bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white rounded-t-md shadow-md p-2 w-full text-2xl">
+                        name
+                    </h2>
+                    <p class="text-md p-2">
+                        content
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="m-2">
+            <h1 class="text-4xl font-bold mb-4 text-gray-800 dark:text-white">สะใภ้เด็ก</h1>
+            <div class="overflow-x-auto bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white rounded-md border border-gray-200 dark:border-gray-700 shadow-md p-1 flex flex-row">
+                <div class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white rounded-md border border-gray-200 dark:border-gray-700 shadow-md m-1 w-full">
+                    <h2 class="bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white rounded-t-md shadow-md p-2 w-full text-2xl">
+                        name
+                    </h2>
+                    <p class="text-md p-2">
+                        content
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="m-2">
+            <h1 class="text-4xl font-bold mb-4 text-gray-800 dark:text-white">ตระกูลขี้คุก</h1>
+            <div class="overflow-x-auto bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white rounded-md border border-gray-200 dark:border-gray-700 shadow-md p-1 flex flex-row">
+                <div class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white rounded-md border border-gray-200 dark:border-gray-700 shadow-md m-1 w-full">
+                    <h2 class="bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white rounded-t-md shadow-md p-2 w-full text-2xl">
+                        name
+                    </h2>
+                    <p class="text-md p-2">
+                        content
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="m-2">
+            <h1 class="text-4xl font-bold mb-4 text-gray-800 dark:text-white">น้องสาม</h1>
+            <div class="overflow-x-auto bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white rounded-md border border-gray-200 dark:border-gray-700 shadow-md p-1 flex flex-row">
+                <div class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white rounded-md border border-gray-200 dark:border-gray-700 shadow-md m-1 w-full">
+                    <h2 class="bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white rounded-t-md shadow-md p-2 w-full text-2xl">
+                        name
+                    </h2>
+                    <p class="text-md p-2">
+                        content
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="m-2">
+            <h1 class="text-4xl font-bold mb-4 text-gray-800 dark:text-white">นักเรียนตัวอย่าง</h1>
+            <div class="overflow-x-auto bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white rounded-md border border-gray-200 dark:border-gray-700 shadow-md p-1 flex flex-row">
+                <div class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white rounded-md border border-gray-200 dark:border-gray-700 shadow-md m-1 w-full">
+                    <h2 class="bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white rounded-t-md shadow-md p-2 w-full text-2xl">
+                        name
+                    </h2>
+                    <p class="text-md p-2">
+                        content
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="m-2">
+            <h1 class="text-4xl font-bold mb-4 text-gray-800 dark:text-white">ฝันสลาย</h1>
+            <div class="overflow-x-auto bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white rounded-md border border-gray-200 dark:border-gray-700 shadow-md p-1 flex flex-row">
+                <div class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white rounded-md border border-gray-200 dark:border-gray-700 shadow-md m-1 w-full">
+                    <h2 class="bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white rounded-t-md shadow-md p-2 w-full text-2xl">
+                        name
+                    </h2>
+                    <p class="text-md p-2">
+                        content
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="m-2">
+            <h1 class="text-4xl font-bold mb-4 text-gray-800 dark:text-white">เข็มทิศแห่งโชคชะตา</h1>
+            <div class="overflow-x-auto bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white rounded-md border border-gray-200 dark:border-gray-700 shadow-md p-1 flex flex-row">
+                <div class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white rounded-md border border-gray-200 dark:border-gray-700 shadow-md m-1 w-full">
+                    <h2 class="bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white rounded-t-md shadow-md p-2 w-full text-2xl">
+                        Patth
+                    </h2>
+                    <p class="text-md p-2">
+เริ่มด้วยการพูดถึงตึกกลางซึ่งเป็นสัญลักษณ์ของวัฏจักรชีวิตโดยไม่ว่าจะเป็นคนตาลอยไม่กล้าคิดถึงอนาคตหรือคนที่ยินดีปรีดาที่จะได้กลับออกไปโดยตัวเอกนั้นกำลังรู้สึกว่าเท้าหนักอึ้งเนื่องจากไม่รู้ว่าต้องไปกับมัจจุราชหรือเพชรฆาตโดยมัจจุราชคือคนของหน่วยบัญชาการตำรวจส่วนเพชฌฆาตคือศาลท้องที่จีหลงก่อนที่คนของศาลพื้นที่จีหลงจะใส่กุญแจมือตัวเอกและพาไปขึ้นศาลพื้นที่จีหลงโดยศาลได้เขียนสิ่งที่ตรงกันข้ามกับยืมตัวลงไปในเอกสาร พอกลับถึงสถานกักกันตัวเอกก็ได้พบกับแม่ของตนเนื่องจากทางสถานกักกันได้ส่งสารบอกว่าจะปล่อยตัวเช้านี้แต่สุดท้ายตัวเอกก็เลือกที่จะอยู่ในคุกต่อเพื่อเตรียมสอบเข้ามหาวิทยาลัย
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="m-2">
+            <h1 class="text-4xl font-bold mb-4 text-gray-800 dark:text-white">ปูเดินเฉียง</h1>
+            <div class="overflow-x-auto bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white rounded-md border border-gray-200 dark:border-gray-700 shadow-md p-1 flex flex-row">
+                <div class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white rounded-md border border-gray-200 dark:border-gray-700 shadow-md m-1 w-full">
+                    <h2 class="bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white rounded-t-md shadow-md p-2 w-full text-2xl">
+                        Ohm
+                    </h2>
+                    <p class="text-md p-2">
+อาเที่ยได้หลบหนีไปเเล้วสามปี<br>
+กลุ่มของนักโทษกำลังฟึกตีลังกา<br>
+ต้องสวมโซ่ล่ามแท่งเหล็กหนักเก้ากิโลกรัมอยู่ตลอดเวลาจนทำให้รู้สึกเหมือนปูทีต้องเดินเฉียง<br>
+ค่ายหลักเป็นค่ายใหญ่แบงออกเป็นสี่ค่ายย่อยมีเพียงค่ายเดี้ยวที่พอจะอ่านหนังสือได้<br>
+ท่านรองผู้บัญชาการเป็นคนแก่ที่ใจดีมาก<br>
+หลินเจี้ยนหลงฝันทุกๆวัน<br>
+ฝันถึง<br>
+- ส่วนที่จำไม่ค่อยแม่นของภาษาจีน<br>
+- ประวัติศาสตร์<br>
+- เเละรัฐศาสตร์<br>
+จะท่องจำส่านที่ไม่ค่อยแม่นหลายรอบจนกว่าจะจำแม่น<br>
+การท่องแบบนี้ทำให้หลินเจี้ยนหลงนำไปฝันจริงๆ<br>
+บางที่ก็ฝันถึงสิ่งที่เกี่ยวมหาวิทยาลัย<br>
+ครั้งหนึ่งฝันเห็นตัวเองสวมเสือเเขนยาวสีขาว<br>
+กางเกงสีฟ้าที่ดูเก่<br>
+ขี้จักรยาน<br>
+มีสาวซ้อนท้าย เธอสวมเสื้อเเขนพองน่ารัก ด้านหน้ามีผีเสือที่ทำด้วยริบบิ้นเย็บติดอยู่ด้วย เธอมีรูปร่างสมส่วน ผิวขาว หน้ารูปไข่ มองไปเหมือนหญิงชาวตะวันตก<br>
+เเละฝันว่าตัวเองเดินผ่านระเบียงแห่งหนึ่งกับนักศึกษากลุ่มใหญ่หยุดหน้าห้องเรียนหนึ่งเก้าอีทุกตัวกากหมดมีเเต่ของคุฌครูที่ดูดี หลินเจียนหลงลองนั่งดู เเต่นักศึกษากลับบอกว่า "สวัสดีดีครับ/ค่ะ" คุฌครู เลยสะดุ้งตื่นขึ้นมา
+                    </p>
+                </div>
+            </div>
+            <div class="overflow-x-auto bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white rounded-md border border-gray-200 dark:border-gray-700 shadow-md p-1 flex flex-row">
+                <div class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white rounded-md border border-gray-200 dark:border-gray-700 shadow-md m-1 w-full">
+                    <h2 class="bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white rounded-t-md shadow-md p-2 w-full text-2xl">
+                        Patth
+                    </h2>
+                    <p class="text-md p-2">
+ค่านผู้เข้าใหม่ไม่เหมือนเดิมอาเที่ยหนีไปได้สามปีแล้ว<br>
+ส่วนฮาติงกับอาเล่อเล่าสิ่งที่เกิดขึ้นกับพวกเขา<br>
+มีน้อยคนที่จะจำได้แต่ตัวสถานที่ในค่ายยังเหมือนเดิม<br>
+ตอนนี้ตัวเอกอยู่ในห้องจงซานมีผู้คุมกำลังตอกโซ่กับลูกเหล็กเข้าที่เท้านั้นทำให้ตัวเิกเข้าใจว่าทำไมอาติงถึงเป็นบ้าและโซ่ยังทำให้ตัวเอกเดินเหมือนปูที่ต้องเดินเฉียง<br>
+ตอนนี้ตัวเอกกำลังคิดอยู่ว่าทำไมลูกตุ้มถ่วงขาของตนเองถึงเป็นแบบเก้ากิโลซึ่งมีไว้สำหรับพวกที่พยายามหนีหรือฆ่าตัวตายทำให้ตัวเอง<br>
+มีความรู้สึกเหมือนตัวเองเป็นหนึ่งในคนที่ต้องได้รับโทษหนักและต่อมา<br>
+ตัวหลักจะทำการพูดถึงวิธีอ่านหนังสือโดยไม่ต้องอ่านหนังสือนั้นก็คือการฝัน<br>
+และต่อมาจะเป็นตอนที่ตัวเอกถูกเรียกไปที่ห้องผู้คุมเนื่องจากมีคนเห็นตอนที่ตัวเอกแอบอ่านเศษกระดาษแล้วขย้ำเป็นก้อนกลมๆก่อนที่หัวหน้าผู้คุมจะถามว่าใบกระดาษสิบใบเธอเขียนอะไรไปตัวเอกตอบว่าสมาการแล้าหัวหน้าผู้คุมจึงถามว่าเขียนทำไมตัวเอกตอบว่าเพื่อเตรียมสอบเข้ามหาวิทยาลัย<br>
+ก่อนที่หัวหน้าผู้คุมจะเริ่มถานคำถามเกี่ยวกับชีวิตและการเรียนของตัวเอกก่อนที่หัวหน้าผู้คุมจะมองไปที่โซ่ของตัวเอก<br>
+สายตาบอกความกรุณาแล้วบอกว่า "ทนรออีก 3 วันนะแล้วเขาจะให้คนส่งตัวเอกไปที่ค่ายหลักเพื่อให้เจอรองผู้บัญชาการ"<br>
+ถ้าเจอตัวเขามีโอกาศสูงที่เขาจะส่งเธอไปค่ายที่สามารถอ่านหนังสือได้<br>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="m-2">
+            <h1 class="text-4xl font-bold mb-4 text-gray-800 dark:text-white">ขอนไม้กลางทะเล</h1>
+            <div class="overflow-x-auto bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white rounded-md border border-gray-200 dark:border-gray-700 shadow-md p-1 flex flex-row">
+                <div class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white rounded-md border border-gray-200 dark:border-gray-700 shadow-md m-1 w-full">
+                    <h2 class="bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white rounded-t-md shadow-md p-2 w-full text-2xl">
+                        Sky
+                    </h2>
+                    <p class="text-md p-2">
+หลินเจี้ยนหลงถูกส่งมาที่ค่ายหลักและค่ายที่สอง เขาแบกสัมภาระหนักอึ้งไปพบผู้บัญชาการและหัวหน้าผู้คุม ซึ่งตอนแรกถูกตำหนิว่าเอาหนังสือมามากมาย แต่สุดท้ายหัวหน้าผู้คุมกลับเห็นคุณค่าและให้เก็บหนังสือไว้กับเขา เปิดโอกาสให้เรียนต่อไป ทำให้เขารู้สึกเหมือนคนที่กำลังจะจมน้ำแล้วเจอทั้งขอนไม้และเรือมาช่วย
+
+ชีวิตในค่ายที่สองเป็นการทำงานตัดเย็บเสื้อสูทอย่างซ้ำซาก แต่มีอาหารการกินที่ดีกว่าเรือนจำ เขาใช้ทุกช่วงเวลาที่เหลือ โดยเฉพาะพักกลางวันและตอนทำงาน วางแผนท่องหนังสือ คณิตศาสตร์ ภาษาอังกฤษ และเนื้อหายาก ๆ เพื่อไม่ให้สมองว่างเปล่า
+
+แม้นักโทษส่วนใหญ่ใช้เวลาว่างไปกับการคุย เล่นหมากรุก ดื่มชา หรือเล่นดนตรี แต่เขาเลือกอ่านหนังสือเงียบ ๆ อยู่บนเตียง ท่ามกลางความวุ่นวายรอบตัว การบริหารในค่ายมีปัญหา ผู้คุมหลายคนไม่ใส่ใจ เอาแต่ดื่มเหล้า แต่หัวหน้าผู้คุมกลับเป็นคนที่พยายามจัดการทุกอย่าง ซึ่งทั้งเป็นโอกาสและความเสี่ยงสำหรับเขาในอนาคต
+                    </p>
+                </div>
+                <div class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white rounded-md border border-gray-200 dark:border-gray-700 shadow-md m-1 w-full">
+                    <h2 class="bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white rounded-t-md shadow-md p-2 w-full text-2xl">
+                        Ohm
+                    </h2>
+                    <p class="text-md p-2">
+ผู้บัญชาการสูงสุดในค่ายมีหน้าตาแบบว่า<br>
+- ตัวเตี้ย<br>
+- ไหล่กว้างมาก<br>
+- พุงโต<br>
+- หน้าโหด<br>
+<br>
+หัวหน้าผู้คุม<br>
+- เป็นคนตัวสูงใหญ่<br>
+- หน้าดำเกรียมแดด<br>
+- ท่าทางวางโตแต่มีความใสซื่อแฟงอยู่<br>
+- เคยเรียนอยู่ที่โรงเรียนเฉินกง (แปลว่า ชัยชนะ)<br>
+<br>
+หลิงเจี้ยนหลงได้ถูกส่งตัวไปค่ายที่สองเป็นค่ายทำงาน<br>
+<br>
+อาชีพของนักโทษในคุกนี้<br>
+- บางคนก็เล่นหมากรุกจีน<br>
+- หมากรุกฟรั่ง<br>
+- บางคนเล่นดนตรี มีทั้งซอ กีตาร์ เล่นทั้งเพลงฟรั่งเเละเพลงญี่ปุ่น<br>
+- บางคนเล่าเรือง สามก๊ก<br>
+- บางก็นั้งดื่มชา<br>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="m-2">
+            <h1 class="text-4xl font-bold mb-4 text-gray-800 dark:text-white">สอบเทียบ</h1>
+            <div class="overflow-x-auto bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white rounded-md border border-gray-200 dark:border-gray-700 shadow-md p-1 flex flex-row">
+                <div class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white rounded-md border border-gray-200 dark:border-gray-700 shadow-md m-1 w-full">
+                    <h2 class="bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white rounded-t-md shadow-md p-2 w-full text-2xl">
+                        Sky
+                    </h2>
+                    <p class="text-md p-2">
+รองผู้บัญชาการและหัวหน้าผู้คุมมักมาตรวจคุกเสมอ โดยเฉพาะที่เตียงหลินเจี้ยนหลง ทุกครั้งจะถามสารทุกข์สุขดิบและพูดว่า “ลองหาทางดู” ทำให้เขาคิดถึงอนาคตเรื่องการสอบเข้ามหาวิทยาลัย แต่กลับกังวลเพราะไม่มีใบประกาศนียบัตร เขาจึงหมดหวัง หันไปอ่านหนังสือปรัชญาแทนการท่องตำราเรียน
+
+จนวันหนึ่งหัวหน้าผู้คุมถือเอกสารราชการมาบอกข่าวดีว่า เขาจะได้สิทธิ์ไปสอบเทียบ ปวช. เพื่อใช้สมัครเข้ามหาวิทยาลัยได้ ความหวังที่หายไปกลับคืนมาอีกครั้ง เขาจึงเริ่มทบทวนตำราเรียนอย่างจริงจัง
+
+วันสอบเทียบ เขาถูกพาไปโรงเรียนหงเต๋อโดยไม่ถูกใส่กุญแจมือเหมือนเคย คุณครูแนะแนวต้อนรับและฝากให้เขาช่วยเพื่อน ๆ ในการสอบ เนื่องจากนี่เป็นครั้งแรกของโรงเรียนที่จัดสอบเทียบ ในห้องสอบ เขาทำข้อสอบเสร็จเร็วแล้วลอบแบ่งคำตอบให้เพื่อน ๆ เพื่อช่วยให้ทุกคนผ่านไปด้วยกัน สุดท้ายวันนั้นการสอบทั้งห้าวิชาผ่านไปอย่างราบรื่น ทุกคนพอใจ                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="m-2">
+            <h1 class="text-4xl font-bold mb-4 text-gray-800 dark:text-white">หนีอีกสองคน</h1>
+            <div class="overflow-x-auto bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white rounded-md border border-gray-200 dark:border-gray-700 shadow-md p-1 flex flex-row">
+                <div class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white rounded-md border border-gray-200 dark:border-gray-700 shadow-md m-1 w-full">
+                    <h2 class="bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white rounded-t-md shadow-md p-2 w-full text-2xl">
+                        Build
+                    </h2>
+                    <p class="text-md p-2">
+เจี้ยนหลงได้ทำการขออนุมัติ<br>
+ระหว่างนั้นก็ได้ทำจิตใจให้สงบแต่ความหวังของลินจงก็ได้ดับไป<br>
+เพราะมีนักโทษหนีวันนั้นเป็นวันที่ร้อนมากผู้คุมทั้งหมดไม่เป็นสุข<br>
+จากนั้นมีเสียงปืนดังขึ้นนักโทษหนีนักโทษหนี<br>
+จากนั้นก็ย้อนอดีต<br>
+การพยายามหนีและถูกลงโทษ<br>
+ตัดมาจนปัจจุบันเดี๋ยวเจ๊หงรีบนั่งแล้วก็ขายชื่อแล้วก็กลับห้องขังมีคนหนีไปสองคน<br>
+ความซวยอยู่ที่ผู้คุมที่ต้องได้รับโทษเพราะศาลออกหมายจับถ้าเค้าไม่ได้ต้องคดีใดใดตอนเที่ยงคืนหลังเจ็ดวันหัวหน้าผู้คุมสามารถ<br>
+จบนักโทษสองคนหนีกลับมาได้<br>
+ในระหว่างพักเที่ยงได้มีข่าวร้ายก็คือเอกสารไม่อนุมัติ<br>
+แต่ผู้คุมบอกว่ายังไงก็จะหาวิธีอื่นมาให้<br>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="m-2">
+            <h1 class="text-4xl font-bold mb-4 text-gray-800 dark:text-white">หนอน</h1>
+            <div class="overflow-x-auto bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white rounded-md border border-gray-200 dark:border-gray-700 shadow-md p-1 flex flex-row">
+                <div class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white rounded-md border border-gray-200 dark:border-gray-700 shadow-md m-1 w-full">
+                    <h2 class="bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white rounded-t-md shadow-md p-2 w-full text-2xl">
+                        name
+                    </h2>
+                    <p class="text-md p-2">
+                        content
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="m-2">
+            <h1 class="text-4xl font-bold mb-4 text-gray-800 dark:text-white">แอบเข้าสนามสอบ</h1>
+            <div class="overflow-x-auto bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white rounded-md border border-gray-200 dark:border-gray-700 shadow-md p-1 flex flex-row">
+                <div class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white rounded-md border border-gray-200 dark:border-gray-700 shadow-md m-1 w-full">
+                    <h2 class="bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white rounded-t-md shadow-md p-2 w-full text-2xl">
+                        name
+                    </h2>
+                    <p class="text-md p-2">
+                        content
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="m-2">
+            <h1 class="text-4xl font-bold mb-4 text-gray-800 dark:text-white">สอบติดแบบ "ผิดกฎหมาย"</h1>
+            <div class="overflow-x-auto bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white rounded-md border border-gray-200 dark:border-gray-700 shadow-md p-1 flex flex-row">
+                <div class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white rounded-md border border-gray-200 dark:border-gray-700 shadow-md m-1 w-full">
+                    <h2 class="bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white rounded-t-md shadow-md p-2 w-full text-2xl">
+                        name
+                    </h2>
+                    <p class="text-md p-2">
+                        content
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="m-2">
+            <h1 class="text-4xl font-bold mb-4 text-gray-800 dark:text-white">อยู่ต่ออีกปี</h1>
+            <div class="overflow-x-auto bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white rounded-md border border-gray-200 dark:border-gray-700 shadow-md p-1 flex flex-row">
+                <div class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white rounded-md border border-gray-200 dark:border-gray-700 shadow-md m-1 w-full">
+                    <h2 class="bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white rounded-t-md shadow-md p-2 w-full text-2xl">
+                        Pisc
+                    </h2>
+                    <p class="text-md p-2">
+หลินเจี้ยนหลงหวนรำลึกถึงช่วงเวลาที่อยู่ในค่ายปรับทัศนคติ
+สถานที่ที่เขาได้ใช้เวลาขบคิดและทบทวนชีวิต
+เขาเล่าถึงเหตุการณ์ที่เขาถูกเรียกพบโดยหัวหน้าผู้คุมค่ายใหญ่ ซึ่งเป็นตำแหน่งที่เขาไม่เคยได้ยินมาก่อน หัวหน้าผู้คุมค่ายใหญ่เสนอทางเลือกที่น่าประหลาดใจ นั่นคือการให้หลินเจี้ยนหลงอยู่ต่อในค่ายอีกหนึ่งปี โดยให้เหตุผลว่าเพื่อหลีกเลี่ยงปัญหาที่อาจเกิดขึ้นกับ หัวหน้าผู้คุม ที่ช่วยเหลือเขา ซึ่งกำลังตกอยู่ในสถานการณ์ลำบาก
+หลินเจี้ยนหลงตกลงที่จะอยู่ต่อ และตัดสินใจใช้เวลาหนึ่งปีนี้ศึกษาปรัชญา โดยได้รับแรงบันดาลใจจาก นักบวชชรา ที่เคยให้คำแนะนำแก่เขาในคุก หลินเจี้ยนหลงได้อ่านหนังสือของ เล่าจื้อ, จวงจื้อ, เอเมอร์สัน, และ รุสโซ พยายามทำความเข้าใจโลกด้วยมุมมองที่ปล่อยวาง
+ต่อมา หัวหน้าผู้คุม กลับมาพบหลินเจี้ยนหลงอีกครั้ง แต่ครั้งนี้เขาแสดงความกังวลอย่างมากเกี่ยวกับการตัดสินใจของหลินเจี้ยนหลงที่อยู่ต่อ เขากลัวว่าการอยู่ในค่ายนานเกินไปจะทำลายโอกาสในการเข้าศึกษาต่อในมหาวิทยาลัยของหลินเจี้ยนหลง แม้ว่าเขาจะสอบผ่านแล้วก็ตาม หัวหน้าผู้คุมเสนอแผนการที่ค่อนข้างเสี่ยง นั่นคือการหาคนปล่อยข่าวความสำเร็จของหลินเจี้ยนหลงให้สื่อมวลชนทราบ โดยหวังว่าข่าวนี้จะสร้างแรงกระเพื่อมและช่วยให้หลินเจี้ยนหลงได้รับการปล่อยตัว
+หลินเจี้ยนหลงแสดงความเป็นห่วงความปลอดภัยของ หัวหน้าผู้คุม หากข่าวรั่วไหลออกไป เพราะอาจส่งผลเสียต่อเขาได้ อย่างไรก็ตาม หัวหน้าผู้คุม ปัดตกความกังวลดังกล่าว และสนับสนุนให้หลินเจี้ยนหลงดำเนินการตามแผน โดยเชื่อว่าข่าวนี้จะเป็นประโยชน์ต่อทุกฝ่าย และอาจนำไปสู่การสนับสนุนทางการเงินสำหรับการศึกษาของหลินเจี้ยนหลงจาก หัวหน้ากรมตำรวจ อีกด้วย
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="m-2">
+            <h1 class="text-4xl font-bold mb-4 text-gray-800 dark:text-white">แสงทองส่องอร่าม</h1>
+            <div class="overflow-x-auto bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white rounded-md border border-gray-200 dark:border-gray-700 shadow-md p-1 flex flex-row">
+                <div class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white rounded-md border border-gray-200 dark:border-gray-700 shadow-md m-1 w-full">
+                    <h2 class="bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white rounded-t-md shadow-md p-2 w-full text-2xl">
+                        Pisc
+                    </h2>
+                    <p class="text-md p-2">
+นักโทษวางแผนจะขอความช่วยเหลือจากเพื่อนชื่ออากันที่มีเส้นสายเพื่อโปรโมทข่าวการสอบติดมหาวิทยาลัยของเขา แต่หากติดต่ออากันไม่ได้ จะขอความช่วยเหลือจากอิชาอีกคน
+เขาขอความช่วยเหลือจากทหารแก่ที่ดูแลห้องเก็บของในเรือนจำ โดยเสนอว่าจะทำงานแทนนักโทษที่ทหารกำลังจะปล่อยตัว ทหารตกลงช่วยเหลือแลกกับการที่เขาช่วยติวหนังสือให้ลูกสาวที่กำลังจะสอบเข้ามหาวิทยาลัย
+ทหารแก่ทำตามสัญญาและนัดอากันมาพบเขาในเรือนจำ อากันรับปากจะช่วยเหลือ
+หลังจากนั้น นักโทษฝันร้ายซ้ำๆ เกี่ยวกับการคลานอยู่ในความมืดมิดและการกินสิ่งปฏิกูล แต่สุดท้ายก็ตื่นขึ้นมาพร้อมกับข่าวดีจากหัวหน้าผู้คุม
+                    </p>
+                </div>
+            </div>
+            <div class="overflow-x-auto bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white rounded-md border border-gray-200 dark:border-gray-700 shadow-md p-1 flex flex-row">
+                <div class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white rounded-md border border-gray-200 dark:border-gray-700 shadow-md m-1 w-full">
+                    <h2 class="bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white rounded-t-md shadow-md p-2 w-full text-2xl">
+                        Build
+                    </h2>
+                    <p class="text-md p-2">
+เพื่อนที่หลินเจี้ยนหลงไว้ใจชื่ออาถันเป็นคนมีเส้นสายและอีกคนชื่ออิชา<br>
+เจี้ยนหลงได้คุยกับทหารที่ไม่โม้เล่าว่าทหารทหารฝ่ายเจียงไคเชกกำลังกำลังเเพ่<br>
+เขาจึงไม่เคยไปรบที่ใด หนีขึ้นเรือมาไต้วัน<br>
+เจี้ยนหลงเคยเรียนปวช.ที่โรงเรียนหงเต๋อมา<br>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../script.js"></script>
+</body>
+</html>
