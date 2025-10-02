@@ -145,7 +145,10 @@ def prettify_csv_fixed_width(input_filename, output_filename):
     column_widths = [max(len(str(item)) for item in col) for col in zip(*rows)]
 
     with open(output_filename, 'w', encoding='utf-8', newline='') as outfile:
+        # c = 0
         for row in rows:
+            # c += 1
+            # print(c, len(row), row)
             formatted_row = [
                 re.sub(r"(.*[^\s])(\s*)$", "\"\\1\"\\2", str(item).ljust(column_widths[i])).replace('\\,', ',') if i in [0, 5, 6] else str(item).ljust(column_widths[i])
                 # item if i in [0, 5] else str(item).ljust(column_widths[i])
@@ -203,19 +206,35 @@ def wait_for_clipboard_change():
         except KeyboardInterrupt:
             sys.exit()
 
-def search_files(query):
+def search_files(query, in_database=True):
     found = False
     first_file = ""
     first_file_opened = False
-    for root, dirs, files in os.walk(all_path):
-        for file in files:
-            if query in os.path.join(root, file):
-                print(f"Found file: \"{os.path.join(root, file)}\"")
-                if not first_file_opened:
-                    first_file = os.path.join(root, file)
-                    webbrowser.open(os.path.join(root, file))
-                    first_file_opened = True
-                found = True
+    if in_database:
+        with open("files.csv", "r", encoding="utf-8") as f:
+            lines = f.readlines()[1:-1]
+            for line in lines:
+                try:
+                    fpath = os.path.join(all_path, eval(line[150:].split(",")[1]))
+                    if (query + '"') in line or query in fpath:
+                        print(f"Found file: \"{fpath}\"")
+                        if not first_file_opened:
+                            first_file = fpath
+                            first_file_opened = True
+                        found = True
+                except:
+                    pass
+        webbrowser.open(first_file)
+    else:
+        for root, dirs, files in os.walk(all_path):
+            for file in files:
+                if query in os.path.join(root, file):
+                    print(f"Found file: \"{os.path.join(root, file)}\"")
+                    if not first_file_opened:
+                        first_file = os.path.join(root, file)
+                        webbrowser.open(os.path.join(root, file))
+                        first_file_opened = True
+                    found = True
     return first_file
 
 def main():
