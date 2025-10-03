@@ -206,6 +206,10 @@ def wait_for_clipboard_change():
         except KeyboardInterrupt:
             sys.exit()
 
+def complete_query(query:str) -> str:
+    query = re.sub(r'^"|"$|^\,|,\s*,', '', query)
+    return query
+
 def search_files(query, in_database=True):
     found = False
     first_file = ""
@@ -216,7 +220,7 @@ def search_files(query, in_database=True):
             for line in lines:
                 try:
                     fpath = os.path.join(all_path, eval(line[150:].split(",")[1]))
-                    if (query + '"') in line or query in fpath:
+                    if complete_query(query) + '"' in line or query in fpath:
                         print(f"Found file: \"{fpath}\"")
                         if not first_file_opened:
                             first_file = fpath
