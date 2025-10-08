@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E15 Old Exam Year 1 Term 1 Final</title>
+    <link rel="icon" type="image/png" href="../../img/logo-nobg.png">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xyflow/react/dist/index.css">
+    <style>
+        #react-flow-container {
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body class="dark bg-gray-100 dark:bg-gray-900">
+    <!-- Navbar -->
+    <nav class="bg-white dark:bg-gray-800 shadow-md p-4 sticky top-0 z-50 transition-colors duration-300 shadow-md shadow-gray-300 dark:shadow-gray-700">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Logo -->
+            <a href="../../" class="flex items-center space-x-2">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-500 dark:text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                </svg> -->
+                <img src="../../img/logo-nobg.png" alt="EP" sizes="100vw" class="w-8 h-8">
+                <span class="text-xl font-bold text-gray-800 dark:text-white">E15</span>
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300 rounded-md p-2 transition-transform duration-300 hover:bg-gray-200 dark:hover:bg-gray-700 shadow-lg">
+                    <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path id="menu-icon-open" class="transition-opacity duration-300" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        <path id="menu-icon-close" class="opacity-0 transition-opacity duration-300" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Desktop Navigation Links -->
+            <div class="hidden md:space-x-8 md:flex flex items-center justify-center space-x-4 font-medium transition-colors">
+                <a href="../../" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-gray-200 dark:hover:bg-gray-700">Home</a>
+                <a href="../../schedule" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-gray-200 dark:hover:bg-gray-700">Exam Schedule & Timetable</a>
+                <a href="../../summary" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-gray-200 dark:hover:bg-gray-700">Summary</a>
+                <a href="../../old-exam" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-gray-200 dark:hover:bg-gray-700">Old Exam</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md rounded-md m-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800">
+        <div class="p-4 flex flex-col space-y-2">
+            <a href="../../" class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-300 rounded-md py-2 px-3">Home</a>
+            <a href="../../schedule" class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-300 rounded-md py-2 px-3">Exam Schedule & Timetable</a>
+            <a href="../../summary" class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-300 rounded-md py-2 px-3">Summary</a>
+            <a href="../../old-exam" class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-300 rounded-md py-2 px-3">Old Exam</a>
+        </div>
+    </div>
+
+    <div class="flex items-center justify-center space-x-4 mt-16">
+        <h1 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Old Exam Year 1 Term 1 Final</h1>
+    </div>
+
+    <div id="react-flow-container"></div>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/@xyflow/react/dist/reactflow.js"></script>
+
+    <script type="text/babel">
+        const { ReactFlow, useNodeState, useEdgesState, Controls, Background } = ReactFlow;
+
+        const initialNodes = [
+            { id: '1', data: { label: 'A' }, position: { x: 0, y: 0 } },
+            { id: '2', data: { label: 'B' }, position: { x: 0, y: 100 } },
+            { id: '3', data: { label: 'C' }, position: { x: 0, y: 200 } },
+            { id: '4', data: { label: 'D' }, position: { x: 0, y: 300 } },
+        ];
+
+        const initialEdges = [
+            { id: 'e1-2', source: '1', target: '2' },
+            { id: 'e2-3', source: '2', target: '3' },
+            { id: 'e3-4', source: '3', target: '4' },
+        ];
+
+        function FlowComponent() {
+            const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
+            const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+
+            return (
+                <ReactFlow
+                    nodes={nodes}
+                    edges={edges}
+                    onNodesChange={setNodes}
+                    onEdgesChange={setEdges}
+                >
+                    <Controls />
+                    <Background variant="dots" gap={12} size={1} />
+                </ReactFlow>
+            );
+        }
+
+        const container = document.getElementById('react-flow-container');
+        const root = ReactDOM.createRoot(container);
+        root.render(<FlowComponent />);
+    </script>
+
+    <script src="../../script.js"></script>
+</body>
+</html>
