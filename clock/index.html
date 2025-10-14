@@ -8,6 +8,9 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Inter Font -->
+     <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="../style.css">
 </head>
@@ -106,12 +109,21 @@
     </div>
 
     <style>
+        #time-text {
+            font-family: "Fredoka", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            font-variation-settings:
+                "wdth" 100;
+        }
         /* #main {
             display: flex;
             flex-direction: column;
             align-items: center;
             position: relative;
         } */
+
         .clock {
             width: 2rem;
             height: 2rem;
@@ -119,9 +131,10 @@
             border: 0.125rem solid oklch(30% 0 0);
             position: relative;
         }
+
         .hand {
-            /* height: 0.1875rem; */
-            height: 0.09375rem;
+            height: 0.1875rem;
+            /* height: 0.09375rem; */
             background: oklch(0.9475 0.1916 119.15); 
             position: absolute;
             top: 50%;
@@ -134,9 +147,11 @@
             transition: rotate 0.5s linear, opacity 250ms ease-in-out;
             rotate: 45deg;
         }
+
         .hand:nth-child(1) {
             z-index: 1;
         }
+
         .hand:nth-child(2) {
             z-index: 2;
         }
