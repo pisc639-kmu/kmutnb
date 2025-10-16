@@ -450,17 +450,20 @@ mno
             for (let [cellIndex, cell] of Array.from(element.children).entries()) {
                 const hands = cell.children;
                 if (hands[0].style.transition !== angles[digits[digit][cellIndex]][0]) {
-                    hands[0].style.transition = `rotate ${Math.abs(Number(hands[0].style.rotate.slice(0, -3)) - angles[digits[digit][cellIndex]][0]) / 360 / 1}s ease-in, opacity 250ms ease-in-out`;
+                    hands[0].style.transition = `rotate ${Math.abs(Number(hands[0].style.rotate.slice(0, -3)) - angles[digits[digit][cellIndex]][0]) / 360 / 0.5 * (0.2 + Math.random() * 0.1)}s ease-in, opacity 250ms ease-in-out`;
                     // hands[0].style.transition = `rotate 0.5s linear, opacity 250ms ease-in-out`;
                     hands[0].style.rotate = `${angles[digits[digit][cellIndex]][0]}deg`;
-                    hands[0].style.opacity = `${digits[digit][cellIndex] === " " ? 0.3 : 1}`;
+                    hands[0].style.opacity = `${digits[digit][cellIndex] === " " ? 1 : 1}`;
                 };
                 if (hands[1].style.transition !== angles[digits[digit][cellIndex]][1]) {
-                    hands[1].style.transition = `rotate ${Math.abs(Number(hands[1].style.rotate.slice(0, -3)) - angles[digits[digit][cellIndex]][1]) / 360 / 1}s ease-in, opacity 250ms ease-in-out`;
+                    hands[1].style.transition = `rotate ${Math.abs(Number(hands[1].style.rotate.slice(0, -3)) - angles[digits[digit][cellIndex]][1]) / 360 / 0.5 * (0.2 + Math.random() * 0.1)}s ease-in, opacity 250ms ease-in-out`;
                     // hands[1].style.transition = `rotate 0.5s linear, opacity 250ms ease-in-out`;
                     hands[1].style.rotate = `${angles[digits[digit][cellIndex]][1]}deg`;
-                    hands[1].style.opacity = `${digits[digit][cellIndex] === " " ? 0.3 : 1}`;
+                    hands[1].style.opacity = `${digits[digit][cellIndex] === " " ? 1 : 1}`;
                 };
+                const delay = cellIndex / digits[digit].length / 4
+                hands[0].style.transitionDelay = `${delay}s, ${delay}s`;
+                hands[1].style.transitionDelay = `${delay}s, ${delay}s`;
             }
         }
 
@@ -524,10 +527,10 @@ mno
             setNumber(timeElement.children[3], new Date().getFullYear());
         }
         
-        tick()
+        // tick()
         setInterval(() => {
             tick()
-        }, 100);
+        }, 50);
         // setTimeout(() => {
         //     const main = document.getElementById('main');
         //     // main.requestFullscreen();
