@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E15 Exam Schedule & Timetable</title>
     <link rel="icon" type="image/png" href="../img/logo-nobg.png">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Inter Font -->
@@ -65,7 +64,7 @@
         <h1 class="text-4xl font-bold mb-4 text-gray-800 dark:text-white">Study Timetable</h1>
     </div>
     <div class="container mx-auto mt-8 overflow-x-auto shadow-md shadow-gray-400 dark:shadow-gray-800 hover:shadow-gray-500 dark:hover:shadow-gray-950">
-        <table id="timetable" class="text-[0.6rem] [&_thead]:text-xs [&>*>tr>*:first-child]:text-sm
+        <table class="text-[0.6rem] [&_thead]:text-xs [&>*>tr>*:first-child]:text-sm
             md:text-[0.8rem] md:[&_thead]:text-sm md:[&>*>tr>*:first-child]:text-md
             [&>*>tr>*:first-child]:font-bold
             w-full border-collapse border border-gray-300 dark:border-gray-700">
@@ -92,6 +91,42 @@
                     <td class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700"></td>
                     <td class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700"></td>
                 </tr>
+                <tr class="bg-white dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-white">
+                    <td class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">Tuesday</td>
+                    <td class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700"></td>
+                    <td class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700"></td>
+                    <td class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700" colspan="2"><b>Electric Circuits II</b><br>90 - ?<br>031021122/5<br>รศ.ดร.ฐิติพงษ์ เลิศวิริยะประภา</td>
+                    <td class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700"></td>
+                    <td class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700" colspan="3"><b>Mechanical Drawing I</b><br>90 - 409<br>031011321/5<br>อาจารย์อินทรายุทธ มหาพล<br>อาจารย์พิชัย ชอบสุข</td>
+                    <td class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700"></td>
+                    <td class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700"></td>
+                </tr>
+                <tr class="bg-white dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-white">
+                    <td class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">Wednesday</td>
+                    <td class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700" colspan="2"><b>Thai II</b><br>90 - 605<br>031001152/15<br>ดร.ปรัชญาพร ทองประสิทธิ์</td>
+                    <td class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700" colspan="2"><b>Chemistry II</b><br>90 - 605<br>031001122/15<br>รศ.ดร.ณัฐจนันท์ จงกล</td>
+                    <td class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700"></td>
+                    <td class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700" colspan="2"><b>Foundation English II</b><br>90 - 605<br>031001142/15<br>MR. Asim Baris Orses</td>
+                    <td class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700" colspan="2"><b>Extra-Curricular Activities II</b><br>031001382/20</td>
+                    <td class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700"></td>
+                </tr>
+                <tr class="bg-white dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-white">
+                    <td class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">Thursday</td>
+                    <td class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700" colspan="2"><b>Physical Education II</b><br>91 - fl.5<br>031001272/15<br>อาจารย์วราพงศ์ ไกรชมสม<br>อาจารย์ธนะวรรธน์ ไพรพิสุทธิ์</td>
+                    <td class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700" colspan="7"><b>Ac Circuits Practice</b><br>90 - 601<br>031021225/5<br>ผศ.ดร.ชานินทร์ จูฉิม<br>MR. Prabin Kishor Pury</td>
+                    <td class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700"></td>
+                </tr>
+                <tr class="bg-white dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-white">
+                    <td class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">Friday</td>
+                    <!-- <td class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700"></td> -->
+                    <td class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700" colspan="2"><b>Mechanics II</b><br>90 - 608<br>031001112/15<br>ผศ.ดร.ประกาศิต ช่างสุพรรณ</td>
+                    <td class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700" colspan="2"><b>Electrical Measuring Instruments</b><br>90 - ?<br>031021112/5<br>รศ.ดร.พิเชษฐ์ ศรียรรยงค์</td>
+                    <td class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700"></td>
+                    <td class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700" colspan="3"><b>Mathematics II</b><br>90 - 608<br>031001132/15<br>รศ.ดร.เสกสรร สิริทรัพย์ทวี</td>
+                    <td class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700"></td>
+                    <td class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700"></td>
+                </tr>
+                <!-- <td class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700" colspan="2"><b>Health Education</b><br>90 - 603<br>031001171/8<br>ดร.รัจน์ชีวาต์ แซีตั๋น</td> -->
             </tbody>
         </table>
     </div>
@@ -117,80 +152,5 @@
     </form>
 
     <script src="../script.js"></script>
-    <script>
-        function make_cell(elem, text) {
-            const cell = document.createElement(elem);
-            cell.classList.add("px-3", "py-2", "border-x", "border", "border-gray-300", "dark:border-gray-700");
-            cell.textContent = text;
-            return cell;
-        }
-
-        const timetable = document.getElementById('timetable');
-        timetable.innerHTML = '';
-
-        const thead = document.createElement('thead');
-        // thead.classList.add
-        const thead_tr = document.createElement('tr');
-        thead_tr.classList.add("bg-gray-200", "dark:bg-gray-800", "text-gray-900", "dark:text-white", "shadow-md")
-        thead_tr.appendChild(make_cell('th', 'Day'));
-        for (let i = 0; i < 10; i++) {
-            thead_tr.appendChild(make_cell('th', `${i + 8}:00 - ${i + 9}:00`));
-        }
-        thead.appendChild(thead_tr);
-        timetable.appendChild(thead);
-        
-        // document.addEventListener('DOMContentLoaded', () => {
-        //     fetch('timetable.json')
-        //     .then(response => response.json())
-        //     .then(data => {
-        // const tbody = document.createElement('tbody');
-        // const tbody_tr = document.createElement('tr');
-        // tbody_tr.classList.add("bg-white", "dark:bg-gray-900", "hover:bg-gray-100", "dark:hover:bg-gray-800", "text-gray-800", "dark:text-white");
-        // tbody_tr.appendChild(make_cell('td', 'Monday'));
-        // for (let i = 0; i < 10; i++) {
-        //     tbody_tr.appendChild(make_cell('td', ''));
-        // }
-        // tbody.appendChild(tbody_tr);
-        // timetable.appendChild(tbody);
-        $.getJSON('timetable.json', function(data) {
-            
-            const tbody = document.querySelector('tbody');
-            // data.forEach(row => {
-            //     const tr = document.createElement('tr');
-            //     tr.classList.add("bg-white", "dark:bg-gray-900", "hover:bg-gray-100", "dark:hover:bg-gray-800", "text-gray-800", "dark:text-white");
-            //     tr.appendChild(make_cell('td', row.day));
-            //     for (let i = 0; i < 10; i++) {
-            //         tr.appendChild(make_cell('td', row[i]));
-            //     }
-            //     tbody.appendChild(tr);
-            // });
-            const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
-            for (let i = 0; i < days.length; i++) {
-                const tr = document.createElement('tr');
-                tr.classList.add("bg-white", "dark:bg-gray-900", "hover:bg-gray-100", "dark:hover:bg-gray-800", "text-gray-800", "dark:text-white");
-                tr.appendChild(make_cell('td', days[i]));
-                // for (let j = 0; j < 10; j++) {
-                // }
-                let j = 8;
-                for (let k = 0; k < data[days[i].toLowerCase()].length; k++) {
-                    // tr.appendChild(make_cell('td', data[days[i].toLowerCase()][k]));
-                    for (let l = 0; l < data[days[i].toLowerCase()][k]['from'] - j; l++) {
-                        tr.appendChild(make_cell('td', ''));
-                        j++;
-                    }
-                    for (let l = 0; l < data[days[i].toLowerCase()][k]['to'] - data[days[i].toLowerCase()][k]['from']; l++) {
-                        // let instructors = data[days[i].toLowerCase()][k]['instructor']
-                        tr.appendChild(make_cell('td', `${data[days[i].toLowerCase()][k]['name-en']}<br>${data[days[i].toLowerCase()][k]['name-th']}<br>${data[days[i].toLowerCase()][k]['room']}<br>${data[days[i].toLowerCase()][k]['instructor'].map(instructor => instructor['name-th']).join('<br>')}`));
-                        j++;
-                    }
-                }
-                tbody.appendChild(tr);
-            }
-            timetable.appendChild(tbody);
-        });
-    //     })
-    //     .catch(error => console.error(error));
-    // });
-    </script>
 </body>
 </html>
