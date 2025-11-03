@@ -118,10 +118,11 @@
 
     <script src="../script.js"></script>
     <script>
-        function make_cell(elem, text) {
+        function make_cell(elem, text, options = {}) {
             const cell = document.createElement(elem);
             cell.classList.add("px-3", "py-2", "border-x", "border", "border-gray-300", "dark:border-gray-700");
-            cell.textContent = text;
+            cell.innerHTML = text;
+            cell.colSpan = options.colspan || 1;
             return cell;
         }
 
@@ -152,9 +153,10 @@
         // }
         // tbody.appendChild(tbody_tr);
         // timetable.appendChild(tbody);
-        $.getJSON('timetable.json', function(data) {
-            
-            const tbody = document.querySelector('tbody');
+        $.getJSON('https://pisc639-kmu.github.io/kmutnb/schedule/timetable.json', function(data) {
+            data = data['timetable'];
+            console.log(data);
+            const tbody = document.createElement('tbody');
             // data.forEach(row => {
             //     const tr = document.createElement('tr');
             //     tr.classList.add("bg-white", "dark:bg-gray-900", "hover:bg-gray-100", "dark:hover:bg-gray-800", "text-gray-800", "dark:text-white");
@@ -178,11 +180,12 @@
                         tr.appendChild(make_cell('td', ''));
                         j++;
                     }
-                    for (let l = 0; l < data[days[i].toLowerCase()][k]['to'] - data[days[i].toLowerCase()][k]['from']; l++) {
-                        // let instructors = data[days[i].toLowerCase()][k]['instructor']
-                        tr.appendChild(make_cell('td', `${data[days[i].toLowerCase()][k]['name-en']}<br>${data[days[i].toLowerCase()][k]['name-th']}<br>${data[days[i].toLowerCase()][k]['room']}<br>${data[days[i].toLowerCase()][k]['instructor'].map(instructor => instructor['name-th']).join('<br>')}`));
-                        j++;
-                    }
+                    const td = make_cell('td', `<b>${data[days[i].toLowerCase()][k]['name-en']}<br>${data[days[i].toLowerCase()][k]['name-th']}</b><br>${data[days[i].toLowerCase()][k]['room']}<br>${data[days[i].toLowerCase()][k]['instructor'].map(instructor => instructor['name-th']).join('<br>')}`, {colspan: data[days[i].toLowerCase()][k]['to'] - data[days[i].toLowerCase()][k]['from']});
+                    tr.appendChild(td);
+                    j = data[days[i].toLowerCase()][k]['to'];
+                }
+                for (let l = 0; l < 10 - j + 8; l++) {
+                    tr.appendChild(make_cell('td', ''));
                 }
                 tbody.appendChild(tr);
             }
