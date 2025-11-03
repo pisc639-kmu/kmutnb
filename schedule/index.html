@@ -180,7 +180,7 @@
                         tr.appendChild(make_cell('td', ''));
                         j++;
                     }
-                    const td = make_cell('td', `<b>${data[days[i].toLowerCase()][k]['name-en']}<br>${data[days[i].toLowerCase()][k]['name-th']}</b><br>${data[days[i].toLowerCase()][k]['room']}<br>${data[days[i].toLowerCase()][k]['instructor'].map(instructor => instructor['name-th']).join('<br>')}`, {colspan: data[days[i].toLowerCase()][k]['to'] - data[days[i].toLowerCase()][k]['from']});
+                    const td = make_cell('td', `<b>${data[days[i].toLowerCase()][k]['name-en']}<br>${data[days[i].toLowerCase()][k]['name-th']}</b><br>${data[days[i].toLowerCase()][k]['room']}<br>${data[days[i].toLowerCase()][k]['code']}<br>${data[days[i].toLowerCase()][k]['instructor'].map(instructor => instructor['name-th']).join('<br>')}`, {colspan: data[days[i].toLowerCase()][k]['to'] - data[days[i].toLowerCase()][k]['from']});
                     tr.appendChild(td);
                     j = data[days[i].toLowerCase()][k]['to'];
                 }
