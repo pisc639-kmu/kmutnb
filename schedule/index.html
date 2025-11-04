@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E15 Exam Schedule & Timetable</title>
+    <title>E15 Class Timetable</title>
     <link rel="icon" type="image/png" href="../img/logo-nobg.png">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- Tailwind CSS -->
@@ -72,6 +72,42 @@
         </a>
     </div>
     <script>
+        /**
+         * Triggers a file download from a given URL.
+         * @param {string} url - The URL of the file to download.
+         * @param {string} [filename] - The desired name for the downloaded file.
+         */
+        async function downloadFileFromURL(url, filename) {
+        try {
+            // 1. Fetch the file data as a Blob
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const blob = await response.blob();
+
+            // 2. Create a temporary object URL for the blob
+            const blobUrl = URL.createObjectURL(blob);
+
+            // 3. Use a hidden anchor tag to trigger the download
+            const a = document.createElement('a');
+            a.href = blobUrl;
+            a.download = filename || url.split('/').pop(); // Use provided filename or extract from URL
+            a.style.display = 'none';
+            document.body.appendChild(a);
+            a.click(); // Simulate a click event
+            document.body.removeChild(a);
+
+            // 4. Clean up the object URL after a short delay
+            // (A slight delay is good practice to ensure the download intent is registered)
+            setTimeout(() => URL.revokeObjectURL(blobUrl), 100); 
+
+        } catch (error) {
+            console.error('Download failed:', error);
+            alert('Could not download the file. Check console for details.' + error);
+        }
+        }
+
         function isDarkMode() {
             if (window.matchMedia) {
                 return window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -87,6 +123,7 @@
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
+            // downloadFileFromURL("table-light.png", "table-light.png");
         };
 
         function download_dark() {
