@@ -365,12 +365,504 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- ===================== IMPEDANCE & ADMITTANCE (Collapsible Block) ===================== -->
+                        <hr class="my-4 border-gray-300 dark:border-gray-600">
 
-                    </ul>
+                        <div
+                            class="bg-white dark:bg-gray-800 rounded-md shadow-md border border-gray-200 dark:border-gray-700">
+                            <button onclick="toggleContent(this)" class="w-full text-left">
+                                <div
+                                    class="top-content flex justify-between items-center p-3 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-t-md">
+                                    <h2 class="text-lg font-semibold">Impedance &amp; Admittance — solver + calculator
+                                    </h2>
+                                    <div class="expand-button">
+                                        <svg width="20" height="20" viewBox="0 0 14 8">
+                                            <g stroke="currentColor" stroke-width="2" fill="none">
+                                                <path d="M1 1 L7 7 L13 1" />
+                                            </g>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </button>
+
+                            <div class="content-expanded hidden p-4 text-gray-700 dark:text-gray-300">
+
+                                <!-- Quick formulas -->
+                                <section class="mb-4">
+                                    <h3 class="font-semibold">Element Impedance &amp; Admittance (AC: ω = 2πf)</h3>
+                                    <div class="mt-2 space-y-1">
+                                        <div>Resistor: <code>Z<sub>R</sub> = R</code> &nbsp; | &nbsp;
+                                            <code>Y<sub>R</sub> = 1/R</code>
+                                        </div>
+                                        <div>Inductor: <code>Z<sub>L</sub> = jωL</code> &nbsp; | &nbsp;
+                                            <code>Y<sub>L</sub> = 1/(jωL) = -j/(ωL)</code>
+                                        </div>
+                                        <div>Capacitor: <code>Z<sub>C</sub> = 1/(jωC)</code> &nbsp; | &nbsp;
+                                            <code>Y<sub>C</sub> = jωC</code>
+                                        </div>
+                                    </div>
+                                    <div class="mt-2 text-sm text-gray-500 dark:text-gray-400">
+                                        Series: add impedances. &nbsp; Parallel: add admittances and invert to get Z.
+                                    </div>
+                                </section>
+
+                                <!-- Diagrams -->
+                                <section class="mb-4">
+                                    <h3 class="font-semibold">Schematic sketches</h3>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-3">
+
+                                        <!-- Series sketch -->
+                                        <div class="p-3 border rounded-md bg-gray-50 dark:bg-gray-800">
+                                            <div class="text-sm font-medium mb-2">Series (example: R — L — C)</div>
+                                            <svg viewBox="0 0 300 80" class="w-full h-20">
+                                                <!-- source -->
+                                                <line x1="10" y1="40" x2="30" y2="40" stroke="currentColor"
+                                                    stroke-width="2" />
+                                                <circle cx="10" cy="40" r="6" fill="currentColor" />
+                                                <!-- R -->
+                                                <rect x="40" y="28" width="30" height="24" rx="4" fill="none"
+                                                    stroke="currentColor" stroke-width="2" />
+                                                <text x="55" y="45" text-anchor="middle" alignment-baseline="middle"
+                                                    font-size="10" class="dark:text-gray-400">R</text>
+                                                <!-- L -->
+                                                <path d="M80 40 q10 -16 20 0 q10 -16 20 0" stroke="currentColor"
+                                                    stroke-width="2" fill="none" />
+                                                <text x="120" y="54" font-size="10">L</text>
+                                                <!-- C -->
+                                                <line x1="150" y1="28" x2="150" y2="52" stroke="currentColor"
+                                                    stroke-width="2" />
+                                                <line x1="160" y1="28" x2="160" y2="52" stroke="currentColor"
+                                                    stroke-width="2" />
+                                                <text x="155" y="54" font-size="10" text-anchor="middle">C</text>
+                                                <!-- load -->
+                                                <line x1="170" y1="40" x2="290" y2="40" stroke="currentColor"
+                                                    stroke-width="2" />
+                                            </svg>
+                                        </div>
+
+                                        <!-- Parallel sketch -->
+                                        <div class="p-3 border rounded-md bg-gray-50 dark:bg-gray-800">
+                                            <div class="text-sm font-medium mb-2">Parallel (example: R ∥ C ∥ L)</div>
+                                            <svg viewBox="0 0 300 100" class="w-full h-28">
+                                                <line x1="10" y1="20" x2="290" y2="20" stroke="currentColor"
+                                                    stroke-width="2" />
+                                                <line x1="10" y1="80" x2="290" y2="80" stroke="currentColor"
+                                                    stroke-width="2" />
+                                                <!-- R branch -->
+                                                <line x1="60" y1="20" x2="60" y2="80" stroke="currentColor"
+                                                    stroke-width="1" />
+                                                <rect x="50" y="34" width="20" height="12" rx="3" stroke="currentColor"
+                                                    fill="none" />
+                                                <text x="60" y="55" font-size="10" text-anchor="middle">R</text>
+                                                <!-- L branch -->
+                                                <line x1="150" y1="20" x2="150" y2="80" stroke="currentColor"
+                                                    stroke-width="1" />
+                                                <path d="M140 50 q5 -12 10 0 q5 -12 10 0" stroke="currentColor"
+                                                    stroke-width="2" fill="none" />
+                                                <text x="150" y="70" font-size="10" text-anchor="middle">L</text>
+                                                <!-- C branch -->
+                                                <line x1="240" y1="20" x2="240" y2="80" stroke="currentColor"
+                                                    stroke-width="1" />
+                                                <line x1="235" y1="38" x2="245" y2="38" stroke="currentColor"
+                                                    stroke-width="2" />
+                                                <line x1="235" y1="62" x2="245" y2="62" stroke="currentColor"
+                                                    stroke-width="2" />
+                                                <text x="240" y="72" font-size="10" text-anchor="middle">C</text>
+                                            </svg>
+                                        </div>
+
+                                    </div>
+                                </section>
+
+                                <!-- Calculator -->
+                                <section class="mb-4">
+                                    <h3 class="font-semibold">Calculator</h3>
+
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-3">
+                                        <div class="p-3 border rounded-md bg-gray-50 dark:bg-gray-800">
+                                            <label class="block text-sm">Frequency (Hz)</label>
+                                            <input id="calc-f"
+                                                class="mt-1 w-full rounded border p-2 bg-white dark:bg-gray-900"
+                                                type="number" value="50" min="0" step="any">
+
+                                            <label class="block text-sm mt-2">R (Ω)</label>
+                                            <input id="calc-r"
+                                                class="mt-1 w-full rounded border p-2 bg-white dark:bg-gray-900"
+                                                type="number" value="100" min="0" step="any">
+
+                                            <label class="block text-sm mt-2">L (H)</label>
+                                            <input id="calc-l"
+                                                class="mt-1 w-full rounded border p-2 bg-white dark:bg-gray-900"
+                                                type="number" value="0.01" min="0" step="any">
+
+                                            <label class="block text-sm mt-2">C (F)</label>
+                                            <input id="calc-c"
+                                                class="mt-1 w-full rounded border p-2 bg-white dark:bg-gray-900"
+                                                type="number" value="1e-05" min="0" step="any">
+
+                                            <label class="block text-sm mt-2">Topology</label>
+                                            <select id="calc-topo"
+                                                class="mt-1 w-full rounded border p-2 bg-white dark:bg-gray-900">
+                                                <option value="series">Series (Z = ΣZ)</option>
+                                                <option value="parallel">Parallel (Y = ΣY)</option>
+                                            </select>
+
+                                            <button onclick="runCalc()"
+                                                class="mt-3 w-full bg-blue-500 hover:bg-blue-600 text-white rounded p-2">Compute
+                                                Z &amp; Y</button>
+                                        </div>
+
+                                        <!-- Output -->
+                                        <div id="calc-output"
+                                            class="p-3 border rounded-md bg-gray-50 dark:bg-gray-800 text-sm">
+                                            <div><strong>Results</strong></div>
+                                            <div id="calc-omega" class="mt-2">ω = —</div>
+                                            <div id="calc-Z" class="mt-2">Z<sub>total</sub> = —</div>
+                                            <div id="calc-Zmag" class="mt-1">|Z| = —</div>
+                                            <div id="calc-Zph" class="mt-1">∠Z = —</div>
+                                            <div id="calc-Y" class="mt-2">Y<sub>total</sub> = —</div>
+                                            <div id="calc-Ymag" class="mt-1">|Y| = —</div>
+                                            <div id="calc-Yph" class="mt-1">∠Y = —</div>
+                                            <div id="calc-ohm" class="mt-2 text-xs text-gray-500 dark:text-gray-400">
+                                                Phase is degrees. Z shown as (Re + jIm).</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- JS for calculator -->
+                                    <script>
+                                        // Basic complex utilities (plain JS)
+                                        function toComplex(re, im) { return { re: re, im: im }; }
+                                        function cAdd(a, b) { return { re: a.re + b.re, im: a.im + b.im }; }
+                                        function cSub(a, b) { return { re: a.re - b.re, im: a.im - b.im }; }
+                                        function cMul(a, b) { return { re: a.re * b.re - a.im * b.im, im: a.re * b.im + a.im * b.re }; }
+                                        function cDiv(a, b) {
+                                            const den = b.re * b.re + b.im * b.im;
+                                            return { re: (a.re * b.re + a.im * b.im) / den, im: (a.im * b.re - a.re * b.im) / den };
+                                        }
+                                        function cInv(a) { const den = a.re * a.re + a.im * a.im; return { re: a.re / den, im: -a.im / den }; }
+                                        function cMag(a) { return Math.sqrt(a.re * a.re + a.im * a.im); }
+                                        function cPhaseDeg(a) { return Math.atan2(a.im, a.re) * 180 / Math.PI; }
+                                        function formatC(a) { return a.re.toFixed(6) + (a.im >= 0 ? " + j" : " - j") + Math.abs(a.im).toFixed(6); }
+
+                                        function Z_R(R) { return toComplex(R, 0); }
+                                        function Z_L(omega, L) { return toComplex(0, omega * L); }
+                                        function Z_C(omega, C) { return toComplex(0, -1 / (omega * C)); }
+
+                                        function Y_from_Z(Z) { return cInv(Z); }
+
+                                        function runCalc() {
+                                            const f = parseFloat(document.getElementById('calc-f').value) || 0;
+                                            const R = parseFloat(document.getElementById('calc-r').value) || 0;
+                                            const L = parseFloat(document.getElementById('calc-l').value) || 0;
+                                            const C = parseFloat(document.getElementById('calc-c').value) || 0;
+                                            const topo = document.getElementById('calc-topo').value;
+
+                                            const omega = 2 * Math.PI * f || 0;
+                                            document.getElementById('calc-omega').innerText = "ω = " + omega.toFixed(6) + " rad/s";
+
+                                            // element impedances
+                                            const Zr = Z_R(R);
+                                            const Zl = (L > 0 && omega > 0) ? Z_L(omega, L) : toComplex(0, 0);
+                                            const Zc = (C > 0 && omega > 0) ? Z_C(omega, C) : toComplex(0, 0);
+
+                                            let Ztot, Ytot;
+
+                                            if (topo === 'series') {
+                                                // Z = Zr + Zl + Zc
+                                                Ztot = cAdd(cAdd(Zr, Zl), Zc);
+                                                Ytot = Y_from_Z(Ztot);
+                                            } else {
+                                                // parallel: sum Y = 1/Z1 + 1/Z2 + ...
+                                                const Yr = cInv(Zr);
+                                                const Yl = (Zl.re === 0 && Zl.im === 0) ? toComplex(0, 0) : cInv(Zl);
+                                                const Yc = (Zc.re === 0 && Zc.im === 0) ? toComplex(0, 0) : cInv(Zc);
+                                                Ytot = cAdd(cAdd(Yr, Yl), Yc);
+                                                Ztot = cInv(Ytot);
+                                            }
+
+                                            document.getElementById('calc-Z').innerHTML = "Z<sub>total</sub> = " + formatC(Ztot) + " Ω";
+                                            document.getElementById('calc-Zmag').innerText = "|Z| = " + cMag(Ztot).toFixed(6) + " Ω";
+                                            document.getElementById('calc-Zph').innerText = "∠Z = " + cPhaseDeg(Ztot).toFixed(4) + "°";
+
+                                            document.getElementById('calc-Y').innerHTML = "Y<sub>total</sub> = " + formatC(Ytot) + " S";
+                                            document.getElementById('calc-Ymag').innerText = "|Y| = " + cMag(Ytot).toFixed(6) + " S";
+                                            document.getElementById('calc-Yph').innerText = "∠Y = " + cPhaseDeg(Ytot).toFixed(4) + "°";
+                                        }
+                                    </script>
+                                </section>
+
+                                <!-- Examples solved -->
+                                <section class="mb-4">
+                                    <h3 class="font-semibold">Worked examples (step-by-step)</h3>
+
+                                    <div class="mt-2 space-y-3 text-sm">
+                                        <!-- Example 1 -->
+                                        <div class="p-3 border rounded-md bg-gray-50 dark:bg-gray-900">
+                                            <div class="font-medium">Example 1 — Series: R = 100 Ω, C = 10 μF, f = 50
+                                                Hz, Vs = 10 V</div>
+                                            <div class="mt-2">
+                                                <div>ω = 2πf = 2π·50 = 314.1592653589793 rad/s</div>
+                                                <div>X<sub>C</sub> = 1/(ωC) = 1/(314.1592653589793·10×10⁻⁶) =
+                                                    318.30988618379064 Ω</div>
+                                                <div>Z = R − jX<sub>C</sub> = 100 − j318.30988618379064 Ω</div>
+                                                <div>|Z| = √(100² + 318.3099²) = 333.6482933304736 Ω</div>
+                                                <div>∠Z = atan2(−318.3099, 100) = −72.55940550948813°</div>
+                                                <div>Current magnitude: I = V/|Z| = 10 / 333.6482933304736 =
+                                                    0.029971680358919596 A</div>
+                                                <div>So I = 0.02997 A ∠ +72.5594° (current leads voltage because net
+                                                    reactance is capacitive)</div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Example 2 -->
+                                        <div class="p-3 border rounded-md bg-gray-50 dark:bg-gray-900">
+                                            <div class="font-medium">Example 2 — Parallel: R = 1 kΩ, C = 0.1 μF, f = 1
+                                                kHz</div>
+                                            <div class="mt-2">
+                                                <div>ω = 2π·1000 = 6283.185307179586 rad/s</div>
+                                                <div>Y<sub>>R</sub> = 1/R = 0.001 S</div>
+                                                <div>Y<sub>C</sub> = jωC = j·6283.1853·0.1×10⁻⁶ = j0.0006283185307179585
+                                                    S</div>
+                                                <div>Y = 0.001 + j0.0006283185307179585 S</div>
+                                                <div>|Y| = 0.0011810098120013967 S, ∠Y = 32.14190763534205°</div>
+                                                <div>Z = 1/Y = 846.7330159648304 Ω ∠ −32.1419°</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <!-- Waveform reference -->
+                                <section class="mb-4">
+                                    <h3 class="font-semibold">Waveforms &amp; key quantities</h3>
+                                    <div class="mt-2 text-sm space-y-2">
+                                        <div>
+                                            <strong>Sine (sinusoidal)</strong><br>
+                                            v(t) = V<sub>p</sub>·sin(ωt + φ) <br>
+                                            Peak V<sub>p</sub>, Peak-to-peak V<sub>pp</sub> = 2V<sub>p</sub>, RMS
+                                            V<sub>rms</sub> = V<sub>p</sub>/√2, Average over full cycle = 0.
+                                        </div>
+
+                                        <div>
+                                            <strong>Square wave</strong><br>
+                                            Peak V<sub>p</sub>, V<sub>pp</sub>=2V<sub>p</sub>,
+                                            V<sub>rms</sub>=V<sub>p</sub> (for symmetric ±), average = 0 (symmetric).
+                                        </div>
+
+                                        <div>
+                                            <strong>Triangular</strong><br>
+                                            Peak V<sub>p</sub>, V<sub>rms</sub> = V<sub>p</sub>/√3, average (symmetric)
+                                            = 0.
+                                        </div>
+
+                                        <div>
+                                            <strong>Angles</strong>: radians ↔ degrees: θ(deg) = θ(rad)·180/π, θ(rad) =
+                                            θ(deg)·π/180.
+                                        </div>
+
+                                        <div>
+                                            <strong>Phase relation</strong>: if current leads voltage, circuit is
+                                            capacitive; if current lags, inductive.
+                                        </div>
+                                    </div>
+
+                                    <!-- waveform previews -->
+                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-2 mt-3 text-xs">
+                                        <!-- sine -->
+                                        <div class="p-2 border rounded-md bg-white dark:bg-gray-900">
+                                            <div class="text-xs mb-1 font-medium">Sinusoid</div>
+                                            <svg viewBox="0 0 200 50" class="w-full h-12">
+                                                <polyline fill="none" stroke="currentColor" stroke-width="1.5" points="
+                0,25
+                10,19
+                20,11
+                30,6
+                40,8
+                50,17
+                60,28
+                70,36
+                80,38
+                90,32
+                100,22
+                110,14
+                120,9
+                130,11
+                140,19
+                150,29
+                160,36
+                170,37
+                180,32
+                190,25
+                200,22" />
+                                            </svg>
+                                        </div>
+
+                                        <!-- square -->
+                                        <div class="p-2 border rounded-md bg-white dark:bg-gray-900">
+                                            <div class="text-xs mb-1 font-medium">Square</div>
+                                            <svg viewBox="0 0 200 50" class="w-full h-12">
+                                                <polyline fill="none" stroke="currentColor" stroke-width="1.5"
+                                                    points="0,40 20,40 20,10 80,10 80,40 120,40 120,10 180,10 180,40 200,40" />
+                                            </svg>
+                                        </div>
+
+                                        <!-- triangular -->
+                                        <div class="p-2 border rounded-md bg-white dark:bg-gray-900">
+                                            <div class="text-xs mb-1 font-medium">Triangular</div>
+                                            <svg viewBox="0 0 200 50" class="w-full h-12">
+                                                <polyline fill="none" stroke="currentColor" stroke-width="1.5"
+                                                    points="0,40 40,10 80,40 120,10 160,40 200,10" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <!-- Oscilloscope grid -->
+                                <section class="mb-4">
+                                    <h3 class="font-semibold">Oscilloscope (grid &amp; axes)</h3>
+                                    <div class="text-sm mt-2">
+                                        Typical oscilloscope view shows horizontal divisions (time) and vertical
+                                        divisions (voltage). Label each division value from the controls (time/div and
+                                        V/div).
+                                    </div>
+
+                                    <div class="mt-3 p-3 border rounded-md bg-gray-50 dark:bg-gray-900">
+                                        <svg viewBox="0 0 440 320" class="w-full h-64">
+                                            <!-- background -->
+                                            <rect x="0" y="0" width="440" height="320" fill="transparent"
+                                                stroke="currentColor" stroke-opacity="0.08" />
+                                            <!-- vertical grid lines -->
+                                            <g stroke="currentColor" stroke-opacity="0.08">
+                                                <!-- 10 vertical divisions -->
+                                                <line x1="20" y1="40" x2="20" y2="280" />
+                                                <line x1="60" y1="40" x2="60" y2="280" />
+                                                <line x1="100" y1="40" x2="100" y2="280" />
+                                                <line x1="140" y1="40" x2="140" y2="280" />
+                                                <line x1="180" y1="40" x2="180" y2="280" />
+                                                <line x1="260" y1="40" x2="260" y2="280" />
+                                                <line x1="300" y1="40" x2="300" y2="280" />
+                                                <line x1="340" y1="40" x2="340" y2="280" />
+                                                <line x1="380" y1="40" x2="380" y2="280" />
+                                                <line x1="420" y1="40" x2="420" y2="280" />
+                                            </g>
+                                            <!-- horizontal grid lines -->
+                                            <g stroke="currentColor" stroke-opacity="0.08">
+                                                <line x1="20" y1="40" x2="420" y2="40" />
+                                                <line x1="20" y1="80" x2="420" y2="80" />
+                                                <line x1="20" y1="120" x2="420" y2="120" />
+                                                <line x1="20" y1="200" x2="420" y2="200" />
+                                                <line x1="20" y1="240" x2="420" y2="240" />
+                                                <line x1="20" y1="280" x2="420" y2="280" />
+                                            </g>
+
+                                            <!-- central axes -->
+                                            <line x1="20" y1="160" x2="420" y2="160" stroke="currentColor"
+                                                stroke-opacity="0.4" />
+                                            <line x1="220" y1="40" x2="220" y2="280" stroke="currentColor"
+                                                stroke-opacity="0.4" />
+
+                                            <!-- labels -->
+                                            <text x="30" y="30" font-size="10" fill="currentColor">V/div</text>
+                                            <text x="350" y="290" font-size="10" fill="currentColor">time →</text>
+                                        </svg>
+                                    </div>
+                                </section>
+
+                                <!-- Short method summary -->
+                                <section class="text-sm text-gray-600 dark:text-gray-400">
+                                    <div class="font-semibold">Short method (reminder)</div>
+                                    <ol class="list-decimal ml-6 mt-2">
+                                        <li>Convert each element to Z (or Y) using ω = 2πf.</li>
+                                        <li>If series: add Z values. If parallel: add Y values and invert to find Z.
+                                        </li>
+                                        <li>Compute magnitude and phase: |Z| = √(Re² + Im²), ∠Z = atan2(Im, Re) (convert
+                                            to degrees).</li>
+                                        <li>Use I = V/Z for currents or V = I·Z for voltages (phasor algebra).</li>
+                                    </ol>
+                                </section> <!-- Oscilloscope SVG -->
+                                <div class="mt-3 p-3 border rounded-md bg-white dark:bg-gray-900">
+                                    <svg viewBox="0 0 400 250" class="w-full h-64 text-gray-600 dark:text-gray-400">
+                                        <!-- Grid -->
+                                        <defs>
+                                            <pattern id="smallGrid" width="20" height="20"
+                                                patternUnits="userSpaceOnUse">
+                                                <path d="M 20 0 L 0 0 0 20" fill="none" stroke="currentColor"
+                                                    stroke-width="0.3" />
+                                            </pattern>
+                                            <pattern id="bigGrid" width="100" height="100"
+                                                patternUnits="userSpaceOnUse">
+                                                <rect width="100" height="100" fill="url(#smallGrid)" />
+                                                <path d="M 100 0 L 0 0 0 100" fill="none" stroke="currentColor"
+                                                    stroke-width="1" />
+                                            </pattern>
+                                        </defs>
+
+                                        <rect width="400" height="250" fill="url(#bigGrid)" />
+
+                                        <!-- Axes (center lines) -->
+                                        <!-- <line x1="0" y1="125" x2="400" y2="125" stroke="currentColor" -->
+                                            stroke-width="1.5" />
+                                        <line x1="200" y1="0" x2="200" y2="250" stroke="currentColor"
+                                            stroke-width="1.5" />
+
+                                        <!-- Example waveform (optional sine) -->
+                                        <polyline fill="none" stroke="currentColor" stroke-width="1.8" points="
+              0,125
+              20,95
+              40,70
+              60,60
+              80,70
+              100,95
+              120,125
+              140,155
+              160,180
+              180,190
+              200,180
+              220,155
+              240,125
+              260,95
+              280,70
+              300,60
+              320,70
+              340,95
+              360,125
+              380,155
+              400,180
+            " />
+                                    </svg>
+
+                                    <div class="mt-2 text-xs text-gray-500 dark:text-gray-400">
+                                        Horizontal axis = time. Vertical axis = voltage/current.
+                                        Use time/div & V/div on your scope to scale measurements.
+                                    </div>
+                                </div>
+                                </section>
+
+                            </div>
+                        </div>
+
+
                 </div>
-
             </div>
+
+            <!-- YOU ALREADY HAVE a global toggle script in ../script.js; if not, include this helper: -->
+            <script>
+                // minimal toggleContent() in case your script doesn't include it
+                function toggleContent(btn) {
+                    // btn is the clicked button element
+                    // find next .content-expanded inside the same parent container
+                    const parent = btn.parentElement;
+                    if (!parent) return;
+                    const content = parent.querySelector('.content-expanded');
+                    if (!content) return;
+                    content.classList.toggle('hidden');
+                }
+            </script>
+
+            </ul>
         </div>
+
+    </div>
+    </div>
     </div>
     </div>
 
