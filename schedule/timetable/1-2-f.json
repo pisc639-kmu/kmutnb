@@ -222,7 +222,22 @@
         ]
     },
     "exam": {
-        "Monday 5 Jan": [
+        "Monday 2 March": [
+            {
+                "code": "031001142",
+                "name-en": "Foundation English II",
+                "name-th": "ภาษาอังกฤษพื้นฐาน 2",
+                "from": "8",
+                "to": "10",
+                "room": "90 - 509",
+                "section": "15",
+                "instructor": [
+                    {
+                        "name-en": "MR. Asim Baris Orses",
+                        "name-th": "MR. Asim Baris Orses"
+                    }
+                ]
+            },
             {
                 "code": "031001112",
                 "name-en": "Mechanics II",
@@ -235,21 +250,6 @@
                     {
                         "name-en": "Asst.Prof.Dr.PRAKASIT CHANSUPHAN",
                         "name-th": "ผศ.ดร.ประกาศิต ช่างสุพรรณ"
-                    }
-                ]
-            },
-            {
-                "code": "031001142",
-                "name-en": "Foundation English II",
-                "name-th": "ภาษาอังกฤษพื้นฐาน 2",
-                "from": "15",
-                "to": "17",
-                "room": "90 - 509",
-                "section": "15",
-                "instructor": [
-                    {
-                        "name-en": "MR. Asim Baris Orses",
-                        "name-th": "MR. Asim Baris Orses"
                     }
                 ]
             }
