@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E15 Exam Schedule & Timetable</title>
+    <link rel="icon" type="image/png" href="https://kmu.pisc.cc/img/logo-nobg.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://kmu.pisc.cc/style.css">
+</head>
+<body class="dark bg-gray-100 dark:bg-gray-900">
+    <!-- Navbar -->
+    <nav class="bg-white dark:bg-gray-800 shadow-md p-4 sticky top-0 z-50 transition-colors duration-300 shadow-md shadow-gray-300 dark:shadow-gray-700">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Logo -->
+            <a href="../../" class="flex items-center space-x-2">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-500 dark:text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                </svg> -->
+                <img src="https://kmu.pisc.cc/img/logo-nobg.png" alt="EP" sizes="100vw" class="w-8 h-8">
+                <span class="text-xl font-bold text-gray-800 dark:text-white">E15</span>
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300 rounded-md p-2 transition-transform duration-300 hover:bg-gray-200 dark:hover:bg-gray-700 shadow-lg">
+                    <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path id="menu-icon-open" class="transition-opacity duration-300" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        <path id="menu-icon-close" class="opacity-0 transition-opacity duration-300" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Desktop Navigation Links -->
+            <div class="hidden md:space-x-8 md:flex flex items-center justify-center space-x-4 font-medium transition-colors">
+                <a href="../../" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-gray-200 dark:hover:bg-gray-700">Home</a>
+                <a href="../../schedule" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-gray-200 dark:hover:bg-gray-700">Exam Schedule & Timetable</a>
+                <a href="../../summary" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-gray-200 dark:hover:bg-gray-700">Summary</a>
+                <a href="../../old-exam" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-gray-200 dark:hover:bg-gray-700">Old Exam</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md rounded-md m-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800">
+        <div class="p-4 flex flex-col space-y-2">
+            <a href="../../" class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-300 rounded-md py-2 px-3">Home</a>
+            <a href="../../schedule" class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-300 rounded-md py-2 px-3">Exam Schedule & Timetable</a>
+            <a href="../../summary" class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-300 rounded-md py-2 px-3">Summary</a>
+            <a href="../../old-exam" class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-300 rounded-md py-2 px-3">Old Exam</a>
+        </div>
+    </div>
+
+    <div class="flex items-center text-center justify-center space-x-4 mt-16">
+        <h1 class="text-4xl font-bold my-4 text-gray-800 dark:text-white">Study Timetable</h1>
+        <a onclick="download_image();" class="items-center space-x-2 text-black dark:text-white hover:text-blue-500 dark:hover:text-blue-400">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+        </a>
+    </div>
+    <script>
+        /**
+         * Triggers a file download from a given URL.
+         * @param {string} url - The URL of the file to download.
+         * @param {string} [filename] - The desired name for the downloaded file.
+         */
+        async function downloadFileFromURL(url, filename) {
+        try {
+            // 1. Fetch the file data as a Blob
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const blob = await response.blob();
+
+            // 2. Create a temporary object URL for the blob
+            const blobUrl = URL.createObjectURL(blob);
+
+            // 3. Use a hidden anchor tag to trigger the download
+            const a = document.createElement('a');
+            a.href = blobUrl;
+            a.download = filename || url.split('/').pop(); // Use provided filename or extract from URL
+            a.style.display = 'none';
+            document.body.appendChild(a);
+            a.click(); // Simulate a click event
+            document.body.removeChild(a);
+
+            // 4. Clean up the object URL after a short delay
+            // (A slight delay is good practice to ensure the download intent is registered)
+            setTimeout(() => URL.revokeObjectURL(blobUrl), 100); 
+
+        } catch (error) {
+            console.error('Download failed:', error);
+            alert('Could not download the file. Check console for details.' + error);
+        }
+        }
+
+        function isDarkMode() {
+            if (window.matchMedia) {
+                return window.matchMedia('(prefers-color-scheme: dark)').matches;
+            }
+            // Fallback for browsers that don't support matchMedia
+            return false; 
+        };
+
+        function download_light() {
+            var a = document.createElement('a');
+            a.href = "table-light.png";
+            a.download = "table-light.png";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            // downloadFileFromURL("table-light.png", "table-light.png");
+        };
+
+        function download_dark() {
+            var a = document.createElement('a');
+            a.href = "table-dark.png";
+            a.download = "table-dark.png";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        };
+
+        function download_image() {
+            if (isDarkMode()) {
+                download_light();
+                download_dark();
+            } else {
+                download_dark();
+                download_light();
+            }
+        };
+    </script>
+    <div class="container mx-auto mt-8 overflow-x-auto shadow-md shadow-gray-400 dark:shadow-gray-800 hover:shadow-gray-500 dark:hover:shadow-gray-950">
+        <table id="timetable" class="text-[0.6rem] [&_thead]:text-xs [&>*>tr>*:first-child]:text-sm
+            md:text-[0.8rem] md:[&_thead]:text-sm md:[&>*>tr>*:first-child]:text-md
+            [&>*>tr>*:first-child]:font-bold
+            w-full border-collapse border border-gray-300 dark:border-gray-700">
+        </table>
+    </div>
+
+    
+    <div class="flex items-center text-center justify-center space-x-4 mt-16">
+        <h1 class="text-4xl font-bold my-4 text-gray-800 dark:text-white">Exam Schedule</h1>
+    </div>
+
+    <div class="container mx-auto mt-8 overflow-x-auto shadow-md shadow-gray-400 dark:shadow-gray-800 hover:shadow-gray-500 dark:hover:shadow-gray-950">
+        <table id="exam" class="text-[0.6rem] [&_thead]:text-xs [&>*>tr>*:first-child]:text-sm
+            md:text-[0.8rem] md:[&_thead]:text-sm md:[&>*>tr>*:first-child]:text-md
+            [&>*>tr>*:first-child]:font-bold
+            w-full border-collapse border border-gray-300 dark:border-gray-700">
+        </table>
+    </div>
+
+    <div class="flex justify-center space-x-4 md:space-x-8 mt-4 mx-auto">
+        <a href="./1-1" class="bg-neutral-600 hover:bg-neutral-700 dark:bg-neutral-950 dark:hover:bg-neutral-700 text-white font-medium py-2 px-4 rounded-md border border-neutral-500 transition-colors duration-300 shadow-md shadow-neutral-800 hover:shadow-neutral-500"
+        >Year 1 Term 1</a>
+        <a href="./1-2-f" class="bg-neutral-600 hover:bg-neutral-700 dark:bg-neutral-950 dark:hover:bg-neutral-700 text-white font-medium py-2 px-4 rounded-md border border-neutral-500 transition-colors duration-300 shadow-md shadow-neutral-800 hover:shadow-neutral-500"
+        >Year 1 Term 1</a>
+    </div>
+
+    <script src="https://kmu.pisc.cc/script.js"></script>
+    <script>
+        function make_cell(elem, text, options = {}) {
+            const cell = document.createElement(elem);
+            cell.classList.add("px-3", "py-2", "border-x", "border", "border-gray-300", "dark:border-gray-700");
+            cell.innerHTML = text;
+            cell.colSpan = options.colspan || 1;
+            return cell;
+        }
+
+        const timetable = document.getElementById('timetable');
+        timetable.innerHTML = '';
+
+        const thead = document.createElement('thead');
+        const thead_tr = document.createElement('tr');
+        thead_tr.classList.add("bg-gray-200", "dark:bg-gray-800", "text-gray-900", "dark:text-white", "shadow-md")
+        thead_tr.appendChild(make_cell('th', 'Day'));
+        for (let i = 0; i < 10; i++) {
+            thead_tr.appendChild(make_cell('th', `${i + 8}:00 - ${i + 9}:00`));
+        }
+        thead.appendChild(thead_tr);
+        timetable.appendChild(thead);
+
+        $.getJSON('https://kmu.pisc.cc/schedule/timetable/1-2-f.json', function(alldata) {
+            console.log(alldata);
+            const data = alldata['timetable'];
+            console.log(data);
+            const tbody = document.createElement('tbody');
+
+            const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+            for (let i = 0; i < days.length; i++) {
+                const tr = document.createElement('tr');
+                tr.classList.add("bg-white", "dark:bg-gray-900", "hover:bg-gray-100", "dark:hover:bg-gray-800", "text-gray-800", "dark:text-white");
+                tr.appendChild(make_cell('td', days[i]));
+
+                let j = 8;
+                for (let k = 0; k < data[days[i].toLowerCase()].length; k++) {
+                    while (j < data[days[i].toLowerCase()][k]['from']) {
+                        tr.appendChild(make_cell('td', ''));
+
+                        j++;
+                    }
+                    const td = make_cell('td', `<b>${data[days[i].toLowerCase()][k]['name-en']}<br>${data[days[i].toLowerCase()][k]['name-th']}</b><br>${data[days[i].toLowerCase()][k]['room']}<br>${data[days[i].toLowerCase()][k]['code']}<br>${data[days[i].toLowerCase()][k]['instructor'].map(instructor => instructor['name-th']).join('<br>')}`, {colspan: data[days[i].toLowerCase()][k]['to'] - data[days[i].toLowerCase()][k]['from']});
+                    tr.appendChild(td);
+
+                    j += data[days[i].toLowerCase()][k]['to'] - data[days[i].toLowerCase()][k]['from'];
+                }
+                for (let l = 0; l < 10 - j + 8; l++) {
+                    tr.appendChild(make_cell('td', ''));
+                }
+                tbody.appendChild(tr);
+            }
+            timetable.appendChild(tbody);
+
+            // ================= EXAM SCHEDULE =================
+            const exam_data = alldata['exam'];
+            const exam = document.getElementById('exam');
+            exam.innerHTML = '';
+
+            // ---- exam days come directly from JSON keys ----
+            const exam_days = Object.keys(exam_data).filter(k => k !== 'ignore');
+
+            // ---- collect exam times ----
+            let exam_times = [];
+            exam_days.forEach(day => {
+                exam_data[day].forEach(e => {
+                    exam_times.push(Number(e.from), Number(e.to));
+                });
+            });
+
+            // ---- unique + sort ----
+            exam_times = [...new Set(exam_times)].sort((a, b) => a - b);
+
+            // ---- derive contiguous slots (old layout compatible) ----
+            const EXAM_SLOTS = [];
+            for (let i = 0; i < exam_times.length - 1; i++) {
+                EXAM_SLOTS.push({
+                    from: exam_times[i],
+                    to: exam_times[i + 1]
+                });
+            }
+
+            // ---------- THEAD ----------
+            const examthead = document.createElement('thead');
+            const headTr = document.createElement('tr');
+            headTr.classList.add(
+                "bg-gray-200",
+                "dark:bg-gray-800",
+                "text-gray-900",
+                "dark:text-white",
+                "shadow-md"
+            );
+
+            headTr.appendChild(make_cell('th', 'Day'));
+
+            EXAM_SLOTS.forEach(s => {
+                headTr.appendChild(
+                    make_cell('th', `${s.from}:00 - ${s.to}:00`)
+                );
+            });
+
+            examthead.appendChild(headTr);
+            exam.appendChild(examthead);
+
+            // ---------- TBODY ----------
+            const examtbody = document.createElement('tbody');
+
+            exam_days.forEach(dayLabel => {
+                const exams = exam_data[dayLabel];
+
+                const tr = document.createElement('tr');
+                tr.classList.add(
+                    "bg-white",
+                    "dark:bg-gray-900",
+                    "hover:bg-gray-100",
+                    "dark:hover:bg-gray-800",
+                    "text-gray-800",
+                    "dark:text-white"
+                );
+
+                // Row header uses FULL JSON KEY
+                tr.appendChild(make_cell('td', dayLabel));
+
+                let slotIndex = 0;
+
+                while (slotIndex < EXAM_SLOTS.length) {
+                    const slot = EXAM_SLOTS[slotIndex];
+
+                    const examItem = exams.find(e =>
+                        Number(e.from) <= slot.from &&
+                        Number(e.to) > slot.from
+                    );
+
+                    if (!examItem) {
+                        tr.appendChild(make_cell('td', ''));
+                        slotIndex++;
+                        continue;
+                    }
+
+                    // calculate colspan
+                    let span = 0;
+                    while (
+                        slotIndex + span < EXAM_SLOTS.length &&
+                        Number(examItem.to) > EXAM_SLOTS[slotIndex + span].from
+                    ) {
+                        span++;
+                    }
+
+                    tr.appendChild(
+                        make_cell(
+                            'td',
+                            `<b>${examItem['name-en']}</b><br>
+                            ${examItem['name-th']}<br>
+                            ${examItem['room']}`,
+                            { colspan: span }
+                        )
+                    );
+
+                    slotIndex += span;
+                }
+
+                examtbody.appendChild(tr);
+            });
+
+            exam.appendChild(examtbody);
+
+
+        });
+    </script>
+</body>
+</html>
