@@ -124,6 +124,7 @@
             <thead>
                 <tr class="border-x border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white">
                     <th class="px-5 py-3">Subject</th>
+                    <th class="px-5 py-3">2010</th>
                     <th class="px-5 py-3">2011</th>
                     <th class="px-5 py-3">2012</th>
                     <th class="px-5 py-3">2013</th>
@@ -209,7 +210,7 @@
             subjectName.classList.add("px-5", "py-3");
             subjectName.textContent = SubjectsFull[i];
             row.appendChild(subjectName);
-            for (let j = 2011; j <= 2025; j++) {
+            for (let j = 2010; j <= 2025; j++) {
                 const column = document.createElement("th");
                 column.classList.add("px-5", "py-3");
                 row.appendChild(column);
@@ -236,7 +237,7 @@
             var year = parseInt(name.split(" ")[1], 10);
             var subject = name.split(" ")[0];
             var row = parseInt(Subjects.indexOf(subject), 10);
-            var column = year - 2011;
+            var column = year - 2010;
             addFileButton(row, column, file, name);
         };
         fetch("https://api.github.com/repos/pisc639-kmu/kmutnb/contents/old-exam/1-2-f").then(a => a.json()).then(files => {
