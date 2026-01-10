@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E15 Old Exam Year 1 Term 2 Midterm</title>
+    <link rel="icon" type="image/png" href="https://kmu.pisc.cc/img/logo-nobg.png">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://kmu.pisc.cc/style.css">
+    <script>
+        function isIOS() {
+            const userAgent = navigator.userAgent;
+            const platform = navigator.platform;
+
+            // Check for common iOS user agent strings
+            if (/iPad|iPhone|iPod/.test(userAgent)) {
+                return true;
+            }
+
+            // Specific check for iPad on iOS 13+ which might report as 'MacIntel' platform
+            if (platform === 'MacIntel' && navigator.maxTouchPoints > 1) {
+                return true;
+            }
+
+            return false;
+        };
+
+        function openFile(path) {
+            // if (isIOS()) {
+            //     window.open(path, '_blank');
+            // } else {
+                const FrameElement = document.getElementById("FileFrame");
+                FrameElement.src = "https://docs.google.com/viewerng/viewer?embedded=true&url=raw.githubusercontent.com/pisc639-kmu/kmutnb/main/old-exam/1-2-m/" + path;
+                FrameElement.setAttribute("raw", "https://raw.githubusercontent.com/pisc639-kmu/kmutnb/main/old-exam/1-2-m/" + path);
+                if (FrameElement.classList.contains("hidden")){
+                    FrameElement.classList.remove("hidden");
+                }
+                if (FrameElement.classList.contains("md:hidden")){
+                    FrameElement.classList.remove("md:hidden");
+                }
+                window.location.href = "#FileFrame";
+            // };
+
+            const IFrameTitle = document.getElementById("iframe-title");
+            IFrameTitle.textContent = path;
+
+            const iframeContainer = document.getElementById('iframe-container');
+            if (iframeContainer.classList.contains('display-none')) {
+                iframeContainer.classList.remove('display-none');
+            }
+        };
+    </script>
+    <style>
+        .display-none {
+            display: none;
+        }
+    </style>
+</head>
+<body class="dark bg-gray-100 dark:bg-gray-900">
+    <!-- Navbar -->
+    <nav class="bg-white dark:bg-gray-800 shadow-md p-4 sticky top-0 z-50 transition-colors duration-300 shadow-md shadow-gray-300 dark:shadow-gray-700">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Logo -->
+            <a href="../../" class="flex items-center space-x-2">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-500 dark:text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                </svg> -->
+                <img src="https://kmu.pisc.cc/img/logo-nobg.png" alt="EP" sizes="100vw" class="w-8 h-8">
+                <span class="text-xl font-bold text-gray-800 dark:text-white">E15</span>
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300 rounded-md p-2 transition-transform duration-300 hover:bg-gray-200 dark:hover:bg-gray-700 shadow-lg">
+                    <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path id="menu-icon-open" class="transition-opacity duration-300" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        <path id="menu-icon-close" class="opacity-0 transition-opacity duration-300" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Desktop Navigation Links -->
+            <div class="hidden md:space-x-8 md:flex flex items-center justify-center space-x-4 font-medium transition-colors">
+                <a href="../../" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-gray-200 dark:hover:bg-gray-700">Home</a>
+                <a href="../../schedule" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-gray-200 dark:hover:bg-gray-700">Exam Schedule & Timetable</a>
+                <a href="../../summary" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-gray-200 dark:hover:bg-gray-700">Summary</a>
+                <a href="../../old-exam" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-gray-200 dark:hover:bg-gray-700">Old Exam</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md rounded-md m-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800">
+        <div class="p-4 flex flex-col space-y-2">
+            <a href="../../" class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-300 rounded-md py-2 px-3">Home</a>
+            <a href="../../schedule" class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-300 rounded-md py-2 px-3">Exam Schedule & Timetable</a>
+            <a href="../../summary" class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-300 rounded-md py-2 px-3">Summary</a>
+            <a href="../../old-exam" class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-300 rounded-md py-2 px-3">Old Exam</a>
+        </div>
+    </div>
+
+    <div class="flex items-center justify-center space-x-4 mt-16">
+        <h1 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Old Exam Year 1 Term 2 Midterm</h1>
+    </div>
+
+    <script>
+        function download_file() {
+            const FileFrame = document.getElementById('FileFrame');
+            var url = FileFrame.getAttribute('raw');
+            var a = document.createElement('a');
+            a.href = url;
+            a.download = url;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        };
+    </script>
+
+    <div class="container mx-auto mt-8 overflow-x-auto shadow-md shadow-gray-400 dark:shadow-gray-800 hover:shadow-gray-500 dark:hover:shadow-gray-950">
+        <table class="w-full border-collapse border border-gray-300 dark:border-gray-700">
+            <thead>
+                <tr class="border-x border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white">
+                    <th class="px-5 py-3">Subject</th>
+                    <th class="px-5 py-3">2011</th>
+                    <th class="px-5 py-3">2012</th>
+                    <th class="px-5 py-3">2013</th>
+                    <th class="px-5 py-3">2014</th>
+                    <th class="px-5 py-3">2015</th>
+                    <th class="px-5 py-3">2016</th>
+                    <th class="px-5 py-3">2017</th>
+                    <th class="px-5 py-3">2018</th>
+                    <th class="px-5 py-3">2019</th>
+                    <th class="px-5 py-3">2020</th>
+                    <th class="px-5 py-3">2021</th>
+                    <th class="px-5 py-3">2022</th>
+                    <th class="px-5 py-3">2023</th>
+                    <th class="px-5 py-3">2024</th>
+                    <th class="px-5 py-3">2025</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+            </tbody>
+        </table>
+    </div>
+    <br><br>
+    <div id="iframe-container" class="container mx-auto display-none">
+        <h2 class="text-xl text-center font-bold mb-4 text-gray-800 dark:text-white flex flex-row items-center justify-center space-x-4">
+            <spam class="flex flex-row items-center space-x-4">
+                <h2 class="text-xl font-bold text-gray-800 dark:text-white" id="iframe-title"></h2>
+            </spam>
+            <a onclick="download_file();" class="items-center space-x-2 text-black dark:text-white hover:text-blue-500 dark:hover:text-blue-400">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+            </a>
+        </h2>
+        <iframe src="" frameborder="0" width="100%" height="" id="FileFrame" class="hidden md:hidden border border-gray-300 dark:border-gray-300"></iframe>
+    </div>
+    <script src="https://kmu.pisc.cc/script.js"></script>
+    <script>
+    window.addEventListener('scroll', function(event) {
+        const navHeight = document.querySelector('nav').offsetHeight;
+        const iframe = document.getElementById('FileFrame');
+        const iframeContainer = document.getElementById('iframe-container');
+        const rect = iframe.getBoundingClientRect();
+        if (rect.top <= window.innerHeight - navHeight && rect.bottom >= 0) {
+            iframe.style.height = `calc(100vh - ${navHeight}px)`;
+            iframe.style.width = '100%';
+            iframe.classList.remove('hidden');
+        } else {
+            iframe.style.height = '';
+            iframe.style.width = '';
+            iframe.classList.add('hidden');
+        }
+    });
+    </script>
+    <script>
+        // fetch("https://api.github.com/repos/pisc639-kmu/kmutnb/contents/old-exam/1-1-f").then(a => a.json()).then(a => console.log(a))
+        const SubjectsFull = [
+            "Mathematics II",
+            "Thai II",
+            "Chemistry II",
+            "Foundation English II",
+            "Mechanics II",
+            "Mechanical Drawing I",
+            "Electrical Measuring Instruments",
+            "Electric Circuits II"
+        ];
+        const Subjects = [
+            "Math",
+            "Thai",
+            "Chemistry",
+            "English",
+            "Physics",
+            "Drawing",
+            "EMI",
+            "Circuit"
+        ];
+        const tbody = document.getElementById("table-body");
+        for (let i = 0; i < SubjectsFull.length; i++) {
+            const row = document.createElement("tr");
+            row.classList.add("bg-white", "dark:bg-gray-800", "hover:bg-gray-100", "dark:hover:bg-gray-700", "border-x", "border", "border-gray-300", "dark:border-gray-700", "text-gray-900", "dark:text-white");
+            const subjectName = document.createElement("th");
+            subjectName.classList.add("px-5", "py-3");
+            subjectName.textContent = SubjectsFull[i];
+            row.appendChild(subjectName);
+            for (let j = 2011; j <= 2025; j++) {
+                const column = document.createElement("th");
+                column.classList.add("px-5", "py-3");
+                row.appendChild(column);
+            };
+            tbody.appendChild(row);
+        };
+        function addFileButton(row, column, file, name) {
+            console.log(row, column, file, name);
+            var tbody = document.getElementById("table-body");
+            var rowElement = tbody.children[row];
+            var columnElement = rowElement.children[column + 1];
+            var button = document.createElement("button");
+            button.type = "button";
+            button.classList.add("text-blue-600", "dark:text-blue-400", "hover:underline");
+            // button.href = file;
+            button.onclick = function() {
+                openFile(file);
+            };
+            button.textContent = name;
+            columnElement.appendChild(button);
+        };
+        function addFile(file) {
+            var name = file.split(",")[0];
+            var year = parseInt(name.split(" ")[1], 10);
+            var subject = name.split(" ")[0];
+            var row = parseInt(Subjects.indexOf(subject), 10);
+            var column = year - 2011;
+            addFileButton(row, column, file, name);
+        };
+        fetch("https://api.github.com/repos/pisc639-kmu/kmutnb/contents/old-exam/1-2-f").then(a => a.json()).then(files => {
+            files.forEach(file => {
+                if (file.name != "index.html") {
+                    addFile(file.name);
+                };
+            });
+        });
+    </script>
+</body>
+</html>
