@@ -245,8 +245,12 @@ def main():
     if len(sys.argv) > 1:
         query = sys.argv[1].lower().strip()
         query = re.sub(r'[\"\']', '', query).strip()
+        start = True
         if query == "auto":
             while True:
+                if start:
+                    print("Waiting for search query...")
+                    start = False
                 original_query = wait_for_clipboard_change()
                 query = re.sub(r'[\"\']', '', original_query).strip()
                 if query != "":

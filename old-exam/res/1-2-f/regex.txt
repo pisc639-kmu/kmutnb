@@ -1,4 +1,5 @@
 Found file:[^\n]*midterm[^\n]*\n
 Found file:[^\n]*S1-[^\n]*\n
 ^(?=.*midterm|.*\bS1\b|^(?!.*ep)(?!.*\bS[023456789]\b)(?!.*\bS\d\d\b).*)[^\n]*\n?
+(^(?=.*midterm|.*\bS1\b|^(?!.*ep)(?!.*\bS[\d]\b)(?!.*\bS\d\d\b).*)[^\n]*\n?|Found File:\s*)
 (^(?=.*midterm|.*\bS1\b|^(?!.*ep)(?!.*\bS[023456789]\b)(?!.*\bS\d\d\b).*)[^\n]*\n?|Found File:\s*)
