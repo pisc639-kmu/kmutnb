@@ -237,41 +237,28 @@
                         "name-th": "MR. Asim Baris Orses"
                     }
                 ]
-            },
+            }
+        ],
+        "Tuesday 3 March": [
+        ],
+        "Wednesday 4 March": [
             {
-                "code": "031001112",
-                "name-en": "Mechanics II",
-                "name-th": "กลศาสตร์ 2",
+                "code": "031001152",
+                "name-en": "Thai II",
+                "name-th": "ภาษาไทย 2",
                 "from": "10",
                 "to": "12",
-                "room": "90 - 502",
+                "room": "90 - 309",
                 "section": "15",
                 "instructor": [
                     {
-                        "name-en": "Asst.Prof.Dr.PRAKASIT CHANSUPHAN",
-                        "name-th": "ผศ.ดร.ประกาศิต ช่างสุพรรณ"
+                        "name-en": "Dr.PRATCHAYAPORN THONGPRASIT",
+                        "name-th": "ดร.ปรัชญาพร ทองประสิทธิ์"
                     }
                 ]
             }
         ],
-        "Tuesday 6 Jan": [
-            {
-                "code": "031001122",
-                "name-en": "Chemistry II",
-                "name-th": "เคมี 2",
-                "from": "13",
-                "to": "15",
-                "room": "90 - 408",
-                "section": "15",
-                "instructor": [
-                    {
-                        "name-en": "Assoc.Prof.Dr.NATHJANAN JONGKON",
-                        "name-th": "รศ.ดร.ณัฐจนันท์ จงกล"
-                    }
-                ]
-            }
-        ],
-        "Wednesday 7 Jan": [
+        "Thursday 5 March": [
             {
                 "code": "031001132",
                 "name-en": "Mathematics II",
@@ -288,22 +275,78 @@
                 ]
             }
         ],
-        "Thursday 8 Jan": [
+        "Friday 6 March": [
             {
-                "code": "031001152",
-                "name-en": "Thai II",
-                "name-th": "ภาษาไทย 2",
-                "from": "10",
-                "to": "12",
-                "room": "90 - 309",
+                "code": "031001112",
+                "name-en": "Mechanics II",
+                "name-th": "กลศาสตร์ 2",
+                "from": "8",
+                "to": "10",
+                "room": "90 - 608",
                 "section": "15",
                 "instructor": [
                     {
-                        "name-en": "Dr.PRATCHAYAPORN THONGPRASIT",
-                        "name-th": "ดร.ปรัชญาพร ทองประสิทธิ์"
+                        "name-en": "Asst.Prof.Dr.PRAKASIT CHANSUPHAN",
+                        "name-th": "ผศ.ดร.ประกาศิต ช่างสุพรรณ"
                     }
                 ]
-            },
+            }
+        ],
+        "Saturday 7 March": [],
+        "Sunday 8 March": [],
+        "Monday 9 March": [
+            {
+                "code": "031001122",
+                "name-en": "Chemistry II",
+                "name-th": "เคมี 2",
+                "from": "13",
+                "to": "15",
+                "room": "90 - 408",
+                "section": "15",
+                "instructor": [
+                    {
+                        "name-en": "Assoc.Prof.Dr.NATHJANAN JONGKON",
+                        "name-th": "รศ.ดร.ณัฐจนันท์ จงกล"
+                    }
+                ]
+            }
+        ],
+        "Tuesday 10 March": [
+            {
+                "code": "031021122",
+                "name-en": "Electric Circuits II",
+                "name-th": "วงจรไฟฟ้า 2",
+                "from": "13",
+                "to": "15",
+                "room": "90 - 409",
+                "section": "5",
+                "instructor": [
+                    {
+                        "name-en": "Assoc.Prof.Dr.TITIPONG LERTWIRIYAPRAPA",
+                        "name-th": "รศ.ดร.ฐิติพงษ์ เลิศวิริยะประภา"
+                    }
+                ]
+            }
+        ],
+        "Wednesday 11 March": [
+            {
+                "code": "031021112",
+                "name-en": "Electrical Measuring Instruments",
+                "name-th": "เครื่องมือวัดไฟฟ้า",
+                "from": "10",
+                "to": "12",
+                "room": "90 - 407",
+                "section": "5",
+                "instructor": [
+                    {
+                        "name-en": "Assoc.Prof.Dr.PICHET SRIYANYONG",
+                        "name-th": "รศ.ดร.พิเชษฐ์ ศรียรรยงค์"
+                    }
+                ]
+            }
+        ],
+        "Thursday 12 March": [],
+        "Friday 13 March": [
             {
                 "code": "031011321",
                 "name-en": "Mechanical Drawing I",
@@ -320,38 +363,6 @@
                     {
                         "name-en": "Ajarn.PICHAI CHOBSUK",
                         "name-th": "อ.พิชัย ชอบสุข"
-                    }
-                ]
-            }
-        ],
-        "Friday 9 Jan": [
-            {
-                "code": "031021112",
-                "name-en": "Electrical Measuring Instruments",
-                "name-th": "เครื่องมือวัดไฟฟ้า",
-                "from": "10",
-                "to": "12",
-                "room": "90 - 407",
-                "section": "5",
-                "instructor": [
-                    {
-                        "name-en": "Assoc.Prof.Dr.PICHET SRIYANYONG",
-                        "name-th": "รศ.ดร.พิเชษฐ์ ศรียรรยงค์"
-                    }
-                ]
-            },
-            {
-                "code": "031021122",
-                "name-en": "Electric Circuits II",
-                "name-th": "วงจรไฟฟ้า 2",
-                "from": "13",
-                "to": "15",
-                "room": "90 - 409",
-                "section": "5",
-                "instructor": [
-                    {
-                        "name-en": "Assoc.Prof.Dr.TITIPONG LERTWIRIYAPRAPA",
-                        "name-th": "รศ.ดร.ฐิติพงษ์ เลิศวิริยะประภา"
                     }
                 ]
             }
