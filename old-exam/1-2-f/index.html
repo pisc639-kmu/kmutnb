@@ -41,7 +41,15 @@
                 if (FrameElement.classList.contains("md:hidden")){
                     FrameElement.classList.remove("md:hidden");
                 }
+                // window.location.href = "#FileFrame";
                 window.location.href = "#FileFrame";
+                FrameElement.addEventListener("load", () => {
+                    // setTimeout(() => {
+                    //     const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+                    // }, 500);
+                    window.scrollTo(0,document.body.scrollHeight);
+                })
+                
             // };
 
             const IFrameTitle = document.getElementById("iframe-title");
