@@ -214,6 +214,7 @@ def search_files(query, in_database=True):
     found = False
     first_file = ""
     first_file_opened = False
+    to_open = None
     if in_database:
         with open("files.csv", "r", encoding="utf-8") as f:
             lines = f.readlines()[1:-1]
@@ -226,9 +227,12 @@ def search_files(query, in_database=True):
                             first_file = fpath
                             first_file_opened = True
                         found = True
+                        to_open = fpath
                 except:
                     pass
-        webbrowser.open(first_file)
+        # webbrowser.open(first_file)
+        if to_open:
+            webbrowser.open(to_open)
     else:
         for root, dirs, files in os.walk(all_path):
             for file in files:
@@ -236,9 +240,12 @@ def search_files(query, in_database=True):
                     print(f"Found file: \"{os.path.join(root, file)}\"")
                     if not first_file_opened:
                         first_file = os.path.join(root, file)
-                        webbrowser.open(os.path.join(root, file))
+                        # webbrowser.open(os.path.join(root, file))
                         first_file_opened = True
                     found = True
+                    to_open = os.path.join(root, file)
+        if to_open:
+            webbrowser.open(to_open)
     return first_file
 
 def main():
