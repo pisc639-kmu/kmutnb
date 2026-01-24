@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Score Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .container { width: 80%; margin: auto; font-family: sans-serif; }
+        .controls { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; align-items: center; }
+        select { padding: 5px; height: 100px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Student Performance Tracker</h2>
+    
+    <div class="controls">
+        <div>
+            <label>Select Subjects (Hold Ctrl/Cmd):</label><br>
+            <select id="subjectSelect" multiple>
+                <option value="Math" selected>Math</option>
+                <option value="Science" selected>Science</option>
+                <option value="History">History</option>
+            </select>
+        </div>
+        
+        <button onclick="sortData('name')">Sort by Name</button>
+        <button onclick="sortData('id')">Sort by ID #</button>
+        <button onclick="sortData('total')">Sort by Total Score</button>
+    </div>
+
+    <canvas id="scoreChart"></canvas>
+</div>
+
+<script>
+    // --- Javascript logic goes here ---
+    // 1. Initial Data
+    let students = [
+        { id: 101, name: "Alice", Math: 85, Science: 92, History: 78 },
+        { id: 105, name: "Charlie", Math: 95, Science: 88, History: 91 },
+        { id: 102, name: "Bob", Math: 70, Science: 75, History: 80 },
+        { id: 104, name: "Eve", Math: 90, Science: 94, History: 85 },
+        { id: 103, name: "Dan", Math: 60, Science: 70, History: 65 }
+    ];
+
+    let chart;
+    const ctx = document.getElementById('scoreChart').getContext('2d');
+
+    // 2. Initialize Chart
+    function initChart() {
+        chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: [], 
+                datasets: []
+            },
+            options: {
+                responsive: true,
+                scales: { y: { beginAtZero: true, max: 100 } }
+            }
+        });
+        updateChart();
+    }
+
+    // 3. Update Function (Filters & Rendering)
+    function updateChart() {
+        const selectedSubjects = Array.from(document.getElementById('subjectSelect').selectedOptions).map(o => o.value);
+        
+        // Set Labels (Student Names)
+        chart.data.labels = students.map(s => s.name);
+        
+        // Map data to Chart.js datasets
+        chart.data.datasets = selectedSubjects.map((subject, index) => {
+            const colors = ['#3498db', '#e74c3c', '#2ecc71']; // Colors for different bars
+            return {
+                label: subject,
+                data: students.map(s => s[subject]),
+                backgroundColor: colors[index % colors.length]
+            };
+        });
+
+        chart.update();
+    }
+
+    // 4. Sorting Logic
+    function sortData(criteria) {
+        if (criteria === 'name') {
+            students.sort((a, b) => a.name.localeCompare(b.name));
+        } else if (criteria === 'id') {
+            students.sort((a, b) => a.id - b.id);
+        } else if (criteria === 'total') {
+            // Sorts by the sum of all subjects currently available in the data
+            students.sort((a, b) => {
+                const sumA = a.Math + a.Science + a.History;
+                const sumB = b.Math + b.Science + b.History;
+                return sumB - sumA; // Descending
+            });
+        }
+        updateChart();
+    }
+
+    // Event Listeners
+    document.getElementById('subjectSelect').addEventListener('change', updateChart);
+
+    // Start
+    initChart();
+</script>
+</body>
+</html>
