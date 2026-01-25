@@ -20,12 +20,28 @@
         <h1 class="text-4xl font-bold mb-4 text-gray-800 dark:text-white">Storage</h1>
     </div>
 
-    <div id="main-container" class="bg-gray-200 dark:bg-gray-800 border border-gray-500 rounded-md ml-2 mr-2 p-2 space-y-2">
-        
+    <div id="main-container" class="bg-gray-200 dark:bg-gray-800 border border-gray-500 rounded-md ml-8 mr-8 p-2 pt-0 space-y-2">
+        <span></span>
     </div>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=folder" />
-    <script>
+    <!-- <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=
+        folder,
+        picture_as_pdf,
+        description,
+        article,
+        folder_zip,
+        image,
+        movie,
+        music_note,
+        code,
+        data_object,
+        insert_drive_file"
+    /> -->
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=picture_as_pdf" /> -->
+<script>
         (async () => {
             // https://api.github.com/repos/pisc639-kmu/kmutnb/contents/
             const root = "https://api.github.com/repos/pisc639-kmu/kmutnb/contents/";
@@ -38,7 +54,7 @@
                     Object.entries(jsonData).filter(([key, value]) => value.type == "dir")
                 );
                 console.log(filteredData);
-                // return filteredData;
+                return filteredData;
             };
 
             async function getFiles(path) {
@@ -52,7 +68,7 @@
                 return filteredData;
             };
 
-            function createFolderButton(name, parent) {
+            async function createFolderButton(name, parent) {
                 const button = document.createElement("button");
                 button.classList.add(
                     "bg-gray-100", "dark:bg-gray-900",
@@ -71,18 +87,115 @@
                 icon.style = "color:#e3e3e3; font-size:24px;"
                 icon.innerHTML = "folder"
                 button.append(icon)
-                
+
                 const text = document.createElement("span")
                 text.textContent = name
                 button.append(text)
             }
 
-            getFolders("old-exam")
-            const mainContainer = document.getElementById("main-container")
-            createFolderButton("hi", mainContainer)
-            createFolderButton("hi", mainContainer)
-            createFolderButton("hi", mainContainer)
-            createFolderButton("hi", mainContainer)
+
+
+
+
+
+
+            const ICON_BASE =
+                "https://fonts.gstatic.com/s/i/materialsymbolsoutlined";
+
+            const EXTENSION_ICON_MAP = {
+                pdf: "picture_as_pdf",
+                doc: "description",
+                docx: "description",
+                txt: "article",
+                zip: "folder_zip",
+                rar: "folder_zip",
+                png: "image",
+                jpg: "image",
+                jpeg: "image",
+                gif: "image",
+                mp4: "movie",
+                mkv: "movie",
+                mp3: "music_note",
+                wav: "music_note",
+                js: "code",
+                html: "code",
+                css: "code",
+                json: "data_object",
+                default: "insert_drive_file",
+            };
+
+            async function getIcon(ext) {
+                const normalized = ext.toLowerCase().replace(".", "");
+                const iconName =
+                    EXTENSION_ICON_MAP[normalized] ?? EXTENSION_ICON_MAP.default;
+
+                const img = document.createElement("img");
+                img.src = `${ICON_BASE}/${iconName}/default/24px.svg`;
+                img.alt = `${normalized} file`;
+                img.width = 24;
+                img.height = 24;
+                img.loading = "lazy";
+
+                return img
+            }
+
+            async function createFileButton(name, parent) {
+                const button = document.createElement("button");
+                button.classList.add(
+                    "bg-gray-100", "dark:bg-gray-900",
+                    "border", "border-gray-500", "border-md", "rounded-md",
+                    "w-full", "h-12",
+                    "text-xl",
+                    "flex", "items-center")
+                parent.appendChild(button)
+
+                // <span class="material-symbols-outlined" style="color:#e3e3e3; font-size:24px;">folder</span>
+                // const icon = document.createElement("span");
+                // icon.classList.add(
+                //     "material-symbols-outlined",
+                //     "m-3"
+                // )
+                // icon.style = "color:#e3e3e3; font-size:24px;"
+                // icon.innerHTML = "picture_as_pdf"
+                // button.append(icon)
+                // button.append(await getIcon(".pdf"))
+
+                const text = document.createElement("span")
+                text.textContent = name
+                button.append(text)
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+            const mainContainer = document.getElementById("main-container");
+
+            const folders = await getFolders("old-exam");
+            console.log(folders);
+
+            for (const key in folders) {
+                await createFolderButton(folders[key]["name"], mainContainer);
+                console.log(`Created ${folders[key]["name"]}`)
+            };
+            console.log("done");
+
+            const files = await getFiles("old-exam");
+            console.log(files);
+
+            // await createFileButton("pdf", mainContainer)
+            for (const key in files) {
+                await createFileButton(folders[key]["name"], mainContainer);
+                console.log(`Created ${folders[key]["name"]}`)
+            };
         })();
     </script>
     <script src="https://kmu.pisc.cc/script.js"></script>
