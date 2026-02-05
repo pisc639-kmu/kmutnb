@@ -1,0 +1,1 @@
+(^(?=.*midterm|.*\bS1\b|^(?!.*ep)(?!.*\bS[\d]\b)(?!.*\bS\d\d\b).*)[^\n]*\n?|Found File:\s*)

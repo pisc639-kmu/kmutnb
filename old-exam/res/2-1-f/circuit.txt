@@ -1,0 +1,38 @@
+
+Detected search query: ,Electronic Circuit I
+Found file: "D:\kmutnb\old-exam\2555\term 1\final\353152.pdf"
+Found file: "D:\kmutnb\old-exam\2555\term 1\final\ep\353152.pdf"
+Found file: "D:\kmutnb\old-exam\2556\term 1\final\353152 1.pdf"
+Found file: "D:\kmutnb\old-exam\2556\term 1\final\353152.pdf"
+Found file: "D:\kmutnb\old-exam\2556\term 1\midterm\EP\353152 EP.pdf"
+Found file: "D:\kmutnb\old-exam\2556\term 1\midterm\353152.pdf"
+Found file: "D:\kmutnb\old-exam\2557\term 1\final\EP\353152 EP.pdf"
+Found file: "D:\kmutnb\old-exam\2557\term 1\final\353152.pdf"
+Found file: "D:\kmutnb\old-exam\2557\term 1\midterm\353152.pdf"
+Found file: "D:\kmutnb\old-exam\2558\term 1\final\353152 EP.pdf"
+Found file: "D:\kmutnb\old-exam\2558\term 1\final\353152.pdf"
+Found file: "D:\kmutnb\old-exam\2558\term 1\midterm\353152 EP.pdf"
+Found file: "D:\kmutnb\old-exam\2558\term 1\midterm\353152.pdf"
+Found file: "D:\kmutnb\old-exam\2560\term 1\final\353152.pdf"
+Found file: "D:\kmutnb\old-exam\2560\term 1\final\EP\7 Dec 60\353152.pdf"
+Found file: "D:\kmutnb\old-exam\2560\term 1\midterm\353152.pdf"
+Found file: "D:\kmutnb\old-exam\2560\term 1\midterm\EP\353152.pdf"
+Found file: "D:\kmutnb\old-exam\2560\term 2\final\23 May 61\Others\New folder\9\353152.pdf"
+Found file: "D:\kmutnb\old-exam\2561\term 1\final\6 Dec 2561\353152.pdf"
+Found file: "D:\kmutnb\old-exam\2561\term 1\final\6 Dec 2561\353152ep.pdf"
+Found file: "D:\kmutnb\old-exam\2561\term 1\midterm\3 Oct 61\353152.pdf"
+Found file: "D:\kmutnb\old-exam\2561\term 1\midterm\3 Oct 61\EP\353152.pdf"
+Found file: "D:\kmutnb\old-exam\2562\term 1\final\EP\353152.pdf"
+Found file: "D:\kmutnb\old-exam\2562\term 1\midterm\353152.pdf"
+Found file: "D:\kmutnb\old-exam\2562\term 1\midterm\EP\353152.pdf"
+Found file: "D:\kmutnb\old-exam\2563\term 1\final\2 Nov 63\352152.pdf"
+Found file: "D:\kmutnb\old-exam\2563\term 1\final\2 Nov 63\ep\353152.pdf"
+Found file: "D:\kmutnb\old-exam\2563\term 1\midterm\3 Sep 63\Ep\353152.pdf"
+Search completed.
+
+Detected search query: Electronic Circuits II
+Found file: "D:\kmutnb\old-exam\2567\term 2\final\031021152 S1-4.pdf"
+Found file: "D:\kmutnb\old-exam\2567\term 2\final\031021152 S5-6.pdf"
+Found file: "D:\kmutnb\old-exam\2567\term 2\midterm\031021152 S1-4.pdf"
+Found file: "D:\kmutnb\old-exam\2567\term 2\midterm\031021152 S5-6.pdf"
+Search completed.

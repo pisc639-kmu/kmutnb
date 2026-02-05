@@ -1,0 +1,14 @@
+
+Detected search query: Computer Programming
+Found file: "D:\kmutnb\old-exam\2553\term 2\final\350130.pdf"
+Found file: "D:\kmutnb\old-exam\2554\term 1\midterm\350130.pdf"
+Found file: "D:\kmutnb\old-exam\2554\term 2\final\350130.pdf"
+Found file: "D:\kmutnb\old-exam\2556\term 2\final\350130.pdf"
+Found file: "D:\kmutnb\old-exam\2556\term 2\midterm\350130.pdf"
+Found file: "D:\kmutnb\old-exam\2557\term 2\final\350130.pdf"
+Found file: "D:\kmutnb\old-exam\2563\term 1\final\3 Nov 63\EP\340142.pdf"
+Found file: "D:\kmutnb\old-exam\2567\term 1\final\031021341 S1-4.pdf"
+Found file: "D:\kmutnb\old-exam\2567\term 1\final\031021341 S5-6.pdf"
+Found file: "D:\kmutnb\old-exam\2568\term 1\final\031021341 S1-4.pdf"
+Found file: "D:\kmutnb\old-exam\2568\term 1\final\031021341 S5-6.pdf"
+Search completed.

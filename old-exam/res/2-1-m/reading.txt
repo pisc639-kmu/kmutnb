@@ -1,0 +1,9 @@
+
+Detected search query: Reading
+Found file: "D:\kmutnb\old-exam\2567\term 1\final\031001143 S1-14.pdf"
+Found file: "D:\kmutnb\old-exam\2567\term 1\final\031001143 S15-18.pdf"
+Found file: "D:\kmutnb\old-exam\2567\term 1\midterm\031001143  S1-14.pdf"
+Found file: "D:\kmutnb\old-exam\2567\term 1\midterm\031001143  S15-18.pdf"
+Found file: "D:\kmutnb\old-exam\2568\term 1\final\031001143 S1-17.pdf"
+Found file: "D:\kmutnb\old-exam\2568\term 1\midterm\031001143 S1-17.pdf"
+Search completed.
