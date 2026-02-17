@@ -161,4 +161,6 @@ function createClockForm() {
 
 // createClockForm();
 
-document.body.classname = "dark bg-gray-50 dark:bg-gray-950 min-h-screen"
+document.body.setAttribute('class', '');
+// $('body').removeClass();
+document.body.classList.add("dark", "bg-gray-50", "dark:bg-gray-950", "min-h-screen")
