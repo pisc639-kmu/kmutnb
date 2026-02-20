@@ -243,17 +243,17 @@
         ],
         "Wednesday 4 March": [
             {
-                "code": "031001152",
-                "name-en": "Thai II",
-                "name-th": "ภาษาไทย 2",
-                "from": "10",
-                "to": "12",
-                "room": "90 - 309",
+                "code": "031001122",
+                "name-en": "Chemistry II",
+                "name-th": "เคมี 2",
+                "from": "8",
+                "to": "10",
+                "room": "90 - 408",
                 "section": "15",
                 "instructor": [
                     {
-                        "name-en": "Dr.PRATCHAYAPORN THONGPRASIT",
-                        "name-th": "ดร.ปรัชญาพร ทองประสิทธิ์"
+                        "name-en": "Assoc.Prof.Dr.NATHJANAN JONGKON",
+                        "name-th": "รศ.ดร.ณัฐจนันท์ จงกล"
                     }
                 ]
             }
@@ -296,17 +296,17 @@
         "Sunday 8 March": [],
         "Monday 9 March": [
             {
-                "code": "031001122",
-                "name-en": "Chemistry II",
-                "name-th": "เคมี 2",
-                "from": "8",
-                "to": "10",
-                "room": "90 - 408",
+                "code": "031001152",
+                "name-en": "Thai II",
+                "name-th": "ภาษาไทย 2",
+                "from": "10",
+                "to": "12",
+                "room": "90 - 309",
                 "section": "15",
                 "instructor": [
                     {
-                        "name-en": "Assoc.Prof.Dr.NATHJANAN JONGKON",
-                        "name-th": "รศ.ดร.ณัฐจนันท์ จงกล"
+                        "name-en": "Dr.PRATCHAYAPORN THONGPRASIT",
+                        "name-th": "ดร.ปรัชญาพร ทองประสิทธิ์"
                     }
                 ]
             }
