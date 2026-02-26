@@ -204,9 +204,9 @@
             var subject = name.split(" ")[0];
             var row = parseInt(Subjects.indexOf(subject), 10);
             var column = year - 2010;
-            if (year != 2024) {
-                addFileButton(row, column, file, name);
-            }
+            // if (year != 2024) {
+            addFileButton(row, column, file, name);
+            // }
         };
         fetch("https://api.github.com/repos/pisc639-kmu/kmutnb/contents/old-exam/1-2-f").then(a => a.json()).then(files => {
             files.forEach(file => {
