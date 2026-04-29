@@ -61,7 +61,7 @@ function insertNav() {
     document.body.prepend(elem);
 };
 
-insertNav();
+// insertNav();
 
 const mobileMenuButton = document.getElementById('mobile-menu-button');
 const mobileMenu = document.getElementById('mobile-menu');
