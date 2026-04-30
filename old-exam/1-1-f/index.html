@@ -4,46 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E15 Old Exam Year 1 Term 1 Final</title>
-    <link rel="icon" type="image/png" href="https://kmu.pisc.cc/img/logo-nobg.png">
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Inter Font -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-    <link rel="stylesheet" href="https://kmu.pisc.cc/style.css">
-    <script>
-        function isIOS() {
-            const userAgent = navigator.userAgent;
-            const platform = navigator.platform;
-
-            // Check for common iOS user agent strings
-            if (/iPad|iPhone|iPod/.test(userAgent)) {
-                return true;
-            }
-
-            // Specific check for iPad on iOS 13+ which might report as 'MacIntel' platform
-            if (platform === 'MacIntel' && navigator.maxTouchPoints > 1) {
-                return true;
-            }
-
-            return false;
-        };
-
-        function openFile(path) {
-            // if (isIOS()) {
-            //     window.open(path, '_blank');
-            // } else {
-                const FrameElement = document.getElementById("FileFrame");
-                FrameElement.src = "https://docs.google.com/viewerng/viewer?embedded=true&url=raw.githubusercontent.com/pisc639-kmu/kmutnb/main/old-exam/1-1-f/" + path;
-                if (FrameElement.classList.contains("hidden")){
-                    FrameElement.classList.remove("hidden");
-                }
-                if (FrameElement.classList.contains("md:hidden")){
-                    FrameElement.classList.remove("md:hidden");
-                }
-                window.location.href = "#FileFrame";
-            // };
-        };
-    </script>
+    {% include "head.html" %}
+    {% include "oldexamscript.html" %}
 </head>
 <body class="dark bg-gray-100 dark:bg-gray-900">
     {% include "nav.html" %}
