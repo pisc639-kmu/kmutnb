@@ -6,7 +6,7 @@
     <title>E25 Exam Schedule & Timetable</title>
     {% include "head.html" %}
 </head>
-<body class="dark bg-gray-100 dark:bg-gray-900">
+<body class="dark bg-gray-50 dark:bg-gray-950 min-h-screen">
     {% include "nav.html" %}
     <div class="flex items-center text-center justify-center space-x-4 mt-16">
         <h1 class="text-4xl font-bold my-4 text-gray-800 dark:text-white">Study Timetable</h1>
@@ -143,7 +143,7 @@
         thead.appendChild(thead_tr);
         timetable.appendChild(thead);
 
-        $.getJSON('https://kmu.pisc.cc/schedule/timetable/1-2-f.json', function(alldata) {
+        $.getJSON('https://raw.githubusercontent.com/pisc639-kmu/kmutnb/main/schedule/timetable/1-2-f.json', function(alldata) {
             console.log(alldata);
             const data = alldata['timetable'];
             console.log(data);

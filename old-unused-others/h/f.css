@@ -1,0 +1,26 @@
+@font-face {
+    font-family: "Futura-CondensedExtraBold"; /* A name for your font */
+    src: url("futura.otf") format("otf");
+    /* font-weight: normal; Optional: Define weight, e.g., bold, normal */
+    /* font-style: normal; Optional: Define style, e.g., italic, normal */
+}
+
+.futura {
+    font-family: Futura;
+    font-weight: bold;
+    font-stretch: condensed;
+    /* font-style: italic; */
+}
+
+.itim {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.sans {
+    font-family: Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 550;
+}
+
+.unit {
+    font-weight: 600;
+}
