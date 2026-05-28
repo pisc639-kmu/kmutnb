@@ -1,0 +1,2 @@
+(^(?=.*final|.*\bS1\b|^(?!.*ep)(?!.*\bS[\d]\b)(?!.*\bS\d\d\b).*)[^\n]*\n?|Found File:\s*)
+(^(?=.*final|.*\bS1\b(?!.*\bS[\d]\b)(?!.*\bS\d\d\b).*)[^\n]*\n?|Found File:\s*)

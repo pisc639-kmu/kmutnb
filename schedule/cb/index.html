@@ -4,23 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CB11 Class Timetable</title>
-    <!-- <link rel="icon" type="image/png" href="/images/logo-nobg.png"> -->
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Inter Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-    <link rel="stylesheet" href="/style.css">
-    <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <style>
-        .display-none {
-            display: none;
-        }
-    </style>
+    {% include "head.html" %}
 </head>
 <body class="dark bg-gray-50 dark:bg-gray-950 min-h-screen">
     {% include "nav.html" %}
@@ -121,13 +105,14 @@
         };
 
         function download_image() {
-            if (isDarkMode()) {
-                download_light();
-                download_dark();
-            } else {
-                download_dark();
-                download_light();
-            }
+            // if (isDarkMode()) {
+            //     download_light();
+            //     download_dark();
+            // } else {
+            //     download_dark();
+            //     download_light();
+            // }
+            download_dark();
         };
     </script>
     <div class="container mx-auto mt-8 overflow-x-auto shadow-md shadow-gray-400 dark:shadow-gray-800 hover:shadow-gray-500 dark:hover:shadow-gray-950">
@@ -137,17 +122,17 @@
             w-full border-collapse border border-gray-300 dark:border-gray-700">
             <thead class="">
                 <tr class="bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white shadow-md">
-                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">Day</th>
-                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">8:00 - 9:00</th>
-                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">9:00 - 10:00</th>
-                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">10:00 - 11:00</th>
-                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">11:00 - 12:00</th>
-                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">12:00 - 13:00</th>
-                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">13:00 - 14:00</th>
-                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">14:00 - 15:00</th>
-                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">15:00 - 16:00</th>
-                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">16:00 - 17:00</th>
-                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">17:00 - 18:00</th>
+                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700 w-[150px]">Day</th>
+                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700 w-[150px]">8:00 - 9:00</th>
+                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700 w-[150px]">9:00 - 10:00</th>
+                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700 w-[150px]">10:00 - 11:00</th>
+                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700 w-[150px]">11:00 - 12:00</th>
+                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700 w-[150px]">12:00 - 13:00</th>
+                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700 w-[150px]">13:00 - 14:00</th>
+                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700 w-[150px]">14:00 - 15:00</th>
+                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700 w-[150px]">15:00 - 16:00</th>
+                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700 w-[150px]">16:00 - 17:00</th>
+                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700 w-[150px]">17:00 - 18:00</th>
                 </tr>
             </thead>
             <tbody class="">
@@ -220,7 +205,9 @@
         thead_tr.classList.add("bg-gray-200", "dark:bg-gray-800", "text-gray-900", "dark:text-white", "shadow-md")
         thead_tr.appendChild(make_cell('th', 'Day'));
         for (let i = 0; i < 10; i++) {
-            thead_tr.appendChild(make_cell('th', `${i + 8}:00 - ${i + 9}:00`));
+            var cell = make_cell('th', `${i + 8}:00 - ${i + 9}:00`);
+            cell.classList.add("w-[150px]");
+            thead_tr.appendChild(cell);
         }
         thead.appendChild(thead_tr);
         timetable.appendChild(thead);
@@ -459,8 +446,10 @@
         const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
         for (let i = 0; i < days.length; i++) {
             const tr = document.createElement('tr');
-            tr.classList.add("bg-white", "dark:bg-gray-900", "hover:bg-gray-100", "dark:hover:bg-gray-800", "text-gray-800", "dark:text-white");
-            tr.appendChild(make_cell('td', days[i]));
+            tr.classList.add("bg-white", "dark:bg-gray-900", "hover:bg-gray-100", "dark:hover:bg-gray-800", "text-gray-800", "dark:text-white", "transition-colors", "duration-300", "ease-in-out");
+            var cell = make_cell('td', days[i]);
+            cell.classList.add("font-bold", "w-[120px]", "text-center");
+            tr.appendChild(cell);
             // for (let j = 0; j < 10; j++) {
             // }
             let j = 8;
