@@ -10,14 +10,28 @@
 <body class="dark bg-gray-50 dark:bg-gray-950 min-h-screen">
     {% include "nav.html" %}
     <div class="flex items-center justify-center space-x-4 mt-16">
-        <h1 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Old Exam Year 1 Term 1 Final</h1>
+        <h1 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Old Exam Year 2 Term 1 Final</h1>
     </div>
+
+    <script>
+        function download_file() {
+            const FileFrame = document.getElementById('FileFrame');
+            var url = FileFrame.getAttribute('raw');
+            var a = document.createElement('a');
+            a.href = url;
+            a.download = url;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        };
+    </script>
 
     <div class="container mx-auto mt-8 overflow-x-auto shadow-md shadow-gray-400 dark:shadow-gray-800 hover:shadow-gray-500 dark:hover:shadow-gray-950">
         <table class="w-full border-collapse border border-gray-300 dark:border-gray-700">
             <thead>
                 <tr class="border-x border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white">
                     <th class="px-5 py-3">Subject</th>
+                    <th class="px-5 py-3">2010</th>
                     <th class="px-5 py-3">2011</th>
                     <th class="px-5 py-3">2012</th>
                     <th class="px-5 py-3">2013</th>
@@ -35,174 +49,24 @@
                     <th class="px-5 py-3">2025</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr class="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 border-x border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white">
-                    <td class="px-5 py-3">Mathematics I</td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Math 2012.pdf')">Math 2012</button></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Math 2013.pdf')">Math 2013</button></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Math 2016.pdf')">Math 2016</button></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Math 2017.pdf')">Math 2017</button></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Math 2018.pdf')">Math 2018</button></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Math 2020.pdf')">Math 2020</button></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Math 2024.pdf')">Math 2024</button></td>
-                    <td class="px-5 py-3"></td>
-                </tr>
-                <tr class="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 border-x border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white">
-                    <td class="px-5 py-3">Thai I</td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Thai 2012.pdf')">Thai 2012</button></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Thai 2013.pdf')">Thai 2013</button></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Thai 2014.pdf')">Thai 2014</button></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Thai 2015.pdf')">Thai 2015</button></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Thai 2017.pdf')">Thai 2017</button></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Thai 2018.pdf')">Thai 2018</button></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Thai 2024.pdf')">Thai 2024</button></td>
-                    <td class="px-5 py-3"></td>
-                </tr>
-                <tr class="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 border-x border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white">
-                    <td class="px-5 py-3">Chemistry I</td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Chemistry 2012.pdf')">Chemistry 2012</button></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Chemistry 2013.pdf')">Chemistry 2013</button></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Chemistry 2014.pdf')">Chemistry 2014</button></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Chemistry 2015.pdf')">Chemistry 2015</button></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Chemistry 2017.pdf')">Chemistry 2017</button></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Chemistry 2018.pdf')">Chemistry 2018</button></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Chemistry 2019.pdf')">Chemistry 2019</button></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Chemistry 2024.pdf')">Chemistry 2024</button></td>
-                    <td class="px-5 py-3"></td>
-                </tr>
-                <tr class="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 border-x border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white">
-                    <td class="px-5 py-3">Foundation English I</td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('English 2012.pdf')">English 2012</button></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('English 2013.pdf')">English 2013</button></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('English 2014.pdf')">English 2014</button></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('English 2015.pdf')">English 2015</button></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('English 2017.pdf')">English 2017</button></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('English 2018.pdf')">English 2018</button></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('English 2019.pdf')">English 2019</button></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('English 2020.pdf')">English 2020</button></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('English 2024.pdf')">English 2024</button></td>
-                    <td class="px-5 py-3"></td>
-                </tr>
-                <tr class="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 border-x border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white">
-                    <td class="px-5 py-3">Mechanics I</td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Physics 2013.pdf')">Physics 2013</button></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Physics 2014.pdf')">Physics 2014</button></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Physics 2015.pdf')">Physics 2015</button></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Physics 2017.pdf')">Physics 2017</button></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Physics 2018.pdf')">Physics 2018</button></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Physics 2020.pdf')">Physics 2020</button></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Physics 2024.pdf')">Physics 2024</button></td>
-                    <td class="px-5 py-3"></td>
-                </tr>
-                <tr class="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 border-x border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white">
-                    <td class="px-5 py-3">Electrical Drawing I</td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Drawing 2012.pdf')">Drawing 2012</button></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Drawing 2013.pdf')">Drawing 2013</button></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Drawing 2014.pdf')">Drawing 2014</button></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Drawing 2015.pdf')">Drawing 2015</button></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Drawing 2016.pdf')">Drawing 2016</button></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Drawing 2018.pdf')">Drawing 2018</button></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Drawing 2020.pdf')">Drawing 2020</button></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Drawing 2024.pdf')">Drawing 2024</button></td>
-                    <td class="px-5 py-3"></td>
-                </tr>
-                <tr class="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 border-x border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white">
-                    <td class="px-5 py-3">Electrical Materials and Calculation</td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Material 2012.pdf')">Material 2012</button></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Material 2013.pdf')">Material 2013</button></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Material 2015.pdf')">Material 2015</button></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Material 2017.pdf')">Material 2017</button></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Material 2018.pdf')">Material 2018</button></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Material 2019.pdf')">Material 2019</button></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Material 2020.pdf')">Material 2020</button></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Material 2024.pdf')">Material 2024</button></td>
-                    <td class="px-5 py-3"></td>
-                </tr>
-                <tr class="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 border-x border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white">
-                    <td class="px-5 py-3">Electric Circuits I</td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Circuit 2012.pdf')">Circuit 2012</button></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Circuit 2013.pdf')">Circuit 2013</button></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Circuit 2014.pdf')">Circuit 2014</button></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Circuit 2015.pdf')">Circuit 2015</button></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Circuit 2017.pdf')">Circuit 2017</button></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Circuit 2018.pdf')">Circuit 2018</button></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Circuit 2019.pdf')">Circuit 2019</button></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Circuit 2020.pdf')">Circuit 2020</button></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"></td>
-                </tr>
-                <tr class="bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 border-x border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white">
-                    <td class="px-5 py-3">Health Education</td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"></td>
-                    <td class="px-5 py-3"><button type="button" class="text-blue-600 dark:text-blue-400 hover:underline" onclick="openFile('Health 2024.pdf')">Health 2024</button></td>
-                    <td class="px-5 py-3"></td>
-                </tr>
+            <tbody id="table-body">
             </tbody>
         </table>
     </div>
     <br><br>
-    <div class="container mx-auto">
+    <div id="iframe-container" class="container mx-auto display-none">
+        <h2 class="text-xl text-center font-bold mb-4 text-gray-800 dark:text-white flex flex-row items-center justify-center space-x-4">
+            <spam class="flex flex-row items-center space-x-4">
+                <h2 class="text-xl font-bold text-gray-800 dark:text-white" id="iframe-title"></h2>
+            </spam>
+            <a onclick="download_file();" class="items-center space-x-2 text-black dark:text-white hover:text-blue-500 dark:hover:text-blue-400">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+            </a>
+        </h2>
         <iframe src="" frameborder="0" width="100%" height="" id="FileFrame" class="hidden md:hidden border border-gray-300 dark:border-gray-300"></iframe>
     </div>
     <script src="https://kmu.pisc.cc/script.js"></script>
@@ -210,6 +74,7 @@
     window.addEventListener('scroll', function(event) {
         const navHeight = document.querySelector('nav').offsetHeight;
         const iframe = document.getElementById('FileFrame');
+        const iframeContainer = document.getElementById('iframe-container');
         const rect = iframe.getBoundingClientRect();
         if (rect.top <= window.innerHeight - navHeight && rect.bottom >= 0) {
             iframe.style.height = `calc(100vh - ${navHeight}px)`;
@@ -221,6 +86,78 @@
             iframe.classList.add('hidden');
         }
     });
+    </script>
+    <script>
+        // fetch("https://api.github.com/repos/pisc639-kmu/kmutnb/contents/old-exam/1-1-f").then(a => a.json()).then(a => console.log(a))
+        const SubjectsFull = [
+            "Mathematics I",
+            "Thai I",
+            "Chemistry I",
+            "Foundation English I",
+            "Mechanics I",
+            "Electrical Drawing I",
+            "Electrical Materials and Calculation",
+            "Electric Circuits I",
+            "Health Education"
+        ];
+        const Subjects = [
+            "Math",
+            "Thai",
+            "Chemistry",
+            "English",
+            "Physics",
+            "Drawing",
+            "Material",
+            "Circuit",
+            "Health"
+        ];
+        const tbody = document.getElementById("table-body");
+        for (let i = 0; i < SubjectsFull.length; i++) {
+            const row = document.createElement("tr");
+            row.classList.add("bg-white", "dark:bg-gray-800", "hover:bg-gray-100", "dark:hover:bg-gray-700", "border-x", "border", "border-gray-300", "dark:border-gray-700", "text-gray-900", "dark:text-white");
+            const subjectName = document.createElement("th");
+            subjectName.classList.add("px-5", "py-3");
+            subjectName.textContent = SubjectsFull[i];
+            row.appendChild(subjectName);
+            for (let j = 2010; j <= 2025; j++) {
+                const column = document.createElement("th");
+                column.classList.add("px-5", "py-3");
+                row.appendChild(column);
+            };
+            tbody.appendChild(row);
+        };
+        function addFileButton(row, column, file, name) {
+            console.log(row, column, file, name);
+            var tbody = document.getElementById("table-body");
+            var rowElement = tbody.children[row];
+            var columnElement = rowElement.children[column + 1];
+            var button = document.createElement("button");
+            button.type = "button";
+            button.classList.add("text-blue-600", "dark:text-blue-400", "hover:underline");
+            // button.href = file;
+            button.onclick = function() {
+                openFile(file);
+            };
+            button.textContent = name;
+            columnElement.appendChild(button);
+        };
+        function addFile(file) {
+            var name = file.split(",")[0];
+            var year = parseInt(name.split(" ")[1], 10);
+            var subject = name.split(" ")[0];
+            var row = parseInt(Subjects.indexOf(subject), 10);
+            var column = year - 2010;
+            if (year != 2024) {
+                addFileButton(row, column, file, name);
+            }
+        };
+        fetch("https://api.github.com/repos/pisc639-kmu/kmutnb/contents/old-exam/1-1-f").then(a => a.json()).then(files => {
+            files.forEach(file => {
+                if (file.name != "index.html") {
+                    addFile(file.name);
+                };
+            });
+        });
     </script>
 </body>
 </html>
