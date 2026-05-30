@@ -1,0 +1,204 @@
+{
+    "timetable": {
+        "monday": [
+            {
+                "code": "031041331",
+                "name-en": "Computer Programming and Data Structures",
+                "name-th": "การเขียนโปรแกรมและโครงสร้างข้อมูล",
+                "from": "8",
+                "to": "10",
+                "room": "-",
+                "section": "1",
+                "instructor": [
+                    {
+                        "name-en": "",
+                        "name-th": "ผู้ช่วยศาสตราจารย์ ว่าที่ร้อยตรี ดร.ศุภกร สุเมธาภิวัฒน์"
+                    }
+                ]
+            },
+            {
+                "code": "031041331",
+                "name-en": "Computer Programming and Data Structures",
+                "name-th": "การเขียนโปรแกรมและโครงสร้างข้อมูล",
+                "from": "10",
+                "to": "12",
+                "room": "-",
+                "section": "1",
+                "instructor": [
+                    {
+                        "name-en": "",
+                        "name-th": "ผู้ช่วยศาสตราจารย์ ว่าที่ร้อยตรี ดร.ศุภกร สุเมธาภิวัฒน์"
+                    }
+                ]
+            },
+            {
+                "code": "031001131",
+                "name-en": "Mathematics 1",
+                "name-th": "คณิตศาสตร์ 1",
+                "from": "13",
+                "to": "16",
+                "room": "90 - 405",
+                "section": "13",
+                "instructor": [
+                    {
+                        "name-en": "",
+                        "name-th": "อาจารย์พิชายา จารุทัศน์โรจน์"
+                    }
+                ]
+            }
+        ],
+        "tuesday": [
+            {
+                "code": "031001271",
+                "name-en": "Physical Education I",
+                "name-th": "พลศึกษา 1",
+                "from": "10",
+                "to": "12",
+                "room": "91 - fl.5",
+                "section": "4",
+                "instructor": [
+                    {
+                        "name-en": "Ajarn.WARAPONG KRAICHOMSOM",
+                        "name-th": "อ.วราพงศ์ ไกรชมสม"
+                    },
+                    {
+                        "name-en": "Ajarn.THANAWAT PRAIPHISUT",
+                        "name-th": "อ.ธนะวรรธน์ ไพรพิสุทธิ์"
+                    }
+                ]
+            },
+            {
+                "code": "031001133",
+                "name-en": "Mathematics III",
+                "name-th": "คณิตศาสตร์ 3",
+                "from": "13",
+                "to": "16",
+                "room": "90 - 502",
+                "section": "15",
+                "instructor": [
+                    {
+                        "name-en": "",
+                        "name-th": "อาจารย์วีรพงศ์ เลิศวิรุฬห์"
+                    }
+                ]
+            }
+        ],
+        "wednesday": [
+            {
+                "code": "031001141",
+                "name-en": "Foundation English I",
+                "name-th": "ภาษาอังกฤษพื้นฐาน 1",
+                "from": "8",
+                "to": "10",
+                "room": "90 - 506",
+                "section": "13",
+                "instructor": [
+                    {
+                        "name-en": "",
+                        "name-th": "อาจารย์วิมล ขุนทองจันทร์"
+                    }
+                ]
+            },
+            {
+                "code": "031001151",
+                "name-en": "Thai I",
+                "name-th": "ภาษาไทย 1",
+                "from": "8",
+                "to": "10",
+                "room": "90 - 503",
+                "section": "13",
+                "instructor": [
+                    {
+                        "name-en": "Dr.PRATCHAYAPORN THONGPRASIT",
+                        "name-th": "ดร.ปรัชญาพร ทองประสิทธิ์"
+                    }
+                ]
+            },
+            {
+                "code": "031001114",
+                "name-en": "Electrical Phenomena",
+                "name-th": "ปรากฏการณ์ทางไฟฟ้า",
+                "from": "13",
+                "to": "15",
+                "room": "90 - 306",
+                "section": "5",
+                "instructor": [
+                    {
+                        "name-en": "INTHRAYUTH MAHAPHOL",
+                        "name-th": "อ.อินทรายุทธ มหาพล"
+                    },
+                    {
+                        "name-en": "Ajarn.PICHAI CHOBSUK",
+                        "name-th": "อ.พิชัย ชอบสุข"
+                    }
+                ]
+            },
+            {
+                "code": "031001381",
+                "name-en": "Extra-Curricular Activities I",
+                "name-th": "กิจกรรมเสริมหลักสูตร 1",
+                "from": "15",
+                "to": "17",
+                "room": "-",
+                "section": "1",
+                "instructor": []
+            }
+        ],
+        "thursday": [],
+        "friday": [
+            {
+                "code": "031041111",
+                "name-en": "Electric Circuits",
+                "name-th": "วงจรไฟฟ้า",
+                "from": "8",
+                "to": "10",
+                "room": "90 - 504",
+                "section": "1",
+                "instructor": [
+                    {
+                        "name-en": "",
+                        "name-th": "อาจารย์นนทวัฒน์ แดนเวียง"
+                    }
+                ]
+            },
+            {
+                "code": "031041212 ",
+                "name-en": "Electrical Circuit Lab",
+                "name-th": "ปฏิบัติการวงจรไฟฟ้า",
+                "from": "10",
+                "to": "12",
+                "room": "90 - 504",
+                "section": "1",
+                "instructor": [
+                    {
+                        "name-en": "",
+                        "name-th": "อาจารย์พลเทพ ชัยคง"
+                    },
+                    {
+                        "name-en": "",
+                        "name-th": "อาจารย์เนตินันท์ กุตนันท์"
+                    }
+                ]
+            }
+        ],
+        "saturday": [],
+        "sunday": [],
+        "ignore": [
+            {
+                "code": "031001152",
+                "name-en": "TTTTTTTTTTTTTTTt",
+                "name-th": "TTTTTTTTTTTTTTTt",
+                "from": "TTTTTTTTTTTTTTTt",
+                "to": "TTTTTTTTTTTTTTTt",
+                "room": "90 - TTTTTTTTTTTTTTTt",
+                "section": "TTTTTTTTTTTTTTTt",
+                "instructor": [
+                    {
+                        "name-en": "TTTTTTTTTTTTTTTt",
+                        "name-th": "TTTTTTTTTTTTTTTt"
+                    }
+                ]
+            }
+        ]
+    }
+}
