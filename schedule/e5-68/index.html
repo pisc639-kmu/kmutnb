@@ -18,57 +18,7 @@
             </svg>
         </a>
     </div>
-    <script>
-        async function downloadFileFromURL(url, filename) {
-        try {
-            const response = await fetch(url);
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            const blob = await response.blob();
-            const blobUrl = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = blobUrl;
-            a.download = filename || url.split('/').pop();
-            a.style.display = 'none';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            setTimeout(() => URL.revokeObjectURL(blobUrl), 100); 
-
-        } catch (error) {
-            console.error('Download failed:', error);
-            alert('Could not download the file. Check console for details.' + error);
-        }
-        }
-
-        function isDarkMode() {
-            if (window.matchMedia) {
-                return window.matchMedia('(prefers-color-scheme: dark)').matches;
-            }
-            return false; 
-        };
-
-        function getTableUrl() {
-            var Url = location.href;
-            Url += 'table.png'
-            const newBase = "f";
-            Url = Url.replace(/^https?:\/\/[^\/]+/, newBase);
-            return 
-        }
-
-        function download_image() {
-            var download_url = getTableUrl();
-
-            var a = document.createElement('a');
-            a.href = "table.png";
-            a.download = "table-light.png";
-
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-        };
-    </script>
+    {% include "schedule.html" %}
     <div class="container mx-auto mt-8 overflow-x-auto shadow-md shadow-gray-400 dark:shadow-gray-800 hover:shadow-gray-500 dark:hover:shadow-gray-950">
         <table id="timetable" class="text-[0.6rem] [&_thead]:text-xs [&>*>tr>*:first-child]:text-sm
             md:text-[0.8rem] md:[&_thead]:text-sm md:[&>*>tr>*:first-child]:text-md
@@ -101,26 +51,27 @@
         </table>
     </div>
 
+    <span id="exams">
+        <div class="flex items-center text-center justify-center space-x-4 mt-16">
+            <h1 class="text-4xl font-bold my-4 text-gray-800 dark:text-white">Exam Schedule</h1>
+        </div>
     
-    <!-- <div class="flex items-center text-center justify-center space-x-4 mt-16">
-        <h1 class="text-4xl font-bold my-4 text-gray-800 dark:text-white">Exam Schedule</h1>
-    </div> -->
-
-    <div class="container mx-auto mt-8 overflow-x-auto shadow-md shadow-gray-400 dark:shadow-gray-800 hover:shadow-gray-500 dark:hover:shadow-gray-950">
-        <table id="exam" class="text-[0.6rem] [&_thead]:text-xs [&>*>tr>*:first-child]:text-sm
-            md:text-[0.8rem] md:[&_thead]:text-sm md:[&>*>tr>*:first-child]:text-md
-            [&>*>tr>*:first-child]:font-bold
-            w-full border-collapse border border-gray-300 dark:border-gray-700">
-            <thead class="">
-                <tr class="bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white shadow-md">
-                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">Day</th>
-                </tr>
-            </thead>
-            <tbody class="">
-                <tr class="bg-white dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-white"></tr>
-            </tbody>
-        </table>
-    </div>
+        <div class="container mx-auto mt-8 overflow-x-auto shadow-md shadow-gray-400 dark:shadow-gray-800 hover:shadow-gray-500 dark:hover:shadow-gray-950">
+            <table id="exam" class="text-[0.6rem] [&_thead]:text-xs [&>*>tr>*:first-child]:text-sm
+                md:text-[0.8rem] md:[&_thead]:text-sm md:[&>*>tr>*:first-child]:text-md
+                [&>*>tr>*:first-child]:font-bold
+                w-full border-collapse border border-gray-300 dark:border-gray-700">
+                <thead class="">
+                    <tr class="bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white shadow-md">
+                        <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">Day</th>
+                    </tr>
+                </thead>
+                <tbody class="">
+                    <tr class="bg-white dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-white"></tr>
+                </tbody>
+            </table>
+        </div>
+    </span>
 
     <script src="https://kmu-src.pisc.cc/script.min.js"></script>
 
@@ -146,7 +97,7 @@
         thead.appendChild(thead_tr);
         timetable.appendChild(thead);
         
-        $.getJSON('https://kmu-src.pisc.cc/schedule/e5-68/2-1-m.json', function(alldata) {
+        $.getJSON('https://kmu-src.pisc.cc/schedule/e5-68/1-1-m.json', function(alldata) {
         
             console.log(alldata);
             const data = alldata['timetable'];
@@ -178,160 +129,163 @@
             }
             timetable.appendChild(tbody);
 
-            // Exam Schedule
-            // const exam_data = alldata['exam'];
-            // console.log(exam_data);
-            // const exam = document.getElementById('exam');
-            // exam.innerHTML = '';
-            // const tbody_exam = document.createElement('tbody');
-            // // for (let i = 0; i < exam_data['ignore'].length; i++) {
-            // //     const tr = document.createElement('tr');
-            // //     tr.classList.add("bg-white", "dark:bg-gray-900", "hover:bg-gray-100", "dark:hover:bg-gray-800", "text-gray-800", "dark:text-white");
-            // //     tr.appendChild(make_cell('td', `<b>${exam_data['ignore'][i]['name-en']}</b><br>${exam_data['ignore'][i]['name-th']}`, {colspan: 2}));
-            // //     tbody_exam.appendChild(tr);
-            // // }
-            // const exam_days = Object.keys(exam_data);
-            // let exam_times = [];
-            // for (let i = 0; i < exam_days.length; i++) {
-            //     const times = exam_data[exam_days[i]].map(time => [time['from'], time['to']]).flat();
-            //     // const unique_times = [...new Set(times)];
-            //     exam_times.push(...times);
-            // }
-            // // make it uniue
-            // // const unique_times = [...new Set(exam_times)];
-            // // console.log(unique_times);
-            // exam_times = [...new Set(exam_times)];
-            // // sort it
-            // exam_times.sort((a, b) => a - b);
-            // console.log(exam_times)
-            // // const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
-            // // console.log(exam_data)
-            // for (let i = 0; i < days.length; i++) {
-            //     const tr = document.createElement('tr');
-            //     tr.classList.add("bg-white", "dark:bg-gray-900", "hover:bg-gray-100", "dark:hover:bg-gray-800", "text-gray-800", "dark:text-white");
-            //     tr.appendChild(make_cell('td', days[i]));
-            //     j = 8;
-            //     for (let k = 0; k < exam_times.length; k++) {
-                    
-            //     }
-            //     const td = make_cell('td', `<b>${exam_data[exam_days[i]]['name-en']}<br>${exam_data[exam_days[i]]['name-th']}</b><br>${exam_data[exam_days[i]]['room']}`, {colspan: 2});
-            //     tr.appendChild(td);
-            //     tbody_exam.appendChild(tr);
-            // }
-            // exam.appendChild(tbody_exam);
-            
-            // ================= EXAM SCHEDULE =================
-            const exam_data = alldata['exam'];
-            const exam = document.getElementById('exam');
-            exam.innerHTML = '';
+            if (alldata['exam']) {
+                // Exam Schedule
+                // const exam_data = alldata['exam'];
+                // console.log(exam_data);
+                // const exam = document.getElementById('exam');
+                // exam.innerHTML = '';
+                // const tbody_exam = document.createElement('tbody');
+                // // for (let i = 0; i < exam_data['ignore'].length; i++) {
+                // //     const tr = document.createElement('tr');
+                // //     tr.classList.add("bg-white", "dark:bg-gray-900", "hover:bg-gray-100", "dark:hover:bg-gray-800", "text-gray-800", "dark:text-white");
+                // //     tr.appendChild(make_cell('td', `<b>${exam_data['ignore'][i]['name-en']}</b><br>${exam_data['ignore'][i]['name-th']}`, {colspan: 2}));
+                // //     tbody_exam.appendChild(tr);
+                // // }
+                // const exam_days = Object.keys(exam_data);
+                // let exam_times = [];
+                // for (let i = 0; i < exam_days.length; i++) {
+                //     const times = exam_data[exam_days[i]].map(time => [time['from'], time['to']]).flat();
+                //     // const unique_times = [...new Set(times)];
+                //     exam_times.push(...times);
+                // }
+                // // make it uniue
+                // // const unique_times = [...new Set(exam_times)];
+                // // console.log(unique_times);
+                // exam_times = [...new Set(exam_times)];
+                // // sort it
+                // exam_times.sort((a, b) => a - b);
+                // console.log(exam_times)
+                // // const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+                // // console.log(exam_data)
+                // for (let i = 0; i < days.length; i++) {
+                //     const tr = document.createElement('tr');
+                //     tr.classList.add("bg-white", "dark:bg-gray-900", "hover:bg-gray-100", "dark:hover:bg-gray-800", "text-gray-800", "dark:text-white");
+                //     tr.appendChild(make_cell('td', days[i]));
+                //     j = 8;
+                //     for (let k = 0; k < exam_times.length; k++) {
+                        
+                //     }
+                //     const td = make_cell('td', `<b>${exam_data[exam_days[i]]['name-en']}<br>${exam_data[exam_days[i]]['name-th']}</b><br>${exam_data[exam_days[i]]['room']}`, {colspan: 2});
+                //     tr.appendChild(td);
+                //     tbody_exam.appendChild(tr);
+                // }
+                // exam.appendChild(tbody_exam);
+                
+                // ================= EXAM SCHEDULE =================
+                const exam_data = alldata['exam'];
+                const exam = document.getElementById('exam');
+                exam.innerHTML = '';
 
-            // ---- exam days come directly from JSON keys ----
-            const exam_days = Object.keys(exam_data).filter(k => k !== 'ignore');
+                // ---- exam days come directly from JSON keys ----
+                const exam_days = Object.keys(exam_data).filter(k => k !== 'ignore');
 
-            // ---- collect exam times ----
-            let exam_times = [];
-            exam_days.forEach(day => {
-                exam_data[day].forEach(e => {
-                    exam_times.push(Number(e.from), Number(e.to));
+                // ---- collect exam times ----
+                let exam_times = [];
+                exam_days.forEach(day => {
+                    exam_data[day].forEach(e => {
+                        exam_times.push(Number(e.from), Number(e.to));
+                    });
                 });
-            });
 
-            // ---- unique + sort ----
-            exam_times = [...new Set(exam_times)].sort((a, b) => a - b);
+                // ---- unique + sort ----
+                exam_times = [...new Set(exam_times)].sort((a, b) => a - b);
 
-            // ---- derive contiguous slots (old layout compatible) ----
-            const EXAM_SLOTS = [];
-            for (let i = 0; i < exam_times.length - 1; i++) {
-                EXAM_SLOTS.push({
-                    from: exam_times[i],
-                    to: exam_times[i + 1]
-                });
-            }
-
-            // ---------- THEAD ----------
-            const examthead = document.createElement('thead');
-            const headTr = document.createElement('tr');
-            headTr.classList.add(
-                "bg-gray-200",
-                "dark:bg-gray-800",
-                "text-gray-900",
-                "dark:text-white",
-                "shadow-md"
-            );
-
-            headTr.appendChild(make_cell('th', 'Day'));
-
-            EXAM_SLOTS.forEach(s => {
-                headTr.appendChild(
-                    make_cell('th', `${s.from}:00 - ${s.to}:00`)
-                );
-            });
-
-            examthead.appendChild(headTr);
-            exam.appendChild(examthead);
-
-            // ---------- TBODY ----------
-            const examtbody = document.createElement('tbody');
-
-            exam_days.forEach(dayLabel => {
-                const exams = exam_data[dayLabel];
-
-                const tr = document.createElement('tr');
-                tr.classList.add(
-                    "bg-white",
-                    "dark:bg-gray-900",
-                    "hover:bg-gray-100",
-                    "dark:hover:bg-gray-800",
-                    "text-gray-800",
-                    "dark:text-white"
-                );
-
-                // Row header uses FULL JSON KEY
-                tr.appendChild(make_cell('td', dayLabel));
-
-                let slotIndex = 0;
-
-                while (slotIndex < EXAM_SLOTS.length) {
-                    const slot = EXAM_SLOTS[slotIndex];
-
-                    const examItem = exams.find(e =>
-                        Number(e.from) <= slot.from &&
-                        Number(e.to) > slot.from
-                    );
-
-                    if (!examItem) {
-                        tr.appendChild(make_cell('td', ''));
-                        slotIndex++;
-                        continue;
-                    }
-
-                    // calculate colspan
-                    let span = 0;
-                    while (
-                        slotIndex + span < EXAM_SLOTS.length &&
-                        Number(examItem.to) > EXAM_SLOTS[slotIndex + span].from
-                    ) {
-                        span++;
-                    }
-
-                    tr.appendChild(
-                        make_cell(
-                            'td',
-                            `<b>${examItem['name-en']}</b><br>
-                            ${examItem['name-th']}<br>
-                            ${examItem['room']}`,
-                            { colspan: span }
-                        )
-                    );
-
-                    slotIndex += span;
+                // ---- derive contiguous slots (old layout compatible) ----
+                const EXAM_SLOTS = [];
+                for (let i = 0; i < exam_times.length - 1; i++) {
+                    EXAM_SLOTS.push({
+                        from: exam_times[i],
+                        to: exam_times[i + 1]
+                    });
                 }
 
-                examtbody.appendChild(tr);
-            });
+                // ---------- THEAD ----------
+                const examthead = document.createElement('thead');
+                const headTr = document.createElement('tr');
+                headTr.classList.add(
+                    "bg-gray-200",
+                    "dark:bg-gray-800",
+                    "text-gray-900",
+                    "dark:text-white",
+                    "shadow-md"
+                );
 
-            exam.appendChild(examtbody);
+                headTr.appendChild(make_cell('th', 'Day'));
 
+                EXAM_SLOTS.forEach(s => {
+                    headTr.appendChild(
+                        make_cell('th', `${s.from}:00 - ${s.to}:00`)
+                    );
+                });
+
+                examthead.appendChild(headTr);
+                exam.appendChild(examthead);
+
+                // ---------- TBODY ----------
+                const examtbody = document.createElement('tbody');
+
+                exam_days.forEach(dayLabel => {
+                    const exams = exam_data[dayLabel];
+
+                    const tr = document.createElement('tr');
+                    tr.classList.add(
+                        "bg-white",
+                        "dark:bg-gray-900",
+                        "hover:bg-gray-100",
+                        "dark:hover:bg-gray-800",
+                        "text-gray-800",
+                        "dark:text-white"
+                    );
+
+                    // Row header uses FULL JSON KEY
+                    tr.appendChild(make_cell('td', dayLabel));
+
+                    let slotIndex = 0;
+
+                    while (slotIndex < EXAM_SLOTS.length) {
+                        const slot = EXAM_SLOTS[slotIndex];
+
+                        const examItem = exams.find(e =>
+                            Number(e.from) <= slot.from &&
+                            Number(e.to) > slot.from
+                        );
+
+                        if (!examItem) {
+                            tr.appendChild(make_cell('td', ''));
+                            slotIndex++;
+                            continue;
+                        }
+
+                        // calculate colspan
+                        let span = 0;
+                        while (
+                            slotIndex + span < EXAM_SLOTS.length &&
+                            Number(examItem.to) > EXAM_SLOTS[slotIndex + span].from
+                        ) {
+                            span++;
+                        }
+
+                        tr.appendChild(
+                            make_cell(
+                                'td',
+                                `<b>${examItem['name-en']}</b><br>
+                                ${examItem['name-th']}<br>
+                                ${examItem['room']}`,
+                                { colspan: span }
+                            )
+                        );
+
+                        slotIndex += span;
+                    }
+
+                    examtbody.appendChild(tr);
+                });
+
+                exam.appendChild(examtbody);
+            } else {
+                document.getElementById('exam').classList.add('hidden');
+            }
 
         });
     //     })
