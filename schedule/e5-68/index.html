@@ -122,7 +122,7 @@
         </table>
     </div>
 
-    <script src="https://kmu-scr.pisc.cc/script.js"></script>
+    <script src="https://kmu-src.pisc.cc/script.min.js"></script>
 
     <script>
         function make_cell(elem, text, options = {}) {
@@ -146,7 +146,7 @@
         thead.appendChild(thead_tr);
         timetable.appendChild(thead);
         
-        $.getJSON('https://kmu-scr.pisc.cc/schedule/timetable/e5-68/2-1-m.json', function(alldata) {
+        $.getJSON('https://kmu-src.pisc.cc/schedule/e5-68/2-1-m.json', function(alldata) {
         
             console.log(alldata);
             const data = alldata['timetable'];

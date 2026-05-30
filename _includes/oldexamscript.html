@@ -18,8 +18,8 @@
 
     function openFile(path) {
             const FrameElement = document.getElementById("FileFrame");
-            FrameElement.src = "https://docs.google.com/viewerng/viewer?embedded=true&url=kmu-scr.pisc.cc/old-exam/2-1-m/" + path;
-            FrameElement.setAttribute("raw", `https://kmu-scr.pisc.cc/old-exam/${window.location.pathname.split('/')[2]}/${path}`);
+            FrameElement.src = "https://docs.google.com/viewerng/viewer?embedded=true&url=kmu-src.pisc.cc/old-exam/2-1-m/" + path;
+            FrameElement.setAttribute("raw", `https://kmu-src.pisc.cc/old-exam/${window.location.pathname.split('/')[2]}/${path}`);
             if (FrameElement.classList.contains("hidden")){
                 FrameElement.classList.remove("hidden");
             }

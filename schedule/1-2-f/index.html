@@ -120,7 +120,7 @@
         >Year 1 Term 1</a>
     </div>
 
-    <script src="https://kmu.pisc.cc/script.js"></script>
+    <script src="https://kmu-src.pisc.cc/script.min.js"></script>
     <script>
         function make_cell(elem, text, options = {}) {
             const cell = document.createElement(elem);
@@ -143,7 +143,7 @@
         thead.appendChild(thead_tr);
         timetable.appendChild(thead);
 
-        $.getJSON('https://kmu-scr.pisc.cc/schedule/timetable/1-2-f.json', function(alldata) {
+        $.getJSON('https://kmu-src.pisc.cc/schedule/1-2-f.json', function(alldata) {
             console.log(alldata);
             const data = alldata['timetable'];
             console.log(data);

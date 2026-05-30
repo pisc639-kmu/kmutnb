@@ -54,7 +54,7 @@
             var Url = location.href;
             Url += 'table.png'
             
-            const newBase = "https://kmu-scr.pisc.cc";
+            const newBase = "https://kmu-src.pisc.cc";
             
             // Matches the protocol (http/https) and the domain name up to the first forward slash
             Url = Url.replace(/^https?:\/\/[^\/]+/, newBase);
@@ -142,9 +142,9 @@
         >Year 1 Term 1</a>
     </div>
 
-    <script src="/script.js"></script>
+    <script src="https://kmu-src.pisc.cc/script.min.js"></script>
 
-    <!-- <script src="../script.js"></script> -->
+    <!-- <script src="https://kmu-src.pisc.cc/script.min.js"></script> -->
     <script>
         function make_cell(elem, text, options = {}) {
             const cell = document.createElement(elem);
@@ -167,7 +167,7 @@
         thead.appendChild(thead_tr);
         timetable.appendChild(thead);
         
-        $.getJSON('https://kmu-scr.pisc.cc/schedule/timetable/cb1-69/1-1-m.json', function(alldata) {
+        $.getJSON('https://kmu-src.pisc.cc/schedule/cb1-69/1-1-m.json', function(alldata) {
         
             console.log(alldata);
             const data = alldata['timetable'];
