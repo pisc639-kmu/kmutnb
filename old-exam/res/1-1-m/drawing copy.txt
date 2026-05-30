@@ -1,5 +1,4 @@
-Found file: "D:\kmutnb\old-exam\2558\term 1\midterm\341131 EP.pdf"
-Found file: "D:\kmutnb\old-exam\2560\term 1\midterm\EP\341131.pdf"
-Found file: "D:\kmutnb\old-exam\2561\term 1\midterm\5 Oct 61\EP\341131.pdf"
-Found file: "D:\kmutnb\old-exam\2562\term 2\midterm\21 Jan 63\EP\341131.pdf"
-Search completed.
+"D:\kmutnb\old-exam\2558\term 1\midterm\341131 EP.pdf"
+"D:\kmutnb\old-exam\2560\term 1\midterm\EP\341131.pdf"
+"D:\kmutnb\old-exam\2561\term 1\midterm\5 Oct 61\EP\341131.pdf"
+"D:\kmutnb\old-exam\2562\term 2\midterm\21 Jan 63\EP\341131.pdf"

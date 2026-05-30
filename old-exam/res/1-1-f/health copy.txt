@@ -1,14 +1,3 @@
-Detected search query: ,Health Education
-Found file: "D:\kmutnb\old-exam\2567\term 1\final\031001171 S1-7.pdf"
-Found file: "D:\kmutnb\old-exam\2567\term 1\final\031001171 S8-10.pdf"
-Found file: "D:\kmutnb\old-exam\2567\term 1\midterm\031001171  S1-7.pdf"
-Found file: "D:\kmutnb\old-exam\2567\term 1\midterm\031001171  S8-10.pdf"
-Found file: "D:\kmutnb\old-exam\2567\term 2\final\031001171 S1-7.pdf"
-Found file: "D:\kmutnb\old-exam\2567\term 2\final\031001171 S8.pdf"
-Found file: "D:\kmutnb\old-exam\2567\term 2\midterm\031001171 S.1-7.pdf"
-Found file: "D:\kmutnb\old-exam\2567\term 2\midterm\031001171 S.8.pdf"
-Found file: "D:\kmutnb\old-exam\2568\term 1\final\031001171 S1-7.pdf"
-Found file: "D:\kmutnb\old-exam\2568\term 1\final\031001171 S8-10.pdf"
-Found file: "D:\kmutnb\old-exam\2568\term 1\midterm\031001171 S1-7.pdf"
-Found file: "D:\kmutnb\old-exam\2568\term 1\midterm\031001171 S8-10.pdf"
-Search completed.
+"D:\kmutnb\old-exam\2567\term 1\final\031001171 S8-10.pdf"
+"D:\kmutnb\old-exam\2567\term 2\final\031001171 S8.pdf"
+"D:\kmutnb\old-exam\2568\term 1\final\031001171 S8-10.pdf"

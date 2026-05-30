@@ -1,4 +1,3 @@
-
 Detected search query: Electric Drawing I
 Found file: "D:\kmutnb\old-exam\2555\term 1\final\341131.pdf"
 Found file: "D:\kmutnb\old-exam\2555\term 1\final\ep\341131.pdf"
