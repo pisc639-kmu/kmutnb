@@ -91,7 +91,7 @@
         const thead_tr = document.createElement('tr');
         thead_tr.classList.add("bg-gray-200", "dark:bg-gray-800", "text-gray-900", "dark:text-white", "shadow-md")
         thead_tr.appendChild(make_cell('th', 'Day'));
-        for (let i = 0; i < 9; i++) {
+        for (let i = 0; i < 10; i++) {
             thead_tr.appendChild(make_cell('th', `${i + 8}:00 - ${i + 9}:00`));
         }
         thead.appendChild(thead_tr);
