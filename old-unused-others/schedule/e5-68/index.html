@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E25 Class Timetable</title>
+    {% include "head.html" %}
+</head>
+<body class="dark bg-gray-50 dark:bg-gray-950 min-h-screen">
+    {% include "nav.html" %}
+    <!-- <span></span><div class="flex items-center text-center justify-center space-x-4 mt-16">
+        <h1 class="text-4xl font-bold mb-4 text-gray-800 dark:text-white">Exam Schedule & Timetable</h1>
+    </div>
+    <div class="mt-8 text-center my-8">
+        <h2 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Study Schedule</h2>
+    </div></span>
+    <div class="flex items-center text-center justify-center space-x-4 mt-16">
+        <h1 class="text-4xl font-bold my-4 text-gray-800 dark:text-white">Study Schedule</h1>
+        <a onclick="download_image();" class="items-center space-x-2 text-black dark:text-white hover:text-blue-500 dark:hover:text-blue-400">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+        </a>
+    </div> -->
+    <!-- <div class="flex items-center text-center justify-center space-x-4 mt-16">
+        <h1 class="text-4xl font-bold mb-4 text-gray-800 dark:text-white">Exam Schedule & Timetable</h1>
+    </div>
+    <div class="mt-8 text-center my-8">
+        <h2 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Study Schedule</h2>
+    </div> -->
+    <div class="flex items-center text-center justify-center space-x-4 mt-16">
+        <h1 class="text-4xl font-bold my-4 text-gray-800 dark:text-white">Study Schedule</h1>
+        <a onclick="download_image();" class="items-center space-x-2 text-black dark:text-white hover:text-blue-500 dark:hover:text-blue-400">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+        </a>
+    </div>
+    <script>
+        /**
+         * Triggers a file download from a given URL.
+         * @param {string} url - The URL of the file to download.
+         * @param {string} [filename] - The desired name for the downloaded file.
+         */
+        async function downloadFileFromURL(url, filename) {
+        try {
+            // 1. Fetch the file data as a Blob
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const blob = await response.blob();
+
+            // 2. Create a temporary object URL for the blob
+            const blobUrl = URL.createObjectURL(blob);
+
+            // 3. Use a hidden anchor tag to trigger the download
+            const a = document.createElement('a');
+            a.href = blobUrl;
+            a.download = filename || url.split('/').pop(); // Use provided filename or extract from URL
+            a.style.display = 'none';
+            document.body.appendChild(a);
+            a.click(); // Simulate a click event
+            document.body.removeChild(a);
+
+            // 4. Clean up the object URL after a short delay
+            // (A slight delay is good practice to ensure the download intent is registered)
+            setTimeout(() => URL.revokeObjectURL(blobUrl), 100); 
+
+        } catch (error) {
+            console.error('Download failed:', error);
+            alert('Could not download the file. Check console for details.' + error);
+        }
+        }
+
+        function isDarkMode() {
+            if (window.matchMedia) {
+                return window.matchMedia('(prefers-color-scheme: dark)').matches;
+            }
+            // Fallback for browsers that don't support matchMedia
+            return false; 
+        };
+
+        function download_light() {
+            var a = document.createElement('a');
+            a.href = "table-light.png";
+            a.download = "table-light.png";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            // downloadFileFromURL("table-light.png", "table-light.png");
+        };
+
+        function download_dark() {
+            var a = document.createElement('a');
+            a.href = "table-dark.png";
+            a.download = "table-dark.png";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        };
+
+        function download_image() {
+            if (isDarkMode()) {
+                download_light();
+                download_dark();
+            } else {
+                download_dark();
+                download_light();
+            }
+        };
+    </script>
+    <div class="container mx-auto mt-8 overflow-x-auto shadow-md shadow-gray-400 dark:shadow-gray-800 hover:shadow-gray-500 dark:hover:shadow-gray-950">
+        <table id="timetable" class="text-[0.6rem] [&_thead]:text-xs [&>*>tr>*:first-child]:text-sm
+            md:text-[0.8rem] md:[&_thead]:text-sm md:[&>*>tr>*:first-child]:text-md
+            [&>*>tr>*:first-child]:font-bold
+            w-full border-collapse border border-gray-300 dark:border-gray-700">
+            <thead class="">
+                <tr class="bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white shadow-md">
+                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">Day</th>
+                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">8:00 - 9:00</th>
+                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">9:00 - 10:00</th>
+                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">10:00 - 11:00</th>
+                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">11:00 - 12:00</th>
+                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">12:00 - 13:00</th>
+                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">13:00 - 14:00</th>
+                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">14:00 - 15:00</th>
+                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">15:00 - 16:00</th>
+                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">16:00 - 17:00</th>
+                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">17:00 - 18:00</th>
+                </tr>
+            </thead>
+            <tbody class="">
+                <tr class="bg-white dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-white">
+                    <td class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">Monday</td>
+                    <td class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700" colspan="7"><b>Basic Metal Work Practice</b><br>90 - fl.1-2<br>031011203/85<br>ผศ.ดร.ทศพร แก้ววิจิตร<br>อ.Keenen Jay Pelpinosas Bulala</td>
+                    <td class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700"></td>
+                    <td class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700"></td>
+                    <td class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    
+    <div class="flex items-center text-center justify-center space-x-4 mt-16">
+        <h1 class="text-4xl font-bold my-4 text-gray-800 dark:text-white">Exam Schedule</h1>
+    </div>
+
+    <div class="container mx-auto mt-8 overflow-x-auto shadow-md shadow-gray-400 dark:shadow-gray-800 hover:shadow-gray-500 dark:hover:shadow-gray-950">
+        <table id="exam" class="text-[0.6rem] [&_thead]:text-xs [&>*>tr>*:first-child]:text-sm
+            md:text-[0.8rem] md:[&_thead]:text-sm md:[&>*>tr>*:first-child]:text-md
+            [&>*>tr>*:first-child]:font-bold
+            w-full border-collapse border border-gray-300 dark:border-gray-700">
+            <thead class="">
+                <tr class="bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white shadow-md">
+                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">Day</th>
+                </tr>
+            </thead>
+            <tbody class="">
+                <tr class="bg-white dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-white"></tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- <p class="flex justify-center text-gray-600 dark:text-300">*Noted that this table is unreliable and please check the actual timetable <a class="underline" href="https://vichakarn.cit.kmutnb.ac.th/room.html">here</a>*</p> -->
+    <!-- <p class="flex justify-center text-gray-600 dark:text-300">
+    *This timetable is not an official source and may contain errors or outdated information. Always confirm the official timetable <a class="underline" href="https://vichakarn.cit.kmutnb.ac.th/room.html">here</a>.*
+    </p> -->
+    <p class="text-center text-gray-600 dark:text-gray-300 text-sm">
+    This timetable is provided for informational purposes only and is not an official source. 
+    It may contain errors or outdated information. Please verify the official timetable 
+    <a class="underline ml-1" href="https://vichakarn.cit.kmutnb.ac.th/room.html" target="_blank" rel="noopener">here</a>.
+    </p>
+
+    <div class="flex justify-center space-x-4 md:space-x-8 mt-4 mx-auto">
+        <a href="./1-1" class="bg-neutral-600 hover:bg-neutral-700 dark:bg-neutral-950 dark:hover:bg-neutral-700 text-white font-medium py-2 px-4 rounded-md border border-neutral-500 transition-colors duration-300 shadow-md shadow-neutral-800 hover:shadow-neutral-500"
+        >Year 1 Term 1</a>
+        <a href="./1-2-f" class="bg-neutral-600 hover:bg-neutral-700 dark:bg-neutral-950 dark:hover:bg-neutral-700 text-white font-medium py-2 px-4 rounded-md border border-neutral-500 transition-colors duration-300 shadow-md shadow-neutral-800 hover:shadow-neutral-500"
+        >Year 1 Term 1</a>
+    </div>
+
+    <script src="/script.js"></script>
+
+    <!-- <script src="../script.js"></script> -->
+    <script>
+        function make_cell(elem, text, options = {}) {
+            const cell = document.createElement(elem);
+            cell.classList.add("px-3", "py-2", "border-x", "border", "border-gray-300", "dark:border-gray-700");
+            cell.innerHTML = text;
+            cell.colSpan = options.colspan || 1;
+            return cell;
+        }
+
+        const timetable = document.getElementById('timetable');
+        timetable.innerHTML = '';
+
+        const thead = document.createElement('thead');
+        // thead.classList.add
+        const thead_tr = document.createElement('tr');
+        thead_tr.classList.add("bg-gray-200", "dark:bg-gray-800", "text-gray-900", "dark:text-white", "shadow-md")
+        thead_tr.appendChild(make_cell('th', 'Day'));
+        for (let i = 0; i < 10; i++) {
+            thead_tr.appendChild(make_cell('th', `${i + 8}:00 - ${i + 9}:00`));
+        }
+        thead.appendChild(thead_tr);
+        timetable.appendChild(thead);
+        
+        // document.addEventListener('DOMContentLoaded', () => {
+        //     fetch('timetable.json')
+        //     .then(response => response.json())
+        //     .then(data => {
+        // const tbody = document.createElement('tbody');
+        // const tbody_tr = document.createElement('tr');
+        // tbody_tr.classList.add("bg-white", "dark:bg-gray-900", "hover:bg-gray-100", "dark:hover:bg-gray-800", "text-gray-800", "dark:text-white");
+        // tbody_tr.appendChild(make_cell('td', 'Monday'));
+        // for (let i = 0; i < 10; i++) {
+        //     tbody_tr.appendChild(make_cell('td', ''));
+        // }
+        // tbody.appendChild(tbody_tr);
+        // timetable.appendChild(tbody);
+        $.getJSON('https://raw.githubusercontent.com/pisc639-kmu/kmutnb/main/schedule/timetable/2-1-m.json', function(alldata) {
+            /*
+            data = {
+                "timetable": {
+                    "monday": [
+                        {
+                            "code": "031011203",
+                            "name-en": "Basic Metal Work Practice",
+                            "name-th": "ปฏิบัติงานโลหะเบื้องต้น",
+                            "from": "8",
+                            "to": "15",
+                            "room": "90 - fl.1-2",
+                            "section": "8",
+                            "instructor": [
+                                {
+                                    "name-en": "Asst.Prof.Dr.THOSSAPORN KAEWWICHIT",
+                                    "name-th": "ผศ.ดร.ทศพร แก้ววิจิตร"
+                                },
+                                {
+                                    "name-en": "KEENEN JAY PELPINOSAS BULALA",
+                                    "name-th": "อ.Keenen Jay Pelpinosas Bulala"
+                                }
+                            ]
+                        }
+                    ],
+                    "tuesday": [
+                        {
+                            "code": "031011203",
+                            "name-en": "Electric Circuits II",
+                            "name-th": "วงจรไฟฟ้า 2",
+                            "from": "10",
+                            "to": "12",
+                            "room": "90 - ?",
+                            "section": "5",
+                            "instructor": [
+                                {
+                                    "name-en": "Assoc.Prof.Dr.TITIPONG LERTWIRIYAPRAPA",
+                                    "name-th": "รศ.ดร.ฐิติพงษ์ เลิศวิริยะประภา"
+                                }
+                            ]
+                        },
+                        {
+                            "code": "031011321",
+                            "name-en": "Mechanical Drawing I",
+                            "name-th": "เขียนแบบเครื่องกล 1",
+                            "from": "13",
+                            "to": "16",
+                            "room": "90 - 409",
+                            "section": "5",
+                            "instructor": [
+                                {
+                                    "name-en": "INTHRAYUTH MAHAPHOL",
+                                    "name-th": "อ.อินทรายุทธ มหาพล"
+                                },
+                                {
+                                    "name-en": "Ajarn.PICHAI CHOBSUK",
+                                    "name-th": "อ.พิชัย ชอบสุข"
+                                }
+                            ]
+                        }
+                    ],
+                    "wednesday": [
+                        {
+                            "code": "031001152",
+                            "name-en": "Thai II",
+                            "name-th": "ภาษาไทย 2",
+                            "from": "8",
+                            "to": "10",
+                            "room": "90 - 605",
+                            "section": "15",
+                            "instructor": [
+                                {
+                                    "name-en": "Dr.PRATCHAYAPORN THONGPRASIT",
+                                    "name-th": "ดร.ปรัชญาพร ทองประสิทธิ์"
+                                }
+                            ]
+                        },
+                        {
+                            "code": "031001122",
+                            "name-en": "Chemistry II",
+                            "name-th": "เคมี 2",
+                            "from": "10",
+                            "to": "12",
+                            "room": "90 - 605",
+                            "section": "15",
+                            "instructor": [
+                                {
+                                    "name-en": "Assoc.Prof.Dr.NATHJANAN JONGKON",
+                                    "name-th": "รศ.ดร.ณัฐจนันท์ จงกล"
+                                }
+                            ]
+                        },
+                        {
+                            "code": "031001142",
+                            "name-en": "Foundation English II",
+                            "name-th": "ภาษาอังกฤษพื้นฐาน 2",
+                            "from": "13",
+                            "to": "15",
+                            "room": "90 - 605",
+                            "section": "15",
+                            "instructor": [
+                                {
+                                    "name-en": "MR. Asim Baris Orses",
+                                    "name-th": "MR. Asim Baris Orses"
+                                }
+                            ]
+                        },
+                        {
+                            "code": "031001382",
+                            "name-en": "Extra-Curricular Activities II",
+                            "name-th": "กิจกรรมเสริมหลักสูตร 2",
+                            "from": "15",
+                            "to": "17",
+                            "room": "",
+                            "section": "",
+                            "instructor": []
+                        }
+                    ],
+                    "thursday": [
+                        {
+                            "code": "031001272",
+                            "name-en": "Physical Education II",
+                            "name-th": "พลศึกษา 2",
+                            "from": "8",
+                            "to": "10",
+                            "room": "91 - fl.5",
+                            "section": "15",
+                            "instructor": [
+                                {
+                                    "name-en": "Ajarn.WARAPONG KRAICHOMSOM",
+                                    "name-th": "อ.วราพงศ์ ไกรชมสม"
+                                },
+                                {
+                                    "name-en": "Ajarn.THANAWAT PRAIPHISUT",
+                                    "name-th": "อ.ธนะวรรธน์ ไพรพิสุทธิ์"
+                                }
+                            ]
+                        },
+                        {
+                            "code": "031021225",
+                            "name-en": "Ac Circuits Practice",
+                            "name-th": "ปฏิบัติงานวงจรไฟฟ้ากระแสสลับ",
+                            "from": "10",
+                            "to": "17",
+                            "room": "90 - 601",
+                            "section": "5",
+                            "instructor": [
+                                {
+                                    "name-en": "Asst.Prof.Dr.CHANIN JOOCHIM",
+                                    "name-th": "ผศ.ดร.ชานินทร์ จูฉิม"
+                                },
+                                {
+                                    "name-en": "MR. PRABIN KISHOR PURY",
+                                    "name-th": "MR. Prabin Kishor Pury"
+                                }
+                            ]
+                        }
+                    ],
+                    "friday": [
+                        {
+                            "code": "031001112",
+                            "name-en": "Mechanics II",
+                            "name-th": "กลศาสตร์ 2",
+                            "from": "8",
+                            "to": "10",
+                            "room": "90 - 608",
+                            "section": "15",
+                            "instructor": [
+                                {
+                                    "name-en": "Asst.Prof.Dr.PRAKASIT CHANSUPHAN",
+                                    "name-th": "ผศ.ดร.ประกาศิต ช่างสุพรรณ"
+                                }
+                            ]
+                        },
+                        {
+                            "code": "031021112",
+                            "name-en": "Electrical Measuring Instruments",
+                            "name-th": "เครื่องมือวัดไฟฟ้า",
+                            "from": "10",
+                            "to": "12",
+                            "room": "?",
+                            "section": "5",
+                            "instructor": [
+                                {
+                                    "name-en": "Assoc.Prof.Dr.PICHET SRIYANYONG",
+                                    "name-th": "รศ.ดร.พิเชษฐ์ ศรียรรยงค์"
+                                }
+                            ]
+                        },
+                        {
+                            "code": "031001132",
+                            "name-en": "Mathematics II",
+                            "name-th": "คณิตศาสตร์ 2",
+                            "from": "13",
+                            "to": "16",
+                            "room": "90 - 608",
+                            "section": "15",
+                            "instructor": [
+                                {
+                                    "name-en": "Assoc.Prof.Dr.SEKSON SIRISUBTAWEE",
+                                    "name-th": "รศ.ดร.เสกสรร สิริทรัพย์ทวี"
+                                }
+                            ]
+                        }
+                    ],
+                    "saturday": [],
+                    "sunday": [],
+                    "ignore": [
+                        {
+                            "code": "031001152",
+                            "name-en": "TTTTTTTTTTTTTTTt",
+                            "name-th": "TTTTTTTTTTTTTTTt",
+                            "from": "TTTTTTTTTTTTTTTt",
+                            "to": "TTTTTTTTTTTTTTTt",
+                            "room": "90 - TTTTTTTTTTTTTTTt",
+                            "section": "TTTTTTTTTTTTTTTt",
+                            "instructor": [
+                                {
+                                    "name-en": "TTTTTTTTTTTTTTTt",
+                                    "name-th": "TTTTTTTTTTTTTTTt"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            };
+            */
+            console.log(alldata);
+            const data = alldata['timetable'];
+            console.log(data);
+            const tbody = document.createElement('tbody');
+            // data.forEach(row => {
+            //     const tr = document.createElement('tr');
+            //     tr.classList.add("bg-white", "dark:bg-gray-900", "hover:bg-gray-100", "dark:hover:bg-gray-800", "text-gray-800", "dark:text-white");
+            //     tr.appendChild(make_cell('td', row.day));
+            //     for (let i = 0; i < 10; i++) {
+            //         tr.appendChild(make_cell('td', row[i]));
+            //     }
+            //     tbody.appendChild(tr);
+            // });
+            const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+            for (let i = 0; i < days.length; i++) {
+                const tr = document.createElement('tr');
+                tr.classList.add("bg-white", "dark:bg-gray-900", "hover:bg-gray-100", "dark:hover:bg-gray-800", "text-gray-800", "dark:text-white");
+                tr.appendChild(make_cell('td', days[i]));
+                // for (let j = 0; j < 10; j++) {
+                // }
+                let j = 8;
+                for (let k = 0; k < data[days[i].toLowerCase()].length; k++) {
+                    // tr.appendChild(make_cell('td', data[days[i].toLowerCase()][k]));
+                    // let l = 0;
+                    // while (l < data[days[i].toLowerCase()][k]['from'] - j) {
+                    while (j < data[days[i].toLowerCase()][k]['from']) {
+                        tr.appendChild(make_cell('td', ''));
+                        // l++;
+                        j++;
+                    }
+                    const td = make_cell('td', `<b>${data[days[i].toLowerCase()][k]['name-en']}<br>${data[days[i].toLowerCase()][k]['name-th']}</b><br>${data[days[i].toLowerCase()][k]['room']}<br>${data[days[i].toLowerCase()][k]['code']}<br>${data[days[i].toLowerCase()][k]['instructor'].map(instructor => instructor['name-th']).join('<br>')}`, {colspan: data[days[i].toLowerCase()][k]['to'] - data[days[i].toLowerCase()][k]['from']});
+                    tr.appendChild(td);
+                    // j = data[days[i].toLowerCase()][k]['to'];
+                    j += data[days[i].toLowerCase()][k]['to'] - data[days[i].toLowerCase()][k]['from'];
+                }
+                for (let l = 0; l < 10 - j + 8; l++) {
+                    tr.appendChild(make_cell('td', ''));
+                }
+                tbody.appendChild(tr);
+            }
+            timetable.appendChild(tbody);
+
+            // Exam Schedule
+            // const exam_data = alldata['exam'];
+            // console.log(exam_data);
+            // const exam = document.getElementById('exam');
+            // exam.innerHTML = '';
+            // const tbody_exam = document.createElement('tbody');
+            // // for (let i = 0; i < exam_data['ignore'].length; i++) {
+            // //     const tr = document.createElement('tr');
+            // //     tr.classList.add("bg-white", "dark:bg-gray-900", "hover:bg-gray-100", "dark:hover:bg-gray-800", "text-gray-800", "dark:text-white");
+            // //     tr.appendChild(make_cell('td', `<b>${exam_data['ignore'][i]['name-en']}</b><br>${exam_data['ignore'][i]['name-th']}`, {colspan: 2}));
+            // //     tbody_exam.appendChild(tr);
+            // // }
+            // const exam_days = Object.keys(exam_data);
+            // let exam_times = [];
+            // for (let i = 0; i < exam_days.length; i++) {
+            //     const times = exam_data[exam_days[i]].map(time => [time['from'], time['to']]).flat();
+            //     // const unique_times = [...new Set(times)];
+            //     exam_times.push(...times);
+            // }
+            // // make it uniue
+            // // const unique_times = [...new Set(exam_times)];
+            // // console.log(unique_times);
+            // exam_times = [...new Set(exam_times)];
+            // // sort it
+            // exam_times.sort((a, b) => a - b);
+            // console.log(exam_times)
+            // // const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+            // // console.log(exam_data)
+            // for (let i = 0; i < days.length; i++) {
+            //     const tr = document.createElement('tr');
+            //     tr.classList.add("bg-white", "dark:bg-gray-900", "hover:bg-gray-100", "dark:hover:bg-gray-800", "text-gray-800", "dark:text-white");
+            //     tr.appendChild(make_cell('td', days[i]));
+            //     j = 8;
+            //     for (let k = 0; k < exam_times.length; k++) {
+                    
+            //     }
+            //     const td = make_cell('td', `<b>${exam_data[exam_days[i]]['name-en']}<br>${exam_data[exam_days[i]]['name-th']}</b><br>${exam_data[exam_days[i]]['room']}`, {colspan: 2});
+            //     tr.appendChild(td);
+            //     tbody_exam.appendChild(tr);
+            // }
+            // exam.appendChild(tbody_exam);
+            
+            // ================= EXAM SCHEDULE =================
+            const exam_data = alldata['exam'];
+            const exam = document.getElementById('exam');
+            exam.innerHTML = '';
+
+            // ---- exam days come directly from JSON keys ----
+            const exam_days = Object.keys(exam_data).filter(k => k !== 'ignore');
+
+            // ---- collect exam times ----
+            let exam_times = [];
+            exam_days.forEach(day => {
+                exam_data[day].forEach(e => {
+                    exam_times.push(Number(e.from), Number(e.to));
+                });
+            });
+
+            // ---- unique + sort ----
+            exam_times = [...new Set(exam_times)].sort((a, b) => a - b);
+
+            // ---- derive contiguous slots (old layout compatible) ----
+            const EXAM_SLOTS = [];
+            for (let i = 0; i < exam_times.length - 1; i++) {
+                EXAM_SLOTS.push({
+                    from: exam_times[i],
+                    to: exam_times[i + 1]
+                });
+            }
+
+            // ---------- THEAD ----------
+            const examthead = document.createElement('thead');
+            const headTr = document.createElement('tr');
+            headTr.classList.add(
+                "bg-gray-200",
+                "dark:bg-gray-800",
+                "text-gray-900",
+                "dark:text-white",
+                "shadow-md"
+            );
+
+            headTr.appendChild(make_cell('th', 'Day'));
+
+            EXAM_SLOTS.forEach(s => {
+                headTr.appendChild(
+                    make_cell('th', `${s.from}:00 - ${s.to}:00`)
+                );
+            });
+
+            examthead.appendChild(headTr);
+            exam.appendChild(examthead);
+
+            // ---------- TBODY ----------
+            const examtbody = document.createElement('tbody');
+
+            exam_days.forEach(dayLabel => {
+                const exams = exam_data[dayLabel];
+
+                const tr = document.createElement('tr');
+                tr.classList.add(
+                    "bg-white",
+                    "dark:bg-gray-900",
+                    "hover:bg-gray-100",
+                    "dark:hover:bg-gray-800",
+                    "text-gray-800",
+                    "dark:text-white"
+                );
+
+                // Row header uses FULL JSON KEY
+                tr.appendChild(make_cell('td', dayLabel));
+
+                let slotIndex = 0;
+
+                while (slotIndex < EXAM_SLOTS.length) {
+                    const slot = EXAM_SLOTS[slotIndex];
+
+                    const examItem = exams.find(e =>
+                        Number(e.from) <= slot.from &&
+                        Number(e.to) > slot.from
+                    );
+
+                    if (!examItem) {
+                        tr.appendChild(make_cell('td', ''));
+                        slotIndex++;
+                        continue;
+                    }
+
+                    // calculate colspan
+                    let span = 0;
+                    while (
+                        slotIndex + span < EXAM_SLOTS.length &&
+                        Number(examItem.to) > EXAM_SLOTS[slotIndex + span].from
+                    ) {
+                        span++;
+                    }
+
+                    tr.appendChild(
+                        make_cell(
+                            'td',
+                            `<b>${examItem['name-en']}</b><br>
+                            ${examItem['name-th']}<br>
+                            ${examItem['room']}`,
+                            { colspan: span }
+                        )
+                    );
+
+                    slotIndex += span;
+                }
+
+                examtbody.appendChild(tr);
+            });
+
+            exam.appendChild(examtbody);
+
+
+        });
+    //     })
+    //     .catch(error => console.error(error));
+    // });
+    </script>
+</body>
+</html>

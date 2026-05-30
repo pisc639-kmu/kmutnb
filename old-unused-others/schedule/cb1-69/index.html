@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E25 Class Schedule</title>
+    <title>CB11 Class Timetable</title>
     {% include "head.html" %}
 </head>
 <body class="dark bg-gray-50 dark:bg-gray-950 min-h-screen">
@@ -46,13 +46,17 @@
             if (window.matchMedia) {
                 return window.matchMedia('(prefers-color-scheme: dark)').matches;
             }
+            // Fallback for browsers that don't support matchMedia
             return false; 
         };
 
         function getTableUrl() {
             var Url = location.href;
             Url += 'table.png'
-            const newBase = "f";
+            
+            const newBase = "https://raw.githubusercontent.com/pisc639kmu/kmutnb/main";
+            
+            // Matches the protocol (http/https) and the domain name up to the first forward slash
             Url = Url.replace(/^https?:\/\/[^\/]+/, newBase);
             return 
         }
@@ -121,6 +125,15 @@
             </tbody>
         </table>
     </div>
+    <!-- <p class="flex justify-center text-gray-600 dark:text-300">*Noted that this table is unreliable and please check the actual timetable <a class="underline" href="https://vichakarn.cit.kmutnb.ac.th/room.html">here</a>*</p> -->
+    <!-- <p class="flex justify-center text-gray-600 dark:text-300">
+    *This timetable is not an official source and may contain errors or outdated information. Always confirm the official timetable <a class="underline" href="https://vichakarn.cit.kmutnb.ac.th/room.html">here</a>.*
+    </p> -->
+    <p class="text-center text-gray-600 dark:text-gray-300 text-sm">
+    This timetable is provided for informational purposes only and is not an official source. 
+    It may contain errors or outdated information. Please verify the official timetable 
+    <a class="underline ml-1" href="https://vichakarn.cit.kmutnb.ac.th/room.html" target="_blank" rel="noopener">here</a>.
+    </p>
 
     <div class="flex justify-center space-x-4 md:space-x-8 mt-4 mx-auto">
         <a href="./1-1" class="bg-neutral-600 hover:bg-neutral-700 dark:bg-neutral-950 dark:hover:bg-neutral-700 text-white font-medium py-2 px-4 rounded-md border border-neutral-500 transition-colors duration-300 shadow-md shadow-neutral-800 hover:shadow-neutral-500"
@@ -129,8 +142,9 @@
         >Year 1 Term 1</a>
     </div>
 
-    <script src="https://raw.githubusercontent.com/pisc639kmu/kmutnb/main/script.js"></script>
+    <script src="/script.js"></script>
 
+    <!-- <script src="../script.js"></script> -->
     <script>
         function make_cell(elem, text, options = {}) {
             const cell = document.createElement(elem);
@@ -147,13 +161,13 @@
         const thead_tr = document.createElement('tr');
         thead_tr.classList.add("bg-gray-200", "dark:bg-gray-800", "text-gray-900", "dark:text-white", "shadow-md")
         thead_tr.appendChild(make_cell('th', 'Day'));
-        for (let i = 0; i < 9; i++) {
+        for (let i = 0; i < 10; i++) {
             thead_tr.appendChild(make_cell('th', `${i + 8}:00 - ${i + 9}:00`));
         }
         thead.appendChild(thead_tr);
         timetable.appendChild(thead);
         
-        $.getJSON('https://raw.githubusercontent.com/pisc639-kmu/kmutnb/main/schedule/timetable/e5-68/2-1-m.json', function(alldata) {
+        $.getJSON('https://raw.githubusercontent.com/pisc639-kmu/kmutnb/main/schedule/timetable/cb1-69/1-1-m.json', function(alldata) {
         
             console.log(alldata);
             const data = alldata['timetable'];
