@@ -122,14 +122,7 @@
         </table>
     </div>
 
-    <div class="flex justify-center space-x-4 md:space-x-8 mt-4 mx-auto">
-        <a href="./1-1" class="bg-neutral-600 hover:bg-neutral-700 dark:bg-neutral-950 dark:hover:bg-neutral-700 text-white font-medium py-2 px-4 rounded-md border border-neutral-500 transition-colors duration-300 shadow-md shadow-neutral-800 hover:shadow-neutral-500"
-        >Year 1 Term 1</a>
-        <a href="./1-2-f" class="bg-neutral-600 hover:bg-neutral-700 dark:bg-neutral-950 dark:hover:bg-neutral-700 text-white font-medium py-2 px-4 rounded-md border border-neutral-500 transition-colors duration-300 shadow-md shadow-neutral-800 hover:shadow-neutral-500"
-        >Year 1 Term 1</a>
-    </div>
-
-    <script src="https://raw.githubusercontent.com/pisc639-kmu/kmutnb/main/script.js"></script>
+    <script src="https://kmu-scr.pisc.cc/script.js"></script>
 
     <script>
         function make_cell(elem, text, options = {}) {
@@ -153,7 +146,7 @@
         thead.appendChild(thead_tr);
         timetable.appendChild(thead);
         
-        $.getJSON('https://raw.githubusercontent.com/pisc639-kmu/kmutnb/main/schedule/timetable/e5-68/2-1-m.json', function(alldata) {
+        $.getJSON('https://kmu-scr.pisc.cc/schedule/timetable/e5-68/2-1-m.json', function(alldata) {
         
             console.log(alldata);
             const data = alldata['timetable'];

@@ -1,0 +1,51 @@
+<script>
+    async function downloadFileFromURL(url, filename) {
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const blob = await response.blob();
+        const blobUrl = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = blobUrl;
+        a.download = filename || url.split('/').pop();
+        a.style.display = 'none';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(() => URL.revokeObjectURL(blobUrl), 100); 
+
+    } catch (error) {
+        console.error('Download failed:', error);
+        alert('Could not download the file. Check console for details.' + error);
+    }
+    }
+
+    function isDarkMode() {
+        if (window.matchMedia) {
+            return window.matchMedia('(prefers-color-scheme: dark)').matches;
+        }
+        return false; 
+    };
+
+    function getTableUrl() {
+        var Url = location.href;
+        Url += 'table.png'
+        const newBase = "f";
+        Url = Url.replace(/^https?:\/\/[^\/]+/, newBase);
+        return 
+    }
+
+    function download_image() {
+        var download_url = getTableUrl();
+
+        var a = document.createElement('a');
+        a.href = download_url;
+        a.download = download_url;
+
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    };
+</script>

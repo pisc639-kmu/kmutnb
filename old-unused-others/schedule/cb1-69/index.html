@@ -54,7 +54,7 @@
             var Url = location.href;
             Url += 'table.png'
             
-            const newBase = "https://raw.githubusercontent.com/pisc639kmu/kmutnb/main";
+            const newBase = "https://kmu-scr.pisc.cc";
             
             // Matches the protocol (http/https) and the domain name up to the first forward slash
             Url = Url.replace(/^https?:\/\/[^\/]+/, newBase);
@@ -167,7 +167,7 @@
         thead.appendChild(thead_tr);
         timetable.appendChild(thead);
         
-        $.getJSON('https://raw.githubusercontent.com/pisc639-kmu/kmutnb/main/schedule/timetable/cb1-69/1-1-m.json', function(alldata) {
+        $.getJSON('https://kmu-scr.pisc.cc/schedule/timetable/cb1-69/1-1-m.json', function(alldata) {
         
             console.log(alldata);
             const data = alldata['timetable'];

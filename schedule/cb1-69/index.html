@@ -18,57 +18,7 @@
             </svg>
         </a>
     </div>
-    <script>
-        async function downloadFileFromURL(url, filename) {
-        try {
-            const response = await fetch(url);
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            const blob = await response.blob();
-            const blobUrl = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = blobUrl;
-            a.download = filename || url.split('/').pop();
-            a.style.display = 'none';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            setTimeout(() => URL.revokeObjectURL(blobUrl), 100); 
-
-        } catch (error) {
-            console.error('Download failed:', error);
-            alert('Could not download the file. Check console for details.' + error);
-        }
-        }
-
-        function isDarkMode() {
-            if (window.matchMedia) {
-                return window.matchMedia('(prefers-color-scheme: dark)').matches;
-            }
-            return false; 
-        };
-
-        function getTableUrl() {
-            var Url = location.href;
-            Url += 'table.png'
-            const newBase = "f";
-            Url = Url.replace(/^https?:\/\/[^\/]+/, newBase);
-            return 
-        }
-
-        function download_image() {
-            var download_url = getTableUrl();
-
-            var a = document.createElement('a');
-            a.href = "table.png";
-            a.download = "table-light.png";
-
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-        };
-    </script>
+    {% include "schedule.html" %}
     <div class="container mx-auto mt-8 overflow-x-auto shadow-md shadow-gray-400 dark:shadow-gray-800 hover:shadow-gray-500 dark:hover:shadow-gray-950">
         <table id="timetable" class="text-[0.6rem] [&_thead]:text-xs [&>*>tr>*:first-child]:text-sm
             md:text-[0.8rem] md:[&_thead]:text-sm md:[&>*>tr>*:first-child]:text-md
@@ -104,7 +54,7 @@
     
     <!-- <div class="flex items-center text-center justify-center space-x-4 mt-16">
         <h1 class="text-4xl font-bold my-4 text-gray-800 dark:text-white">Exam Schedule</h1>
-    </div> -->
+    </div>
 
     <div class="container mx-auto mt-8 overflow-x-auto shadow-md shadow-gray-400 dark:shadow-gray-800 hover:shadow-gray-500 dark:hover:shadow-gray-950">
         <table id="exam" class="text-[0.6rem] [&_thead]:text-xs [&>*>tr>*:first-child]:text-sm
@@ -120,16 +70,9 @@
                 <tr class="bg-white dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-white"></tr>
             </tbody>
         </table>
-    </div>
+    </div> -->
 
-    <div class="flex justify-center space-x-4 md:space-x-8 mt-4 mx-auto">
-        <a href="./1-1" class="bg-neutral-600 hover:bg-neutral-700 dark:bg-neutral-950 dark:hover:bg-neutral-700 text-white font-medium py-2 px-4 rounded-md border border-neutral-500 transition-colors duration-300 shadow-md shadow-neutral-800 hover:shadow-neutral-500"
-        >Year 1 Term 1</a>
-        <a href="./1-2-f" class="bg-neutral-600 hover:bg-neutral-700 dark:bg-neutral-950 dark:hover:bg-neutral-700 text-white font-medium py-2 px-4 rounded-md border border-neutral-500 transition-colors duration-300 shadow-md shadow-neutral-800 hover:shadow-neutral-500"
-        >Year 1 Term 1</a>
-    </div>
-
-    <script src="https://raw.githubusercontent.com/pisc639kmu/kmutnb/main/script.js"></script>
+    <script src="https://kmu-scr.pisc.cc/script.js"></script>
 
     <script>
         function make_cell(elem, text, options = {}) {
@@ -153,7 +96,7 @@
         thead.appendChild(thead_tr);
         timetable.appendChild(thead);
         
-        $.getJSON('https://raw.githubusercontent.com/pisc639-kmu/kmutnb/main/schedule/timetable/cb1-69/1-1-m.json', function(alldata) {
+        $.getJSON('https://kmu-scr.pisc.cc/schedule/timetable/cb1-69/1-1-m.json', function(alldata) {
         
             console.log(alldata);
             const data = alldata['timetable'];

@@ -143,7 +143,7 @@
         thead.appendChild(thead_tr);
         timetable.appendChild(thead);
 
-        $.getJSON('https://raw.githubusercontent.com/pisc639-kmu/kmutnb/main/schedule/timetable/1-2-f.json', function(alldata) {
+        $.getJSON('https://kmu-scr.pisc.cc/schedule/timetable/1-2-f.json', function(alldata) {
             console.log(alldata);
             const data = alldata['timetable'];
             console.log(data);

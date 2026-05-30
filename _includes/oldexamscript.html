@@ -1,51 +1,42 @@
-    <script>
-        function isIOS() {
-            const userAgent = navigator.userAgent;
-            const platform = navigator.platform;
+<script>
+    function isIOS() {
+        const userAgent = navigator.userAgent;
+        const platform = navigator.platform;
 
-            // Check for common iOS user agent strings
-            if (/iPad|iPhone|iPod/.test(userAgent)) {
-                return true;
+        // Check for common iOS user agent strings
+        if (/iPad|iPhone|iPod/.test(userAgent)) {
+            return true;
+        }
+
+        // Specific check for iPad on iOS 13+ which might report as 'MacIntel' platform
+        if (platform === 'MacIntel' && navigator.maxTouchPoints > 1) {
+            return true;
+        }
+
+        return false;
+    };
+
+    function openFile(path) {
+            const FrameElement = document.getElementById("FileFrame");
+            FrameElement.src = "https://docs.google.com/viewerng/viewer?embedded=true&url=kmu-scr.pisc.cc/old-exam/2-1-m/" + path;
+            FrameElement.setAttribute("raw", `https://kmu-scr.pisc.cc/old-exam/${window.location.pathname.split('/')[2]}/${path}`);
+            if (FrameElement.classList.contains("hidden")){
+                FrameElement.classList.remove("hidden");
             }
-
-            // Specific check for iPad on iOS 13+ which might report as 'MacIntel' platform
-            if (platform === 'MacIntel' && navigator.maxTouchPoints > 1) {
-                return true;
+            if (FrameElement.classList.contains("md:hidden")){
+                FrameElement.classList.remove("md:hidden");
             }
+            window.location.href = "#FileFrame";
+            FrameElement.addEventListener("load", () => {
+                window.scrollTo(0,document.body.scrollHeight);
+            })
 
-            return false;
-        };
+        const IFrameTitle = document.getElementById("iframe-title");
+        IFrameTitle.textContent = path;
 
-        function openFile(path) {
-            // if (isIOS()) {
-            //     window.open(path, '_blank');
-            // } else {
-                const FrameElement = document.getElementById("FileFrame");
-                FrameElement.src = "https://docs.google.com/viewerng/viewer?embedded=true&url=raw.githubusercontent.com/pisc639-kmu/kmutnb/main/old-exam/2-1-m/" + path;
-                FrameElement.setAttribute("raw", "https://raw.githubusercontent.com/pisc639-kmu/kmutnb/main/old-exam/2-1-m/" + path);
-                if (FrameElement.classList.contains("hidden")){
-                    FrameElement.classList.remove("hidden");
-                }
-                if (FrameElement.classList.contains("md:hidden")){
-                    FrameElement.classList.remove("md:hidden");
-                }
-                // window.location.href = "#FileFrame";
-                window.location.href = "#FileFrame";
-                FrameElement.addEventListener("load", () => {
-                    // setTimeout(() => {
-                    //     const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
-                    // }, 500);
-                    window.scrollTo(0,document.body.scrollHeight);
-                })
-                
-            // };
-
-            const IFrameTitle = document.getElementById("iframe-title");
-            IFrameTitle.textContent = path;
-
-            const iframeContainer = document.getElementById('iframe-container');
-            if (iframeContainer.classList.contains('display-none')) {
-                iframeContainer.classList.remove('display-none');
-            }
-        };
-    </script>
+        const iframeContainer = document.getElementById('iframe-container');
+        if (iframeContainer.classList.contains('display-none')) {
+            iframeContainer.classList.remove('display-none');
+        }
+    };
+</script>
