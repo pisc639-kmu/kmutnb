@@ -8,7 +8,7 @@
                 "from": "8",
                 "to": "10",
                 "room": "-",
-                "section": "1",
+                "section": "S.1",
                 "instructor": [
                     {
                         "name-en": "",
@@ -23,7 +23,7 @@
                 "from": "10",
                 "to": "12",
                 "room": "-",
-                "section": "1",
+                "section": "L.1",
                 "instructor": [
                     {
                         "name-en": "",
@@ -38,7 +38,7 @@
                 "from": "13",
                 "to": "16",
                 "room": "90 - 405",
-                "section": "13",
+                "section": "S.13",
                 "instructor": [
                     {
                         "name-en": "",
@@ -55,7 +55,7 @@
                 "from": "10",
                 "to": "12",
                 "room": "91 - fl.5",
-                "section": "4",
+                "section": "L.4",
                 "instructor": [
                     {
                         "name-en": "Ajarn.WARAPONG KRAICHOMSOM",
@@ -74,7 +74,7 @@
                 "from": "13",
                 "to": "16",
                 "room": "90 - 502",
-                "section": "15",
+                "section": "S.15",
                 "instructor": [
                     {
                         "name-en": "",
@@ -91,7 +91,7 @@
                 "from": "8",
                 "to": "10",
                 "room": "90 - 506",
-                "section": "13",
+                "section": "S.13",
                 "instructor": [
                     {
                         "name-en": "",
