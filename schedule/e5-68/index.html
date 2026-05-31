@@ -51,7 +51,7 @@
         </table>
     </div>
 
-    <span id="exams">
+    <span id="exams" class="hidden">
         <div class="flex items-center text-center justify-center space-x-4 mt-16">
             <h1 class="text-4xl font-bold my-4 text-gray-800 dark:text-white">Exam Schedule</h1>
         </div>
@@ -97,7 +97,7 @@
         thead.appendChild(thead_tr);
         timetable.appendChild(thead);
         
-        $.getJSON('https://kmu-src.pisc.cc/schedule/e5-68/1-1-m.json', function(alldata) {
+        $.getJSON('https://kmu-src.pisc.cc/schedule/e5-68/2-1-m.json', function(alldata) {
         
             console.log(alldata);
             const data = alldata['timetable'];
