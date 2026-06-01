@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E25 Old Exam Year 1 Term 1 Midterm</title>
+    <title>E25 Old Exam Year 2 Term 1 Midterm</title>
     {% include "head.html" %}
     {% include "oldexamscript.html" %}
 </head>
 <body class="dark bg-gray-50 dark:bg-gray-950 min-h-screen">
     {% include "nav.html" %}
     <div class="flex items-center justify-center space-x-4 mt-16">
-        <h1 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Old Exam Year 1 Term 1 Midterm</h1>
+        <h1 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Old Exam Year 2 Term 1 Midterm</h1>
     </div>
 
     <script>
@@ -88,28 +88,24 @@
     });
     </script>
     <script>
-        // fetch("https://con.kmu.pisc.cc/old-exam/1-1-f").then(a => a.json()).then(a => console.log(a))
+        // fetch("https://con.kmu.pisc.cc/old-exam/ee/1-1-f").then(a => a.json()).then(a => console.log(a))
         const SubjectsFull = [
-            "Mathematics I",
-            "Thai I",
-            "Chemistry I",
-            "Foundation English I",
-            "Mechanics I",
-            "Electrical Drawing I",
-            "Electrical Materials and Calculation",
-            "Electric Circuits I",
-            "Health Education"
+            "Mathematics III",
+            "Thai III",
+            "Chemistry III",
+            "Reading",
+            "Wave Motion and Sound",
+            "Computer Programming",
+            "Electronic Circuits I"
         ];
         const Subjects = [
             "Math",
             "Thai",
             "Chemistry",
-            "English",
+            "Reading",
             "Physics",
-            "Drawing",
-            "Material",
-            "Circuit",
-            "Health"
+            "Programming",
+            "Circuit"
         ];
         const tbody = document.getElementById("table-body");
         for (let i = 0; i < SubjectsFull.length; i++) {
@@ -151,7 +147,7 @@
                 addFileButton(row, column, file, name);
             }
         };
-        fetch("https://con.kmu.pisc.cc/old-exam/1-1-m").then(a => a.json()).then(files => {
+        fetch("https://con.kmu.pisc.cc/old-exam/ee/2-1-m").then(a => a.json()).then(files => {
             files.forEach(file => {
                 if (file.name != "index.html") {
                     addFile(file.name);

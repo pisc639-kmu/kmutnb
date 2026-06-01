@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E25 Old Exam Year 1 Term 2 Final</title>
+    <title>E25 Old Exam Year 1 Term 2 Midterm</title>
     {% include "head.html" %}
     {% include "oldexamscript.html" %}
 </head>
 <body class="dark bg-gray-50 dark:bg-gray-950 min-h-screen">
     {% include "nav.html" %}
     <div class="flex items-center justify-center space-x-4 mt-16">
-        <h1 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Old Exam Year 1 Term 2 Final</h1>
+        <h1 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Old Exam Year 1 Term 2 Midterm</h1>
     </div>
 
     <script>
@@ -31,7 +31,6 @@
             <thead>
                 <tr class="border-x border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white">
                     <th class="px-5 py-3">Subject</th>
-                    <th class="px-5 py-3">2010</th>
                     <th class="px-5 py-3">2011</th>
                     <th class="px-5 py-3">2012</th>
                     <th class="px-5 py-3">2013</th>
@@ -88,7 +87,7 @@
     });
     </script>
     <script>
-        // fetch("https://con.kmu.pisc.cc/old-exam/1-1-f").then(a => a.json()).then(a => console.log(a))
+        // fetch("https://con.kmu.pisc.cc/old-exam/ee/1-1-f").then(a => a.json()).then(a => console.log(a))
         const SubjectsFull = [
             "Mathematics II",
             "Thai II",
@@ -117,7 +116,7 @@
             subjectName.classList.add("px-5", "py-3");
             subjectName.textContent = SubjectsFull[i];
             row.appendChild(subjectName);
-            for (let j = 2010; j <= 2025; j++) {
+            for (let j = 2011; j <= 2025; j++) {
                 const column = document.createElement("th");
                 column.classList.add("px-5", "py-3");
                 row.appendChild(column);
@@ -144,12 +143,10 @@
             var year = parseInt(name.split(" ")[1], 10);
             var subject = name.split(" ")[0];
             var row = parseInt(Subjects.indexOf(subject), 10);
-            var column = year - 2010;
-            // if (year != 2024) {
+            var column = year - 2011;
             addFileButton(row, column, file, name);
-            // }
         };
-        fetch("https://con.kmu.pisc.cc/old-exam/1-2-f").then(a => a.json()).then(files => {
+        fetch("https://con.kmu.pisc.cc/old-exam/ee/1-2-m").then(a => a.json()).then(files => {
             files.forEach(file => {
                 if (file.name != "index.html") {
                     addFile(file.name);

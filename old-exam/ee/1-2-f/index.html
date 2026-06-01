@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E25 Old Exam Year 2 Term 1 Midterm</title>
+    <title>E25 Old Exam Year 1 Term 2 Final</title>
     {% include "head.html" %}
     {% include "oldexamscript.html" %}
 </head>
 <body class="dark bg-gray-50 dark:bg-gray-950 min-h-screen">
     {% include "nav.html" %}
     <div class="flex items-center justify-center space-x-4 mt-16">
-        <h1 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Old Exam Year 2 Term 1 Midterm</h1>
+        <h1 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Old Exam Year 1 Term 2 Final</h1>
     </div>
 
     <script>
@@ -88,23 +88,25 @@
     });
     </script>
     <script>
-        // fetch("https://con.kmu.pisc.cc/old-exam/1-1-f").then(a => a.json()).then(a => console.log(a))
+        // fetch("https://con.kmu.pisc.cc/old-exam/ee/1-1-f").then(a => a.json()).then(a => console.log(a))
         const SubjectsFull = [
-            "Mathematics III",
-            "Thai III",
-            "Chemistry III",
-            "Reading",
-            "Wave Motion and Sound",
-            "Computer Programming",
-            "Electronic Circuits I"
+            "Mathematics II",
+            "Thai II",
+            "Chemistry II",
+            "Foundation English II",
+            "Mechanics II",
+            "Mechanical Drawing I",
+            "Electrical Measuring Instruments",
+            "Electric Circuits II"
         ];
         const Subjects = [
             "Math",
             "Thai",
             "Chemistry",
-            "Reading",
+            "English",
             "Physics",
-            "Programming",
+            "Drawing",
+            "EMI",
             "Circuit"
         ];
         const tbody = document.getElementById("table-body");
@@ -143,11 +145,11 @@
             var subject = name.split(" ")[0];
             var row = parseInt(Subjects.indexOf(subject), 10);
             var column = year - 2010;
-            if (year != 2024) {
-                addFileButton(row, column, file, name);
-            }
+            // if (year != 2024) {
+            addFileButton(row, column, file, name);
+            // }
         };
-        fetch("https://con.kmu.pisc.cc/old-exam/2-1-m").then(a => a.json()).then(files => {
+        fetch("https://con.kmu.pisc.cc/old-exam/ee/1-2-f").then(a => a.json()).then(files => {
             files.forEach(file => {
                 if (file.name != "index.html") {
                     addFile(file.name);
