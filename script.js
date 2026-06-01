@@ -27,12 +27,12 @@ function insertNav() {
                 <!-- Desktop Navigation Links -->
                 <!-- <div class="hidden md:space-x-8 md:flex flex items-center justify-center space-x-4 font-medium transition-colors">
                     <a href="../" class="text-zinc-600 dark:text-zinc-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-zinc-200 dark:hover:bg-zinc-700">Home</a>
-                    <a href="../schedule" class="text-zinc-600 dark:text-zinc-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-zinc-200 dark:hover:bg-zinc-700">Exam Schedule & Timetable</a>
+                    <a href="../schedule" class="text-zinc-600 dark:text-zinc-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-zinc-200 dark:hover:bg-zinc-700">Class Schedule</a>
                     <a href="../old-exam" class="text-zinc-600 dark:text-zinc-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-zinc-200 dark:hover:bg-zinc-700">Old Exam</a>
                 </div> -->
                 <div class="hidden md:space-x-8 md:flex flex items-center justify-center space-x-4 font-medium transition-colors">
                     <a href="https://kmu.pisc.cc/" class="text-zinc-600 dark:text-zinc-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-zinc-200 dark:hover:bg-zinc-700">Home</a>
-                    <a href="https://kmu.pisc.cc/schedule" class="text-zinc-600 dark:text-zinc-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-zinc-200 dark:hover:bg-zinc-700">Exam Schedule & Timetable</a>
+                    <a href="https://kmu.pisc.cc/schedule" class="text-zinc-600 dark:text-zinc-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-zinc-200 dark:hover:bg-zinc-700">Class Schedule</a>
                     <a href="https://kmu.pisc.cc/old-exam" class="text-zinc-600 dark:text-zinc-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-zinc-200 dark:hover:bg-zinc-700">Old Exam</a>
                 </div>
             </div>
@@ -44,7 +44,7 @@ function insertNav() {
             [&>*]
             ">
                 <a href="../" class="bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-600 text-zinc-600 dark:text-zinc-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-300 rounded-md py-2 px-3">Home</a>
-                <a href="../schedule" class="bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-600 text-zinc-600 dark:text-zinc-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-300 rounded-md py-2 px-3">Exam Schedule & Timetable</a>
+                <a href="../schedule" class="bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-600 text-zinc-600 dark:text-zinc-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-300 rounded-md py-2 px-3">Class Schedule</a>
                 <a href="../old-exam" class="bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-600 text-zinc-600 dark:text-zinc-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-300 rounded-md py-2 px-3">Old Exam</a>
             </div>
         </div>
