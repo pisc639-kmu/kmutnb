@@ -1,0 +1,205 @@
+{
+    "timetable": {
+        "monday": [
+            {
+                "code": "031021224",
+                "name-en": "DC Circuits Practice",
+                "name-th": "ปฏิบัติการวงจรไฟฟ้ากระแสตรง",
+                "from": "8",
+                "to": "12",
+                "room": "Lab 90 - 601",
+                "section": "L.5",
+                "instructor": [
+                    {
+                        "name-en": "Asst.Prof.Dr.CHANIN JOOCHIM",
+                        "name-th": "ผศ.ดร.ชานินทร์ จูฉิม"
+                    },
+                    {
+                        "name-en": "MR. PRABIN KISHOR PURY",
+                        "name-th": "MR. Prabin Kishor Pury"
+                    }
+                ]
+            }
+        ],
+        "tuesday": [
+            {
+                "code": "031021121",
+                "name-en": "Electric Circuits I",
+                "name-th": "วงจรไฟฟ้า 1",
+                "from": "8",
+                "to": "10",
+                "room": "90 - 606",
+                "section": "S.5",
+                "instructor": [
+                    {
+                        "name-en": "Prof.Dr.TITIPONG LERTWIRIYAPRAPA",
+                        "name-th": "รศ.ดร.ฐิติพงษ์ เลิศวิริยะประภา"
+                    }
+                ]
+            },
+            {
+                "code": "031001121",
+                "name-en": "Chemistry I",
+                "name-th": "เคมี 1",
+                "from": "10",
+                "to": "12",
+                "room": "90 - 607",
+                "section": "S.15",
+                "instructor": [
+                    {
+                        "name-en": "",
+                        "name-th": "ผศ.ดร.นิศาลักษณ์"
+                    }
+                ]
+            },
+            {
+                "code": "031001131",
+                "name-en": "Mathematics 1",
+                "name-th": "คณิตศาสตร์ 1",
+                "from": "13",
+                "to": "16",
+                "room": "90 - 606",
+                "section": "S.14",
+                "instructor": [
+                    {
+                        "name-en": "Dr.SEKSON SIRISUBTAWEE",
+                        "name-th": "รศ.ดร.เสกสรร สิริทรัพย์ทวี"
+                    }
+                ]
+            }
+        ],
+        "wednesday": [
+            {
+                "code": "031001114",
+                "name-en": "Electrical Phenomena",
+                "name-th": "ปรากฏการณ์ทางไฟฟ้า",
+                "from": "9",
+                "to": "11",
+                "room": "90 - 606",
+                "section": "S.6",
+                "instructor": [
+                    {
+                        "name-en": "",
+                        "name-th": "ผศ.ดร.จินตวัฒน์"
+                    }
+                ]
+            },
+            {
+                "code": "031021321",
+                "name-en": "Electrical Drawing I",
+                "name-th": "เขียนแบบไฟฟ้า 1",
+                "from": "12",
+                "to": "15",
+                "room": "90 - 604",
+                "section": "S.6",
+                "instructor": [
+                    {
+                        "name-en": "Assoc.Prof.Dr.RATTANAKORN CHANTAWARANG",
+                        "name-th": "รองศาสตราจารย์ ดร.รัตนากร ฉันทวรางค์"
+                    },
+                    {
+                        "name-en": "Assoc.Prof.Dr.PINANTA CHATWATTANA",
+                        "name-th": "รองศาสตราจารย์ ดร.พินันทา ฉัตรวัฒนา"
+                    }
+                ]
+            },
+            {
+                "code": "031001381",
+                "name-en": "Extra-Curricular Activities I",
+                "name-th": "กิจกรรมเสริมหลักสูตร 1",
+                "from": "15",
+                "to": "17",
+                "room": "-",
+                "section": "L.1",
+                "instructor": []
+            }
+        ],
+        "thursday": [
+            {
+                "code": "031041212 ",
+                "name-en": "Dc Circuits Practice",
+                "name-th": "ปฏิบัติงานวงจรไฟฟ้ากระแสตรง",
+                "from": "8",
+                "to": "15",
+                "room": "90 - 504",
+                "section": "L.1",
+                "instructor": [
+                    {
+                        "name-en": "Asst.Prof.Dr.CHANIN JOOCHIM",
+                        "name-th": "ผู้ช่วยศาสตราจารย์ ดร.ชานินทร์ จูฉิม"
+                    },
+                    {
+                        "name-en": "MR. PRABIN KISHOR PURY",
+                        "name-th": "MR. Prabin Kishor Pury"
+                    }
+                ]
+            }
+        ],
+        "friday": [
+            {
+                "code": "031001151",
+                "name-en": "Thai I",
+                "name-th": "ภาษาไทย 1",
+                "from": "8",
+                "to": "10",
+                "room": "90 - 503",
+                "section": "S.13",
+                "instructor": [
+                    {
+                        "name-en": "Dr.PRATCHAYAPORN THONGPRASIT",
+                        "name-th": "ดร.ปรัชญาพร ทองประสิทธิ์"
+                    }
+                ]
+            },
+            {
+                "code": "031021111",
+                "name-en": "Electrical Materials and Calculation",
+                "name-th": "วัสดุไฟฟ้าและการคำนวณ",
+                "from": "10",
+                "to": "12",
+                "room": "90 - 606",
+                "section": "S.5",
+                "instructor": [
+                    {
+                        "name-en": "Assoc.Prof.Dr.RATTANAKORN CHANTAWARANG",
+                        "name-th": "รองศาสตราจารย์ ดร.รัตนากร ฉันทวรางค์"
+                    }
+                ]
+            },
+            {
+                "code": "031001141",
+                "name-en": "Foundation English I",
+                "name-th": "ภาษาอังกฤษพื้นฐาน 1",
+                "from": "13",
+                "to": "15",
+                "room": "90 - 506",
+                "section": "S.14",
+                "instructor": [
+                    {
+                        "name-en": "MR. ASIM BARIS ORSES",
+                        "name-th": "MR. Asim Baris Orses"
+                    }
+                ]
+            }
+        ],
+        "saturday": [],
+        "sunday": [],
+        "ignore": [
+            {
+                "code": "031001152",
+                "name-en": "TTTTTTTTTTTTTTTt",
+                "name-th": "TTTTTTTTTTTTTTTt",
+                "from": "TTTTTTTTTTTTTTTt",
+                "to": "TTTTTTTTTTTTTTTt",
+                "room": "90 - TTTTTTTTTTTTTTTt",
+                "section": "TTTTTTTTTTTTTTTt",
+                "instructor": [
+                    {
+                        "name-en": "TTTTTTTTTTTTTTTt",
+                        "name-th": "TTTTTTTTTTTTTTTt"
+                    }
+                ]
+            }
+        ]
+    }
+}
