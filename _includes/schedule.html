@@ -96,56 +96,52 @@
             console.error("Error processing schedule:", error);
             return null;
         }
-    }
+    };
 
-    /**
-     * Captures a high-quality PNG screenshot of any DOM element and downloads it.
-     * @param {string} selector - The CSS selector of the node (e.g., '#header', '.profile-card').
-     * @param {string} [filename=screenshot.png] - Optional custom name for the downloaded file.
-     */
-    async function captureNode(selector, filename = 'table.png') {
-        const element = document.querySelector(selector);
-
-        if (!element) {
-            console.error(`Element not found for selector: "${selector}"`);
-            return;
-        }
-
-        // 1. Inject html2canvas dynamically if it is not already loaded
-        if (typeof html2canvas === 'undefined') {
-            console.log('Loading high-quality screenshot engine...');
-            await new Promise((resolve, reject) => {
-                const script = document.createElement('script');
-                script.src = 'https://cloudflare.com';
-                script.onload = resolve;
-                script.onerror = () => reject(new Error('Failed to load screenshot library.'));
-                document.head.appendChild(script);
-            });
-        }
-
-        console.log('Generating crisp 3x resolution image...');
-        try {
-            // 2. Render the DOM element onto a high-density canvas
-            const canvas = await html2canvas(element, {
-                scale: 3,             // 3x multiplier removes blurriness and sharpens text
-                useCORS: true,        // Allows external images/fonts to render
-                logging: false,
-                backgroundColor: null // Keeps original element background behavior
-            });
-
-            // 3. Convert canvas to PNG and trigger browser download
-            const imageURI = canvas.toDataURL('image/png');
-            const link = document.createElement('a');
-            link.download = filename.endsWith('.png') ? filename : `${filename}.png`;
-            link.href = imageURI;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-
-            console.log(`Successfully downloaded: ${link.download}`);
-        } catch (error) {
-            console.error('Screenshot generation failed:', error);
-        }
-    }
+    async function screenshot() {
+        (async () => {
+            // 1. Dynamically load html2canvas if it isn't already on the page
+            if (!window.html2canvas) {
+                console.log('Loading html2canvas library...');
+                await new Promise((resolve, reject) => {
+                    const script = document.createElement('script');
+                    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+                    script.onload = resolve;
+                    script.onerror = reject;
+                    document.head.appendChild(script);
+                });
+                console.log('Library loaded successfully.');
+            }
+    
+            // 2. TARGET YOUR ELEMENT HERE (e.g., '.classname', 'div.header', '#id')
+            const element = document.querySelector('#timetable');
+    
+            if (!element) {
+                console.error('Element not found! Make sure your selector is correct.');
+                return;
+            }
+    
+            try {
+                console.log('Generating high-res screenshot...');
+    
+                // 3. Render the element to a canvas
+                const canvas = await html2canvas(element, {
+                    scale: 3,         // 3x device scale for crystal-clear, high-DPI quality
+                    useCORS: true,    // Allows loading external images safely
+                    logging: false
+                });
+    
+                // 4. Convert canvas to a link and auto-click to download
+                const downloadLink = document.createElement('a');
+                downloadLink.href = canvas.toDataURL('image/png');
+                downloadLink.download = 'table.png';
+                downloadLink.click();
+    
+                console.log('Screenshot downloaded successfully!');
+            } catch (error) {
+                console.error('Screenshot failed:', error);
+            }
+        })();
+    };
 
 </script>
