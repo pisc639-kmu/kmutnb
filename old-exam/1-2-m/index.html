@@ -87,7 +87,7 @@
     });
     </script>
     <script>
-        // fetch("https://api.github.com/repos/pisc639-kmu/kmutnb/contents/old-exam/1-1-f").then(a => a.json()).then(a => console.log(a))
+        // fetch("https://con.kmu.pisc.cc/old-exam/1-1-f").then(a => a.json()).then(a => console.log(a))
         const SubjectsFull = [
             "Mathematics II",
             "Thai II",
@@ -146,7 +146,7 @@
             var column = year - 2011;
             addFileButton(row, column, file, name);
         };
-        fetch("https://api.github.com/repos/pisc639-kmu/kmutnb/contents/old-exam/1-2-m").then(a => a.json()).then(files => {
+        fetch("https://con.kmu.pisc.cc/old-exam/1-2-m").then(a => a.json()).then(files => {
             files.forEach(file => {
                 if (file.name != "index.html") {
                     addFile(file.name);

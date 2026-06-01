@@ -1,32 +1,32 @@
 <script>
     async function downloadFileFromURL(url, filename) {
-    try {
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const blob = await response.blob();
-        const blobUrl = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = blobUrl;
-        a.download = filename || url.split('/').pop();
-        a.style.display = 'none';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        setTimeout(() => URL.revokeObjectURL(blobUrl), 100); 
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const blob = await response.blob();
+            const blobUrl = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = blobUrl;
+            a.download = filename || url.split('/').pop();
+            a.style.display = 'none';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            setTimeout(() => URL.revokeObjectURL(blobUrl), 100);
 
-    } catch (error) {
-        console.error('Download failed:', error);
-        alert('Could not download the file. Check console for details.' + error);
-    }
+        } catch (error) {
+            console.error('Download failed:', error);
+            alert('Could not download the file. Check console for details.' + error);
+        }
     }
 
     function isDarkMode() {
         if (window.matchMedia) {
             return window.matchMedia('(prefers-color-scheme: dark)').matches;
         }
-        return false; 
+        return false;
     };
 
     function getTableUrl() {
@@ -34,7 +34,7 @@
         Url += 'table.png'
         const newBase = "f";
         Url = Url.replace(/^https?:\/\/[^\/]+/, newBase);
-        return 
+        return
     }
 
     function download_image() {
@@ -48,4 +48,53 @@
         a.click();
         document.body.removeChild(a);
     };
+
+
+    async function getLatestScheduleUrl(classId) {
+        const apiUrl = `https://con.kmu.pisc.cc/schedule/${classId}/`;
+
+        try {
+            // 1. Fetch the data from the API
+            const response = await fetch(apiUrl);
+            if (!response.ok) {
+                throw new Error(`Network response was not ok: ${response.status}`);
+            }
+            const files = await response.json();
+
+            // 2. Filter files matching your exact regex pattern
+            const regex = /^[123]-[12]-[mf]\.json$/;
+            const filteredFiles = files.filter(file => regex.test(file.name));
+
+            if (filteredFiles.length === 0) {
+                throw new Error("No matching schedule files found.");
+            }
+
+            // 3. Sort to find the latest file chronologically
+            filteredFiles.sort((a, b) => {
+                const [yearA, semA, typeA] = a.name.replace('.json', '').split('-');
+                const [yearB, semB, typeB] = b.name.replace('.json', '').split('-');
+
+                // Compare Year first
+                if (yearA !== yearB) return parseInt(yearA) - parseInt(yearB);
+
+                // Compare Semester second
+                if (semA !== semB) return parseInt(semA) - parseInt(semB);
+
+                // Compare Exam Type (Assuming 'm' = Midterm, 'f' = Final)
+                // This ensures Final ('f') is treated as later than Midterm ('m')
+                const typeWeight = { 'm': 1, 'f': 2 };
+                return typeWeight[typeA] - typeWeight[typeB];
+            });
+
+            // 4. Get the last element (the latest file)
+            const latestFile = filteredFiles[filteredFiles.length - 1];
+
+            // 5. Construct and return the target URL
+            return `https://kmu-src.pisc.cc/schedule/${classId}/${latestFile.name}`;
+
+        } catch (error) {
+            console.error("Error processing schedule:", error);
+            return null;
+        }
+    }
 </script>
