@@ -17,7 +17,7 @@
     };
 
     function openFile(path) {
-        var source = `kmu-src.pisc.cc/old-exam/${window.location.pathname.split('/')[2]}/${path}`
+        var source = `src.kmu.pisc.cc/old-exam/${window.location.pathname.split('/')[2]}/${path}`
         const FrameElement = document.getElementById("FileFrame");
         FrameElement.src = "https://docs.google.com/viewerng/viewer?embedded=true&url=" + source;
         FrameElement.setAttribute("raw", "https://" + source);

@@ -24,30 +24,6 @@
             md:text-[0.8rem] md:[&_thead]:text-sm md:[&>*>tr>*:first-child]:text-md
             [&>*>tr>*:first-child]:font-bold
             w-full border-collapse border border-gray-300 dark:border-gray-700">
-            <thead class="">
-                <tr class="bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white shadow-md">
-                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">Day</th>
-                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">8:00 - 9:00</th>
-                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">9:00 - 10:00</th>
-                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">10:00 - 11:00</th>
-                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">11:00 - 12:00</th>
-                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">12:00 - 13:00</th>
-                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">13:00 - 14:00</th>
-                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">14:00 - 15:00</th>
-                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">15:00 - 16:00</th>
-                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">16:00 - 17:00</th>
-                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">17:00 - 18:00</th>
-                </tr>
-            </thead>
-            <tbody class="">
-                <tr class="bg-white dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-white">
-                    <td class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">Monday</td>
-                    <td class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700" colspan="7"><b>Basic Metal Work Practice</b><br>90 - fl.1-2<br>031011203/85<br>ผศ.ดร.ทศพร แก้ววิจิตร<br>อ.Keenen Jay Pelpinosas Bulala</td>
-                    <td class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700"></td>
-                    <td class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700"></td>
-                    <td class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700"></td>
-                </tr>
-            </tbody>
         </table>
     </div>
 
@@ -73,7 +49,7 @@
         </div>
     </span>
 
-    <script src="https://kmu-src.pisc.cc/script.min.js"></script>
+    <script src="https://src.kmu.pisc.cc/script.min.js"></script>
 
     <script>
         function make_cell(elem, text, options = {}) {
@@ -97,7 +73,7 @@
         thead.appendChild(thead_tr);
         timetable.appendChild(thead);
         
-        $.getJSON('https://kmu-src.pisc.cc/schedule/e5-68/2-1-m.json', function(alldata) {
+        $.getJSON('https://src.kmu.pisc.cc/schedule/e5-68/2-1-m.json', function(alldata) {
         
             console.log(alldata);
             const data = alldata['timetable'];
