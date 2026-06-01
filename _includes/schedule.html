@@ -97,4 +97,55 @@
             return null;
         }
     }
+
+    /**
+     * Captures a high-quality PNG screenshot of any DOM element and downloads it.
+     * @param {string} selector - The CSS selector of the node (e.g., '#header', '.profile-card').
+     * @param {string} [filename=screenshot.png] - Optional custom name for the downloaded file.
+     */
+    async function captureNode(selector, filename = 'table.png') {
+        const element = document.querySelector(selector);
+
+        if (!element) {
+            console.error(`Element not found for selector: "${selector}"`);
+            return;
+        }
+
+        // 1. Inject html2canvas dynamically if it is not already loaded
+        if (typeof html2canvas === 'undefined') {
+            console.log('Loading high-quality screenshot engine...');
+            await new Promise((resolve, reject) => {
+                const script = document.createElement('script');
+                script.src = 'https://cloudflare.com';
+                script.onload = resolve;
+                script.onerror = () => reject(new Error('Failed to load screenshot library.'));
+                document.head.appendChild(script);
+            });
+        }
+
+        console.log('Generating crisp 3x resolution image...');
+        try {
+            // 2. Render the DOM element onto a high-density canvas
+            const canvas = await html2canvas(element, {
+                scale: 3,             // 3x multiplier removes blurriness and sharpens text
+                useCORS: true,        // Allows external images/fonts to render
+                logging: false,
+                backgroundColor: null // Keeps original element background behavior
+            });
+
+            // 3. Convert canvas to PNG and trigger browser download
+            const imageURI = canvas.toDataURL('image/png');
+            const link = document.createElement('a');
+            link.download = filename.endsWith('.png') ? filename : `${filename}.png`;
+            link.href = imageURI;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            console.log(`Successfully downloaded: ${link.download}`);
+        } catch (error) {
+            console.error('Screenshot generation failed:', error);
+        }
+    }
+
 </script>
