@@ -1,0 +1,235 @@
+{
+    "timetable": {
+        "monday": [
+            {
+                "code": "031021222",
+                "name-en": "Electrical Machine Practice",
+                "name-th": "ปฏิบัติการเครื่องจักรไฟฟ้า",
+                "from": "8",
+                "to": "15",
+                "room": "90-707",
+                "section": "L.2",
+                "instructor": [
+                    {
+                        "name-en": "",
+                        "name-th": "อ.สุพงศ์ บ่อชน"
+                    },
+                    {
+                        "name-en": "",
+                        "name-th": "อ.ชลเทพ ชัยคง"
+                    }
+                ]
+            },
+            {
+                "code": "031021151",
+                "name-en": "Electronics Circuits I",
+                "name-th": "วงจรอิเล็กทรอนิกส์ 1",
+                "from": "15",
+                "to": "17",
+                "room": "90 - 502",
+                "section": "S.3",
+                "instructor": [
+                    {
+                        "name-en": "",
+                        "name-th": "อ.สุพงศ์ บ่อชน"
+                    }
+                ]
+            }
+        ],
+        "tuesday": [
+            {
+                "code": "031021222",
+                "name-en": "Electrical Measuring Instrument Practice",
+                "name-th": "ปฏิบัติการเครื่องมือวัดไฟฟ้า",
+                "from": "8",
+                "to": "15",
+                "room": "90 - 708",
+                "section": "L.3",
+                "instructor": [
+                    {
+                        "name-en": "",
+                        "name-th": "อ.วิทยากรณ์ บ่อชน"
+                    },
+                    {
+                        "name-en": "",
+                        "name-th": "อ.วิทยากรณ์ บ่อชน"
+                    }
+                ]
+            }
+        ],
+        "wednesday": [
+            {
+                "code": "031001164",
+                "name-en": "Citizenship",
+                "name-th": "หน้าที่พลเมือง",
+                "from": "8",
+                "to": "10",
+                "room": "90 - 304",
+                "section": "S.10",
+                "instructor": [
+                    {
+                        "name-en": "",
+                        "name-th": "รศ.ดร.สุภาภรณ์ เหรียญประดับ"
+                    }
+                ]
+            },
+            {
+                "code": "031001113",
+                "name-en": "Wave Motion and Sound",
+                "name-th": "คลื่นและเสียง",
+                "from": "10",
+                "to": "12",
+                "room": "90 - 307",
+                "section": "S.10",
+                "instructor": [
+                    {
+                        "name-en": "",
+                        "name-th": "อ.สุชาดา วรรณพิณ"
+                    }
+                ]
+            },
+            {
+                "code": "031001143",
+                "name-en": "Reading",
+                "name-th": "การอ่าน",
+                "from": "13",
+                "to": "15",
+                "room": "90 - 506",
+                "section": "S.10",
+                "instructor": [
+                    {
+                        "name-en": "",
+                        "name-th": "อ.นาถจารีย์ ผดุงเลิส"
+                    }
+                ]
+            },
+            {
+                "code": "031001383",
+                "name-en": "Extra-Curricular Activities III",
+                "name-th": "กิจกรรมเสริมหลักสูตร 1",
+                "from": "15",
+                "to": "17",
+                "room": "-",
+                "section": "L.20",
+                "instructor": []
+            }
+        ],
+        "thursday": [
+            {
+                "code": "031001133",
+                "name-en": "Mathematics 1II",
+                "name-th": "คณิตศาสตร์ 3",
+                "from": "8",
+                "to": "11",
+                "room": "90 - 403",
+                "section": "S.10",
+                "instructor": [
+                    {
+                        "name-en": "",
+                        "name-th": "อ.ดร.ชลธิชา นุชพงษ์"
+                    }
+                ]
+            },
+            {
+                "code": "031001153",
+                "name-en": "Thai III",
+                "name-th": "ภาษาไทย 3",
+                "from": "13",
+                "to": "15",
+                "room": "90 - 504",
+                "section": "S.10",
+                "instructor": [
+                    {
+                        "name-en": "",
+                        "name-th": "อ.ปรียานันท์ สมรรคจันทร์"
+                    }
+                ]
+            },
+            {
+                "code": "031001123",
+                "name-en": "Chemistry III",
+                "name-th": "เคมี 3",
+                "from": "15",
+                "to": "17",
+                "room": "90 - 406",
+                "section": "S.10",
+                "instructor": [
+                    {
+                        "name-en": "",
+                        "name-th": "รศ.ดร.สุรพิชญ์ ทับเที่ยง"
+                    }
+                ]
+            }
+        ],
+        "friday": [
+            {
+                "code": "031021123",
+                "name-en": "Electrical Machines I",
+                "name-th": "เครื่องจักรไฟฟ้า 1",
+                "from": "8",
+                "to": "10",
+                "room": "90 - 305",
+                "section": "S.3",
+                "instructor": [
+                    {
+                        "name-en": "",
+                        "name-th": "อ.พีรยุทธ ศรีโพธิ์"
+                    }
+                ]
+            },
+            {
+                "code": "031021341",
+                "name-en": "Computer Programming",
+                "name-th": "การโปรแกรมคอมพิวเตอร์",
+                "from": "12",
+                "to": "13",
+                "room": "90 - 903",
+                "section": "S.3",
+                "instructor": [
+                    {
+                        "name-en": "",
+                        "name-th": "อาทิตย์ ฟุ้งเฟื่อง"
+                    }
+                ]
+            },
+            {
+                "code": "031021341",
+                "name-en": "Computer Programming",
+                "name-th": "การโปรแกรมคอมพิวเตอร์",
+                "from": "13",
+                "to": "15",
+                "room": "90 - 903",
+                "section": "L.3",
+                "instructor": [
+                    {
+                        "name-en": "",
+                        "name-th": "อ.ธนธรณ์ ร่มจำปา"
+                    },
+                    {
+                        "name-en": "",
+                        "name-th": "อาทิตย์ ฟุ้งเฟื่อง"
+                    }
+                ]
+            }
+        ],
+        "saturday": [],
+        "sunday": [],
+        "ignore": [
+            {
+                "code": "031001152",
+                "name-en": "TTTTTTTTTTTTTTTt",
+                "name-th": "TTTTTTTTTTTTTTTt",
+                "from": "TTTTTTTTTTTTTTTt",
+                "to": "TTTTTTTTTTTTTTTt",
+                "room": "90 - TTTTTTTTTTTTTTTt",
+                "section": "TTTTTTTTTTTTTTTt",
+                "instructor": [
+                    {
+                        "name-en": "TTTTTTTTTTTTTTTt",
+                        "name-th": "TTTTTTTTTTTTTTTt"
+                    }
+                ]
+            }
+        ]
+    }
+}
