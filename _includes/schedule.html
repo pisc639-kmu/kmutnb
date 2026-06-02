@@ -97,7 +97,7 @@
     //     }
     // };
 
-    async function getLatestScheduleUrl(classId) {
+    function getLatestScheduleUrl(classId) {
         try {
             return `https://src.kmu.pisc.cc/schedule/${classId}/${70-classId.split("-")[1]}-1-m.json`;
         } catch (error) {
