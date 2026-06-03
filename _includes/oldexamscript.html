@@ -83,9 +83,9 @@
         FrameElement.style.height = `calc(100vh - ${navHeight}px)`;
         FrameElement.style.width = '100%';
         // window.location.href = "#FileFrame";
-        document.getElementById("FileFrame")?.scrollIntoView({ behavior: "smooth" });
         FrameElement.addEventListener("load", () => {
-            window.scrollTo(0,document.body.scrollHeight);
+            // window.scrollTo(0,document.body.scrollHeight);
+            document.getElementById("FileFrame")?.scrollIntoView({ behavior: "smooth" });
         })
 
         const IFrameTitle = document.getElementById("iframe-title");
