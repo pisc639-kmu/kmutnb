@@ -74,6 +74,8 @@
         if (FrameElement.classList.contains("md:hidden")){
             FrameElement.classList.remove("md:hidden");
         }
+        FrameElement.style.height = `calc(100vh - ${navHeight}px)`;
+        FrameElement.style.width = '100%';
         // window.location.href = "#FileFrame";
         document.getElementById("FileFrame")?.scrollIntoView({ behavior: "smooth" });
         FrameElement.addEventListener("load", () => {
