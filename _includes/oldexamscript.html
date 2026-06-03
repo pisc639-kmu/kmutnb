@@ -32,7 +32,8 @@
         a.href = url.href;
         
         // Extract the actual filename from the end of the pathname
-        a.download = url.pathname.split('/').pop() || 'download';
+        const filename = url.pathname.split('/').pop() || 'download';
+        a.download = decodeURIComponent(filename) || filename;
         
         document.body.appendChild(a);
         a.click();
