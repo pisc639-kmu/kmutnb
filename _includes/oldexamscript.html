@@ -66,7 +66,11 @@
     function openFile(path) {
         var source = getFileUrl(path);
         const FrameElement = document.getElementById("FileFrame");
-        FrameElement.src = "https://docs.google.com/viewerng/viewer?embedded=true&url=" + encodeURIComponent(source);
+        const timeToken = new Date().getTime();
+        
+        // CORRECT: Backticks used, and &t= token placed inside the URL parameters
+        FrameElement.src = `https://google.com{timeToken}&url=` + encodeURIComponent(source);
+        
         FrameElement.setAttribute("raw", source);
         if (FrameElement.classList.contains("hidden")){
             FrameElement.classList.remove("hidden");
@@ -90,7 +94,7 @@
         if (iframeContainer.classList.contains('display-none')) {
             iframeContainer.classList.remove('display-none');
         }
-    };
+    }
 
     const tbody = document.getElementById("table-body");
     for (let i = 0; i < SubjectsFull.length; i++) {
