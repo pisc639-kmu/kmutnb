@@ -1,19 +1,19 @@
 <script>
-    window.addEventListener('scroll', function(event) {
-        const navHeight = document.querySelector('nav').offsetHeight;
-        const iframe = document.getElementById('FileFrame');
-        const iframeContainer = document.getElementById('iframe-container');
-        const rect = iframe.getBoundingClientRect();
-        if (rect.top <= window.innerHeight - navHeight && rect.bottom >= 0) {
-            iframe.style.height = `calc(100vh - ${navHeight}px)`;
-            iframe.style.width = '100%';
-            iframe.classList.remove('hidden');
-        } else {
-            iframe.style.height = '';
-            iframe.style.width = '';
-            iframe.classList.add('hidden');
-        }
-    });
+    // window.addEventListener('scroll', function(event) {
+    //     const navHeight = document.querySelector('nav').offsetHeight;
+    //     const iframe = document.getElementById('FileFrame');
+    //     const iframeContainer = document.getElementById('iframe-container');
+    //     const rect = iframe.getBoundingClientRect();
+    //     if (rect.top <= window.innerHeight - navHeight && rect.bottom >= 0) {
+    //         iframe.style.height = `calc(100vh - ${navHeight}px)`;
+    //         iframe.style.width = '100%';
+    //         iframe.classList.remove('hidden');
+    //     } else {
+    //         iframe.style.height = '';
+    //         iframe.style.width = '';
+    //         iframe.classList.add('hidden');
+    //     }
+    // });
 
     function download_file() {
         const FileFrame = document.getElementById('FileFrame');
@@ -74,7 +74,8 @@
         if (FrameElement.classList.contains("md:hidden")){
             FrameElement.classList.remove("md:hidden");
         }
-        window.location.href = "#FileFrame";
+        // window.location.href = "#FileFrame";
+        document.getElementById("FileFrame")?.scrollIntoView({ behavior: "smooth" });
         FrameElement.addEventListener("load", () => {
             window.scrollTo(0,document.body.scrollHeight);
         })
