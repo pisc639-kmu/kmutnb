@@ -1,4 +1,44 @@
 <script>
+    window.addEventListener('scroll', function(event) {
+        const navHeight = document.querySelector('nav').offsetHeight;
+        const iframe = document.getElementById('FileFrame');
+        const iframeContainer = document.getElementById('iframe-container');
+        const rect = iframe.getBoundingClientRect();
+        if (rect.top <= window.innerHeight - navHeight && rect.bottom >= 0) {
+            iframe.style.height = `calc(100vh - ${navHeight}px)`;
+            iframe.style.width = '100%';
+            iframe.classList.remove('hidden');
+        } else {
+            iframe.style.height = '';
+            iframe.style.width = '';
+            iframe.classList.add('hidden');
+        }
+    });
+
+    function download_file() {
+        const FileFrame = document.getElementById('FileFrame');
+        const rawUrl = FileFrame.getAttribute('raw');
+        
+        // Safety check in case the attribute is missing
+        if (!rawUrl) return; 
+
+        // Safety fallback check if the iframe hasn't loaded a URL yet
+        if (!rawUrl || rawUrl === window.location.href) return;
+
+        const url = new URL(rawUrl);
+        url.host = "dl.kmu.pisc.cc";
+        
+        const a = document.createElement('a');
+        a.href = url.href;
+        
+        // Extract the actual filename from the end of the pathname
+        a.download = url.pathname.split('/').pop() || 'download';
+        
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    };
+
     function isIOS() {
         const userAgent = navigator.userAgent;
         const platform = navigator.platform;
@@ -40,4 +80,52 @@
             iframeContainer.classList.remove('display-none');
         }
     };
+
+    const tbody = document.getElementById("table-body");
+    for (let i = 0; i < SubjectsFull.length; i++) {
+        const row = document.createElement("tr");
+        row.classList.add("bg-white", "dark:bg-gray-800", "hover:bg-gray-100", "dark:hover:bg-gray-700", "border-x", "border", "border-gray-300", "dark:border-gray-700", "text-gray-900", "dark:text-white");
+        const subjectName = document.createElement("th");
+        subjectName.classList.add("px-5", "py-3");
+        subjectName.textContent = SubjectsFull[i];
+        row.appendChild(subjectName);
+        for (let j = 2010; j <= 2025; j++) {
+            const column = document.createElement("th");
+            column.classList.add("px-5", "py-3");
+            row.appendChild(column);
+        };
+        tbody.appendChild(row);
+    };
+    function addFileButton(row, column, file, name) {
+        console.log(row, column, file, name);
+        var tbody = document.getElementById("table-body");
+        var rowElement = tbody.children[row];
+        var columnElement = rowElement.children[column + 1];
+        var button = document.createElement("button");
+        button.type = "button";
+        button.classList.add("text-blue-600", "dark:text-blue-400", "hover:underline");
+        // button.href = file;
+        button.onclick = function() {
+            openFile(file);
+        };
+        button.textContent = name;
+        columnElement.appendChild(button);
+    };
+    function addFile(file) {
+        var name = file.split(",")[0];
+        var year = parseInt(name.split(" ")[1], 10);
+        var subject = name.split(" ")[0];
+        var row = parseInt(Subjects.indexOf(subject), 10);
+        var column = year - 2010;
+        if (year != 2024) {
+            addFileButton(row, column, file, name);
+        }
+    };
+    fetch(`${window.location.protocol}//con.${window.location.host}${window.location.pathname}`).then(a => a.json()).then(files => {
+        files.forEach(file => {
+            if (file.name != "index.html") {
+                addFile(file.name);
+            };
+        });
+    });
 </script>
