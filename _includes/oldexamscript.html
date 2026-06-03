@@ -74,6 +74,7 @@
         if (FrameElement.classList.contains("md:hidden")){
             FrameElement.classList.remove("md:hidden");
         }
+        var navHeight = document.querySelector('nav').offsetHeight;
         FrameElement.style.height = `calc(100vh - ${navHeight}px)`;
         FrameElement.style.width = '100%';
         // window.location.href = "#FileFrame";
