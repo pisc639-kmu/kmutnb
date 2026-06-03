@@ -66,9 +66,9 @@
     function openFile(path) {
         var source = getFileUrl(path);
         const FrameElement = document.getElementById("FileFrame");
-        // Add a timestamp parameter to the source URL so Google treats it fresh
-        const cacheBuster = source.includes('?') ? `&cb=${Date.now()}` : `?cb=${Date.now()}`;
-        const finalSource = source + cacheBuster;
+        const sourceStr = source ? String(source) : "";
+        const cacheBuster = sourceStr.includes('?') ? `&cb=${Date.now()}` : `?cb=${Date.now()}`;
+        const finalSource = sourceStr + cacheBuster;
 
         FrameElement.src = "https://docs.google.com/viewerng/viewer?embedded=true&url=" + encodeURIComponent(finalSource);
         // FrameElement.src = "https://docs.google.com/viewerng/viewer?embedded=true&url=" + encodeURIComponent(source);
