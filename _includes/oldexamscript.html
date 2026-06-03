@@ -29,7 +29,7 @@
         url.host = "dl.kmu.pisc.cc";
         
         const a = document.createElement('a');
-        a.href = url.href;
+        a.href = decodeURI(url.href);
         
         // Extract the actual filename from the end of the pathname
         const filename = url.pathname.split('/').pop() || 'download';
