@@ -69,7 +69,7 @@
         const sourceStr = source ? String(source) : "";
         const cacheBuster = sourceStr.includes('?') ? `&cb=${Date.now()}` : `?cb=${Date.now()}`;
         const finalSource = sourceStr + cacheBuster;
-
+        FrameElement.setAttribute("sandbox", "allow-scripts allow-same-origin");
         FrameElement.src = "https://docs.google.com/viewerng/viewer?embedded=true&url=" + encodeURIComponent(finalSource);
         // FrameElement.src = "https://docs.google.com/viewerng/viewer?embedded=true&url=" + encodeURIComponent(source);
         FrameElement.setAttribute("raw", source);
