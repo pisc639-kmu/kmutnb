@@ -11,7 +11,7 @@
                 "section": "S.1",
                 "instructor": [
                     {
-                        "name-en": "",
+                        "name-en": "SUPPHAKORN SUMETTHAPIWAT",
                         "name-th": "ผู้ช่วยศาสตราจารย์ ว่าที่ร้อยตรี ดร.ศุภกร สุเมธาภิวัฒน์"
                     }
                 ]
@@ -26,7 +26,7 @@
                 "section": "L.1",
                 "instructor": [
                     {
-                        "name-en": "",
+                        "name-en": "SUPPHAKORN SUMETTHAPIWAT",
                         "name-th": "ผู้ช่วยศาสตราจารย์ ว่าที่ร้อยตรี ดร.ศุภกร สุเมธาภิวัฒน์"
                     }
                 ]
@@ -41,7 +41,7 @@
                 "section": "S.13",
                 "instructor": [
                     {
-                        "name-en": "",
+                        "name-en": "Ajarn.PICHAYA JARUTATROD",
                         "name-th": "อาจารย์พิชายา จารุทัศน์โรจน์"
                     }
                 ]
@@ -77,7 +77,7 @@
                 "section": "S.15",
                 "instructor": [
                     {
-                        "name-en": "",
+                        "name-en": "Ajarn.VEERAPONG LERTVIROON",
                         "name-th": "อาจารย์วีรพงศ์ เลิศวิรุฬห์"
                     }
                 ]
@@ -94,7 +94,7 @@
                 "section": "S.13",
                 "instructor": [
                     {
-                        "name-en": "",
+                        "name-en": "Ajarn.ANCHALEE LAOWKLANG",
                         "name-th": "อาจารย์วิมล ขุนทองจันทร์"
                     }
                 ]
@@ -109,8 +109,8 @@
                 "section": "S.13",
                 "instructor": [
                     {
-                        "name-en": "Dr.PRATCHAYAPORN THONGPRASIT",
-                        "name-th": "ดร.ปรัชญาพร ทองประสิทธิ์"
+                        "name-en": "Ajarn Dr.PRATCHAYAPORN THONGPRASIT",
+                        "name-th": "อาจารย์ ดร.ปรัชญาพร ทองประสิทธิ์"
                     }
                 ]
             },
@@ -124,12 +124,8 @@
                 "section": "S.5",
                 "instructor": [
                     {
-                        "name-en": "INTHRAYUTH MAHAPHOL",
-                        "name-th": "อ.อินทรายุทธ มหาพล"
-                    },
-                    {
-                        "name-en": "Ajarn.PICHAI CHOBSUK",
-                        "name-th": "อ.พิชัย ชอบสุข"
+                        "name-en": "Ajarn.JIDAPA LUMPAPIWAT",
+                        "name-th": "อาจารย์จิดาภา ลัมพาภิวัฒน์"
                     }
                 ]
             },
@@ -141,7 +137,12 @@
                 "to": "17",
                 "room": "-",
                 "section": "L.1",
-                "instructor": []
+                "instructor": [
+                    {
+                        "name-en": "Asst.Prof.Dr.THOSSAPORN KAEWWICHIT",
+                        "name-th": "ผู้ช่วยศาสตราจารย์ ดร.ทศพร แก้ววิจิตร"
+                    }
+                ]
             }
         ],
         "thursday": [],
@@ -156,7 +157,7 @@
                 "section": "S.1",
                 "instructor": [
                     {
-                        "name-en": "",
+                        "name-en": "Ajarn.NONTAWAT DAEWONG",
                         "name-th": "อาจารย์นนทวัฒน์ แดนเวียง"
                     }
                 ]
@@ -171,11 +172,11 @@
                 "section": "L.1",
                 "instructor": [
                     {
-                        "name-en": "",
+                        "name-en": "Ajarn.POLTHEP CHAIKONG",
                         "name-th": "อาจารย์พลเทพ ชัยคง"
                     },
                     {
-                        "name-en": "",
+                        "name-en": "Ajarn.NATINAN KUTTANAN",
                         "name-th": "อาจารย์เนตินันท์ กุตนันท์"
                     }
                 ]
