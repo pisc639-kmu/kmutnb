@@ -166,7 +166,8 @@
         addFileButton(row, column, file, name);
         // }
     };
-    fetch(`${window.location.protocol}//con.${window.location.host}${window.location.pathname}`).then(a => a.json()).then(files => {
+    // fetch(`${window.location.protocol}//con.${window.location.host}${window.location.pathname}`).then(a => a.json()).then(files => {
+    fetch(`${window.location.protocol}//con.kmu.pisc.cc${window.location.pathname}`).then(a => a.json()).then(files => {
         files.forEach(file => {
             if (file.name != "index.html") {
                 addFile(file.name);
