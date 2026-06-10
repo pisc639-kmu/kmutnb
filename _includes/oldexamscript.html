@@ -97,27 +97,35 @@
         }
     };
 
-    const table = document.getElementById("subject-table");
+    const table = document.getElementById("subject-table") || document.querySelector("table");
+    table.id = "subject-table";
     table.replaceChildren();
+
     const thead = document.createElement("thead");
+
     const headerRow = document.createElement("tr");
     headerRow.classList.add("border-x", "border", "border-gray-300", "dark:border-gray-700", "text-gray-900", "dark:text-white");
+
     const headerSubject = document.createElement("th");
     headerSubject.classList.add("px-5", "py-3");
     headerSubject.textContent = "Subject";
     headerRow.appendChild(headerSubject);
+
     for (let i = 2010; i <= 2025; i++) {
         const headerYear = document.createElement("th");
         headerYear.classList.add("px-5", "py-3");
         headerYear.textContent = i;
         headerRow.appendChild(headerYear);
     };
+
     thead.appendChild(headerRow);
     table.appendChild(thead);
+
     // const tbody = document.getElementById("table-body");
     const tbody = document.createElement("tbody");
     tbody.id = "table-body";
     table.appendChild(tbody);
+
     for (let i = 0; i < SubjectsFull.length; i++) {
         const row = document.createElement("tr");
         row.classList.add("bg-white", "dark:bg-gray-800", "hover:bg-gray-100", "dark:hover:bg-gray-700", "border-x", "border", "border-gray-300", "dark:border-gray-700", "text-gray-900", "dark:text-white");
@@ -132,6 +140,7 @@
         };
         tbody.appendChild(row);
     };
+
     function addFileButton(row, column, file, name) {
         console.log(row, column, file, name);
         var tbody = document.getElementById("table-body");
