@@ -1,0 +1,13 @@
+import subprocess
+import sys
+
+target = "find.py"
+cmd = [sys.executable, target] + sys.argv[1:]
+
+try:
+    result = subprocess.run(cmd, check=True)
+except KeyboardInterrupt:
+    sys.exit()
+except subprocess.CalledProcessError as e:
+    print(f"Error occorred while running {target}: {e}")
+    sys.exit(e.returncode)
