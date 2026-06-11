@@ -39,11 +39,11 @@ def wait_for_clipboard_change():
         except KeyboardInterrupt:
             sys.exit()
 
-def complete_query(query:str) -> str:
+def format_query(query:str) -> str:
     query = re.sub(r'^"|"$|^\,|,\s*,', '', query)
     return query
 
-def search_files(query, in_database=True):
+def search_files(query:str, in_database=True):
     # found = False
     files = []
     first_file_opened = False
@@ -51,32 +51,42 @@ def search_files(query, in_database=True):
     if in_database:
         with open("files.csv", "r", encoding="utf-8") as f:
             lines = f.readlines()[1:-1]
-            for line in lines:
-                print(line)
+            # print(len(lines))
+            for line in lines[560:570]:
+                # print(line)
                 try:
                     fpath = Path(base_path) / Path(eval(line[150:].split(",")[1]))
                     is_match = False
-                    if complete_query(query) + '"' in line or query in fpath:
-                        # print(f"\"{fpath}\"")
-                        # if not first_file_opened:
-                        files.append(fpath)
-                        # first_file_opened = True
-                        # found = True
-                        # to_open = fpath
+
+                    if format_query(query) + '"' in line or query in str(fpath):
+                        is_match = True
+                    
+                    # print(query, line)
+                    if format_query(query).isdigit() and format_query(query) in line:
+                        is_match = True
+                        # print(1)
+
+                    if is_match:
+                        files.append(str(fpath))
                 except:
-                    pass
+                    import traceback
+                    traceback.print_exc()
+                    sys.exit()
         # webbrowser.open(first_file)
         # if to_open:
         #     webbrowser.open(to_open)
     else:
         for root, dirs, files in os.walk(base_path):
-            root = Path(root)
+            # root = Path(root)
+            # print(1, end="")
             for file in files:
-                file = Path(file)
-                if query in root / file:
-                    # print(f"\"{os.path.join(root, file)}\"")
+                # file = Path(file)
+                # if query in str(root / file):
+                if query in os.path.join(root, file):
+                    print(f"\"{os.path.join(root, file)}\"")
                     # if not first_file_opened:
-                    files.append(root / file)
+                    # files.append(root / file)
+                    files.append(os.path.join(root, file))
                     # webbrowser.open(os.path.join(root, file))
                     # first_file_opened = True
                     found = True
@@ -149,9 +159,10 @@ term = sys.argv[1] if len(sys.argv) > 1 else None
 period = sys.argv[2] if len(sys.argv) > 2 else None
 ep = sys.argv[3].lower() == "ep" if len(sys.argv) > 3 else None
 query = input("Enter search query: ").strip()
-files = search_files(query, True)
-print(files)
-print(filter_files(files, term, period, ep))
-print(term, period, ep)
+print(query.isdigit())
+files = search_files(query)
+print("\n".join(files))
+# print(filter_files(files, term, period, ep))
+# print(term, period, ep)
 print(get_file_info(files[0]) if files else "No files found")
 print(filter_file(files[0], term, period, ep))
