@@ -13,6 +13,7 @@ import webbrowser
 
 import pandas as pd
 import PIL
+from PIL import Image, ImageGrab
 
 all_path = "D:\\kmutnb\\old-exam\\"
 
