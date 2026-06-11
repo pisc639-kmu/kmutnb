@@ -282,11 +282,11 @@ def main():
         # add_gdrive_folder_icon_recursive(all_path, recursive=True)
         remove_filename(all_path, "desktop.ini", recursive=True)
         files = get_files(all_path, file_extension="pdf")
+
         with open("subjects.json", "r", encoding="utf-8") as f:
             subjects = json.load(f)
         subjects = dict(sorted(subjects.items()))
-        with open("subjects.json", "w", encoding="utf-8") as f:
-            json.dump(subjects, f, indent=4, ensure_ascii=False)
+
         with open("files.csv", "w", encoding="utf-8", newline="") as f:
             # writer = csv.writer(f, quoting=csv.QUOTE_ALL)
             # writer = csv.writer(f, quoting=csv.QUOTE_NONE, escapechar="\\")
@@ -303,6 +303,8 @@ def main():
             decode = lambda x: x.encode('unicode_escape').decode('latin1').replace(',', '\\,')
             # decode = lambda x: x.encode('unicode_escape').decode('latin1')
 
+            unique_subject_ids = set()
+
             # Write to CSV file and calculate total size
             for file in files:
                 # try:
@@ -316,6 +318,7 @@ def main():
                 # except UnicodeEncodeError:
                 #     writer.writerow([f'"{file.name}"'.encode('utf-8'), file.year, file.term, file.exam, "|".join(map(str, file.subject_ids)).encode('utf-8'), f'"{file.file_path}"'.encode('utf-8'), file.sizestr])
                 
+                unique_subject_ids.update(file.subject_ids)
                 row = [decode(file.name), file.year, file.term, file.exam, "|".join(map(str, file.subject_ids)), subjects[str(file.subject_ids[0])] if str(file.subject_ids[0] if len(file.subject_ids) else "-") in subjects.keys() else "None", decode(file.file_path), file.sizestr]
                 # row[0] = f'"{row[0]}"'
                 # row[5] = f'"{row[5]}"'
@@ -327,7 +330,18 @@ def main():
                 # print(file.file_path)
                 total_size += file.sizeint
 
+        for subject_id in unique_subject_ids:
+            subjects.setdefault(subject_id, "")
+        subjects = {
+            k: v for k, v in subjects.items()
+            if not (k not in unique_subject_ids and v == "None")
+        }
+        subjects = dict(sorted(subjects.items()))
+        with open("subjects.json", "w", encoding="utf-8") as f:
+            json.dump(subjects, f, indent=4, ensure_ascii=False)
+
         print(f"Total files: {len(files)}")
+        print(f"Unique subjects: {len(unique_subject_ids)}")
         # print(f"Total storage: {total_size:,} Byte ({total_size / 1024 / 1024:.4f} MB)")
         print(f"Total storage: {total_size:,} Byte ({add_size_unit(total_size)})")
         prettify_csv_fixed_width("files.csv", "files.csv")

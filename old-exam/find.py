@@ -6,6 +6,7 @@ import sys
 import os
 from pathlib import Path
 import re
+import ast
 # import subprocess
 # import json
 
@@ -52,10 +53,10 @@ def search_files(query:str, in_database=True):
         with open("files.csv", "r", encoding="utf-8") as f:
             lines = f.readlines()[1:-1]
             # print(len(lines))
-            for line in lines[560:570]:
+            for line in lines:
                 # print(line)
                 try:
-                    fpath = Path(base_path) / Path(eval(line[150:].split(",")[1]))
+                    fpath = Path(base_path) / Path(ast.literal_eval(re.search(r"\"[^\"]+\"", line[150:]).group(0)))
                     is_match = False
 
                     if format_query(query) + '"' in line or query in str(fpath):
@@ -154,15 +155,25 @@ def filter_files(file_paths, term=None, period=None, ep=None):
 #         time.sleep(0.5)
 #         pyperclip.copy(original_query)
 
-# print(sys.argv)
-term = sys.argv[1] if len(sys.argv) > 1 else None
-period = sys.argv[2] if len(sys.argv) > 2 else None
-ep = sys.argv[3].lower() == "ep" if len(sys.argv) > 3 else None
-query = input("Enter search query: ").strip()
-print(query.isdigit())
-files = search_files(query)
-print("\n".join(files))
-# print(filter_files(files, term, period, ep))
-# print(term, period, ep)
-print(get_file_info(files[0]) if files else "No files found")
-print(filter_file(files[0], term, period, ep))
+try:
+    while True:
+        # print(sys.argv)
+        term = (sys.argv[1] if len(sys.argv[1]) == 1 else None) if len(sys.argv) > 1 else None
+        period = sys.argv[2] if len(sys.argv) > 2 else None
+        ep = sys.argv[3].lower() == "ep" if len(sys.argv) > 3 else None
+        if len(sys.argv) > 1 and sys.argv[1].isdigit() and len(sys.argv[1]) > 1:
+            query = sys.argv[1]
+            files = search_files(query)
+            print("\n".join(files))
+            sys.exit()
+        else:
+            query = input("Enter search query: ").strip()
+        # print(query.isdigit())
+        files = search_files(query)
+        print("\n".join(files))
+        # print(filter_files(files, term, period, ep))
+        # print(term, period, ep)
+        # print(get_file_info(files[0]) if files else "No files found")
+        # print(filter_file(files[0], term, period, ep) if files else "No files found")
+except KeyboardInterrupt:
+    sys.exit()
