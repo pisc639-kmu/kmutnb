@@ -41,6 +41,7 @@ def wait_for_clipboard_change():
             sys.exit()
 
 def format_query(query:str) -> str:
+    query = query.lower().strip()
     query = re.sub(r'^"|"$|^\,|,\s*,', '', query)
     return query
 
@@ -54,6 +55,7 @@ def search_files(query:str, in_database=True):
             lines = f.readlines()[1:-1]
             # print(len(lines))
             for line in lines:
+                line = line.lower()
                 # print(line)
                 try:
                     fpath = Path(base_path) / Path(ast.literal_eval(re.search(r"\"[^\"]+\"", line[150:]).group(0)))
@@ -99,10 +101,12 @@ def search_files(query:str, in_database=True):
 def file_is_ep(file_path):
     file_path = Path(file_path)
     if 'EP' in str(Path(file_path)).upper():
-        return True
+        return 1 # EP
     elif re.search(r"^(?=.*ep|.*?\bS(?!1\b)\d+\b)", str(file_path), re.IGNORECASE):
-        return True
-    return False
+        return 1 # EP
+    elif re.search(r"^(?!.*ep)(?!.*?\bs\d+\b).*$", str(file_path), re.IGNORECASE):
+        return 2 # Not Sure
+    return 0 # Not EP
 
 def get_file_info(file_path):
     file_path = Path(file_path)
@@ -129,7 +133,7 @@ def filter_file(file_path, term=None, period=None, ep=None):
             return False
     if ep is not None:
         # print(31)
-        if file_info['ep'] != ep:
+        if bool(file_info['ep']) != ep and file_info['ep'] != 2:
             return False
     return True
 
@@ -158,9 +162,32 @@ def filter_files(file_paths, term=None, period=None, ep=None):
 try:
     while True:
         # print(sys.argv)
-        term = (sys.argv[1] if len(sys.argv[1]) == 1 else None) if len(sys.argv) > 1 else None
-        period = sys.argv[2] if len(sys.argv) > 2 else None
-        ep = sys.argv[3].lower() == "ep" if len(sys.argv) > 3 else None
+
+        sys_argv = [a.lower() for a in sys.argv if a != ""][1:]
+        # print(sys_argv)
+
+        # term = (sys.argv[1] if len(sys.argv[1]) == 1 else None) if len(sys.argv) > 1 else None
+        # period = sys.argv[2] if len(sys.argv) > 2 else None
+        # ep = sys.argv[3].lower() == "ep" if len(sys.argv) > 3 else None
+
+        term = period = ep = None
+        if (temp := next((x for x in sys_argv if x in ("1", "2")), None)):
+            if len(temp) > 1:
+                raise Exception("Invalid argument: multiple term choices")
+            term = temp
+
+        if (temp := next((x for x in sys_argv if x in ("m", "f")), None)):
+            if len(temp) > 1:
+                raise Exception("Invalid argument: multiple period choices")
+            period = temp
+
+        if (temp := next((x for x in sys_argv if x in ("ep", "eng", "np", "p")), None)):
+            if len(temp) > 1:
+                raise Exception("Invalid argument: multiple is english program choices")
+            ep = temp in ("ep", "eng")
+
+        print(f"Options: term={term}, period={period}, ep={ep}")
+
         if len(sys.argv) > 1 and sys.argv[1].isdigit() and len(sys.argv[1]) > 1:
             query = sys.argv[1]
             files = search_files(query)
@@ -168,8 +195,13 @@ try:
             sys.exit()
         else:
             query = input("Enter search query: ").strip()
+            if query == "":
+                continue
+            elif query == "q":
+                sys.exit()
         # print(query.isdigit())
         files = search_files(query)
+        files = filter_files(files, term, period, ep)
         print("\n".join(files))
         # print(filter_files(files, term, period, ep))
         # print(term, period, ep)
