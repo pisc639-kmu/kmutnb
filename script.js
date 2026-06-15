@@ -76,14 +76,14 @@ mobileMenuButton.addEventListener('click', () => {
         // Menu is closed, show hamburger icon
         menuIconOpen.classList.remove('opacity-0');
         menuIconClose.classList.add('opacity-0');
-
-        // window.scrollTo(0, 1000);
-        window.scrollTo({ top: 0, behavior: "smooth" });
-
+        
     } else {
         // Menu is open, show close icon
         menuIconOpen.classList.add('opacity-0');
         menuIconClose.classList.remove('opacity-0');
+        
+        // window.scrollTo(0, 1000);
+        window.scrollTo({ top: 0, behavior: "smooth" });
     }
 });
 
