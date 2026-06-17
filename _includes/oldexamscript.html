@@ -157,10 +157,11 @@
         columnElement.appendChild(button);
     };
     function addFile(file) {
-        var name = file.split(",")[0];
-        var year = parseInt(name.split(" ")[1], 10);
-        var subject = name.split(" ")[0];
+        var name = file.split(".")[0].split(",")[0];
+        var subject = name.split(" ").slice(0, -1).join(" ");
+        if (!Subjects.includes(subject)) {return;};
         var row = parseInt(Subjects.indexOf(subject), 10);
+        var year = parseInt(name.split(" ").at(-1), 10);
         var column = year - 2010;
         // if (year != 2024) {
         addFileButton(row, column, file, name);
