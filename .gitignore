@@ -9,6 +9,8 @@ ignore
 __pycache__
 .vscode
 storage
+*.db
+*.sqlite
 
 # wrangler files
 .wrangler
