@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' https://src.kmu.pisc.cc;
+        connect-src 'self' https://api.kmu.pisc.cc;
+        style-src 'self' 'unsafe-inline';
+        img-src 'self' data:;
+    ">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E25 EP - By Pisc</title>
@@ -13,13 +20,23 @@
         <h1 class="text-4xl font-bold mb-4 text-gray-800 dark:text-white"></h1>
     </div> -->
 
-    <div class="flex justify-center space-x-4 md:space-x-8 mt-4">
+    <!-- <div class="flex justify-center space-x-4 md:space-x-8 mt-4">
         <p class="bg-zinc-600 dark:bg-zinc-950 text-white font-medium py-2 px-4 rounded-md border border-zinc-500 transition-colors duration-300" disabled="">M</p>
         <p class="bg-zinc-600 dark:bg-zinc-950 text-white font-medium py-2 px-4 rounded-md border border-zinc-500 transition-colors duration-300" disabled="">M - EP</p>
         <p class="bg-zinc-600 dark:bg-zinc-950 text-white font-medium py-2 px-4 rounded-md border border-zinc-500 transition-colors duration-300" disabled="">C</p>
         <p class="bg-zinc-600 dark:bg-zinc-950 text-white font-medium py-2 px-4 rounded-md border border-zinc-500 transition-colors duration-300" disabled="">C - EP</p>
         <p class="bg-zinc-600 dark:bg-zinc-950 text-white font-medium py-2 px-4 rounded-md border border-zinc-500 transition-colors duration-300" disabled="">E</p>
         <a href="ee" class="bg-blue-600 hover:bg-blue-700 dark:bg-blue-950 dark:hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md border border-blue-500 transition-colors duration-300 shadow-md shadow-blue-800 hover:shadow-blue-500">E-EP</a>
+        <a href="cb" class="bg-blue-600 hover:bg-blue-700 dark:bg-blue-950 dark:hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md border border-blue-500 transition-colors duration-300 shadow-md shadow-blue-800 hover:shadow-blue-500">CB</a>
+    </div> -->
+
+    <div class="grid grid-cols-2 gap-4 m-4">
+        <div class="bg-zinc-600 dark:bg-zinc-950 text-white font-medium py-2 px-4 rounded-md border border-zinc-500 transition-colors duration-300">M</div>
+        <div class="bg-zinc-600 dark:bg-zinc-950 text-white font-medium py-2 px-4 rounded-md border border-zinc-500 transition-colors duration-300">M EP</div>
+        <div class="bg-zinc-600 dark:bg-zinc-950 text-white font-medium py-2 px-4 rounded-md border border-zinc-500 transition-colors duration-300">C</div>
+        <div class="bg-zinc-600 dark:bg-zinc-950 text-white font-medium py-2 px-4 rounded-md border border-zinc-500 transition-colors duration-300">C EP</div>
+        <div class="bg-zinc-600 dark:bg-zinc-950 text-white font-medium py-2 px-4 rounded-md border border-zinc-500 transition-colors duration-300">E</div>
+        <a href="ee" class="bg-blue-600 hover:bg-blue-700 dark:bg-blue-950 dark:hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md border border-blue-500 transition-colors duration-300 shadow-md shadow-blue-800 hover:shadow-blue-500">E EP</a>
         <a href="cb" class="bg-blue-600 hover:bg-blue-700 dark:bg-blue-950 dark:hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md border border-blue-500 transition-colors duration-300 shadow-md shadow-blue-800 hover:shadow-blue-500">CB</a>
     </div>
 
