@@ -26,7 +26,7 @@
         if (!rawUrl || rawUrl === window.location.href) return;
 
         const url = new URL(rawUrl);
-        url.host = "dl.kmu.pisc.cc";
+        // url.host = "dl.kmu.pisc.cc";
         
         const a = document.createElement('a');
         a.href = decodeURI(url.href);
@@ -59,7 +59,7 @@
 
     function getFileUrl(path) {
         const [, , seg2, seg3] = new URL(window.location.href).pathname.split('/');
-        var Url = new URL(`https://src.kmu.pisc.cc/old-exam/${seg2}/${seg3}/${path}`);
+        var Url = new URL(`https://api.kmu.pisc.cc/file/old-exam/${seg2}/${seg3}/${path}`);
         return Url;
     };
 
@@ -167,7 +167,7 @@
         // }
     };
     // fetch(`${window.location.protocol}//con.${window.location.host}${window.location.pathname}`).then(a => a.json()).then(files => {
-    fetch(`${window.location.protocol}//con.kmu.pisc.cc${window.location.pathname}`).then(a => a.json()).then(files => {
+    fetch(`${window.location.protocol}//api.kmu.pisc.cc/list${window.location.pathname}`).then(a => a.json()).then(files => {
         files.forEach(file => {
             if (file.name != "index.html") {
                 addFile(file.name);
