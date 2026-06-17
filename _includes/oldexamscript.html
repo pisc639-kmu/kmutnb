@@ -168,8 +168,8 @@
     };
     // fetch(`${window.location.protocol}//con.${window.location.host}${window.location.pathname}`).then(a => a.json()).then(files => {
     fetch(`${window.location.protocol}//api.kmu.pisc.cc/list${window.location.pathname}`).then(a => a.json()).then(files => {
-        files.forEach(file => {
-            if (file.name != "index.html") {
+        files.items.forEach(file => {
+            if (file.name != "index.html" && file.type == "File") {
                 addFile(file.name);
             };
         });
