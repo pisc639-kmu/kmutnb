@@ -3,8 +3,9 @@ utils
 old-exam\1-2-m\Measurement 2022.pdf
 old-exam\old
 old-exam\res
-# old-unused-others
+old-unused-others
 api
+ignore
 
 wrangler files
 .wrangler
