@@ -6,8 +6,9 @@ old-exam\res
 old-unused-others
 api
 ignore
+__pycache__
 
-wrangler files
+# wrangler files
 .wrangler
 .dev.vars*
 !.dev.vars.example
