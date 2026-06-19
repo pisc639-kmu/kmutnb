@@ -1,0 +1,4 @@
+import sys,fitz;s=sys.argv
+if len(s)<4:sys.exit()
+*i,o=s[1:]
+with fitz.open() as d:[d.insert_file(p) for p in i];d.save(o);print(f"{i}>'{o}'")

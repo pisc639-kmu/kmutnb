@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E25 Old Exam Year 1 Term 1 Midterm</title>
+    <title>Old Exam Year 1 Term 1 Midterm</title>
     {% include "head.html" %}
 </head>
 <body class="dark bg-gray-50 dark:bg-gray-950 min-h-screen">
@@ -13,31 +13,7 @@
     </div>
 
     <div class="container mx-auto mt-8 overflow-x-auto shadow-md shadow-gray-400 dark:shadow-gray-800 hover:shadow-gray-500 dark:hover:shadow-gray-950">
-        <table id="subject-table" class="w-full border-collapse border border-gray-300 dark:border-gray-700">
-            <thead>
-                <tr class="border-x border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white">
-                    <th class="px-5 py-3">Subject</th>
-                    <th class="px-5 py-3">2010</th>
-                    <th class="px-5 py-3">2011</th>
-                    <th class="px-5 py-3">2012</th>
-                    <th class="px-5 py-3">2013</th>
-                    <th class="px-5 py-3">2014</th>
-                    <th class="px-5 py-3">2015</th>
-                    <th class="px-5 py-3">2016</th>
-                    <th class="px-5 py-3">2017</th>
-                    <th class="px-5 py-3">2018</th>
-                    <th class="px-5 py-3">2019</th>
-                    <th class="px-5 py-3">2020</th>
-                    <th class="px-5 py-3">2021</th>
-                    <th class="px-5 py-3">2022</th>
-                    <th class="px-5 py-3">2023</th>
-                    <th class="px-5 py-3">2024</th>
-                    <th class="px-5 py-3">2025</th>
-                </tr>
-            </thead>
-            <tbody id="table-body">
-            </tbody>
-        </table>
+        <table id="subject-table" class="w-full border-collapse border border-gray-300 dark:border-gray-700"></table>
     </div>
     <br><br>
     <div id="iframe-container" class="container mx-auto display-none">
@@ -58,22 +34,18 @@
     <script src="https://src.kmu.pisc.cc/script.min.js"></script>
     <script>
         const SubjectsFull = [
+            "Mathematics I",
             "Mathematics III",
-            "Thai III",
-            "Chemistry III",
-            "Reading",
-            "Wave Motion and Sound",
-            "Computer Programming",
-            "Electronic Circuits I"
+            "Thai I",
+            "Foundation English I",
+            "Physics IV/Electrical Phenomena",
         ];
         const Subjects = [
-            "Math",
+            "Math1",
+            "Math3",
             "Thai",
-            "Chemistry",
-            "Reading",
-            "Physics",
-            "Programming",
-            "Circuit"
+            "English",
+            "Physics"
         ];
     </script>
     {% include "oldexamscript.html" %}

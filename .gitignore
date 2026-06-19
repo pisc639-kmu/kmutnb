@@ -3,9 +3,14 @@ utils
 old-exam\1-2-m\Measurement 2022.pdf
 old-exam\old\*
 old-exam\res
-# old-unused-others
-
-old-exam\old\1-2-f
+old-unused-others
+api
+ignore
+__pycache__
+.vscode
+storage
+*.db
+*.sqlite
 
 #wrangler files
 .wrangler

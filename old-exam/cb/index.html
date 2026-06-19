@@ -3,22 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E25 Old Exam</title>
+    <title>CB Old Exam</title>
     {% include "head.html" %}
 </head>
 <body class="dark bg-gray-50 dark:bg-gray-950 min-h-screen">
     {% include "nav.html" %}
-    <div class="flex items-center justify-center space-x-4 mt-16">
-        <h1 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Old Exam</h1>
+    <div class="flex items-center justify-center space-x-4 mt-8">
+        <h1 class="text-4xl font-bold mb-4 text-gray-800 dark:text-white">Old Exam CB</h1>
     </div>
-
-    <div class="flex justify-center space-x-4 md:space-x-8 mt-4 mx-auto">
-        <a href="1-1-m" class="bg-blue-600 hover:bg-blue-700 dark:bg-blue-950 dark:hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md border border-blue-500 transition-colors duration-300 shadow-md shadow-blue-800 hover:shadow-blue-500">Year 1 Term 1 Midterm</a>
-        <a href="1-1-f" class="bg-blue-600 hover:bg-blue-700 dark:bg-blue-950 dark:hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md border border-blue-500 transition-colors duration-300 shadow-md shadow-blue-800 hover:shadow-blue-500">Year 1 Term 1 Final</a>
-        <a href="1-2-m" class="bg-blue-600 hover:bg-blue-700 dark:bg-blue-950 dark:hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md border border-blue-500 transition-colors duration-300 shadow-md shadow-blue-800 hover:shadow-blue-500">Year 1 Term 2 Midterm</a>
-        <a href="1-2-f" class="bg-blue-600 hover:bg-blue-700 dark:bg-blue-950 dark:hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md border border-blue-500 transition-colors duration-300 shadow-md shadow-blue-800 hover:shadow-blue-500">Year 1 Term 2 Final</a>
-        <a href="2-1-m" class="bg-teal-600 hover:bg-teal-700 dark:bg-teal-950 dark:hover:bg-teal-700 text-white font-medium py-2 px-4 rounded-md border border-teal-500 transition-colors duration-300 shadow-md shadow-teal-800 hover:shadow-teal-500">Year 2 Term 1 Midterm</a>
-        <a href="2-1-f" class="bg-blue-600 hover:bg-blue-700 dark:bg-blue-950 dark:hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md border border-blue-500 transition-colors duration-300 shadow-md shadow-blue-800 hover:shadow-blue-500">Year 2 Term 1 Final</a>
+    
+    <div class="grid grid-cols-1 gap-y-4 max-w-4xl mx-auto px-4 max-w-[500px]">
+        <div class="grid grid-cols-2 gap-4 pt-4">
+            <a href="1-1-m" class="bg-gradient-to-br from-blue-600 to-indigo-600 dark:from-blue-950 dark:to-indigo-900 hover:from-blue-700 hover:to-indigo-700 dark:hover:from-blue-900 dark:hover:to-indigo-800 text-white font-medium py-2 px-4 rounded-md border border-blue-500 duration-300 shadow-md shadow-blue-600/25 hover:shadow-lg hover:shadow-blue-700/40 dark:hover:shadow-blue-900/50 active:scale-[0.98] transition-all duration-200 hover:shadow-blue-500 text-center">Year 1 Term 1 Midterm</a>
+            <a href="1-1-f" class="bg-zinc-600 hover:bg-zinc-700 dark:bg-zinc-900 dark:hover:bg-zinc-700 text-white font-medium py-2 px-4 rounded-md border border-zinc-500 transition-colors duration-300 text-center">Year 1 Term 1 Final</a>
+        </div>
     </div>
 
     <!-- <form id="clock-form" action="../clock" method="get">
