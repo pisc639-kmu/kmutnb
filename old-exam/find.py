@@ -40,9 +40,12 @@ def wait_for_clipboard_change():
         except KeyboardInterrupt:
             sys.exit()
 
-def format_query(query:str) -> str:
+def format_query(query:str, removequotes=True) -> str:
     query = query.lower().strip()
-    query = re.sub(r'^"|"$|^\,|,\s*,', '', query)
+    if removequotes:
+        query = re.sub(r'^"|"$|^\,|,\s*,', '', query)
+    else:
+        query = re.sub(r'^\,|,\s*,', '', query)
     return query
 
 def search_files(query:str, in_database=True):
@@ -61,7 +64,9 @@ def search_files(query:str, in_database=True):
                     fpath = Path(base_path) / Path(ast.literal_eval(re.search(r"\"[^\"]+\"", line[150:]).group(0)))
                     is_match = False
 
-                    if format_query(query) + '"' in line or query in str(fpath):
+                    # print('search', re.sub(r'r"[\'\"]+"', '"', (format_query(query, removequotes=False) + '"')))
+                    # sys.exit()
+                    if re.sub(r"[\'\"]+", '"', (format_query(query, removequotes=False) + '"')) in line or query in str(fpath):
                         is_match = True
                     
                     # print(query, line)

@@ -11,3 +11,10 @@ renamed files
 à¸¸à¸ -> CAS
 ำย -> ep
 สำเนาของ -> CO
+
+Old Midterm Regex for EP
+(^(?=.*final|.*\bS1\b|^(?!.*ep)(?!.*\bS[\d]\b)(?!.*\bS\d\d\b).*)[^\n]*\n?|Found File:\s*)
+
+Commands
+cd $env:OneDrive/KMU/old-exam/cb/1-1-f
+py f 1 f p
