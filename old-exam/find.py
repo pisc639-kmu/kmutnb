@@ -41,9 +41,10 @@ def wait_for_clipboard_change():
             sys.exit()
 
 def format_query(query:str, removequotes=True) -> str:
+    
     query = query.lower().strip()
     if removequotes:
-        query = re.sub(r'^"|"$|^\,|,\s*,', '', query)
+        query = re.sub(r'^"|".{0,2}$|^\,|,\s*,', '', query)
     else:
         query = re.sub(r'^\,|,\s*,', '', query)
     return query
