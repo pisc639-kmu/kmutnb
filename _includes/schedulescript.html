@@ -29,8 +29,8 @@
         const tbody = document.createElement('tbody');
         
         
-        var empty = make_cell('td', 'bg-zinc-50 dark:bg-zinc-950')
-        empty
+        var empty = make_cell('td', '')
+        empty.classList.add("bg-zinc-50", "dark:bg-zinc-950")
         const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
         for (let i = 0; i < days.length; i++) {
             const tr = document.createElement('tr');
