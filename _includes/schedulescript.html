@@ -50,7 +50,7 @@
                 j += data[days[i].toLowerCase()][k]['to'] - data[days[i].toLowerCase()][k]['from'];
             }
             for (let l = 0; l < 10 - j + 8; l++) {
-                tr.appendChild(make_cell('td', ''));
+                tr.appendChild(empty);
             }
             tbody.appendChild(tr);
         }
