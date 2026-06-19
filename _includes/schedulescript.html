@@ -28,9 +28,11 @@
         console.log(data);
         const tbody = document.createElement('tbody');
         
-        
-        var empty = make_cell('td', '')
-        empty.classList.add("bg-zinc-50", "dark:bg-zinc-950")
+        function create_empty_cell() {
+            var empty = make_cell('td', '')
+            empty.classList.add("bg-zinc-50", "dark:bg-zinc-950")
+            return empty
+        }
         const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
         for (let i = 0; i < days.length; i++) {
             const tr = document.createElement('tr');
@@ -41,7 +43,7 @@
             for (let k = 0; k < data[days[i].toLowerCase()].length; k++) {
 
                 while (j < data[days[i].toLowerCase()][k]['from']) {
-                    tr.appendChild(empty);
+                    tr.appendChild(create_empty_cell());
                     j++;
                 }
                 const td = make_cell('td', `<b>${data[days[i].toLowerCase()][k]['name-en']}</b><br>${data[days[i].toLowerCase()][k]['name-th']}<br><span class="text-lg md:text-base">${data[days[i].toLowerCase()][k]['room']}</span><br><b>${data[days[i].toLowerCase()][k]['code']} (${data[days[i].toLowerCase()][k]['section']})</b><br>${data[days[i].toLowerCase()][k]['instructor'].map(instructor => instructor['name-th']).join('<br>')}`, {colspan: data[days[i].toLowerCase()][k]['to'] - data[days[i].toLowerCase()][k]['from']});
@@ -50,7 +52,7 @@
                 j += data[days[i].toLowerCase()][k]['to'] - data[days[i].toLowerCase()][k]['from'];
             }
             for (let l = 0; l < 10 - j + 8; l++) {
-                tr.appendChild(empty);
+                tr.appendChild(create_empty_cell());
             }
             tbody.appendChild(tr);
         }
