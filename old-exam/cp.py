@@ -7,13 +7,26 @@ from pathlib import Path
 from typing import Union
 import shutil
 
+
+paths_string = r"""
+
+D:\kmutnb\old-exam\2556\term 1\midterm\341131.pdf
+D:\kmutnb\old-exam\2557\term 1\midterm\341131.pdf
+D:\kmutnb\old-exam\2558\term 1\midterm\341131.pdf
+D:\kmutnb\old-exam\2560\term 1\midterm\341131.pdf
+D:\kmutnb\old-exam\2561\term 1\midterm\5 oct 61\341131.pdf
+"""
+department = "ee"
+term_code = "1-1-m"
+
+term = "-".join(term_code.split("-")[:2])
 with open("subjects.json", "r", encoding="utf-8") as f:
     subjects_json = json.load(f)
 
 with open("subjects.min.json", "r", encoding="utf-8") as f:
     subjects = json.load(f)
-subjects = subjects["cb"]
-subjects = subjects["1-2"]
+subjects = subjects[department]
+subjects = subjects[term]
 
 def merge(inputs, output):
     merger = PdfWriter()
@@ -35,63 +48,8 @@ def get_id(path):
 
 def main():
     path_regex = re.compile(r'([a-zA-Z]+:\\(?:[^\\/:*?"<>|\r\n]+\\)*.*?(?=\s+[a-zA-Z]+:\\|$))')
-    paths = r"""
-
-D:\kmutnb\old-exam\2553\term 2\final\394172.pdf
-D:\kmutnb\old-exam\2554\term 2\final\394172.pdf
-D:\kmutnb\old-exam\2555\term 2\final\394172.pdf
-D:\kmutnb\old-exam\2556\term 2\final\394172.pdf
-D:\kmutnb\old-exam\2557\term 2\final\394172.pdf
-D:\kmutnb\old-exam\2560\term 2\final\16 may 61\394172.pdf
-D:\kmutnb\old-exam\2561\term 2\final\394172.pdf
-D:\kmutnb\old-exam\2562\term 2\final\5 mar 63\394172.pdf
-D:\kmutnb\old-exam\2567\term 2\final\031001132 s1-14.pdf
-D:\kmutnb\old-exam\2568\term 2\final\031001132 s1-14.pdf
-
-D:\kmutnb\old-exam\2553\term 2\final\394174.pdf
-D:\kmutnb\old-exam\2554\term 2\final\394174.pdf
-D:\kmutnb\old-exam\2555\term 2\final\394174.pdf
-D:\kmutnb\old-exam\2556\term 2\final\394174.pdf
-D:\kmutnb\old-exam\2557\term 2\final\394174.pdf
-D:\kmutnb\old-exam\2560\term 2\final\17 may 61\394174.pdf
-D:\kmutnb\old-exam\2561\term 2\final\394174.pdf
-D:\kmutnb\old-exam\2567\term 2\final\031001134 s1-14.pdf
-D:\kmutnb\old-exam\2568\term 2\final\031001134 s1-14.pdf
-
-D:\kmutnb\old-exam\2553\term 2\final\393162.pdf
-D:\kmutnb\old-exam\2554\term 2\final\393162.pdf
-D:\kmutnb\old-exam\2555\term 2\final\393162.pdf
-D:\kmutnb\old-exam\2556\term 2\final\393162.pdf
-D:\kmutnb\old-exam\2557\term 2\final\393162.pdf
-D:\kmutnb\old-exam\2560\term 2\final\15 may 61\393162.pdf
-D:\kmutnb\old-exam\2561\term 2\final\393162.pdf
-D:\kmutnb\old-exam\2562\term 2\final\9 mar 63\393162.pdf
-D:\kmutnb\old-exam\2567\term 2\final\031001152 s1-18.pdf
-D:\kmutnb\old-exam\2568\term 2\final\031001152 s1-14.pdf
-
-D:\kmutnb\old-exam\2553\term 2\final\393142.pdf
-D:\kmutnb\old-exam\2554\term 2\final\393142.pdf
-D:\kmutnb\old-exam\2555\term 2\final\393142.pdf
-D:\kmutnb\old-exam\2556\term 2\final\393142.pdf
-D:\kmutnb\old-exam\2557\term 2\final\393142.pdf
-D:\kmutnb\old-exam\2560\term 2\final\21 may 61\393142.pdf
-D:\kmutnb\old-exam\2561\term 2\final\393142.pdf
-D:\kmutnb\old-exam\2562\term 2\final\6 mar 63\393142.pdf
-D:\kmutnb\old-exam\2567\term 2\final\031001142 s1-14.pdf
-D:\kmutnb\old-exam\2568\term 2\final\031001142 s1-17.pdf
-
-D:\kmutnb\old-exam\2553\term 2\final\395181.pdf
-D:\kmutnb\old-exam\2554\term 2\final\395181.pdf
-D:\kmutnb\old-exam\2555\term 2\final\395181.pdf
-D:\kmutnb\old-exam\2556\term 2\final\395181.pdf
-D:\kmutnb\old-exam\2557\term 2\final\395181.pdf
-D:\kmutnb\old-exam\2560\term 2\final\16 may 61\395181.pdf
-D:\kmutnb\old-exam\2562\term 2\final\9 mar 63\395181.pdf
-D:\kmutnb\old-exam\2567\term 2\final\031001161 s1-14.pdf
-D:\kmutnb\old-exam\2568\term 2\final\031001161 s1-14.pdf
-
-""".strip().split("\n")
-    dest = Path(os.path.expandvars("%onedrive%")) / "KMU" / "old-exam" / "cb" / "1-2-f"
+    paths = paths_string.strip().split("\n")
+    dest = Path(os.path.expandvars("%onedrive%")) / "KMU" / "old-exam" / department / term_code
     # subject = "Math1"
     # path = map(Path, path)
     for path in paths:

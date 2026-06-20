@@ -44,9 +44,9 @@ def format_query(query:str, removequotes=True) -> str:
     
     query = query.lower().strip()
     if removequotes:
-        query = re.sub(r'^"|".{0,2}$|^\,|,\s*,', '', query)
+        query = re.sub(r'^"|".{0,2}$|^\,|,\s*,?', '', query)
     else:
-        query = re.sub(r'^\,|,\s*,', '', query)
+        query = re.sub(r'^\,|,\s*,?', '', query)
     return query
 
 def search_files(query:str, in_database=True):
@@ -187,10 +187,16 @@ try:
                 raise Exception("Invalid argument: multiple period choices")
             period = temp
 
-        if (temp := next((x for x in sys_argv if x in ("ep", "eng", "np", "p")), None)):
+        eng = [
+            ("ep", "eng", "e"),
+            ("np", "p"),
+        ]
+        if next(temp := (x for x in sys_argv if x in [i for sub in eng for i in sub]), None):
+            temp = list(temp)
             if len(temp) > 1:
+                print(temp)
                 raise Exception("Invalid argument: multiple is english program choices")
-            ep = temp in ("ep", "eng")
+            ep = temp in eng[0]
 
         print(f"Options: term={term}, period={period}, ep={ep}")
 
