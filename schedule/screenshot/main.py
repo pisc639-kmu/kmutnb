@@ -40,8 +40,8 @@ async def main():
         task.append(capture_playwright_element(
             url=f"https://kmu.pisc.cc/schedule/{classroom}/",
             element_id="timetable",
-            # output_path=Path(__file__).resolve().parents[1] / classroom / "table.png",
-            output_path=Path(__file__).resolve() / f"{classroom}.png",
+            output_path=Path(__file__).resolve().parents[1] / classroom / "table.png",
+            # output_path=Path(__file__).resolve() / f"{classroom}.png",
             dark_mode=True
         ))
     await asyncio.gather(*task)
