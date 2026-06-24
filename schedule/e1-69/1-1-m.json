@@ -1,0 +1,183 @@
+{
+    "timetable": {
+        "monday": [
+            {
+                "code": "031041221",
+                "name-en": "Interior Wiring Practice",
+                "name-th": "ปฏิบัติงานเดินสายภายในอาคาร",
+                "from": "8",
+                "to": "15",
+                "room": "90 - 705",
+                "section": "L.1",
+                "instructor": [
+                    {
+                        "name-en": "",
+                        "name-th": "อ.บุญสา ประเสริฐสวัสดิ์"
+                    }
+                ]
+            }
+        ],
+        "tuesday": [
+            {
+                "code": "031021224",
+                "name-en": "DC Circuits Practice",
+                "name-th": "ปฏิบัติการวงจรไฟฟ้ากระแสตรง",
+                "from": "8",
+                "to": "12",
+                "room": "Lab 90 - 805",
+                "section": "L.1",
+                "instructor": []
+            },
+            {
+                "code": "031001121",
+                "name-en": "Chemistry I",
+                "name-th": "เคมี 1",
+                "from": "13",
+                "to": "15",
+                "room": "90 - 505",
+                "section": "S.1",
+                "instructor": [
+                    {
+                        "name-en": "",
+                        "name-th": "อ.ประเสริฐ พลายแก้ว"
+                    }
+                ]
+            }
+        ],
+        "wednesday": [
+            {
+                "code": "031021111",
+                "name-en": "Electrical Materials and Calculation",
+                "name-th": "วัสดุไฟฟ้าและการคำนวณ",
+                "from": "8",
+                "to": "10",
+                "room": "90 - 508",
+                "section": "S.1",
+                "instructor": [
+                    {
+                        "name-en": "",
+                        "name-th": "อ.นิติภูมิ มู่ฮำหมัดอารี"
+                    }
+                ]
+            },
+            {
+                "code": "031021321",
+                "name-en": "Electrical Drawing I",
+                "name-th": "เขียนแบบไฟฟ้า 1",
+                "from": "12",
+                "to": "15",
+                "room": "90 - 501",
+                "section": "S.1",
+                "instructor": []
+            },
+            {
+                "code": "031001381",
+                "name-en": "Extra-Curricular Activities I",
+                "name-th": "กิจกรรมเสริมหลักสูตร 1",
+                "from": "15",
+                "to": "17",
+                "room": "-",
+                "section": "L.1",
+                "instructor": []
+            }
+        ],
+        "thursday": [
+            {
+                "code": "031001151",
+                "name-en": "Thai I",
+                "name-th": "ภาษาไทย 1",
+                "from": "8",
+                "to": "10",
+                "room": "90 - 503",
+                "section": "S.6",
+                "instructor": [
+                    {
+                        "name-en": "Dr.PRATCHAYAPORN THONGPRASIT",
+                        "name-th": "อ.ดร.ปรัชญาพร ทองประสิทธิ์"
+                    }
+                ]
+            },
+            {
+                "code": "031001131",
+                "name-en": "Mathematics 1",
+                "name-th": "คณิตศาสตร์ 1",
+                "from": "12",
+                "to": "15",
+                "room": "90 - 403",
+                "section": "S.6",
+                "instructor": [
+                    {
+                        "name-en": "",
+                        "name-th": "อ.วิภารัตน์ วรทอพย์พงศ์"
+                    }
+                ]
+            }
+        ],
+        "friday": [
+            {
+                "code": "031001141",
+                "name-en": "Foundation English I",
+                "name-th": "ภาษาอังกฤษพื้นฐาน 1",
+                "from": "8",
+                "to": "10",
+                "room": "90 - 505",
+                "section": "S.6",
+                "instructor": [
+                    {
+                        "name-en": "Ajarn.ANCHALEE LAOWKLANG",
+                        "name-th": "อ.อัญชลี เลากลาง"
+                    }
+                ]
+            },
+            {
+                "code": "031001114",
+                "name-en": "Electrical Phenomena",
+                "name-th": "ปรากฏการณ์ทางไฟฟ้า",
+                "from": "10",
+                "to": "12",
+                "room": "90 - 306",
+                "section": "S.1",
+                "instructor": [
+                    {
+                        "name-en": "",
+                        "name-th": "อ.จิคาภา ลัมพาภิวัฒน์"
+                    }
+                ]
+            },
+            {
+                "code": "031021121",
+                "name-en": "Electric Circuits I",
+                "name-th": "วงจรไฟฟ้า 1",
+                "from": "13",
+                "to": "15",
+                "room": "90 - 505",
+                "section": "S.1",
+                "instructor": [
+                    {
+                        "name-en": "",
+                        "name-th": "อ.นนทวัฒน์ ประเสริฐสวัสดิ์"
+                    }
+                ]
+            }
+        ],
+        "saturday": [],
+        "sunday": [],
+        "ignore": [
+            {
+                "code": "031001152",
+                "name-en": "TTTTTTTTTTTTTTTt",
+                "name-th": "TTTTTTTTTTTTTTTt",
+                "from": "TTTTTTTTTTTTTTTt",
+                "to": "TTTTTTTTTTTTTTTt",
+                "room": "90 - TTTTTTTTTTTTTTTt",
+                "section": "TTTTTTTTTTTTTTTt",
+                "instructor": [
+                    {
+                        "name-en": "TTTTTTTTTTTTTTTt",
+                        "name-th": "TTTTTTTTTTTTTTTt"
+                    }
+                ]
+            }
+        ]
+    }
+}

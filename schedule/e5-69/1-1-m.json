@@ -116,23 +116,14 @@
         ],
         "thursday": [
             {
-                "code": "031041212 ",
-                "name-en": "Dc Circuits Practice",
-                "name-th": "ปฏิบัติงานวงจรไฟฟ้ากระแสตรง",
+                "code": "031041221",
+                "name-en": "Interior Wiring Practice",
+                "name-th": "ปฏิบัติงานเดินสายภายในอาคาร",
                 "from": "8",
                 "to": "15",
                 "room": "90 - 504",
-                "section": "L.1",
-                "instructor": [
-                    {
-                        "name-en": "Asst.Prof.Dr.CHANIN JOOCHIM",
-                        "name-th": "ผู้ช่วยศาสตราจารย์ ดร.ชานินทร์ จูฉิม"
-                    },
-                    {
-                        "name-en": "MR. PRABIN KISHOR PURY",
-                        "name-th": "MR. Prabin Kishor Pury"
-                    }
-                ]
+                "section": "L.5",
+                "instructor": []
             }
         ],
         "friday": [
@@ -147,7 +138,7 @@
                 "instructor": [
                     {
                         "name-en": "Dr.PRATCHAYAPORN THONGPRASIT",
-                        "name-th": "ดร.ปรัชญาพร ทองประสิทธิ์"
+                        "name-th": "อ.ดร.ปรัชญาพร ทองประสิทธิ์"
                     }
                 ]
             },
