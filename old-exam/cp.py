@@ -60,6 +60,23 @@ D:\kmutnb\old-exam\2557\term 1\midterm\341131.pdf
 D:\kmutnb\old-exam\2558\term 1\midterm\341131.pdf
 D:\kmutnb\old-exam\2560\term 1\midterm\341131.pdf
 D:\kmutnb\old-exam\2561\term 1\midterm\5 oct 61\341131.pdf
+
+D:\kmutnb\old-exam\2556\term 1\midterm\340151.pdf
+D:\kmutnb\old-exam\2557\term 1\midterm\340151.pdf
+D:\kmutnb\old-exam\2558\term 1\midterm\340151.pdf
+D:\kmutnb\old-exam\2560\term 1\midterm\340151.pdf
+D:\kmutnb\old-exam\2561\term 1\midterm\5 oct 61\340151.pdf
+D:\kmutnb\old-exam\2562\term 1\midterm\340151.pdf
+D:\kmutnb\old-exam\2567\term 1\midterm\031021111  s1-4.pdf
+D:\kmutnb\old-exam\2568\term 1\midterm\031021111 s1-4.pdf
+
+D:\kmutnb\old-exam\2553\term 2\final\340171.pdf
+D:\kmutnb\old-exam\2554\term 2\final\340171.pdf
+D:\kmutnb\old-exam\2567\term 1\midterm\031021121  s1-4.pdf
+D:\kmutnb\old-exam\2568\term 1\midterm\031021121 s1-4.pdf
+
+D:\kmutnb\old-exam\2567\term 1\midterm\031001171  s1-7.pdf
+D:\kmutnb\old-exam\2568\term 1\midterm\031001171 s1-7.pdf
 """
 department = "e"
 term_code = "1-1-m"
