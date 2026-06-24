@@ -9,6 +9,51 @@ import shutil
 
 
 paths_string = r"""
+D:\kmutnb\old-exam\2554\term 1\midterm\394171001.pdf
+D:\kmutnb\old-exam\2556\term 1\midterm\394171.pdf
+D:\kmutnb\old-exam\2557\term 1\midterm\394171.pdf
+D:\kmutnb\old-exam\2558\term 1\midterm\394171.pdf
+D:\kmutnb\old-exam\2560\term 1\midterm\394171.pdf
+D:\kmutnb\old-exam\2562\term 1\midterm\394171-2.pdf D:\kmutnb\old-exam\2562\term 1\midterm\394171.pdf
+D:\kmutnb\old-exam\2567\term 1\midterm\031001131  s1-14.pdf
+D:\kmutnb\old-exam\2568\term 1\midterm\031001131 s1-14.pdf
+
+D:\kmutnb\old-exam\2554\term 1\midterm\393161.pdf
+D:\kmutnb\old-exam\2556\term 1\midterm\393161.pdf
+D:\kmutnb\old-exam\2557\term 1\midterm\393161.pdf
+D:\kmutnb\old-exam\2558\term 1\midterm\393161.pdf
+D:\kmutnb\old-exam\2560\term 1\midterm\393161.pdf
+D:\kmutnb\old-exam\2561\term 1\midterm\1 oct 61\393161.pdf
+D:\kmutnb\old-exam\2562\term 1\midterm\393161.pdf
+D:\kmutnb\old-exam\2567\term 1\midterm\031001151  s1-18.pdf
+D:\kmutnb\old-exam\2568\term 1\midterm\031001151 s1-14.pdf
+
+D:\kmutnb\old-exam\2557\term 1\midterm\392151.pdf
+D:\kmutnb\old-exam\2558\term 1\midterm\392151.pdf
+D:\kmutnb\old-exam\2560\term 1\midterm\392151.pdf
+D:\kmutnb\old-exam\2561\term 1\midterm\3 oct 61\392151.pdf
+D:\kmutnb\old-exam\2562\term 1\midterm\392151.pdf
+D:\kmutnb\old-exam\2567\term 1\midterm\031001121  s1-14.pdf
+D:\kmutnb\old-exam\2568\term 1\midterm\031001121 s1-14.pdf
+
+D:\kmutnb\old-exam\2556\term 1\midterm\393141.pdf
+D:\kmutnb\old-exam\2557\term 1\midterm\393141.pdf
+D:\kmutnb\old-exam\2558\term 1\midterm\393141.pdf
+D:\kmutnb\old-exam\2560\term 1\midterm\393141.pdf
+D:\kmutnb\old-exam\2561\term 1\midterm\4 oct 61\393141.pdf
+D:\kmutnb\old-exam\2562\term 1\midterm\393141.pdf
+D:\kmutnb\old-exam\2567\term 1\midterm\031001141  s1-14.pdf
+D:\kmutnb\old-exam\2568\term 1\midterm\031001141 s1-18.pdf
+
+D:\kmutnb\old-exam\2556\term 1\midterm\392131.pdf
+D:\kmutnb\old-exam\2557\term 1\midterm\392131.pdf
+D:\kmutnb\old-exam\2558\term 1\midterm\392131.pdf
+D:\kmutnb\old-exam\2560\term 1\midterm\392131.pdf
+D:\kmutnb\old-exam\2561\term 1\midterm\1 oct 61\392131.pdf
+D:\kmutnb\old-exam\2562\term 1\midterm\392131.pdf
+D:\kmutnb\old-exam\2563\term 1\midterm\31 aug 53\392131.pdf
+D:\kmutnb\old-exam\2567\term 1\midterm\031001111  s1-14.pdf
+D:\kmutnb\old-exam\2568\term 1\midterm\031001111 s1-14.pdf
 
 D:\kmutnb\old-exam\2556\term 1\midterm\341131.pdf
 D:\kmutnb\old-exam\2557\term 1\midterm\341131.pdf
@@ -16,7 +61,7 @@ D:\kmutnb\old-exam\2558\term 1\midterm\341131.pdf
 D:\kmutnb\old-exam\2560\term 1\midterm\341131.pdf
 D:\kmutnb\old-exam\2561\term 1\midterm\5 oct 61\341131.pdf
 """
-department = "ee"
+department = "e"
 term_code = "1-1-m"
 
 term = "-".join(term_code.split("-")[:2])
@@ -43,8 +88,10 @@ def copy(from_path: Union[str, Path], to_path: Union[str, Path]):
     Path(to_path).parent.mkdir(parents=True, exist_ok=True)
     shutil.copy(from_path, to_path)
 
+id_split_regex = re.compile(r'\\([^\.\\\-\s]+)[^\\]*$')
 def get_id(path):
-    return path.split("\\")[-1].split(".")[0].split(" ")[0]
+    # return path.split("\\")[-1].split(".")[0].split(" ")[0].split("-")[0]
+    return id_split_regex.search(path).group(1)
 
 def main():
     path_regex = re.compile(r'([a-zA-Z]+:\\(?:[^\\/:*?"<>|\r\n]+\\)*.*?(?=\s+[a-zA-Z]+:\\|$))')
@@ -72,7 +119,7 @@ def main():
             print(f"Copied {path} to {dest / file_name}")
         else:
             merge(path, dest / file_name)
-            print(f"Merged ({path.join(', ')}){len(path)} files into {dest / file_name}")
+            print(f"Merged ({', '.join(path)}){len(path)} files into {dest / file_name}")
 
 if __name__ == "__main__":
     main()
