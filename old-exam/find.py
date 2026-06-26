@@ -191,12 +191,18 @@ try:
             ("ep", "eng", "e"),
             ("np", "p"),
         ]
-        if next(temp := (x for x in sys_argv if x in [i for sub in eng for i in sub]), None):
-            temp = list(temp)
-            if len(temp) > 1:
-                print(temp)
-                raise Exception("Invalid argument: multiple is english program choices")
-            ep = temp in eng[0]
+        # if next(temp := (x for x in sys_argv if x in [i for sub in eng for i in sub]), None):
+        #     temp = list(temp)
+        #     if len(temp) > 1:
+        #         print(temp)
+        #         raise Exception("Invalid argument: multiple is english program choices")
+        #     ep = temp in eng[0]
+        matches = [x for x in sys_argv if x in [i for sub in eng for i in sub]]
+        if matches:
+            if len(matches) > 1:
+                print(matches)
+                raise Exception("Invalid argument: multiple english program choices")
+            ep = matches[0] in eng[0]
 
         print(f"Options: term={term}, period={period}, ep={ep}")
 

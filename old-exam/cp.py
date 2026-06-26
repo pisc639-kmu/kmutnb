@@ -9,91 +9,30 @@ import shutil
 
 
 paths_string = r"""
-D:\kmutnb\old-exam\2555\term 1\final\394171.pdf
-D:\kmutnb\old-exam\2556\term 1\final\394171.pdf
-D:\kmutnb\old-exam\2557\term 1\final\394171.pdf
-D:\kmutnb\old-exam\2558\term 1\final\394171.pdf
-D:\kmutnb\old-exam\2560\term 1\final\394171.pdf
-D:\kmutnb\old-exam\2561\term 1\final\27 nov 2561\27 nov 61\394171.pdf
-D:\kmutnb\old-exam\2562\term 1\final\394171.pdf D:\kmutnb\old-exam\2562\term 1\final\394171-2.pdf
-D:\kmutnb\old-exam\2563\term 1\final\28 oct 63\394171.pdf
-D:\kmutnb\old-exam\2567\term 1\final\031001131 s1-14.pdf
-D:\kmutnb\old-exam\2568\term 1\final\031001131 s1-14.pdf
+D:\kmutnb\old-exam\2555\term 2\midterm\394174.pdf
+D:\kmutnb\old-exam\2556\term 2\midterm\ep\394174 ep.pdf
+D:\kmutnb\old-exam\2557\term 2\midterm\394174 ep.pdf
+D:\kmutnb\old-exam\2558\term 2\midterm\394174 ep.pdf
+D:\kmutnb\old-exam\2560\term 2\midterm\6 mar 61\ep\394174.pdf
+D:\kmutnb\old-exam\2561\term 2\midterm\ep\394174.pdf
+D:\kmutnb\old-exam\2562\term 2\midterm\21 jan 63\ep\394174.pdf
+D:\kmutnb\old-exam\2567\term 2\midterm\031001134 s15-18.pdf
+D:\kmutnb\old-exam\2568\term 2\midterm\031001134 s15-17.pdf
 
-D:\kmutnb\old-exam\2556\term 1\final\393161.pdf
-D:\kmutnb\old-exam\2557\term 1\final\393161.pdf
-D:\kmutnb\old-exam\2558\term 1\final\393161.pdf
-D:\kmutnb\old-exam\2560\term 1\final\393161.pdf
-D:\kmutnb\old-exam\2561\term 1\final\26 nov 2561\393161.pdf
-D:\kmutnb\old-exam\2563\term 1\final\30 oct 63\393161.pdf
-D:\kmutnb\old-exam\2567\term 1\final\031001151 s1-18.pdf
-D:\kmutnb\old-exam\2568\term 1\final\031001151 s1-14.pdf
+D:\kmutnb\old-exam\2555\term 2\midterm\392154.pdf
+D:\kmutnb\old-exam\2556\term 2\midterm\ep\392154 ep.pdf
+D:\kmutnb\old-exam\2557\term 2\midterm\392154 ep.pdf
+D:\kmutnb\old-exam\2558\term 2\midterm\392154 ep.pdf
+D:\kmutnb\old-exam\2560\term 2\midterm\7 mar 61\ep\392154.pdf
+D:\kmutnb\old-exam\2561\term 2\midterm\ep\392154.pdf
+D:\kmutnb\old-exam\2562\term 2\midterm\22 jan 63\ep\392154-1.pdf
+D:\kmutnb\old-exam\2562\term 2\midterm\22 jan 63\ep\392154-2.pdf
+D:\kmutnb\old-exam\2567\term 2\midterm\031001124 s15-18.pdf
+D:\kmutnb\old-exam\2568\term 2\midterm\031001124 s15-17.pdf
 
-D:\kmutnb\old-exam\2555\term 1\final\392151.pdf
-D:\kmutnb\old-exam\2556\term 1\final\392151.pdf
-D:\kmutnb\old-exam\2557\term 1\final\392151.pdf
-D:\kmutnb\old-exam\2558\term 1\final\392151.pdf
-D:\kmutnb\old-exam\2560\term 1\final\392151.pdf
-D:\kmutnb\old-exam\2561\term 1\final\29 nov 61\392151.pdf
-D:\kmutnb\old-exam\2562\term 1\final\392151.pdf
-D:\kmutnb\old-exam\2563\term 1\final\27 oct 63\392151.pdf
-D:\kmutnb\old-exam\2567\term 1\final\031001121 s1-14.pdf
-D:\kmutnb\old-exam\2568\term 1\final\031001121 s1-14.pdf
-
-D:\kmutnb\old-exam\2555\term 1\final\393141.pdf
-D:\kmutnb\old-exam\2556\term 1\final\393141.pdf
-D:\kmutnb\old-exam\2557\term 1\final\393141.pdf
-D:\kmutnb\old-exam\2558\term 1\final\393141.pdf
-D:\kmutnb\old-exam\2560\term 1\final\393141.pdf
-D:\kmutnb\old-exam\2561\term 1\final\30 nov 61\393141.pdf
-D:\kmutnb\old-exam\2562\term 1\final\393141.pdf
-D:\kmutnb\old-exam\2563\term 1\final\26 oct 63\393141.pdf
-D:\kmutnb\old-exam\2567\term 1\final\031001141 s1-14.pdf
-D:\kmutnb\old-exam\2568\term 1\final\031001141 s1-17.pdf
-
-D:\kmutnb\old-exam\2555\term 1\final\392131.pdf
-D:\kmutnb\old-exam\2556\term 1\final\392131.pdf
-D:\kmutnb\old-exam\2557\term 1\final\392131.pdf
-D:\kmutnb\old-exam\2558\term 1\final\392131.pdf
-D:\kmutnb\old-exam\2560\term 1\final\392131.pdf
-D:\kmutnb\old-exam\2561\term 1\final\28 nov 61\392131.pdf
-D:\kmutnb\old-exam\2562\term 1\final\392131.pdf
-D:\kmutnb\old-exam\2563\term 1\final\29 oct 63\392131.pdf
-D:\kmutnb\old-exam\2567\term 1\final\031001111 s1-14.pdf
-D:\kmutnb\old-exam\2568\term 1\final\031001111 s1-14.pdf
-
-D:\kmutnb\old-exam\2555\term 1\final\341131.pdf
-D:\kmutnb\old-exam\2556\term 1\final\341131.pdf
-D:\kmutnb\old-exam\2557\term 1\final\341131.pdf
-D:\kmutnb\old-exam\2558\term 1\final\341131.pdf
-D:\kmutnb\old-exam\2560\term 1\final\341131.pdf
-D:\kmutnb\old-exam\2561\term 1\final\4 dec 2561\341131.pdf
-D:\kmutnb\old-exam\2563\term 1\final\4 nov 63\341131.pdf
-D:\kmutnb\old-exam\2567\term 1\final\031021321 s1-4.pdf
-D:\kmutnb\old-exam\2568\term 1\final\031021321 s1-4.pdf
-
-D:\kmutnb\old-exam\2555\term 1\final\340151.pdf
-D:\kmutnb\old-exam\2556\term 1\final\340151.pdf
-D:\kmutnb\old-exam\2557\term 1\final\340151.pdf
-D:\kmutnb\old-exam\2558\term 1\final\340151.pdf
-D:\kmutnb\old-exam\2560\term 1\final\340151.pdf
-D:\kmutnb\old-exam\2561\term 1\final\3 dec 2561\340151.pdf
-D:\kmutnb\old-exam\2563\term 1\final\3 nov 63\340151.pdf
-D:\kmutnb\old-exam\2567\term 1\final\031021111 s1-4.pdf
-D:\kmutnb\old-exam\2568\term 1\final\031021111 s1-4.pdf
-
-D:\kmutnb\old-exam\2555\term 1\final\341151.pdf
-D:\kmutnb\old-exam\2556\term 1\final\341151.pdf
-D:\kmutnb\old-exam\2558\term 1\final\341151.pdf
-D:\kmutnb\old-exam\2560\term 1\final\341151.pdf
-D:\kmutnb\old-exam\2561\term 1\final\6 dec 2561\341151.pdf
-D:\kmutnb\old-exam\2563\term 1\final\5 nov 63\341151.pdf
-
-D:\kmutnb\old-exam\2567\term 1\final\031001171 s1-7.pdf
-D:\kmutnb\old-exam\2568\term 1\final\031001171 s1-7.pdf
 """
-department = "e"
-term_code = "1-1-f"
+department = "ee"
+term_code = "2-2-m"
 
 term = "-".join(term_code.split("-")[:2])
 with open("subjects.json", "r", encoding="utf-8") as f:
