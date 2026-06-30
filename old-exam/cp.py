@@ -29,7 +29,6 @@ D:\kmutnb\old-exam\2562\term 2\midterm\22 jan 63\ep\392154-1.pdf
 D:\kmutnb\old-exam\2562\term 2\midterm\22 jan 63\ep\392154-2.pdf
 D:\kmutnb\old-exam\2567\term 2\midterm\031001124 s15-18.pdf
 D:\kmutnb\old-exam\2568\term 2\midterm\031001124 s15-17.pdf
-
 """
 department = "ee"
 term_code = "2-2-m"
