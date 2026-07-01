@@ -1,0 +1,122 @@
+import time
+import sys
+import os
+from pathlib import Path
+import re
+import ast
+
+base_path = Path("D:\\kmutnb\\old-exam\\")
+
+def format_query(query:str, removequotes=True) -> str:
+    
+    query = query.lower().strip()
+    if removequotes:
+        query = re.sub(r'^"|".{0,2}$|^\,|,\s*,?', '', query)
+    else:
+        query = re.sub(r'^\,|,\s*,?', '', query)
+    return query
+
+def search_files(query:str, in_database=True):
+    # found = False
+    files = []
+    first_file_opened = False
+    # to_open = None
+    if in_database:
+        with open(Path(__file__).parent.parent.parent.parent / "files.csv", "r", encoding="utf-8") as f:
+            lines = f.readlines()[1:-1]
+            # print(len(lines))
+            for line in lines:
+                line = line.lower()
+                # print(line)
+                try:
+                    fpath = Path(base_path) / Path(ast.literal_eval(re.search(r"\"[^\"]+\"", line[150:]).group(0)))
+                    is_match = False
+
+                    # print('search', re.sub(r'r"[\'\"]+"', '"', (format_query(query, removequotes=False) + '"')))
+                    # sys.exit()
+                    if re.sub(r"[\'\"]+", '"', (format_query(query, removequotes=False) + '"')) in line or query in str(fpath):
+                        is_match = True
+                    
+                    # print(query, line)
+                    if format_query(query).isdigit() and format_query(query) in line:
+                        is_match = True
+                        # print(1)
+
+                    if is_match:
+                        files.append(str(fpath))
+                except:
+                    import traceback
+                    traceback.print_exc()
+                    sys.exit()
+        # webbrowser.open(first_file)
+        # if to_open:
+        #     webbrowser.open(to_open)
+    else:
+        for root, dirs, files in os.walk(base_path):
+            # root = Path(root)
+            # print(1, end="")
+            for file in files:
+                # file = Path(file)
+                # if query in str(root / file):
+                if query in os.path.join(root, file):
+                    print(f"\"{os.path.join(root, file)}\"")
+                    # if not first_file_opened:
+                    # files.append(root / file)
+                    files.append(os.path.join(root, file))
+                    # webbrowser.open(os.path.join(root, file))
+                    # first_file_opened = True
+                    found = True
+                    to_open = os.path.join(root, file)
+        # if to_open:
+        #     webbrowser.open(to_open)
+    return files
+
+def file_is_ep(file_path):
+    file_path = Path(file_path)
+    if 'EP' in str(Path(file_path)).upper():
+        return 1 # EP
+    elif re.search(r"^(?=.*ep|.*?\bS(?!1\b)\d+\b)", str(file_path), re.IGNORECASE):
+        return 1 # EP
+    elif re.search(r"^(?!.*ep)(?!.*?\bs\d+\b).*$", str(file_path), re.IGNORECASE):
+        return 2 # Not Sure
+    return 0 # Not EP
+
+def get_file_info(file_path):
+    file_path = Path(file_path)
+    res = {}
+    res["name"] = file_path.stem
+    res["ids"] = [int(i.strip()) for i in re.split(r'[,\s]+', file_path.stem) if i.strip() != "" and i.strip().isdigit()]
+    res['year'] = int(Path(file_path).parts[3])
+    res["term"] = (int(Path(file_path).parts[4][-1]), Path(file_path).parts[5][0])
+    res['ep'] = file_is_ep(file_path)
+
+    return res
+
+def filter_file(file_path, term=None, period=None, ep=None):
+    file_path = Path(file_path)
+    file_info = get_file_info(file_path)
+    if term is not None:
+        # print(term, period)
+        # print(file_info['term'])
+        if str(file_info['term'][0]) != str(term):
+            return False
+    if period is not None:
+        # print(2)
+        if file_info['term'][1] != period:
+            return False
+    if ep is not None:
+        # print(31)
+        if bool(file_info['ep']) != ep and file_info['ep'] != 2:
+            return False
+    return True
+
+def filter_files(file_paths, term=None, period=None, ep=None):
+    return [str(f) for f in file_paths if filter_file(f, term, period, ep)]
+
+def search(query:str, term:int=None, period:str=None, ep:bool=None):
+    print(f"Options: term={term}, period={period}, ep={ep}")
+
+    # print(query.isdigit())
+    files = search_files(query)
+    files = filter_files(files, term, period, ep)
+    return files
