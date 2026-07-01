@@ -1,4 +1,4 @@
-import time
+import json
 import sys
 import os
 from pathlib import Path
@@ -6,6 +6,66 @@ import re
 import ast
 
 base_path = Path("D:\\kmutnb\\old-exam\\")
+
+def create_regex_replacer(mapping):
+    """Generates a function that replaces regex patterns based on a mapping dict.
+    Automatically applies case-insensitivity and word boundaries around all patterns.
+    """
+    # Flatten mapping into a list of (pattern, target) tuples
+    flat = [(p, t) for t, src in mapping.items() for p in ([src] if isinstance(src, str) else src)]
+    
+    # Map group names like 'g0', 'g1' to targets
+    group_to_target = {f"g{i}": target for i, (_, target) in enumerate(flat)}
+    
+    # Inject word boundaries \b around every sub-pattern and compile with re.IGNORECASE
+    master_regex = re.compile(
+        "|".join(f"(?P<g{i}>\\b{p}\\b)" for i, (p, _) in enumerate(flat)), 
+        flags=re.IGNORECASE
+    )
+    
+    # Return the dynamic replacer function
+    return lambda text: master_regex.sub(
+        lambda m: next(group_to_target[k] for k, v in m.groupdict().items() if v is not None and k in group_to_target), 
+        text
+    )
+
+mapping = {
+    # 1. Roman Numerals Standardizations
+    "i": "1",
+    "ii": "2",
+    "iii": "3",
+    "iv": "4",
+    "v": "5",
+    "vi": "6",
+    
+    # 2. Main Course Subjects
+    "mathematics": [r"math(s)?", r"mathe?"],
+    "mechanics": [r"phys(ics)?", r"mech(anics)?"],
+    "chemistry": r"chem(istry)?",
+    "computer": r"comp(ut)?",
+    
+    # 3. Common Context Modifiers & Abbreviations
+    "engineering": r"eng(ineer)?",
+    "introduction to": r"intro(duction)?",
+    "fundamental": r"fund(amental)?",
+    "systems": "sys",
+    "materials": "mat",
+    "communicative": "comm",
+    "programming": "prog",
+    
+    # 4. Computer-aided acronym extensions
+    "computer-aided design": "cad",
+    "computer-aided manufacturing": "cam"
+}
+
+# # Example usage:
+# standardize_text = create_regex_replacer(mapping)
+# print(standardize_text("i need help with Mech 1 and Eng Materials")) 
+# # Output: mechanics i and engineering materials
+
+replacer = create_regex_replacer(mapping)
+def standardize_text(query:str):
+    return replacer(query)
 
 def format_query(query:str, removequotes=True) -> str:
     
@@ -84,10 +144,17 @@ def file_is_ep(file_path):
 def get_file_info(file_path):
     file_path = Path(file_path)
     res = {}
+    res["path"] = str(file_path)
     res["name"] = file_path.stem
     res["ids"] = [int(i.strip()) for i in re.split(r'[,\s]+', file_path.stem) if i.strip() != "" and i.strip().isdigit()]
+
+    with open(Path(__file__).parent.parent.parent.parent / "subjects.json", "r", encoding="utf-8") as f:
+        subjects_json = json.load(f)
+        res["subject"] = subjects_json.get(str(res["ids"][0]), "Unknown") if res["ids"] else "Unknown"
+
     res['year'] = int(Path(file_path).parts[3])
     res["term"] = (int(Path(file_path).parts[4][-1]), Path(file_path).parts[5][0])
+    res["term_full"] = "final" if res["term"][1].lower() == "f" else "midterm" if res["term"][1].lower() == "m" else "unknown"
     res['ep'] = file_is_ep(file_path)
 
     return res
@@ -113,10 +180,13 @@ def filter_file(file_path, term=None, period=None, ep=None):
 def filter_files(file_paths, term=None, period=None, ep=None):
     return [str(f) for f in file_paths if filter_file(f, term, period, ep)]
 
-def search(query:str, term:int=None, period:str=None, ep:bool=None):
+def search(query:str, term:int=None, period:str=None, ep:bool=None, as_json=False):
     print(f"Options: term={term}, period={period}, ep={ep}")
 
     # print(query.isdigit())
+    query = standardize_text(query)
     files = search_files(query)
     files = filter_files(files, term, period, ep)
+    if as_json:
+        files = [get_file_info(f) for f in files]
     return files

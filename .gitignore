@@ -20,3 +20,7 @@ storage
 !.env.example
 
 ignore
+
+old-exam/bot/guilds.txt
+old-exam/bot/.env
+old-exam/bot/discord.log
