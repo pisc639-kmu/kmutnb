@@ -66,20 +66,22 @@ dm spam detected: {guild.is_dm_spam_detected()}
         importlib.reload(testing)
         await testing.on_message(client, message)
 
-        if message.content.startswith("!reload"):
-            await message.reply("Reloading...")
-            for filename in os.listdir('./cogs'):
-                if filename.endswith('.py'):
-                    try:
-                        await client.reload_extension(f'cogs.{filename[:-3]}')
-                        print(f'Reloaded extension {filename[:-3]}')
-                    except Exception as e:
-                        print(f'Failed to reload extension {filename[:-3]}.')
-                        traceback.print_exc()
-        
-        if message.content.startswith("!stop"):
-            await message.reply("Stopping...")
-            await client.close()
+        if message.guild.id == 1521507251565756447:
+            if message.content.startswith("!reload"):
+                await message.reply("Reloading...")
+                for filename in os.listdir('./cogs'):
+                    if filename.endswith('.py'):
+                        try:
+                            await client.reload_extension(f'cogs.{filename[:-3]}')
+                            print(f'Reloaded extension {filename[:-3]}')
+                        except Exception as e:
+                            print(f'Failed to reload extension {filename[:-3]}.')
+                            traceback.print_exc()
+                await client.tree.sync()
+            
+            if message.content.startswith("!stop"):
+                await message.reply("Stopping...")
+                await client.close()
     
     folder = os.path.join(os.path.dirname(__file__), 'cogs', 'tools', 'temp')
     for filename in os.listdir(folder):

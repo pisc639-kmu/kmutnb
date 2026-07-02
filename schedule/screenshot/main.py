@@ -2,6 +2,7 @@ from pathlib import Path
 import shutil
 import asyncio
 from playwright.async_api import async_playwright
+import re
 
 async def capture_playwright_element(url: str, element_id: str, output_path: str, dark_mode: bool = False):
     async with async_playwright() as p:
@@ -27,13 +28,17 @@ async def capture_playwright_element(url: str, element_id: str, output_path: str
             await browser.close()
 
 async def main():
-    classroom_list = [
-        "cb1-69",
-        "e3-68",
-        "e5-68",
-        "e5-69",
-        "e6-68",
-    ]
+    pattern = re.compile(r"^(c|m|e|cb)\d+-\d{2}$")
+    
+    # classroom_list = [
+    #     "cb1-69",
+    #     "e3-68",
+    #     "e5-68",
+    #     "e5-69",
+    #     "e6-68",
+    # ]
+    classroom_list = list(filter(lambda x: pattern.match(x), [f.name for f in Path(__file__).parents[1].iterdir()]))
+    print(classroom_list)
     task = []
     for classroom in classroom_list:
         print(f"Processing classroom: {classroom}")

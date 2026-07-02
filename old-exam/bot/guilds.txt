@@ -1,8 +1,17 @@
-id: 1521507251565756447
-name: Old Exam
+id: 1509399323107131422
+name: CB11
 description: None
 owner: pisc_639
-member count: 3
+member count: 20
+boost count: 0
+raid detected: False
+dm spam detected: False
+
+id: 1521507251565756447
+name: Old Exam Dev
+description: 
+owner: pisc_639
+member count: 4
 boost count: 0
 raid detected: False
 dm spam detected: False

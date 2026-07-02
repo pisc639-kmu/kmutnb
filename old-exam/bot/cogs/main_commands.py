@@ -4,69 +4,152 @@ from discord import app_commands
 import traceback
 import datetime
 import os
+from cogs.tools import old_exam
 
-class TemplateLayoutView(discord.ui.LayoutView):
-    # 1. Text Display Component (Supports markdown and headings)
-    text_header = discord.ui.TextDisplay(
-        "## Welcome to Components V2!\n"
-        "This template demonstrates how to structure a layout using the new `LayoutView` system."
-    )
-    
-    # 2. Visual Separator Line
-    divider = discord.ui.Separator(
-        spacing=discord.SeparatorSpacing.large, 
-        visible=True
-    )
-    
-    # 3. Section Component (Combines left text with a right-aligned thumbnail or accessory)
-    section_info = discord.ui.Section(
-        "This is a Section component. It pairs a block of text alongside an optional thumbnail or button.",
-        accessory=discord.ui.Thumbnail("https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6a49cf127bf92de1e2_icon_clyde_blurple_RGB.png")
-    )
-    
-    # 4. Action Row for Traditional Interactive Components
-    # We define rows and attach buttons or selects to them
-    row1 = discord.ui.ActionRow()
-    
-    @row1.button(label="Click Me!", style=discord.ButtonStyle.primary, custom_id="btn_click")
-    async def click_me_callback(self, interaction: discord.Interaction, button: discord.ui.Button):
-        await interaction.response.send_message("You clicked the V2 Layout Button!", ephemeral=True)
+# class DownloadButton(discord.ui.Button):
+#     def __init__(self, file_path: str, custom_file_name: str = None):
+#         super().__init__(label="Download", style=discord.ButtonStyle.primary)
+#         self.file_path = file_path
+#         self.custom_file_name = custom_file_name
 
+#     async def callback(self, interaction: discord.Interaction):
+#         print(f"Downloading file from: {self.file_path}")
+#         # Handle the download logic here
+#         await interaction.response.defer(thinking=True)
+#         # await interaction.response.send_message(f"Downloading file from: {self.file_path}", ephemeral=True)
+#         if self.custom_file_name:
 
-class SearchLayoutView(discord.ui.LayoutView):
-    text_header = discord.ui.TextDisplay(
-        "## Old Exam Search\n"
-        f"Search Query: {'keyword'}"
-    )
-    
-    divider = discord.ui.Separator(
-        spacing=discord.SeparatorSpacing.large, 
-        visible=True
-    )
-    
-    
-    container = discord.ui.Container(
+#             file = discord.File(self.file_path, filename=self.custom_file_name)
+#         else:
+#             file = discord.File(self.file_path)
+#         try:
+#             await interaction.followup.send_message(file=file)
+#             # when timed out
+#         except discord.errors.NotFound:
+#             await interaction.message.reply(file=file)
+
+# class SearchLayoutView(discord.ui.LayoutView):
+#     def __init__(self, keyword: str):
+#         super().__init__()
+#         self.page = 1
+#         self.results_per_page = 9
+#         self.keyword = keyword
+
+#         self.results = old_exam.search(keyword, as_json=True)
+
+#         self.total_pages = (len(self.results) // self.results_per_page) + (1 if len(self.results) % self.results_per_page > 0 else 0)
+
+#         self.main_container = discord.ui.Container()
+#         self.make_view()
+
+#     def make_view(self):
+#         self.clear_items()
+#         self.main_container.clear_items()
+
+#         self.text_head = discord.ui.TextDisplay(
+#             "## Old Exam Search\n"
+#             f"Search Query: `{self.keyword}`"
+#         )
         
-    )
-    # section_info = discord.ui.Section(
-    #     "This is a Section component. It pairs a block of text alongside an optional thumbnail or button.",
-    #     accessory=discord.ui.Thumbnail("https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6a49cf127bf92de1e2_icon_clyde_blurple_RGB.png")
-    # )c
+#         self.seperator = discord.ui.Separator(
+#             spacing=discord.SeparatorSpacing.large, 
+#             visible=True
+#         )
+
+#         self.main_container.add_item(self.text_head)
+#         self.main_container.add_item(self.seperator)
+
+#         for result in self.results[(self.page - 1) * self.results_per_page : self.page * self.results_per_page]:
+#             download_btn = DownloadButton(
+#                 file_path=result['path'],
+
+#                 custom_file_name=f"{result['subject'] if result['subject'] != 'Unknown' else result['id']}{' EP' if result['ep'] == 1 else '' if result['ep'] == 0 else ''} - {result['year'] - 543}.pdf"
+#             )
+#             section = discord.ui.Section(
+#                 accessory=download_btn
+#             )
+#             section.add_item(
+#                 discord.ui.TextDisplay(f"**{result['subject'] if result['subject'] != 'Unknown' else result['id']}** - {result['year'] - 543} - Term {result['term'][0]} {result['term_full']} - {'EP' if result['ep'] == 1 else 'Not EP' if result['ep'] == 0 else 'Not Sure'}")
+#             )
+#             self.main_container.add_item(section)
+
+#         self.main_container.add_item(self.seperator)
+
+#         # Page Navigation Row
+#         page_row = discord.ui.ActionRow()
+        
+#         left_button = discord.ui.Button(
+#             label="<", 
+#             style=discord.ButtonStyle.primary, 
+#             custom_id="btn_left"
+#         )
+#         if self.page <= 1:
+#             left_button.disabled = True
+#         left_button.callback = self.left_button_callback
+#         page_row.add_item(left_button)
+
+#         page_text = discord.ui.Button(
+#             label=f"Page {self.page} of {self.total_pages}",
+#             style=discord.ButtonStyle.secondary,
+#             custom_id="btn_page_text",
+#         )
+#         page_text.callback = self.page_text_callback
+#         page_row.add_item(page_text)
+
+#         right_button = discord.ui.Button(
+#             label=">", 
+#             style=discord.ButtonStyle.primary, 
+#             custom_id="btn_right"
+#         )
+#         if self.page >= self.total_pages:
+#             right_button.disabled = True
+#         right_button.callback = self.right_button_callback
+#         page_row.add_item(right_button)
+
+#         # Select Dropdown Row
+#         select_row = discord.ui.ActionRow()
+
+#         page_select = discord.ui.Select(
+#             placeholder=f"Page {self.page} of {self.total_pages}",
+#             # Pass explicit values to make parsing safer in the callback
+#             options=[discord.SelectOption(label=f"Page {i+1}", value=str(i+1)) for i in range(self.total_pages)],
+#             custom_id="btn_page",
+#         )
+#         page_select.callback = self.page_select_callback
+#         select_row.add_item(page_select)
+
+#         self.main_container.add_item(page_row)
+#         self.main_container.add_item(select_row)
+
+#         self.add_item(self.main_container)
+
+#     async def left_button_callback(self, interaction: discord.Interaction):
+#         self.page -= 1
+#         self.make_view()
+#         await interaction.response.edit_message(view=self)
+
+#     async def right_button_callback(self, interaction: discord.Interaction):
+#         self.page += 1
+#         self.make_view()
+#         await interaction.response.edit_message(view=self)
     
-    # 4. Action Row for Traditional Interactive Components
-    # We define rows and attach buttons or selects to them
-    row1 = discord.ui.ActionRow()
-    
-    @row1.button(label="Click Me!", style=discord.ButtonStyle.primary, custom_id="btn_click")
-    async def click_me_callback(self, interaction: discord.Interaction, button: discord.ui.Button):
-        await interaction.response.send_message("You clicked the V2 Layout Button!", ephemeral=True)
+#     async def page_text_callback(self, interaction: discord.Interaction):
+#         self.page = 1
+#         self.make_view()
+#         await interaction.response.edit_message(view=self)
+
+#     async def page_select_callback(self, interaction: discord.Interaction):
+#         print(interaction.data)
+#         self.page = int(interaction.data["values"][0])
+#         self.make_view()
+#         await interaction.response.edit_message(view=self)
 
 class MainCommands(commands.Cog):
     "Main Commands Related to Old Exam"
     def __init__(self, client: commands.Bot):
         self.client = client
 
-    group = app_commands.Group(name="group", description="Comamnds Group.")
+    group = app_commands.Group(name="group", description="Comamnds Group.", guild_ids=[1521507251565756447])
 
     @group.command(name="name", description="descriptzion")
     @app_commands.describe()
@@ -117,7 +200,8 @@ class MainCommands(commands.Cog):
     
     @app_commands.command(name="search", description="Search for Old Exam")
     async def _search(self, interaction: discord.Interaction, keyword: str):
-        await interaction.response.send_message(view=SearchLayoutView())
+        await interaction.response.defer(thinking=True)
+        await interaction.followup.send(view=old_exam.SearchLayoutView(keyword=keyword))
 
 async def setup(client: commands.Bot):
     await client.add_cog(MainCommands(client))
