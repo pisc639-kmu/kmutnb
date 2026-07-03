@@ -110,9 +110,9 @@ def search_files(query:str, in_database=True, limit=250):
                 # print(line)
                 try:
                     try:
-                        fpath = Path(base_path) / Path(ast.literal_eval(re.search(r"\"[^\"]+\"", line[154:]).group(0)))
+                        fpath = Path(base_path) / Path(ast.literal_eval(re.search(r"\"[^\"]+\"", line[155:]).group(0)))
                     except:
-                        print(line[164:])
+                        print(line[170:])
                     is_match = False
 
                     if check_query(re.sub(r"[\'\"]+", '"', (format_query(query, removequotes=False) + '"')), line) or query in str(fpath):
@@ -220,7 +220,14 @@ def search(query:str, term:int=None, period:str=None, ep:bool=None, as_json=Fals
             # print("f", files)
             pass
         if as_json:
-            files = [get_file_info(f) for f in files]
+            temp = files
+            files = []
+            for f in temp:
+                try:
+                    files.append(get_file_info(f))
+                except:
+                    pass
+            # files = [get_file_info(f) for f in files]
         return files
     except Exception as e:
         import traceback

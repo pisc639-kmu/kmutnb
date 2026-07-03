@@ -119,3 +119,196 @@ Traceback (most recent call last):
     try:
         ^
 IndentationError: unindent does not match any outer indentation level
+[2026-07-03 08:13:57] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 45fb9b1c5d5a514576b24f10d0905bd5.
+[2026-07-03 09:16:10] [ERROR   ] discord.app_commands.tree: Ignoring exception in command 'exam'
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 858, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 207, in _search
+    await interaction.followup.send(view=old_exam.SearchLayoutView(keyword=keyword))
+                                         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 405, in __init__
+    self.results = search(keyword, as_json=True)
+                   ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 228, in search
+    raise e
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 223, in search
+    files = [get_file_info(f) for f in files]
+             ~~~~~~~~~~~~~^^^
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 181, in get_file_info
+    res["term"] = (int(Path(file_path).parts[4][-1]), Path(file_path).parts[5][0])
+                       ~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: tuple index out of range
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\tree.py", line 1302, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 877, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'exam' raised an exception: IndexError: tuple index out of range
+[2026-07-03 09:16:54] [ERROR   ] discord.app_commands.tree: Ignoring exception in command 'exam'
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 858, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 207, in _search
+    await interaction.followup.send(view=old_exam.SearchLayoutView(keyword=keyword))
+                                         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 405, in __init__
+    self.results = search(keyword, as_json=True)
+                   ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 228, in search
+    raise e
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 223, in search
+    files = [get_file_info(f) for f in files]
+             ~~~~~~~~~~~~~^^^
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 181, in get_file_info
+    res["term"] = (int(Path(file_path).parts[4][-1]), Path(file_path).parts[5][0])
+                       ~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: tuple index out of range
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\tree.py", line 1302, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 877, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'exam' raised an exception: IndexError: tuple index out of range
+[2026-07-03 09:17:07] [ERROR   ] discord.app_commands.tree: Ignoring exception in command 'exam'
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 858, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 207, in _search
+    await interaction.followup.send(view=old_exam.SearchLayoutView(keyword=keyword))
+                                         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 405, in __init__
+    self.results = search(keyword, as_json=True)
+                   ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 228, in search
+    raise e
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 223, in search
+    files = [get_file_info(f) for f in files]
+             ~~~~~~~~~~~~~^^^
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 181, in get_file_info
+    res["term"] = (int(Path(file_path).parts[4][-1]), Path(file_path).parts[5][0])
+                       ~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: tuple index out of range
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\tree.py", line 1302, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 877, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'exam' raised an exception: IndexError: tuple index out of range
+[2026-07-03 09:17:18] [ERROR   ] discord.app_commands.tree: Ignoring exception in command 'exam'
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 858, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 207, in _search
+    await interaction.followup.send(view=old_exam.SearchLayoutView(keyword=keyword))
+                                         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 405, in __init__
+    self.results = search(keyword, as_json=True)
+                   ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 228, in search
+    raise e
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 223, in search
+    files = [get_file_info(f) for f in files]
+             ~~~~~~~~~~~~~^^^
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 181, in get_file_info
+    res["term"] = (int(Path(file_path).parts[4][-1]), Path(file_path).parts[5][0])
+                       ~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: tuple index out of range
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\tree.py", line 1302, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 877, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'exam' raised an exception: IndexError: tuple index out of range
+[2026-07-03 09:17:58] [ERROR   ] discord.app_commands.tree: Ignoring exception in command 'exam'
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 858, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 207, in _search
+    await interaction.followup.send(view=old_exam.SearchLayoutView(keyword=keyword))
+                                         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 405, in __init__
+    self.results = search(keyword, as_json=True)
+                   ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 228, in search
+    raise e
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 223, in search
+    files = [get_file_info(f) for f in files]
+             ~~~~~~~~~~~~~^^^
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 181, in get_file_info
+    res["term"] = (int(Path(file_path).parts[4][-1]), Path(file_path).parts[5][0])
+                       ~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: tuple index out of range
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\tree.py", line 1302, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 877, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'exam' raised an exception: IndexError: tuple index out of range
+[2026-07-03 09:20:04] [ERROR   ] discord.app_commands.tree: Ignoring exception in command 'exam'
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 858, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 207, in _search
+    await interaction.followup.send(view=old_exam.SearchLayoutView(keyword=keyword))
+                                         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 405, in __init__
+    self.results = search(keyword, as_json=True)
+                   ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 228, in search
+    raise e
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 223, in search
+    files = [get_file_info(f) for f in files]
+             ~~~~~~~~~~~~~^^^
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 181, in get_file_info
+    res["term"] = (int(Path(file_path).parts[4][-1]), Path(file_path).parts[5][0])
+                       ~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: tuple index out of range
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\tree.py", line 1302, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 877, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'exam' raised an exception: IndexError: tuple index out of range
