@@ -103,8 +103,10 @@
             
             // ================= EXAM SCHEDULE =================
             const exam_data = alldata['exam'];
-            const exam = document.getElementById('exams');
-            exam.classList.remove('hidden');
+            const exams = document.getElementById('exams');
+            exams.classList.remove('hidden');
+            
+            const exam = document.getElementById('exam');
             exam.innerHTML = '';
 
             // ---- exam days come directly from JSON keys ----
