@@ -1,9 +1,9 @@
 
 <script>
-    function make_cell(elem, text, options = {}) {
+    function make_cell(elem, content, options = {}) {
         const cell = document.createElement(elem);
         cell.classList.add("px-3", "py-2", "border-x", "border", "border-gray-300", "dark:border-gray-700");
-        cell.innerHTML = text;
+        cell.innerHTML = content;
         cell.colSpan = options.colspan || 1;
         return cell;
     }
@@ -201,8 +201,8 @@
                         make_cell(
                             'td',
                             `<b>${examItem['name-en']}</b><br>
-                            ${examItem['name-th']}<br>
-                            ${examItem['room']}`,
+                            <span class="text-lg md:text-base text-bold">${examItem['room']}</span><br>
+                            ${examItem['name-th']}`,
                             { colspan: span }
                         )
                     );
