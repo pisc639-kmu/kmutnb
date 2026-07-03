@@ -210,7 +210,7 @@
                 "name-th": "วงจรไฟฟ้า",
                 "from": "8",
                 "to": "10",
-                "room": "90 - 805",
+                "room": "",
                 "section": "S.1",
                 "instructor": [
                     {
@@ -225,9 +225,9 @@
                 "code": "031001131",
                 "name-en": "Mathematics 1",
                 "name-th": "คณิตศาสตร์ 1",
-                "from": "13",
-                "to": "16",
-                "room": "90 - 405",
+                "from": "8",
+                "to": "10",
+                "room": "",
                 "section": "S.13",
                 "instructor": [
                     {
@@ -242,9 +242,9 @@
                 "code": "031001131",
                 "name-en": "Mathematics 1",
                 "name-th": "คณิตศาสตร์ 1",
-                "from": "13",
-                "to": "16",
-                "room": "90 - 405",
+                "from": "8",
+                "to": "10",
+                "room": "",
                 "section": "S.13",
                 "instructor": [
                     {
@@ -261,8 +261,8 @@
                 "code": "031001114",
                 "name-en": "Electrical Phenomena",
                 "name-th": "ปรากฏการณ์ทางไฟฟ้า",
-                "from": "13",
-                "to": "15",
+                "from": "8",
+                "to": "10",
                 "room": "90 - 306",
                 "section": "S.5",
                 "instructor": [
