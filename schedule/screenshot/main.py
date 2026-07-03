@@ -4,7 +4,7 @@ import asyncio
 from playwright.async_api import async_playwright
 import re
 
-async def capture_playwright_element(url: str, element_id: str, output_path: str, dark_mode: bool = False):
+async def capture_playwright_element(url: str, element_id: str, output_path: str, dark_mode: bool = False, timeout: int = 3000, cancel: str = None):
     async with async_playwright() as p:
         browser = await p.firefox.launch(headless=True)
         print(f"Launched browser for {url}")
@@ -17,13 +17,29 @@ async def capture_playwright_element(url: str, element_id: str, output_path: str
         print(f"Opened page for {url}")
         try:
             await page.goto(url, wait_until="networkidle")
+
             selector = f"#{element_id}"
-            await page.wait_for_selector(selector)
             element = page.locator(selector)
-            print(f"Located element {element_id}")
-            Path(output_path).unlink(missing_ok=True)
-            await element.screenshot(path=output_path)
-            print(f"High-quality screenshot saved successfully to {output_path}")
+
+            if cancel is not None:
+                cancel_condition = page.locator(cancel)
+
+            # await page.wait_for_selector(selector, timeout=3000)
+            # element = page.locator(selector)
+
+            if cancel is not None:
+                await element.or_(cancel_condition).wait_for(state="visible", timeout=timeout)
+            else:
+                await element.wait_for(state="visible", timeout=timeout)
+
+            if await element.is_visible():
+                print(f"Located element {element_id}")
+                Path(output_path).unlink(missing_ok=True)
+                await element.screenshot(path=output_path)
+                print(f"High-quality screenshot saved successfully to {output_path}")
+            else:
+                print(f"Element {element_id} not found.")
+                return
         finally:
             await browser.close()
 
@@ -39,15 +55,39 @@ async def main():
     # ]
     classroom_list = list(filter(lambda x: pattern.match(x), [f.name for f in Path(__file__).parents[1].iterdir()]))
     print(classroom_list)
+    # task = []
+    # for classroom in classroom_list:
+    #     print(f"Processing classroom: {classroom}")
+    #     task.append(capture_playwright_element(
+    #         url=f"https://kmu.pisc.cc/schedule/{classroom}/",
+    #         element_id="timetable",
+    #         output_path=Path(__file__).resolve().parent / classroom / "table.png",
+    #         # output_path=Path(__file__).resolve() / f"{classroom}.png",
+    #         dark_mode=True
+    #     ))
+    # await asyncio.gather(*task)
+
+
+    classroom_list = [
+        "cb1-69",
+        # "e1-69",
+        # "e2-69",
+        # "e3-68",
+        # "e5-68",
+        # "e5-69",
+        # "e6-68",
+    ]
+    # print(Path(__file__).resolve().parent)
     task = []
     for classroom in classroom_list:
         print(f"Processing classroom: {classroom}")
         task.append(capture_playwright_element(
             url=f"https://kmu.pisc.cc/schedule/{classroom}/",
-            element_id="timetable",
-            output_path=Path(__file__).resolve().parents[1] / classroom / "table.png",
-            # output_path=Path(__file__).resolve() / f"{classroom}.png",
-            dark_mode=True
+            element_id="exam",
+            output_path=Path(__file__).resolve().parent / classroom / "exam.png",
+            dark_mode=True,
+            cancel="#exams.hidden",
+            timeout=5000
         ))
     await asyncio.gather(*task)
 
