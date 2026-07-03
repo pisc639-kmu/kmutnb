@@ -182,7 +182,8 @@
                     );
 
                     if (!examItem) {
-                        tr.appendChild(make_cell('td', ''));
+                        // tr.appendChild(make_cell('td', ''));
+                        tr.appendChild(create_empty_cell());
                         slotIndex++;
                         continue;
                     }
