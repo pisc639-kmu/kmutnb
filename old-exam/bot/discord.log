@@ -493,3 +493,15 @@ Traceback (most recent call last):
   File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 877, in _do_call
     raise CommandInvokeError(self, e) from e
 discord.app_commands.errors.CommandInvokeError: Command 'exam' raised an exception: NotFound: 404 Not Found (error code: 10062): Unknown interaction
+[2026-07-03 23:03:39] [ERROR   ] discord.client: Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 69, in on_message
+    await testing.on_message(client, message)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\testing.py", line 60, in on_message
+    if message.guild.id != 1521507251565756447:
+       ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'id'
+[2026-07-03 23:06:35] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 3ba45329eabb4be5595d04b3c940f2f4.
+[2026-07-03 23:07:02] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 3ba45329eabb4be5595d04b3c940f2f4.
