@@ -4,6 +4,7 @@ from discord import app_commands
 import traceback
 import datetime
 import os
+import importlib
 from cogs.tools import old_exam
 
 # class DownloadButton(discord.ui.Button):
@@ -150,6 +151,7 @@ class MainCommands(commands.Cog):
         self.client = client
 
     group = app_commands.Group(name="group", description="Comamnds Group.", guild_ids=[1521507251565756447])
+    search_group = app_commands.Group(name="search", description="Search Commands Group.")
 
     @group.command(name="name", description="descriptzion")
     @app_commands.describe()
@@ -198,10 +200,17 @@ class MainCommands(commands.Cog):
             traceback.print_exc()
             await interaction.followup.send("Something went wrong.")
     
-    @app_commands.command(name="search", description="Search for Old Exam")
+    @search_group.command(name="exam", description="Search for Old Exam")
     async def _search(self, interaction: discord.Interaction, keyword: str):
         await interaction.response.defer(thinking=True)
+        importlib.reload(old_exam)
         await interaction.followup.send(view=old_exam.SearchLayoutView(keyword=keyword))
+
+    @commands.Cog.listener()
+    async def on_interaction(self, interaction: discord.Interaction):
+        importlib.reload(old_exam)
+        await old_exam.on_interaction_handler(interaction)
+
 
 async def setup(client: commands.Bot):
     await client.add_cog(MainCommands(client))

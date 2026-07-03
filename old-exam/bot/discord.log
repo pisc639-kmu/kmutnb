@@ -1,667 +1,121 @@
-[2026-07-01 22:01:08] [INFO    ] discord.client: logging in using static token
-[2026-07-01 22:01:11] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 2672e8402387035a0def24ae0f33bbe8).
-[2026-07-01 22:01:43] [ERROR   ] discord.app_commands.tree: Ignoring exception in command 'search'
+[2026-07-03 08:06:38] [INFO    ] discord.client: logging in using static token
+[2026-07-03 08:06:44] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 45fb9b1c5d5a514576b24f10d0905bd5).
+[2026-07-03 08:06:44] [ERROR   ] discord.client: Ignoring exception in on_interaction
 Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 858, in _do_call
-    return await self._callback(self.binding, interaction, **params)  # type: ignore
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 204, in _search
-    await interaction.followup.send(view=old_exam.SearchLayoutView(keyword=keyword))
-                                         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 253, in __init__
-    self.results = old_exam.search(keyword, as_json=True)
-                   ^^^^^^^^
-NameError: name 'old_exam' is not defined
-
-The above exception was the direct cause of the following exception:
-
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 212, in on_interaction
+    await old_exam.on_interaction_handler(interaction)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 239, in on_interaction_handler
+    prefix, hash_value, file_path, custom_file_name = (custom_id.split(":") + (None,) * 4)[:4]
+                                                       ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+TypeError: can only concatenate list (not "tuple") to list
+[2026-07-03 08:06:56] [ERROR   ] discord.client: Ignoring exception in on_interaction
 Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\tree.py", line 1302, in _call
-    await command._invoke_with_namespace(interaction, namespace)
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
-    return await self._do_call(interaction, transformed_values)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 877, in _do_call
-    raise CommandInvokeError(self, e) from e
-discord.app_commands.errors.CommandInvokeError: Command 'search' raised an exception: NameError: name 'old_exam' is not defined
-[2026-07-01 22:02:46] [ERROR   ] discord.app_commands.tree: Ignoring exception in command 'search'
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 212, in on_interaction
+    await old_exam.on_interaction_handler(interaction)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 239, in on_interaction_handler
+    prefix, hash_value, file_path, custom_file_name = (custom_id.split(":") + (None,) * 4)[:4]
+                                                       ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+TypeError: can only concatenate list (not "tuple") to list
+[2026-07-03 08:07:02] [ERROR   ] discord.client: Ignoring exception in on_interaction
 Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 858, in _do_call
-    return await self._callback(self.binding, interaction, **params)  # type: ignore
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 204, in _search
-    await interaction.followup.send(view=old_exam.SearchLayoutView(keyword=keyword))
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\webhook\async_.py", line 1909, in send
-    data = await adapter.execute_webhook(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    ...<11 lines>...
-    )
-    ^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\webhook\async_.py", line 226, in request
-    raise HTTPException(response, data)
-discord.errors.HTTPException: 400 Bad Request (error code: 50035): Invalid Form Body
-In components.0.components.4.components.0.options: This field is required
-
-The above exception was the direct cause of the following exception:
-
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 212, in on_interaction
+    await old_exam.on_interaction_handler(interaction)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 239, in on_interaction_handler
+    prefix, hash_value, file_path, custom_file_name = (custom_id.split(":") + (None,) * 4)[:4]
+                                                       ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+TypeError: can only concatenate list (not "tuple") to list
+[2026-07-03 08:07:26] [ERROR   ] discord.client: Ignoring exception in on_interaction
 Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\tree.py", line 1302, in _call
-    await command._invoke_with_namespace(interaction, namespace)
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
-    return await self._do_call(interaction, transformed_values)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 877, in _do_call
-    raise CommandInvokeError(self, e) from e
-discord.app_commands.errors.CommandInvokeError: Command 'search' raised an exception: HTTPException: 400 Bad Request (error code: 50035): Invalid Form Body
-In components.0.components.4.components.0.options: This field is required
-[2026-07-01 22:03:56] [ERROR   ] discord.app_commands.tree: Ignoring exception in command 'search'
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 212, in on_interaction
+    await old_exam.on_interaction_handler(interaction)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 239, in on_interaction_handler
+    prefix, hash_value, file_path, custom_file_name = (custom_id.split(":") + (None,) * 4)[:4]
+                                                       ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+TypeError: can only concatenate list (not "tuple") to list
+[2026-07-03 08:07:31] [ERROR   ] discord.client: Ignoring exception in on_interaction
 Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 858, in _do_call
-    return await self._callback(self.binding, interaction, **params)  # type: ignore
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 204, in _search
-    await interaction.followup.send(view=old_exam.SearchLayoutView(keyword=keyword))
-                                         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 256, in __init__
-    self.add_item(ErrorView(keyword=self.keyword, error_message=error_message))
-                  ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 225, in __init__
-    self.main_container.add_item(self.text_head)
-    ^^^^^^^^^^^^^^^^^^^
-AttributeError: 'ErrorView' object has no attribute 'main_container'
-
-The above exception was the direct cause of the following exception:
-
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 212, in on_interaction
+    await old_exam.on_interaction_handler(interaction)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 239, in on_interaction_handler
+    prefix, hash_value, file_path, custom_file_name = (custom_id.split(":") + (None,) * 4)[:4]
+                                                       ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+TypeError: can only concatenate list (not "tuple") to list
+[2026-07-03 08:07:50] [ERROR   ] discord.client: Ignoring exception in on_interaction
 Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\tree.py", line 1302, in _call
-    await command._invoke_with_namespace(interaction, namespace)
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
-    return await self._do_call(interaction, transformed_values)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 877, in _do_call
-    raise CommandInvokeError(self, e) from e
-discord.app_commands.errors.CommandInvokeError: Command 'search' raised an exception: AttributeError: 'ErrorView' object has no attribute 'main_container'
-[2026-07-01 22:05:49] [ERROR   ] discord.app_commands.tree: Ignoring exception in command 'search'
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 212, in on_interaction
+    await old_exam.on_interaction_handler(interaction)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 240, in on_interaction_handler
+    prefix, hash_value, file_path, custom_file_name = (custom_id.split(":") + (None,) * 4)[:4]
+                                                       ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+TypeError: can only concatenate list (not "tuple") to list
+[2026-07-03 08:07:58] [ERROR   ] discord.client: Ignoring exception in on_interaction
 Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 858, in _do_call
-    return await self._callback(self.binding, interaction, **params)  # type: ignore
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 204, in _search
-    await interaction.followup.send(view=old_exam.SearchLayoutView(keyword=keyword))
-                                         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 256, in __init__
-    self.add_item(ErrorView(keyword=self.keyword, error_message=error_message))
-                  ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 225, in __init__
-    self.main_container.add_item(self.text_head)
-    ^^^^^^^^^^^^^^^^^^^
-AttributeError: 'ErrorView' object has no attribute 'main_container'
-
-The above exception was the direct cause of the following exception:
-
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 212, in on_interaction
+    await old_exam.on_interaction_handler(interaction)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 240, in on_interaction_handler
+    prefix, hash_value, file_path, custom_file_name = (custom_id.split(":") + (None,) * 4)[:4]
+                                                       ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+TypeError: can only concatenate list (not "tuple") to list
+[2026-07-03 08:08:23] [ERROR   ] discord.client: Ignoring exception in on_interaction
 Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\tree.py", line 1302, in _call
-    await command._invoke_with_namespace(interaction, namespace)
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
-    return await self._do_call(interaction, transformed_values)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 877, in _do_call
-    raise CommandInvokeError(self, e) from e
-discord.app_commands.errors.CommandInvokeError: Command 'search' raised an exception: AttributeError: 'ErrorView' object has no attribute 'main_container'
-[2026-07-01 22:06:14] [ERROR   ] discord.app_commands.tree: Ignoring exception in command 'search'
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 212, in on_interaction
+    await old_exam.on_interaction_handler(interaction)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 239, in on_interaction_handler
+    prefix, hash_value, file_path, custom_file_name = (custom_id.split(":") + (None,) * 4)[:4]
+                                                       ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+TypeError: can only concatenate list (not "tuple") to list
+[2026-07-03 08:08:37] [ERROR   ] discord.client: Ignoring exception in on_interaction
 Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 858, in _do_call
-    return await self._callback(self.binding, interaction, **params)  # type: ignore
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 204, in _search
-    await interaction.followup.send(view=old_exam.SearchLayoutView(keyword=keyword))
-                                         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 257, in __init__
-    self.add_item(ErrorView(keyword=self.keyword, error_message=error_message))
-                  ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 226, in __init__
-    self.main_container.add_item(self.text_head)
-    ^^^^^^^^^^^^^^^^^^^
-AttributeError: 'ErrorView' object has no attribute 'main_container'
-
-The above exception was the direct cause of the following exception:
-
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 212, in on_interaction
+    await old_exam.on_interaction_handler(interaction)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 239, in on_interaction_handler
+    prefix, hash_value, file_path, custom_file_name = (custom_id.split(":") + (None,) * 4)[:4]
+                                                       ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+TypeError: can only concatenate list (not "tuple") to list
+[2026-07-03 08:08:41] [ERROR   ] discord.client: Ignoring exception in on_interaction
 Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\tree.py", line 1302, in _call
-    await command._invoke_with_namespace(interaction, namespace)
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
-    return await self._do_call(interaction, transformed_values)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 877, in _do_call
-    raise CommandInvokeError(self, e) from e
-discord.app_commands.errors.CommandInvokeError: Command 'search' raised an exception: AttributeError: 'ErrorView' object has no attribute 'main_container'
-[2026-07-01 22:24:17] [ERROR   ] discord.app_commands.tree: Ignoring exception in command 'search'
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 212, in on_interaction
+    await old_exam.on_interaction_handler(interaction)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 239, in on_interaction_handler
+    print((custom_id.split(":") + (None,) * 4)[:4])
+           ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+TypeError: can only concatenate list (not "tuple") to list
+[2026-07-03 08:09:07] [ERROR   ] discord.client: Ignoring exception in on_interaction
 Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 858, in _do_call
-    return await self._callback(self.binding, interaction, **params)  # type: ignore
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 204, in _search
-    await interaction.followup.send(view=old_exam.SearchLayoutView(keyword=keyword))
-                                         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 258, in __init__
-    self.add_item(ErrorView(keyword=self.keyword, error_message=error_message))
-                  ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 230, in __init__
-    for result in self.results[(self.page - 1) * self.results_per_page : self.page * self.results_per_page]:
-                  ^^^^^^^^^^^^
-AttributeError: 'ErrorView' object has no attribute 'results'
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\tree.py", line 1302, in _call
-    await command._invoke_with_namespace(interaction, namespace)
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
-    return await self._do_call(interaction, transformed_values)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 877, in _do_call
-    raise CommandInvokeError(self, e) from e
-discord.app_commands.errors.CommandInvokeError: Command 'search' raised an exception: AttributeError: 'ErrorView' object has no attribute 'results'
-[2026-07-01 22:27:36] [ERROR   ] discord.app_commands.tree: Ignoring exception in command 'search'
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 858, in _do_call
-    return await self._callback(self.binding, interaction, **params)  # type: ignore
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 204, in _search
-    await interaction.followup.send(view=old_exam.SearchLayoutView(keyword=keyword))
-                                         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 258, in __init__
-    self.add_item(ErrorView(keyword=self.keyword, error_message=error_message))
-                  ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 230, in __init__
-    for result in self.results[(self.page - 1) * self.results_per_page : self.page * self.results_per_page]:
-                  ^^^^^^^^^^^^
-AttributeError: 'ErrorView' object has no attribute 'results'
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\tree.py", line 1302, in _call
-    await command._invoke_with_namespace(interaction, namespace)
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
-    return await self._do_call(interaction, transformed_values)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 877, in _do_call
-    raise CommandInvokeError(self, e) from e
-discord.app_commands.errors.CommandInvokeError: Command 'search' raised an exception: AttributeError: 'ErrorView' object has no attribute 'results'
-[2026-07-01 22:28:13] [ERROR   ] discord.app_commands.tree: Ignoring exception in command 'search'
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 858, in _do_call
-    return await self._callback(self.binding, interaction, **params)  # type: ignore
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 204, in _search
-    await interaction.followup.send(view=old_exam.SearchLayoutView(keyword=keyword))
-                                         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 258, in __init__
-    self.add_item(ErrorView(keyword=self.keyword, error_message=error_message))
-                  ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 230, in __init__
-    for result in self.results[(self.page - 1) * self.results_per_page : self.page * self.results_per_page]:
-                  ^^^^^^^^^^^^
-AttributeError: 'ErrorView' object has no attribute 'results'
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\tree.py", line 1302, in _call
-    await command._invoke_with_namespace(interaction, namespace)
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
-    return await self._do_call(interaction, transformed_values)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 877, in _do_call
-    raise CommandInvokeError(self, e) from e
-discord.app_commands.errors.CommandInvokeError: Command 'search' raised an exception: AttributeError: 'ErrorView' object has no attribute 'results'
-[2026-07-01 22:30:18] [ERROR   ] discord.app_commands.tree: Ignoring exception in command 'search'
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 858, in _do_call
-    return await self._callback(self.binding, interaction, **params)  # type: ignore
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 204, in _search
-    await interaction.followup.send(view=old_exam.SearchLayoutView(keyword=keyword))
-                                         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 246, in __init__
-    self.add_item(ErrorView(keyword=self.keyword, error_message=error_message))
-    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\ui\view.py", line 888, in add_item
-    super().add_item(item)
-    ~~~~~~~~~~~~~~~~^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\ui\view.py", line 469, in add_item
-    raise TypeError(f'expected Item not {item.__class__.__name__}')
-TypeError: expected Item not ErrorView
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\tree.py", line 1302, in _call
-    await command._invoke_with_namespace(interaction, namespace)
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
-    return await self._do_call(interaction, transformed_values)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 873, in _do_call
-    raise CommandInvokeError(self, e) from e
-discord.app_commands.errors.CommandInvokeError: Command 'search' raised an exception: TypeError: expected Item not ErrorView
-[2026-07-01 22:30:44] [ERROR   ] discord.app_commands.tree: Ignoring exception in command 'search'
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 858, in _do_call
-    return await self._callback(self.binding, interaction, **params)  # type: ignore
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 204, in _search
-    await interaction.followup.send(view=old_exam.SearchLayoutView(keyword=keyword))
-                                         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 246, in __init__
-    self.add_item(ErrorView(keyword=self.keyword, error_message=error_message))
-    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\ui\view.py", line 888, in add_item
-    super().add_item(item)
-    ~~~~~~~~~~~~~~~~^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\ui\view.py", line 469, in add_item
-    raise TypeError(f'expected Item not {item.__class__.__name__}')
-TypeError: expected Item not ErrorView
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\tree.py", line 1302, in _call
-    await command._invoke_with_namespace(interaction, namespace)
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
-    return await self._do_call(interaction, transformed_values)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 873, in _do_call
-    raise CommandInvokeError(self, e) from e
-discord.app_commands.errors.CommandInvokeError: Command 'search' raised an exception: TypeError: expected Item not ErrorView
-[2026-07-01 22:31:08] [ERROR   ] discord.app_commands.tree: Ignoring exception in command 'search'
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 858, in _do_call
-    return await self._callback(self.binding, interaction, **params)  # type: ignore
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 204, in _search
-    await interaction.followup.send(view=old_exam.SearchLayoutView(keyword=keyword))
-                                         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 246, in __init__
-    self.add_item(ErrorView(keyword=self.keyword, error_message=error_message))
-    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\ui\view.py", line 888, in add_item
-    super().add_item(item)
-    ~~~~~~~~~~~~~~~~^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\ui\view.py", line 469, in add_item
-    raise TypeError(f'expected Item not {item.__class__.__name__}')
-TypeError: expected Item not ErrorView
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\tree.py", line 1302, in _call
-    await command._invoke_with_namespace(interaction, namespace)
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
-    return await self._do_call(interaction, transformed_values)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 873, in _do_call
-    raise CommandInvokeError(self, e) from e
-discord.app_commands.errors.CommandInvokeError: Command 'search' raised an exception: TypeError: expected Item not ErrorView
-[2026-07-01 22:33:00] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 2672e8402387035a0def24ae0f33bbe8.
-[2026-07-01 22:35:53] [ERROR   ] discord.app_commands.tree: Ignoring exception in command 'search'
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 858, in _do_call
-    return await self._callback(self.binding, interaction, **params)  # type: ignore
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 204, in _search
-    await interaction.followup.send(view=old_exam.SearchLayoutView(keyword=keyword))
-                                         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 246, in __init__
-    self.add_item(ErrorView(keyword=self.keyword, error_message=error_message))
-    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\ui\view.py", line 888, in add_item
-    super().add_item(item)
-    ~~~~~~~~~~~~~~~~^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\ui\view.py", line 469, in add_item
-    raise TypeError(f'expected Item not {item.__class__.__name__}')
-TypeError: expected Item not ErrorView
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\tree.py", line 1302, in _call
-    await command._invoke_with_namespace(interaction, namespace)
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
-    return await self._do_call(interaction, transformed_values)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 873, in _do_call
-    raise CommandInvokeError(self, e) from e
-discord.app_commands.errors.CommandInvokeError: Command 'search' raised an exception: TypeError: expected Item not ErrorView
-[2026-07-01 22:37:50] [ERROR   ] discord.app_commands.tree: Ignoring exception in command 'search'
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 858, in _do_call
-    return await self._callback(self.binding, interaction, **params)  # type: ignore
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 204, in _search
-    await interaction.followup.send(view=old_exam.SearchLayoutView(keyword=keyword))
-                                         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 246, in __init__
-    self.add_item(ErrorView(keyword=self.keyword, error_message=error_message))
-    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\ui\view.py", line 888, in add_item
-    super().add_item(item)
-    ~~~~~~~~~~~~~~~~^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\ui\view.py", line 469, in add_item
-    raise TypeError(f'expected Item not {item.__class__.__name__}')
-TypeError: expected Item not ErrorView
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\tree.py", line 1302, in _call
-    await command._invoke_with_namespace(interaction, namespace)
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
-    return await self._do_call(interaction, transformed_values)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 873, in _do_call
-    raise CommandInvokeError(self, e) from e
-discord.app_commands.errors.CommandInvokeError: Command 'search' raised an exception: TypeError: expected Item not ErrorView
-[2026-07-01 22:55:51] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 2672e8402387035a0def24ae0f33bbe8.
-[2026-07-01 23:33:21] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 2672e8402387035a0def24ae0f33bbe8.
-[2026-07-01 23:53:37] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 2672e8402387035a0def24ae0f33bbe8.
-[2026-07-02 00:02:05] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 2672e8402387035a0def24ae0f33bbe8.
-[2026-07-02 00:02:59] [ERROR   ] discord.ui.view: Ignoring exception in view <SearchLayoutView timeout=180.0 children=1> for item <DownloadButton style=<ButtonStyle.primary: 1> url=None disabled=False label='Download' emoji=None row=None sku_id=None id=None>
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\ui\view.py", line 598, in _scheduled_task
-    await item.callback(interaction)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 204, in callback
-    loading_message = await interaction.response.send_message(f"Uploading {file.filename}")
-                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\interactions.py", line 1085, in send_message
-    data = await adapter.create_interaction_response(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    ...<6 lines>...
-    )
-    ^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\webhook\async_.py", line 224, in request
-    raise NotFound(response, data)
-discord.errors.NotFound: 404 Not Found (error code: 10062): Unknown interaction
-[2026-07-02 00:03:00] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 2672e8402387035a0def24ae0f33bbe8.
-[2026-07-02 00:03:16] [ERROR   ] discord.ui.view: Ignoring exception in view <SearchLayoutView timeout=180.0 children=1> for item <DownloadButton style=<ButtonStyle.primary: 1> url=None disabled=False label='Download' emoji=None row=None sku_id=None id=None>
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\ui\view.py", line 598, in _scheduled_task
-    await item.callback(interaction)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 206, in callback
-    await interaction.edit_original_response(file=file)
-          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
-TypeError: Interaction.edit_original_response() got an unexpected keyword argument 'file'
-[2026-07-02 00:03:43] [ERROR   ] discord.ui.view: Ignoring exception in view <SearchLayoutView timeout=180.0 children=1> for item <DownloadButton style=<ButtonStyle.primary: 1> url=None disabled=False label='Download' emoji=None row=None sku_id=None id=None>
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\ui\view.py", line 598, in _scheduled_task
-    await item.callback(interaction)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 206, in callback
-    await interaction.edit_original_response(file=file)
-          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
-TypeError: Interaction.edit_original_response() got an unexpected keyword argument 'file'
-[2026-07-02 00:03:47] [ERROR   ] discord.ui.view: Ignoring exception in view <SearchLayoutView timeout=180.0 children=1> for item <DownloadButton style=<ButtonStyle.primary: 1> url=None disabled=False label='Download' emoji=None row=None sku_id=None id=None>
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\ui\view.py", line 598, in _scheduled_task
-    await item.callback(interaction)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 206, in callback
-    await interaction.edit_original_response(file=file)
-          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
-TypeError: Interaction.edit_original_response() got an unexpected keyword argument 'file'
-[2026-07-02 00:04:21] [ERROR   ] discord.ui.view: Ignoring exception in view <SearchLayoutView timeout=180.0 children=1> for item <DownloadButton style=<ButtonStyle.primary: 1> url=None disabled=False label='Download' emoji=None row=None sku_id=None id=None>
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\ui\view.py", line 598, in _scheduled_task
-    await item.callback(interaction)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 207, in callback
-    await interaction.edit_original_response(file=file)
-          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
-TypeError: Interaction.edit_original_response() got an unexpected keyword argument 'file'
-[2026-07-02 00:12:08] [ERROR   ] discord.ui.view: Ignoring exception in view <SearchLayoutView timeout=180.0 children=1> for item <DownloadButton style=<ButtonStyle.primary: 1> url=None disabled=False label='Download' emoji=None row=None sku_id=None id=None>
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\ui\view.py", line 598, in _scheduled_task
-    await item.callback(interaction)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 207, in callback
-    await interaction.edit_original_response(attachment=file)
-          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
-TypeError: Interaction.edit_original_response() got an unexpected keyword argument 'attachment'. Did you mean 'attachments'?
-[2026-07-02 00:15:10] [ERROR   ] discord.ui.view: Ignoring exception in view <SearchLayoutView timeout=180.0 children=1> for item <DownloadButton style=<ButtonStyle.primary: 1> url=None disabled=False label='Download' emoji=None row=None sku_id=None id=None>
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\ui\view.py", line 598, in _scheduled_task
-    await item.callback(interaction)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 207, in callback
-    await interaction.edit_original_response(f"Uploaded {file.filename}", attachments=[file])
-          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-TypeError: Interaction.edit_original_response() takes 1 positional argument but 2 positional arguments (and 1 keyword-only argument) were given
-[2026-07-02 00:17:25] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 2672e8402387035a0def24ae0f33bbe8.
-[2026-07-02 02:10:02] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 2672e8402387035a0def24ae0f33bbe8.
-[2026-07-02 06:06:28] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 2672e8402387035a0def24ae0f33bbe8.
-[2026-07-02 07:12:17] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 2672e8402387035a0def24ae0f33bbe8.
-[2026-07-02 08:02:02] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 2672e8402387035a0def24ae0f33bbe8.
-[2026-07-02 08:17:52] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 2672e8402387035a0def24ae0f33bbe8.
-[2026-07-02 08:45:23] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 2672e8402387035a0def24ae0f33bbe8.
-[2026-07-02 10:39:21] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 2672e8402387035a0def24ae0f33bbe8.
-[2026-07-02 11:14:52] [ERROR   ] discord.app_commands.tree: Ignoring exception in command 'search'
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 858, in _do_call
-    return await self._callback(self.binding, interaction, **params)  # type: ignore
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 204, in _search
-    await interaction.followup.send(view=old_exam.SearchLayoutView(keyword=keyword))
-                                         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 249, in __init__
-    self.add_item(ErrorView(keyword=self.keyword, error_message=error_message))
-    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\ui\view.py", line 888, in add_item
-    super().add_item(item)
-    ~~~~~~~~~~~~~~~~^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\ui\view.py", line 469, in add_item
-    raise TypeError(f'expected Item not {item.__class__.__name__}')
-TypeError: expected Item not ErrorView
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\tree.py", line 1302, in _call
-    await command._invoke_with_namespace(interaction, namespace)
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
-    return await self._do_call(interaction, transformed_values)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 873, in _do_call
-    raise CommandInvokeError(self, e) from e
-discord.app_commands.errors.CommandInvokeError: Command 'search' raised an exception: TypeError: expected Item not ErrorView
-[2026-07-02 12:22:04] [ERROR   ] discord.app_commands.tree: Ignoring exception in command 'search'
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 858, in _do_call
-    return await self._callback(self.binding, interaction, **params)  # type: ignore
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 204, in _search
-    await interaction.followup.send(view=old_exam.SearchLayoutView(keyword=keyword))
-                                         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 254, in __init__
-    self.add_item(ErrorView(keyword=self.keyword, error_message=error_message))
-    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\ui\view.py", line 888, in add_item
-    super().add_item(item)
-    ~~~~~~~~~~~~~~~~^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\ui\view.py", line 469, in add_item
-    raise TypeError(f'expected Item not {item.__class__.__name__}')
-TypeError: expected Item not ErrorView
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\tree.py", line 1302, in _call
-    await command._invoke_with_namespace(interaction, namespace)
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
-    return await self._do_call(interaction, transformed_values)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 873, in _do_call
-    raise CommandInvokeError(self, e) from e
-discord.app_commands.errors.CommandInvokeError: Command 'search' raised an exception: TypeError: expected Item not ErrorView
-[2026-07-02 12:23:29] [ERROR   ] discord.app_commands.tree: Ignoring exception in command 'search'
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 858, in _do_call
-    return await self._callback(self.binding, interaction, **params)  # type: ignore
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 204, in _search
-    await interaction.followup.send(view=old_exam.SearchLayoutView(keyword=keyword))
-                                         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 254, in __init__
-    self.add_item(ErrorView(keyword=self.keyword, error_message=error_message))
-    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\ui\view.py", line 888, in add_item
-    super().add_item(item)
-    ~~~~~~~~~~~~~~~~^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\ui\view.py", line 469, in add_item
-    raise TypeError(f'expected Item not {item.__class__.__name__}')
-TypeError: expected Item not ErrorView
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\tree.py", line 1302, in _call
-    await command._invoke_with_namespace(interaction, namespace)
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
-    return await self._do_call(interaction, transformed_values)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 873, in _do_call
-    raise CommandInvokeError(self, e) from e
-discord.app_commands.errors.CommandInvokeError: Command 'search' raised an exception: TypeError: expected Item not ErrorView
-[2026-07-02 12:26:04] [ERROR   ] discord.app_commands.tree: Ignoring exception in command 'search'
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 858, in _do_call
-    return await self._callback(self.binding, interaction, **params)  # type: ignore
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 204, in _search
-    await interaction.followup.send(view=old_exam.SearchLayoutView(keyword=keyword))
-                                         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 254, in __init__
-    self.add_item(ErrorView(keyword=self.keyword, error_message=error_message))
-    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\ui\view.py", line 888, in add_item
-    super().add_item(item)
-    ~~~~~~~~~~~~~~~~^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\ui\view.py", line 469, in add_item
-    raise TypeError(f'expected Item not {item.__class__.__name__}')
-TypeError: expected Item not ErrorView
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\tree.py", line 1302, in _call
-    await command._invoke_with_namespace(interaction, namespace)
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
-    return await self._do_call(interaction, transformed_values)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 873, in _do_call
-    raise CommandInvokeError(self, e) from e
-discord.app_commands.errors.CommandInvokeError: Command 'search' raised an exception: TypeError: expected Item not ErrorView
-[2026-07-02 12:26:32] [ERROR   ] discord.app_commands.tree: Ignoring exception in command 'search'
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 858, in _do_call
-    return await self._callback(self.binding, interaction, **params)  # type: ignore
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 204, in _search
-    await interaction.followup.send(view=old_exam.SearchLayoutView(keyword=keyword))
-                                         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 254, in __init__
-    self.add_item(ErrorView(keyword=self.keyword, error_message=error_message))
-    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\ui\view.py", line 888, in add_item
-    super().add_item(item)
-    ~~~~~~~~~~~~~~~~^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\ui\view.py", line 469, in add_item
-    raise TypeError(f'expected Item not {item.__class__.__name__}')
-TypeError: expected Item not ErrorView
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\tree.py", line 1302, in _call
-    await command._invoke_with_namespace(interaction, namespace)
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
-    return await self._do_call(interaction, transformed_values)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 873, in _do_call
-    raise CommandInvokeError(self, e) from e
-discord.app_commands.errors.CommandInvokeError: Command 'search' raised an exception: TypeError: expected Item not ErrorView
-[2026-07-02 12:26:45] [ERROR   ] discord.app_commands.tree: Ignoring exception in command 'search'
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 858, in _do_call
-    return await self._callback(self.binding, interaction, **params)  # type: ignore
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 204, in _search
-    await interaction.followup.send(view=old_exam.SearchLayoutView(keyword=keyword))
-                                         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 254, in __init__
-    self.add_item(ErrorView(keyword=self.keyword, error_message=error_message))
-    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\ui\view.py", line 888, in add_item
-    super().add_item(item)
-    ~~~~~~~~~~~~~~~~^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\ui\view.py", line 469, in add_item
-    raise TypeError(f'expected Item not {item.__class__.__name__}')
-TypeError: expected Item not ErrorView
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\tree.py", line 1302, in _call
-    await command._invoke_with_namespace(interaction, namespace)
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
-    return await self._do_call(interaction, transformed_values)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 873, in _do_call
-    raise CommandInvokeError(self, e) from e
-discord.app_commands.errors.CommandInvokeError: Command 'search' raised an exception: TypeError: expected Item not ErrorView
-[2026-07-02 12:28:17] [ERROR   ] discord.app_commands.tree: Ignoring exception in command 'search'
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 858, in _do_call
-    return await self._callback(self.binding, interaction, **params)  # type: ignore
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 204, in _search
-    await interaction.followup.send(view=old_exam.SearchLayoutView(keyword=keyword))
-                                         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 258, in __init__
-    self.add_item(ErrorView(keyword=self.keyword, error_message=error_message))
-    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\ui\view.py", line 888, in add_item
-    super().add_item(item)
-    ~~~~~~~~~~~~~~~~^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\ui\view.py", line 469, in add_item
-    raise TypeError(f'expected Item not {item.__class__.__name__}')
-TypeError: expected Item not ErrorView
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\tree.py", line 1302, in _call
-    await command._invoke_with_namespace(interaction, namespace)
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
-    return await self._do_call(interaction, transformed_values)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 873, in _do_call
-    raise CommandInvokeError(self, e) from e
-discord.app_commands.errors.CommandInvokeError: Command 'search' raised an exception: TypeError: expected Item not ErrorView
-[2026-07-02 13:47:28] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 2672e8402387035a0def24ae0f33bbe8.
-[2026-07-02 14:09:05] [ERROR   ] discord.ui.view: Ignoring exception in view <SearchLayoutView timeout=180.0 children=1> for item <DownloadButton style=<ButtonStyle.primary: 1> url=None disabled=False label='Download' emoji=None row=None sku_id=None id=None>
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\ui\view.py", line 598, in _scheduled_task
-    await item.callback(interaction)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 213, in callback
-    loading_message = await interaction.response.send_message(f"Uploading {file.filename}")
-                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\interactions.py", line 1085, in send_message
-    data = await adapter.create_interaction_response(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    ...<6 lines>...
-    )
-    ^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\webhook\async_.py", line 224, in request
-    raise NotFound(response, data)
-discord.errors.NotFound: 404 Not Found (error code: 10062): Unknown interaction
-[2026-07-02 14:11:32] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 2672e8402387035a0def24ae0f33bbe8.
-[2026-07-02 14:49:41] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 2672e8402387035a0def24ae0f33bbe8.
-[2026-07-02 15:25:09] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 2672e8402387035a0def24ae0f33bbe8.
-[2026-07-02 15:27:27] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 2672e8402387035a0def24ae0f33bbe8.
-[2026-07-02 16:05:19] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 2672e8402387035a0def24ae0f33bbe8.
-[2026-07-02 16:34:09] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 2672e8402387035a0def24ae0f33bbe8.
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 211, in on_interaction
+    importlib.reload(old_exam)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Python314\Lib\importlib\__init__.py", line 129, in reload
+    _bootstrap._exec(spec, module)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 869, in _exec
+  File "<frozen importlib._bootstrap_external>", line 755, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 893, in get_code
+  File "<frozen importlib._bootstrap_external>", line 823, in source_to_code
+  File "<frozen importlib._bootstrap>", line 491, in _call_with_frames_removed
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 239
+    try:
+        ^
+IndentationError: unindent does not match any outer indentation level

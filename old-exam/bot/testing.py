@@ -23,6 +23,7 @@ import json
 import random
 import time
 import io
+from pathlib import Path
 import testing
 from cogs.tools import old_exam
 
@@ -72,7 +73,38 @@ async def on_message(client: commands.Bot, message: discord.Message):
             else:
                 importlib.reload(old_exam)
                 await message.reply(view=old_exam.SearchLayoutView(keyword=keyword))
+        
+        if message.content.startswith('!dg'):
+            EMOJI_REGEX = re.compile(r"<(a)?:[a-zA-Z0-9_~]+:(\d+)>")
+            matches = EMOJI_REGEX.findall(message.content)
 
+            if matches:
+                # Use a single aiohttp client session for efficiency
+                async with aiohttp.ClientSession() as session:
+                    for is_animated, emoji_id in matches:
+                        # Determine file extension based on whether the emoji is animated
+                        ext = "gif" if is_animated else "png"
+                        
+                        # Construct the direct Discord CDN link
+                        url = f"https://cdn.discordapp.com/emojis/{emoji_id}.{ext}"
+                        filename = f"{emoji_id}.{ext}"
+
+                        try:
+                            # Request the raw data from Discord's assets server
+                            async with session.get(url) as response:
+                                if response.status == 200:
+                                    data = await response.read()
+                                    
+                                    # Save binary payload locally
+                                    with open(Path(__file__).parent / "cogs/tools/temp" / filename, "wb") as f:
+                                        f.write(data)
+                                    
+                                    print(f"Successfully downloaded {filename} from {url}")
+                                    await message.channel.send(f"Downloaded emoji: `{filename}`")
+                                else:
+                                    print(f"Failed to fetch image. HTTP Status: {response.status}")
+                        except Exception as e:
+                            print(f"Error downloading emoji {emoji_id}: {e}")
     except Exception as e:
         print(e)
         traceback.print_exc()

@@ -26,6 +26,8 @@ import time
 import io
 import testing
 
+from cogs.tools import old_exam
+
 # class ClientClass(discord.Client):
 class ClientClass(commands.Bot):
     def __init__(self, *, intents: discord.Intents):
@@ -98,6 +100,9 @@ dm spam detected: {guild.is_dm_spam_detected()}
         if filename.endswith('.py'):
             print(f'Loading extension {filename[:-3]}')
             await client.load_extension(f'cogs.{filename[:-3]}')
+
+    # client.add_view(old_exam.SearchLayoutView())
+    # client.add_view(old_exam.DownloadButton())
 
     # Discord Log Handler
     # handler = logging.FileHandler(filename='discord.log', encoding='utf-8', mode='w')

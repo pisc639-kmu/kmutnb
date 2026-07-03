@@ -2,12 +2,16 @@ import json
 import sys
 import os
 from pathlib import Path
+import posixpath
 import re
 import ast
 
 import discord
 
 base_path = Path("D:\\kmutnb\\old-exam\\")
+
+with open(Path(__file__).parents[3] / "subjects.json", "r", encoding="utf-8") as f:
+    SUBJECTS_CACHE = json.load(f)
 
 def create_regex_replacer(mapping):
     """Generates a function that replaces regex patterns based on a mapping dict.
@@ -21,7 +25,8 @@ def create_regex_replacer(mapping):
     
     # Inject word boundaries \b around every sub-pattern and compile with re.IGNORECASE
     master_regex = re.compile(
-        "|".join(f"(?P<g{i}>\\b{p}\\b)" for i, (p, _) in enumerate(flat)), 
+        # "|".join(f"(?P<g{i}>\\b{p}\\b)" for i, (p, _) in enumerate(flat)), 
+        "|".join(f"(?P<g{i}>{p})" for i, (p, _) in enumerate(flat)), 
         flags=re.IGNORECASE
     )
     
@@ -54,6 +59,7 @@ mapping = {
     "materials": "mat",
     "communicative": "comm",
     "programming": "prog",
+    "circuit": "circ(uit)?s?",
     
     # 4. Computer-aided acronym extensions
     "computer-aided design": "cad",
@@ -75,7 +81,6 @@ def standardize_text(query:str):
     return replacer(query)
 
 def format_query(query:str, removequotes=True) -> str:
-    
     query = query.lower().strip()
     if removequotes:
         query = re.sub(r'^"|".{0,2}$|^\,|,\s*,?', '', query)
@@ -83,21 +88,34 @@ def format_query(query:str, removequotes=True) -> str:
         query = re.sub(r'^\,|,\s*,?', '', query)
     return query
 
+def format_query2(query:str) -> str:
+    query = re.sub(r'^"|".{0,2}$|^\,|,\s*,?', '', query)
+    query = re.sub(r'[\s,\^\"\'-_]', '', query)
+    query = re.sub(r'[s]', '', query)
+    return query
+
+def check_query(query:str, line:str) -> bool:
+    # print("q", format_query2(query))
+    return format_query2(standardize_text(query)) in format_query2(standardize_text(line))
+
 def search_files(query:str, in_database=True, limit=250):
     files = []
     length = 0  
     if in_database:
-        with open(Path(__file__).parent.parent.parent.parent / "files.csv", "r", encoding="utf-8") as f:
+        with open(Path(__file__).parents[3] / "files.csv", "r", encoding="utf-8") as f:
             lines = f.readlines()[1:-1]
             # print(len(lines))
             for line in lines:
                 line = line.lower()
                 # print(line)
                 try:
-                    fpath = Path(base_path) / Path(ast.literal_eval(re.search(r"\"[^\"]+\"", line[150:]).group(0)))
+                    try:
+                        fpath = Path(base_path) / Path(ast.literal_eval(re.search(r"\"[^\"]+\"", line[154:]).group(0)))
+                    except:
+                        print(line[164:])
                     is_match = False
 
-                    if re.sub(r"[\'\"]+", '"', (format_query(query, removequotes=False) + '"')) in line or query in str(fpath):
+                    if check_query(re.sub(r"[\'\"]+", '"', (format_query(query, removequotes=False) + '"')), line) or query in str(fpath):
                         is_match = True
                     
                     # print(query, line)
@@ -106,20 +124,26 @@ def search_files(query:str, in_database=True, limit=250):
                         # print(1)
 
                     if is_match:
-                        files.append(str(fpath))
+                        files.append({
+                            "path": str(fpath),
+                            "fsize": line.split(",")[-1].strip(),
+                        })
                         length += 1
                         if length >= limit:
                             break
                 except:
                     import traceback
                     traceback.print_exc()
-                    sys.exit()
+                    # sys.exit()
     else:
         for root, dirs, files in os.walk(base_path):
             for file in files:
                 if query in os.path.join(root, file):
                     print(f"\"{os.path.join(root, file)}\"")
-                    files.append(os.path.join(root, file))
+                    files.append({
+                        "path": str(os.path.join(root, file)),
+                        "fsize": os.path.getsize(os.path.join(root, file)),
+                    })
                     length += 1
                     if length >= limit:
                         break
@@ -135,17 +159,20 @@ def file_is_ep(file_path):
         return 2 # Not Sure
     return 0 # Not EP
 
-def get_file_info(file_path):
+def get_file_info(file):
+    file_path = file
+    file_path = file_path["path"] if isinstance(file, dict) and "path" in file else file
     file_path = Path(file_path)
     res = {}
     res["path"] = str(file_path)
     res["name"] = file_path.stem
-    res["ids"] = [int(i.strip()) for i in re.split(r'[,\.\s]+', file_path.stem) if i.strip() != "" and i.strip().isdigit()]
+    try:
+        res["fsize"] = file["fsize"].upper() if isinstance(file, dict) and "fsize" in file else str(file_path.stat().st_size)
+    except:
+        print("err", file)
+    res["ids"] = [i.strip() for i in re.split(r'[,\.\s]+', file_path.stem) if i.strip() != "" and i.strip().isdigit()]
     res["id"] = res["ids"][0] if res["ids"] else None
-
-    with open(Path(__file__).parent.parent.parent.parent / "subjects.json", "r", encoding="utf-8") as f:
-        subjects_json = json.load(f)
-        res["subject"] = subjects_json.get(str(res["ids"][0]), "Unknown") if res["ids"] else "Unknown"
+    res["subject"] = SUBJECTS_CACHE.get(str(res["ids"][0]), "Unknown") if res["ids"] else "Unknown"
     try:
         res['year'] = int(Path(file_path).parts[3])
     except (ValueError, IndexError):
@@ -158,6 +185,7 @@ def get_file_info(file_path):
     return res
 
 def filter_file(file_path, term=None, period=None, ep=None):
+    file_path = file_path["path"]
     file_path = Path(file_path)
     file_info = get_file_info(file_path)
     if term is not None:
@@ -176,7 +204,7 @@ def filter_file(file_path, term=None, period=None, ep=None):
     return True
 
 def filter_files(file_paths, term=None, period=None, ep=None):
-    return [str(f) for f in file_paths if filter_file(f, term, period, ep)]
+    return [f for f in file_paths if filter_file(f, term, period, ep)]
 
 def search(query:str, term:int=None, period:str=None, ep:bool=None, as_json=False):
     try:
@@ -186,7 +214,11 @@ def search(query:str, term:int=None, period:str=None, ep:bool=None, as_json=Fals
         # print(query.isdigit())
         query = standardize_text(query)
         files = search_files(query)
-        files = filter_files(files, term, period, ep)
+        try:
+            files = filter_files(files, term, period, ep)
+        except:
+            # print("f", files)
+            pass
         if as_json:
             files = [get_file_info(f) for f in files]
         return files
@@ -195,29 +227,147 @@ def search(query:str, term:int=None, period:str=None, ep:bool=None, as_json=Fals
         traceback.print_exc()
         raise e
 
+async def on_interaction_handler(interaction: discord.Interaction):
+    print(f"Interaction: {interaction.type}")
+    if interaction.type != discord.InteractionType.component:
+        return
+    print(f"Interaction data: {interaction.data}")
+    
+    custom_id = interaction.data.get("custom_id", "")
+    if custom_id.startswith("download:"):
+        try:
+            prefix, hash_value, file_path, custom_file_name = (custom_id.split(":") + [None] * 4)[:4]
+        except ValueError:
+            await interaction.response.send_message("Invalid download button.", ephemeral=True)
+            # return
+        p = Path(file_path).parts
+        safe_path = Path(base_path).joinpath(f"{p[0]}/term {p[1]}/{'final' if p[2] == 'f' else 'midterm'}/" + "/".join(p[3:]))
+        print(f"Downloading file from: {safe_path}")
+
+        # Handle the download logic here
+        # await interaction.response.send_message(f"Downloading file from: {safe_path}", ephemeral=True)
+        if custom_file_name:
+            file = discord.File(safe_path, filename=custom_file_name)
+        else:
+            file = discord.File(safe_path)
+
+        seperator = discord.ui.Separator(
+            spacing=discord.SeparatorSpacing.large, 
+            visible=True
+        )
+
+
+        loading_view = discord.ui.LayoutView()
+
+        loading_container = discord.ui.Container()
+        loading_view.add_item(loading_container)
+
+        text = f"## {file.filename}"
+        loading_container.add_item(discord.ui.TextDisplay(text))
+        
+        loading_container.add_item(seperator)
+        # loading_view.add_item(discord.ui.th("https://cdn.discordapp.com/emojis/1144047129183133707.gif"))
+        loading_container.add_item(discord.ui.TextDisplay("<a:loading:1522210046640128092> Uploading..."))
+        loading_files = [
+            # discord.File(Path(__file__).parents[2] / "assets" / "loading.gif", filename="loading.gif")
+        ]
+        try:
+            loading_message = await interaction.response.send_message(view=loading_view, files=loading_files)
+        except discord.errors.NotFound:
+            loading_message = await interaction.message.reply(view=loading_view, files=loading_files)
+
+        print(text)
+
+
+        main_view = discord.ui.LayoutView()
+
+        main_container = discord.ui.Container()
+        main_view.add_item(main_container)
+
+        text = f"## {file.filename}"
+
+        main_container.add_item(discord.ui.TextDisplay(text))
+        main_container.add_item(seperator)
+        main_container.add_item(discord.ui.File(f"attachment://{file.filename}"))
+        if isinstance(loading_message, discord.Message):
+            await loading_message.edit(view=main_view, attachments=[file])
+        else:
+            try:
+                await interaction.edit_original_response(view=main_view, attachments=[file])
+                # when timed out
+            except discord.errors.NotFound:
+                await interaction.message.reply(file=file)
+
+        print(text)
+
 class DownloadButton(discord.ui.Button):
-    def __init__(self, file_path: str, custom_file_name: str = None):
-        super().__init__(label="Download", style=discord.ButtonStyle.primary)
+    def __init__(self, file_path: str, custom_file_name: str = None, custom_button_text: str = "Download"):
+        super().__init__(label=custom_button_text, style=discord.ButtonStyle.primary)
         self.file_path = file_path
         self.custom_file_name = custom_file_name
+        p = Path(file_path).parts
+        file_path_converted =  f"{p[3]}/{p[4][-1]}/{p[5][0]}/" + "/".join(p[6:])
+        self.custom_id = f"download:{hash(file_path)}:{file_path_converted}:{custom_file_name}"  # Unique ID based on file path
+        print(f"Initialized DownloadButton with custom_id: {self.custom_id}, file_path: {self.file_path}, custom_file_name: {self.custom_file_name}")
 
-    async def callback(self, interaction: discord.Interaction):
-        print(f"Downloading file from: {self.file_path}")
-        # Handle the download logic here
-        # await interaction.response.send_message(f"Downloading file from: {self.file_path}", ephemeral=True)
-        if self.custom_file_name:
+    # async def callback(self, interaction: discord.Interaction):
+    #     print(f"Downloading file from: {self.file_path}")
 
-            file = discord.File(self.file_path, filename=self.custom_file_name)
-        else:
-            file = discord.File(self.file_path)
-        loading_message = await interaction.response.send_message(f"Uploading {file.filename}")
-        print(f"Uploading file: {file.filename}")
-        try:
-            await interaction.edit_original_response(content=f"Uploaded {file.filename}", attachments=[file])
-            # when timed out
-        except discord.errors.NotFound:
-            await interaction.message.reply(file=file)
-        print(f"Uploaded file: {file.filename}")
+    #     # Handle the download logic here
+    #     # await interaction.response.send_message(f"Downloading file from: {self.file_path}", ephemeral=True)
+    #     if self.custom_file_name:
+    #         file = discord.File(self.file_path, filename=self.custom_file_name)
+    #     else:
+    #         file = discord.File(self.file_path)
+
+    #     seperator = discord.ui.Separator(
+    #         spacing=discord.SeparatorSpacing.large, 
+    #         visible=True
+    #     )
+
+
+    #     loading_view = discord.ui.LayoutView()
+
+    #     loading_container = discord.ui.Container()
+    #     loading_view.add_item(loading_container)
+
+    #     text = f"## {file.filename}"
+    #     loading_container.add_item(discord.ui.TextDisplay(text))
+        
+    #     loading_container.add_item(seperator)
+    #     # loading_view.add_item(discord.ui.th("https://cdn.discordapp.com/emojis/1144047129183133707.gif"))
+    #     loading_container.add_item(discord.ui.TextDisplay("<a:loading:1522210046640128092> Uploading..."))
+    #     loading_files = [
+    #         # discord.File(Path(__file__).parents[2] / "assets" / "loading.gif", filename="loading.gif")
+    #     ]
+    #     try:
+    #         loading_message = await interaction.response.send_message(view=loading_view, files=loading_files)
+    #     except discord.errors.NotFound:
+    #         loading_message = await interaction.message.reply(view=loading_view, files=loading_files)
+
+    #     print(text)
+
+
+    #     main_view = discord.ui.LayoutView()
+
+    #     main_container = discord.ui.Container()
+    #     main_view.add_item(main_container)
+
+    #     text = f"## {file.filename}"
+
+    #     main_container.add_item(discord.ui.TextDisplay(text))
+    #     main_container.add_item(seperator)
+    #     main_container.add_item(discord.ui.File(f"attachment://{file.filename}"))
+    #     if isinstance(loading_message, discord.Message):
+    #         await loading_message.edit(view=main_view, attachments=[file])
+    #     else:
+    #         try:
+    #             await interaction.edit_original_response(view=main_view, attachments=[file])
+    #             # when timed out
+    #         except discord.errors.NotFound:
+    #             await interaction.message.reply(file=file)
+
+    #     print(text)
 
 class ErrorView(discord.ui.LayoutView):
     def __init__(self, keyword: str, error_message: str):
@@ -227,8 +377,8 @@ class ErrorView(discord.ui.LayoutView):
 
         self.main_container = discord.ui.Container()
         self.text_head = discord.ui.TextDisplay(
-            "## Old Exam Search\n"
-            f"Search Query: `{self.keyword}`"
+            "# Old Exam Search\n"
+            "Search Query: `" + self.keyword.replace('`', '\\`') + "`"
         )
         
         self.seperator = discord.ui.Separator(
@@ -254,8 +404,9 @@ class SearchLayoutView(discord.ui.LayoutView):
 
         self.results = search(keyword, as_json=True)
         if self.results is None or len(self.results) == 0:
-            error_message = f"No results found for the keyword: {self.keyword}"
-            self.add_item(ErrorView(keyword=self.keyword, error_message=error_message))
+            error_message = f"### No results found for the keyword: {self.keyword}"
+            error_view = ErrorView(keyword=self.keyword, error_message=error_message)
+            self.add_item(error_view.main_container)
         else:
             self.total_pages = min(25, (len(self.results) // self.results_per_page) + (1 if len(self.results) % self.results_per_page > 0 else 0))
 
@@ -267,7 +418,7 @@ class SearchLayoutView(discord.ui.LayoutView):
         self.main_container.clear_items()
 
         self.text_head = discord.ui.TextDisplay(
-            "## Old Exam Search\n"
+            "# Old Exam Search\n"
             "Search Query: `" + self.keyword.replace('`', '\\`') + "`"
         )
         
@@ -282,8 +433,8 @@ class SearchLayoutView(discord.ui.LayoutView):
         for result in self.results[(self.page - 1) * self.results_per_page : self.page * self.results_per_page]:
             download_btn = DownloadButton(
                 file_path=result['path'],
-
-                custom_file_name=f"{result['subject'] if result['subject'] != 'Unknown' else result['id']}{' EP' if result['ep'] == 1 else '' if result['ep'] == 0 else ''} - {result['year'] - 543}.pdf"
+                custom_file_name=f"{result['subject'] if result['subject'] != 'Unknown' else result['id']}{' EP' if result['ep'] == 1 else '' if result['ep'] == 0 else ''} - {result['year'] - 543}.pdf",
+                custom_button_text=f"Download ({result['fsize']})"
             )
             section = discord.ui.Section(
                 accessory=download_btn
