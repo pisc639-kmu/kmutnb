@@ -103,7 +103,7 @@
             
             // ================= EXAM SCHEDULE =================
             const exam_data = alldata['exam'];
-            const exam = document.getElementById('exam');
+            const exam = document.getElementById('exams');
             exam.classList.remove('hidden');
             exam.innerHTML = '';
 
@@ -215,7 +215,7 @@
 
             exam.appendChild(examtbody);
         } else {
-            document.getElementById('exam').classList.add('hidden');
+            document.getElementById('exams').classList.add('hidden');
         }
 
     });

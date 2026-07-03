@@ -153,3 +153,34 @@
     };
 
 </script>
+<div class="container mx-auto mt-8 overflow-x-auto shadow-md shadow-gray-400 dark:shadow-gray-800 hover:shadow-gray-500 dark:hover:shadow-gray-950">
+    <table id="timetable" class="text-[0.6rem] [&_thead]:text-xs [&>*>tr>*:first-child]:text-sm
+        md:text-[0.8rem] md:[&_thead]:text-sm md:[&>*>tr>*:first-child]:text-md
+        [&>*>tr>*:first-child]:font-bold
+        w-full border-collapse border border-gray-300 dark:border-gray-700">
+    </table>
+</div>
+
+<span id="exams" class="hidden">
+    <div class="flex items-center text-center justify-center space-x-4 mt-16">
+        <h1 class="text-4xl font-bold my-4 text-gray-800 dark:text-white">Exam Schedule</h1>
+    </div>
+
+    <div class="container mx-auto mt-8 overflow-x-auto shadow-md shadow-gray-400 dark:shadow-gray-800 hover:shadow-gray-500 dark:hover:shadow-gray-950">
+        <table id="exam" class="text-[0.6rem] [&_thead]:text-xs [&>*>tr>*:first-child]:text-sm
+            md:text-[0.8rem] md:[&_thead]:text-sm md:[&>*>tr>*:first-child]:text-md
+            [&>*>tr>*:first-child]:font-bold
+            w-full border-collapse border border-gray-300 dark:border-gray-700">
+            <thead class="">
+                <tr class="bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white shadow-md">
+                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">Day</th>
+                </tr>
+            </thead>
+            <tbody class="">
+                <tr class="bg-white dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-white"></tr>
+            </tbody>
+        </table>
+    </div>
+</span>
+
+<script src="https://src.kmu.pisc.cc/script.min.js"></script>
