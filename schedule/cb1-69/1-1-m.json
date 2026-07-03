@@ -149,7 +149,7 @@
         "friday": [
             {
                 "code": "031041111",
-                "name-en": "Electric Circuits",
+                "name-en": "Electrical Circuits",
                 "name-th": "วงจรไฟฟ้า",
                 "from": "8",
                 "to": "10",
@@ -197,6 +197,78 @@
                     {
                         "name-en": "TTTTTTTTTTTTTTTt",
                         "name-th": "TTTTTTTTTTTTTTTt"
+                    }
+                ]
+            }
+        ]
+    },
+    "exam": {
+        "Monday 3 Aug": [
+            {
+                "code": "031041111",
+                "name-en": "Electrical Circuits",
+                "name-th": "วงจรไฟฟ้า",
+                "from": "8",
+                "to": "10",
+                "room": "90 - 805",
+                "section": "S.1",
+                "instructor": [
+                    {
+                        "name-en": "Ajarn.NONTAWAT DAEWONG",
+                        "name-th": "อาจารย์นนทวัฒน์ แดนเวียง"
+                    }
+                ]
+            }
+        ],
+        "Tuesday 4 Aug": [
+            {
+                "code": "031001131",
+                "name-en": "Mathematics 1",
+                "name-th": "คณิตศาสตร์ 1",
+                "from": "13",
+                "to": "16",
+                "room": "90 - 405",
+                "section": "S.13",
+                "instructor": [
+                    {
+                        "name-en": "Ajarn.PICHAYA JARUTATROD",
+                        "name-th": "อาจารย์พิชายา จารุทัศน์โรจน์"
+                    }
+                ]
+            }
+        ],
+        "Wednesday 5 Aug": [
+            {
+                "code": "031001131",
+                "name-en": "Mathematics 1",
+                "name-th": "คณิตศาสตร์ 1",
+                "from": "13",
+                "to": "16",
+                "room": "90 - 405",
+                "section": "S.13",
+                "instructor": [
+                    {
+                        "name-en": "Ajarn.PICHAYA JARUTATROD",
+                        "name-th": "อาจารย์พิชายา จารุทัศน์โรจน์"
+                    }
+                ]
+            }
+        ],
+        "Thursday 6 Aug": [
+        ],
+        "Friday 7 Aug": [
+            {
+                "code": "031001114",
+                "name-en": "Electrical Phenomena",
+                "name-th": "ปรากฏการณ์ทางไฟฟ้า",
+                "from": "13",
+                "to": "15",
+                "room": "90 - 306",
+                "section": "S.5",
+                "instructor": [
+                    {
+                        "name-en": "Ajarn.JIDAPA LUMPAPIWAT",
+                        "name-th": "อาจารย์จิดาภา ลัมพาภิวัฒน์"
                     }
                 ]
             }

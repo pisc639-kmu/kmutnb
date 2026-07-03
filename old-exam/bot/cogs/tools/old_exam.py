@@ -234,6 +234,7 @@ def search(query:str, term:int=None, period:str=None, ep:bool=None, as_json=Fals
         traceback.print_exc()
         raise e
 
+
 async def on_interaction_handler(interaction: discord.Interaction):
     print(f"Interaction: {interaction.type}")
     if interaction.type != discord.InteractionType.component:
@@ -242,14 +243,45 @@ async def on_interaction_handler(interaction: discord.Interaction):
     
     custom_id = interaction.data.get("custom_id", "")
     if custom_id.startswith("download:"):
+        await interaction.response.defer(thinking=True, ephemeral=True)
         try:
             prefix, hash_value, file_path, custom_file_name = (custom_id.split(":") + [None] * 4)[:4]
         except ValueError:
-            await interaction.response.send_message("Invalid download button.", ephemeral=True)
+            await interaction.followup.send("Invalid download button.", ephemeral=True)
             # return
         p = Path(file_path).parts
         safe_path = Path(base_path).joinpath(f"{p[0]}/term {p[1]}/{'final' if p[2] == 'f' else 'midterm'}/" + "/".join(p[3:]))
         print(f"Downloading file from: {safe_path}")
+        file_name = custom_file_name if custom_file_name is not None else safe_path.name 
+
+        seperator = discord.ui.Separator(
+            spacing=discord.SeparatorSpacing.large, 
+            visible=True
+        )
+
+        loading_view = discord.ui.LayoutView()
+
+        loading_container = discord.ui.Container()
+        loading_view.add_item(loading_container)
+
+        text = f"## {file_name}"
+        loading_container.add_item(discord.ui.TextDisplay(text))
+        
+        loading_container.add_item(seperator)
+        # loading_view.add_item(discord.ui.th("https://cdn.discordapp.com/emojis/1144047129183133707.gif"))
+        loading_container.add_item(discord.ui.TextDisplay("<a:loading:1522210046640128092>  Uploading..."))
+        loading_files = [
+            # discord.File(Path(__file__).parents[2] / "assets" / "loading.gif", filename="loading.gif")
+        ]
+        print(3)
+        print(4)
+        try:
+            loading_message = await interaction.followup.send(view=loading_view, files=loading_files)
+        except discord.errors.NotFound:
+            loading_message = await interaction.message.reply(view=loading_view, files=loading_files)
+
+        print(text)
+        
 
         # Handle the download logic here
         # await interaction.response.send_message(f"Downloading file from: {safe_path}", ephemeral=True)
@@ -257,33 +289,6 @@ async def on_interaction_handler(interaction: discord.Interaction):
             file = discord.File(safe_path, filename=custom_file_name)
         else:
             file = discord.File(safe_path)
-
-        seperator = discord.ui.Separator(
-            spacing=discord.SeparatorSpacing.large, 
-            visible=True
-        )
-
-
-        loading_view = discord.ui.LayoutView()
-
-        loading_container = discord.ui.Container()
-        loading_view.add_item(loading_container)
-
-        text = f"## {file.filename}"
-        loading_container.add_item(discord.ui.TextDisplay(text))
-        
-        loading_container.add_item(seperator)
-        # loading_view.add_item(discord.ui.th("https://cdn.discordapp.com/emojis/1144047129183133707.gif"))
-        loading_container.add_item(discord.ui.TextDisplay("<a:loading:1522210046640128092> Uploading..."))
-        loading_files = [
-            # discord.File(Path(__file__).parents[2] / "assets" / "loading.gif", filename="loading.gif")
-        ]
-        try:
-            loading_message = await interaction.response.send_message(view=loading_view, files=loading_files)
-        except discord.errors.NotFound:
-            loading_message = await interaction.message.reply(view=loading_view, files=loading_files)
-
-        print(text)
 
 
         main_view = discord.ui.LayoutView()
