@@ -1,240 +1,2417 @@
-[2026-07-03 19:10:01] [INFO    ] discord.client: logging in using static token
-[2026-07-03 19:10:03] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 3ba45329eabb4be5595d04b3c940f2f4).
-[2026-07-03 20:21:15] [ERROR   ] discord.client: Ignoring exception in on_interaction
+[2026-07-05 17:28:52] [INFO    ] discord.client: logging in using static token
+[2026-07-05 17:28:56] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 67213e911442701e6c420ad2daf854f0).
+[2026-07-05 20:29:37] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 67213e911442701e6c420ad2daf854f0.
+[2026-07-05 20:50:54] [ERROR   ] discord.client: Ignoring exception in on_message
 Traceback (most recent call last):
   File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
     await coro(*args, **kwargs)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 212, in on_interaction
-    await old_exam.on_interaction_handler(interaction)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 245, in on_interaction_handler
-    await interaction.response.defer()
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\interactions.py", line 892, in defer
-    response = await adapter.create_interaction_response(
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 69, in on_message
+    await testing.on_message(client, message)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\testing.py", line 60, in on_message
+    if message.guild.id != 1521507251565756447:
+       ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'id'
+[2026-07-05 20:52:20] [ERROR   ] discord.client: Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 69, in on_message
+    await testing.on_message(client, message)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\testing.py", line 60, in on_message
+    if message.guild.id != 1521507251565756447:
+       ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'id'
+[2026-07-06 00:01:05] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 67213e911442701e6c420ad2daf854f0.
+[2026-07-06 02:17:12] [ERROR   ] discord.client: Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 69, in on_message
+    await testing.on_message(client, message)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\testing.py", line 60, in on_message
+    if message.guild.id != 1521507251565756447:
+       ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'id'
+[2026-07-06 03:25:10] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 67213e911442701e6c420ad2daf854f0.
+[2026-07-06 05:47:23] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 67213e911442701e6c420ad2daf854f0.
+[2026-07-06 07:18:50] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 67213e911442701e6c420ad2daf854f0.
+[2026-07-06 08:37:40] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 67213e911442701e6c420ad2daf854f0.
+[2026-07-06 09:44:59] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 67213e911442701e6c420ad2daf854f0.
+[2026-07-06 12:46:05] [WARNING ] discord.gateway: Can't keep up, shard ID None websocket is 15.6s behind.
+[2026-07-06 12:46:23] [ERROR   ] discord.client: Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 69, in on_message
+    await testing.on_message(client, message)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\testing.py", line 60, in on_message
+    if message.guild.id != 1521507251565756447:
+       ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'id'
+[2026-07-06 12:46:24] [ERROR   ] discord.client: Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 69, in on_message
+    await testing.on_message(client, message)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\testing.py", line 60, in on_message
+    if message.guild.id != 1521507251565756447:
+       ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'id'
+[2026-07-06 12:46:27] [ERROR   ] discord.client: Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 69, in on_message
+    await testing.on_message(client, message)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\testing.py", line 60, in on_message
+    if message.guild.id != 1521507251565756447:
+       ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'id'
+[2026-07-06 12:46:33] [ERROR   ] discord.client: Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 69, in on_message
+    await testing.on_message(client, message)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\testing.py", line 60, in on_message
+    if message.guild.id != 1521507251565756447:
+       ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'id'
+[2026-07-06 12:46:42] [ERROR   ] discord.client: Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 69, in on_message
+    await testing.on_message(client, message)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\testing.py", line 60, in on_message
+    if message.guild.id != 1521507251565756447:
+       ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'id'
+[2026-07-06 12:49:42] [ERROR   ] discord.ui.view: Ignoring exception in view <SearchLayoutView timeout=180.0 children=1> for item <Button style=<ButtonStyle.primary: 1> url=None disabled=False label='>' emoji=None row=None sku_id=None id=None>
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\ui\view.py", line 598, in _scheduled_task
+    await item.callback(interaction)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 517, in right_button_callback
+    await interaction.response.edit_message(view=self)
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\interactions.py", line 1234, in edit_message
+    data = await adapter.create_interaction_response(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     ...<6 lines>...
     )
     ^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\webhook\async_.py", line 224, in request
-    raise NotFound(response, data)
-discord.errors.NotFound: 404 Not Found (error code: 10062): Unknown interaction
-[2026-07-03 20:54:31] [ERROR   ] discord.client: Ignoring exception in on_interaction
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\webhook\async_.py", line 226, in request
+    raise HTTPException(response, data)
+discord.errors.HTTPException: 400 Bad Request (error code: 50035): Invalid Form Body
+In data.components.0.components.7.accessory.custom_id: Must be between 1 and 100 in length.
+In data.components.0.components.8.accessory.custom_id: Must be between 1 and 100 in length.
+In data.components.0.components.9.accessory.custom_id: Must be between 1 and 100 in length.
+In data.components.0.components.10.accessory.custom_id: Must be between 1 and 100 in length.
+[2026-07-06 12:49:49] [WARNING ] discord.ui.view: View interaction referencing unknown view for item <Button style=<ButtonStyle.primary: 1> url=None disabled=False label='>' emoji=None row=None sku_id=None id=None>. Discarding
+[2026-07-06 12:50:10] [WARNING ] discord.ui.view: View interaction referencing unknown view for item <DownloadButton style=<ButtonStyle.primary: 1> url=None disabled=False label='Download (439.54 KB)' emoji=None row=None sku_id=None id=None>. Discarding
+[2026-07-06 12:50:12] [ERROR   ] discord.client: Ignoring exception in on_message
 Traceback (most recent call last):
   File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
     await coro(*args, **kwargs)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 212, in on_interaction
-    await old_exam.on_interaction_handler(interaction)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 245, in on_interaction_handler
-    await interaction.response.defer()
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\interactions.py", line 892, in defer
-    response = await adapter.create_interaction_response(
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    ...<6 lines>...
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 69, in on_message
+    await testing.on_message(client, message)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\testing.py", line 60, in on_message
+    if message.guild.id != 1521507251565756447:
+       ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'id'
+[2026-07-06 12:51:25] [WARNING ] discord.ui.view: View interaction referencing unknown view for item <Button style=<ButtonStyle.primary: 1> url=None disabled=False label='>' emoji=None row=None sku_id=None id=None>. Discarding
+[2026-07-06 12:51:49] [ERROR   ] discord.client: Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 69, in on_message
+    await testing.on_message(client, message)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\testing.py", line 60, in on_message
+    if message.guild.id != 1521507251565756447:
+       ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'id'
+[2026-07-06 13:06:56] [ERROR   ] discord.client: Ignoring exception in on_interaction
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 211, in on_interaction
+    importlib.reload(old_exam)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Python314\Lib\importlib\__init__.py", line 129, in reload
+    _bootstrap._exec(spec, module)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 869, in _exec
+  File "<frozen importlib._bootstrap_external>", line 759, in exec_module
+  File "<frozen importlib._bootstrap>", line 491, in _call_with_frames_removed
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 79, in <module>
+    replacer = create_regex_replacer(mapping)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 27, in create_regex_replacer
+    master_regex = re.compile(
+        # "|".join(f"(?P<g{i}>\\b{p}\\b)" for i, (p, _) in enumerate(flat)),
+        "|".join(f"(?P<g{i}>{p})" for i, (p, _) in enumerate(flat)),
+        flags=re.IGNORECASE
     )
-    ^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\webhook\async_.py", line 224, in request
-    raise NotFound(response, data)
-discord.errors.NotFound: 404 Not Found (error code: 10062): Unknown interaction
-[2026-07-03 20:55:45] [ERROR   ] discord.client: Ignoring exception in on_message
+  File "C:\Python314\Lib\re\__init__.py", line 289, in compile
+    return _compile(pattern, flags)
+  File "C:\Python314\Lib\re\__init__.py", line 350, in _compile
+    p = _compiler.compile(pattern, flags)
+  File "C:\Python314\Lib\re\_compiler.py", line 762, in compile
+    p = _parser.parse(p, flags)
+  File "C:\Python314\Lib\re\_parser.py", line 973, in parse
+    p = _parse_sub(source, state, flags & SRE_FLAG_VERBOSE, 0)
+  File "C:\Python314\Lib\re\_parser.py", line 460, in _parse_sub
+    itemsappend(_parse(source, state, verbose, nested + 1,
+                ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                       not nested and not items))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\re\_parser.py", line 856, in _parse
+    p = _parse_sub(source, state, sub_verbose, nested + 1)
+  File "C:\Python314\Lib\re\_parser.py", line 460, in _parse_sub
+    itemsappend(_parse(source, state, verbose, nested + 1,
+                ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                       not nested and not items))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\re\_parser.py", line 831, in _parse
+    flags = _parse_flags(source, state, char)
+  File "C:\Python314\Lib\re\_parser.py", line 913, in _parse_flags
+    raise source.error(msg, len(char))
+re.PatternError: missing -, : or ) at position 415
+[2026-07-06 13:06:58] [ERROR   ] discord.client: Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 68, in on_message
+    importlib.reload(testing)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Python314\Lib\importlib\__init__.py", line 129, in reload
+    _bootstrap._exec(spec, module)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 869, in _exec
+  File "<frozen importlib._bootstrap_external>", line 759, in exec_module
+  File "<frozen importlib._bootstrap>", line 491, in _call_with_frames_removed
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\testing.py", line 30, in <module>
+    importlib.reload(old_exam)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Python314\Lib\importlib\__init__.py", line 129, in reload
+    _bootstrap._exec(spec, module)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 869, in _exec
+  File "<frozen importlib._bootstrap_external>", line 759, in exec_module
+  File "<frozen importlib._bootstrap>", line 491, in _call_with_frames_removed
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 79, in <module>
+    replacer = create_regex_replacer(mapping)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 27, in create_regex_replacer
+    master_regex = re.compile(
+        # "|".join(f"(?P<g{i}>\\b{p}\\b)" for i, (p, _) in enumerate(flat)),
+        "|".join(f"(?P<g{i}>{p})" for i, (p, _) in enumerate(flat)),
+        flags=re.IGNORECASE
+    )
+  File "C:\Python314\Lib\re\__init__.py", line 289, in compile
+    return _compile(pattern, flags)
+  File "C:\Python314\Lib\re\__init__.py", line 350, in _compile
+    p = _compiler.compile(pattern, flags)
+  File "C:\Python314\Lib\re\_compiler.py", line 762, in compile
+    p = _parser.parse(p, flags)
+  File "C:\Python314\Lib\re\_parser.py", line 973, in parse
+    p = _parse_sub(source, state, flags & SRE_FLAG_VERBOSE, 0)
+  File "C:\Python314\Lib\re\_parser.py", line 460, in _parse_sub
+    itemsappend(_parse(source, state, verbose, nested + 1,
+                ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                       not nested and not items))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\re\_parser.py", line 856, in _parse
+    p = _parse_sub(source, state, sub_verbose, nested + 1)
+  File "C:\Python314\Lib\re\_parser.py", line 460, in _parse_sub
+    itemsappend(_parse(source, state, verbose, nested + 1,
+                ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                       not nested and not items))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\re\_parser.py", line 831, in _parse
+    flags = _parse_flags(source, state, char)
+  File "C:\Python314\Lib\re\_parser.py", line 913, in _parse_flags
+    raise source.error(msg, len(char))
+re.PatternError: missing -, : or ) at position 415
+[2026-07-06 13:06:58] [ERROR   ] discord.app_commands.tree: Ignoring exception in command 'exam'
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 858, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 206, in _search
+    importlib.reload(old_exam)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Python314\Lib\importlib\__init__.py", line 129, in reload
+    _bootstrap._exec(spec, module)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 869, in _exec
+  File "<frozen importlib._bootstrap_external>", line 759, in exec_module
+  File "<frozen importlib._bootstrap>", line 491, in _call_with_frames_removed
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 79, in <module>
+    replacer = create_regex_replacer(mapping)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 27, in create_regex_replacer
+    master_regex = re.compile(
+        # "|".join(f"(?P<g{i}>\\b{p}\\b)" for i, (p, _) in enumerate(flat)),
+        "|".join(f"(?P<g{i}>{p})" for i, (p, _) in enumerate(flat)),
+        flags=re.IGNORECASE
+    )
+  File "C:\Python314\Lib\re\__init__.py", line 289, in compile
+    return _compile(pattern, flags)
+  File "C:\Python314\Lib\re\__init__.py", line 350, in _compile
+    p = _compiler.compile(pattern, flags)
+  File "C:\Python314\Lib\re\_compiler.py", line 762, in compile
+    p = _parser.parse(p, flags)
+  File "C:\Python314\Lib\re\_parser.py", line 973, in parse
+    p = _parse_sub(source, state, flags & SRE_FLAG_VERBOSE, 0)
+  File "C:\Python314\Lib\re\_parser.py", line 460, in _parse_sub
+    itemsappend(_parse(source, state, verbose, nested + 1,
+                ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                       not nested and not items))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\re\_parser.py", line 856, in _parse
+    p = _parse_sub(source, state, sub_verbose, nested + 1)
+  File "C:\Python314\Lib\re\_parser.py", line 460, in _parse_sub
+    itemsappend(_parse(source, state, verbose, nested + 1,
+                ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                       not nested and not items))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\re\_parser.py", line 831, in _parse
+    flags = _parse_flags(source, state, char)
+  File "C:\Python314\Lib\re\_parser.py", line 913, in _parse_flags
+    raise source.error(msg, len(char))
+re.PatternError: missing -, : or ) at position 415
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\tree.py", line 1302, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 877, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'exam' raised an exception: PatternError: missing -, : or ) at position 415
+[2026-07-06 13:09:38] [ERROR   ] discord.client: Ignoring exception in on_interaction
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 211, in on_interaction
+    importlib.reload(old_exam)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Python314\Lib\importlib\__init__.py", line 129, in reload
+    _bootstrap._exec(spec, module)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 869, in _exec
+  File "<frozen importlib._bootstrap_external>", line 759, in exec_module
+  File "<frozen importlib._bootstrap>", line 491, in _call_with_frames_removed
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 79, in <module>
+    replacer = create_regex_replacer(mapping)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 27, in create_regex_replacer
+    master_regex = re.compile(
+        # "|".join(f"(?P<g{i}>\\b{p}\\b)" for i, (p, _) in enumerate(flat)),
+        "|".join(f"(?P<g{i}>{p})" for i, (p, _) in enumerate(flat)),
+        flags=re.IGNORECASE
+    )
+  File "C:\Python314\Lib\re\__init__.py", line 289, in compile
+    return _compile(pattern, flags)
+  File "C:\Python314\Lib\re\__init__.py", line 350, in _compile
+    p = _compiler.compile(pattern, flags)
+  File "C:\Python314\Lib\re\_compiler.py", line 762, in compile
+    p = _parser.parse(p, flags)
+  File "C:\Python314\Lib\re\_parser.py", line 973, in parse
+    p = _parse_sub(source, state, flags & SRE_FLAG_VERBOSE, 0)
+  File "C:\Python314\Lib\re\_parser.py", line 460, in _parse_sub
+    itemsappend(_parse(source, state, verbose, nested + 1,
+                ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                       not nested and not items))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\re\_parser.py", line 856, in _parse
+    p = _parse_sub(source, state, sub_verbose, nested + 1)
+  File "C:\Python314\Lib\re\_parser.py", line 460, in _parse_sub
+    itemsappend(_parse(source, state, verbose, nested + 1,
+                ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                       not nested and not items))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\re\_parser.py", line 831, in _parse
+    flags = _parse_flags(source, state, char)
+  File "C:\Python314\Lib\re\_parser.py", line 913, in _parse_flags
+    raise source.error(msg, len(char))
+re.PatternError: missing -, : or ) at position 415
+[2026-07-06 13:09:40] [ERROR   ] discord.client: Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 68, in on_message
+    importlib.reload(testing)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Python314\Lib\importlib\__init__.py", line 129, in reload
+    _bootstrap._exec(spec, module)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 869, in _exec
+  File "<frozen importlib._bootstrap_external>", line 759, in exec_module
+  File "<frozen importlib._bootstrap>", line 491, in _call_with_frames_removed
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\testing.py", line 30, in <module>
+    importlib.reload(old_exam)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Python314\Lib\importlib\__init__.py", line 129, in reload
+    _bootstrap._exec(spec, module)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 869, in _exec
+  File "<frozen importlib._bootstrap_external>", line 759, in exec_module
+  File "<frozen importlib._bootstrap>", line 491, in _call_with_frames_removed
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 79, in <module>
+    replacer = create_regex_replacer(mapping)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 27, in create_regex_replacer
+    master_regex = re.compile(
+        # "|".join(f"(?P<g{i}>\\b{p}\\b)" for i, (p, _) in enumerate(flat)),
+        "|".join(f"(?P<g{i}>{p})" for i, (p, _) in enumerate(flat)),
+        flags=re.IGNORECASE
+    )
+  File "C:\Python314\Lib\re\__init__.py", line 289, in compile
+    return _compile(pattern, flags)
+  File "C:\Python314\Lib\re\__init__.py", line 350, in _compile
+    p = _compiler.compile(pattern, flags)
+  File "C:\Python314\Lib\re\_compiler.py", line 762, in compile
+    p = _parser.parse(p, flags)
+  File "C:\Python314\Lib\re\_parser.py", line 973, in parse
+    p = _parse_sub(source, state, flags & SRE_FLAG_VERBOSE, 0)
+  File "C:\Python314\Lib\re\_parser.py", line 460, in _parse_sub
+    itemsappend(_parse(source, state, verbose, nested + 1,
+                ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                       not nested and not items))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\re\_parser.py", line 856, in _parse
+    p = _parse_sub(source, state, sub_verbose, nested + 1)
+  File "C:\Python314\Lib\re\_parser.py", line 460, in _parse_sub
+    itemsappend(_parse(source, state, verbose, nested + 1,
+                ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                       not nested and not items))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\re\_parser.py", line 831, in _parse
+    flags = _parse_flags(source, state, char)
+  File "C:\Python314\Lib\re\_parser.py", line 913, in _parse_flags
+    raise source.error(msg, len(char))
+re.PatternError: missing -, : or ) at position 415
+[2026-07-06 13:09:40] [ERROR   ] discord.app_commands.tree: Ignoring exception in command 'exam'
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 858, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 206, in _search
+    importlib.reload(old_exam)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Python314\Lib\importlib\__init__.py", line 129, in reload
+    _bootstrap._exec(spec, module)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 869, in _exec
+  File "<frozen importlib._bootstrap_external>", line 759, in exec_module
+  File "<frozen importlib._bootstrap>", line 491, in _call_with_frames_removed
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 79, in <module>
+    replacer = create_regex_replacer(mapping)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 27, in create_regex_replacer
+    master_regex = re.compile(
+        # "|".join(f"(?P<g{i}>\\b{p}\\b)" for i, (p, _) in enumerate(flat)),
+        "|".join(f"(?P<g{i}>{p})" for i, (p, _) in enumerate(flat)),
+        flags=re.IGNORECASE
+    )
+  File "C:\Python314\Lib\re\__init__.py", line 289, in compile
+    return _compile(pattern, flags)
+  File "C:\Python314\Lib\re\__init__.py", line 350, in _compile
+    p = _compiler.compile(pattern, flags)
+  File "C:\Python314\Lib\re\_compiler.py", line 762, in compile
+    p = _parser.parse(p, flags)
+  File "C:\Python314\Lib\re\_parser.py", line 973, in parse
+    p = _parse_sub(source, state, flags & SRE_FLAG_VERBOSE, 0)
+  File "C:\Python314\Lib\re\_parser.py", line 460, in _parse_sub
+    itemsappend(_parse(source, state, verbose, nested + 1,
+                ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                       not nested and not items))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\re\_parser.py", line 856, in _parse
+    p = _parse_sub(source, state, sub_verbose, nested + 1)
+  File "C:\Python314\Lib\re\_parser.py", line 460, in _parse_sub
+    itemsappend(_parse(source, state, verbose, nested + 1,
+                ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                       not nested and not items))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\re\_parser.py", line 831, in _parse
+    flags = _parse_flags(source, state, char)
+  File "C:\Python314\Lib\re\_parser.py", line 913, in _parse_flags
+    raise source.error(msg, len(char))
+re.PatternError: missing -, : or ) at position 415
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\tree.py", line 1302, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 877, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'exam' raised an exception: PatternError: missing -, : or ) at position 415
+[2026-07-06 13:19:10] [ERROR   ] discord.client: Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 68, in on_message
+    importlib.reload(testing)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Python314\Lib\importlib\__init__.py", line 129, in reload
+    _bootstrap._exec(spec, module)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 869, in _exec
+  File "<frozen importlib._bootstrap_external>", line 759, in exec_module
+  File "<frozen importlib._bootstrap>", line 491, in _call_with_frames_removed
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\testing.py", line 30, in <module>
+    importlib.reload(old_exam)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Python314\Lib\importlib\__init__.py", line 129, in reload
+    _bootstrap._exec(spec, module)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 869, in _exec
+  File "<frozen importlib._bootstrap_external>", line 759, in exec_module
+  File "<frozen importlib._bootstrap>", line 491, in _call_with_frames_removed
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 79, in <module>
+    replacer = create_regex_replacer(mapping)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 27, in create_regex_replacer
+    master_regex = re.compile(
+        # "|".join(f"(?P<g{i}>\\b{p}\\b)" for i, (p, _) in enumerate(flat)),
+        "|".join(f"(?P<g{i}>{p})" for i, (p, _) in enumerate(flat)),
+        flags=re.IGNORECASE
+    )
+  File "C:\Python314\Lib\re\__init__.py", line 289, in compile
+    return _compile(pattern, flags)
+  File "C:\Python314\Lib\re\__init__.py", line 350, in _compile
+    p = _compiler.compile(pattern, flags)
+  File "C:\Python314\Lib\re\_compiler.py", line 762, in compile
+    p = _parser.parse(p, flags)
+  File "C:\Python314\Lib\re\_parser.py", line 973, in parse
+    p = _parse_sub(source, state, flags & SRE_FLAG_VERBOSE, 0)
+  File "C:\Python314\Lib\re\_parser.py", line 460, in _parse_sub
+    itemsappend(_parse(source, state, verbose, nested + 1,
+                ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                       not nested and not items))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\re\_parser.py", line 856, in _parse
+    p = _parse_sub(source, state, sub_verbose, nested + 1)
+  File "C:\Python314\Lib\re\_parser.py", line 460, in _parse_sub
+    itemsappend(_parse(source, state, verbose, nested + 1,
+                ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                       not nested and not items))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\re\_parser.py", line 831, in _parse
+    flags = _parse_flags(source, state, char)
+  File "C:\Python314\Lib\re\_parser.py", line 913, in _parse_flags
+    raise source.error(msg, len(char))
+re.PatternError: missing -, : or ) at position 415
+[2026-07-06 13:29:16] [ERROR   ] discord.app_commands.tree: Ignoring exception in command 'exam'
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 858, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 207, in _search
+    await interaction.followup.send(view=old_exam.SearchLayoutView(keyword=keyword))
+                                         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 432, in __init__
+    self.results = search(keyword, as_json=True)
+                   ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 250, in search
+    raise e
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 230, in search
+    query = standardize_text(query)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 91, in standardize_text
+    return replacer(query)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 44, in <lambda>
+    return lambda text: master_regex.sub(
+                        ^^^^^^^^^^^^
+NameError: cannot access free variable 'master_regex' where it is not associated with a value in enclosing scope
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\tree.py", line 1302, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 877, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'exam' raised an exception: NameError: cannot access free variable 'master_regex' where it is not associated with a value in enclosing scope
+[2026-07-06 13:44:12] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 67213e911442701e6c420ad2daf854f0.
+[2026-07-06 16:58:26] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 67213e911442701e6c420ad2daf854f0.
+[2026-07-06 17:02:51] [ERROR   ] discord.client: Ignoring exception in on_message
 Traceback (most recent call last):
   File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
     await coro(*args, **kwargs)
   File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 69, in on_message
     await testing.on_message(client, message)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\testing.py", line 60, in on_message
-    if message.guild.id != 1521507251565756447:
-       ^^^^^^^^^^^^^^^^
-AttributeError: 'NoneType' object has no attribute 'id'
-[2026-07-03 21:24:26] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 3ba45329eabb4be5595d04b3c940f2f4.
-[2026-07-03 21:50:18] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 3ba45329eabb4be5595d04b3c940f2f4.
-[2026-07-03 21:51:31] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 3ba45329eabb4be5595d04b3c940f2f4.
-[2026-07-03 21:54:02] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 3ba45329eabb4be5595d04b3c940f2f4.
-[2026-07-03 22:15:36] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 3ba45329eabb4be5595d04b3c940f2f4.
-[2026-07-03 22:18:02] [ERROR   ] discord.client: Ignoring exception in on_message
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
-    await coro(*args, **kwargs)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 69, in on_message
-    await testing.on_message(client, message)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\testing.py", line 60, in on_message
-    if message.guild.id != 1521507251565756447:
-       ^^^^^^^^^^^^^^^^
-AttributeError: 'NoneType' object has no attribute 'id'
-[2026-07-03 22:19:14] [ERROR   ] discord.client: Ignoring exception in on_interaction
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
-    await coro(*args, **kwargs)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 212, in on_interaction
-    await old_exam.on_interaction_handler(interaction)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 259, in on_interaction_handler
-    p()
-    ~^^
-TypeError: 'tuple' object is not callable
-[2026-07-03 22:19:14] [ERROR   ] discord.client: Ignoring exception in on_message
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
-    await coro(*args, **kwargs)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 69, in on_message
-    await testing.on_message(client, message)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\testing.py", line 60, in on_message
-    if message.guild.id != 1521507251565756447:
-       ^^^^^^^^^^^^^^^^
-AttributeError: 'NoneType' object has no attribute 'id'
-[2026-07-03 22:19:21] [ERROR   ] discord.client: Ignoring exception in on_interaction
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
-    await coro(*args, **kwargs)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 212, in on_interaction
-    await old_exam.on_interaction_handler(interaction)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 259, in on_interaction_handler
-    p()
-    ~^^
-TypeError: 'tuple' object is not callable
-[2026-07-03 22:19:21] [ERROR   ] discord.client: Ignoring exception in on_message
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
-    await coro(*args, **kwargs)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 69, in on_message
-    await testing.on_message(client, message)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\testing.py", line 60, in on_message
-    if message.guild.id != 1521507251565756447:
-       ^^^^^^^^^^^^^^^^
-AttributeError: 'NoneType' object has no attribute 'id'
-[2026-07-03 22:19:43] [ERROR   ] discord.client: Ignoring exception in on_interaction
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
-    await coro(*args, **kwargs)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 212, in on_interaction
-    await old_exam.on_interaction_handler(interaction)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 260, in on_interaction_handler
-    p()
-    ~^^
-TypeError: 'tuple' object is not callable
-[2026-07-03 22:19:43] [ERROR   ] discord.client: Ignoring exception in on_message
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
-    await coro(*args, **kwargs)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 69, in on_message
-    await testing.on_message(client, message)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\testing.py", line 60, in on_message
-    if message.guild.id != 1521507251565756447:
-       ^^^^^^^^^^^^^^^^
-AttributeError: 'NoneType' object has no attribute 'id'
-[2026-07-03 22:20:21] [ERROR   ] discord.client: Ignoring exception in on_message
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
-    await coro(*args, **kwargs)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 69, in on_message
-    await testing.on_message(client, message)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\testing.py", line 60, in on_message
-    if message.guild.id != 1521507251565756447:
-       ^^^^^^^^^^^^^^^^
-AttributeError: 'NoneType' object has no attribute 'id'
-[2026-07-03 22:21:10] [ERROR   ] discord.client: Ignoring exception in on_interaction
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
-    await coro(*args, **kwargs)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 212, in on_interaction
-    await old_exam.on_interaction_handler(interaction)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 267, in on_interaction_handler
-    text = f"## {file.filename}"
-                 ^^^^
-UnboundLocalError: cannot access local variable 'file' where it is not associated with a value
-[2026-07-03 22:21:10] [ERROR   ] discord.client: Ignoring exception in on_message
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
-    await coro(*args, **kwargs)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 69, in on_message
-    await testing.on_message(client, message)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\testing.py", line 60, in on_message
-    if message.guild.id != 1521507251565756447:
-       ^^^^^^^^^^^^^^^^
-AttributeError: 'NoneType' object has no attribute 'id'
-[2026-07-03 22:21:30] [ERROR   ] discord.client: Ignoring exception in on_interaction
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
-    await coro(*args, **kwargs)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 212, in on_interaction
-    await old_exam.on_interaction_handler(interaction)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 269, in on_interaction_handler
-    text = f"## {file.filename}"
-                 ^^^^
-UnboundLocalError: cannot access local variable 'file' where it is not associated with a value
-[2026-07-03 22:21:30] [ERROR   ] discord.client: Ignoring exception in on_message
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
-    await coro(*args, **kwargs)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 69, in on_message
-    await testing.on_message(client, message)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\testing.py", line 60, in on_message
-    if message.guild.id != 1521507251565756447:
-       ^^^^^^^^^^^^^^^^
-AttributeError: 'NoneType' object has no attribute 'id'
-[2026-07-03 22:21:43] [ERROR   ] discord.client: Ignoring exception in on_interaction
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
-    await coro(*args, **kwargs)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 212, in on_interaction
-    await old_exam.on_interaction_handler(interaction)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 269, in on_interaction_handler
-    text = f"## {file.filename}"
-                 ^^^^
-UnboundLocalError: cannot access local variable 'file' where it is not associated with a value
-[2026-07-03 22:21:43] [ERROR   ] discord.client: Ignoring exception in on_message
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
-    await coro(*args, **kwargs)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 69, in on_message
-    await testing.on_message(client, message)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\testing.py", line 60, in on_message
-    if message.guild.id != 1521507251565756447:
-       ^^^^^^^^^^^^^^^^
-AttributeError: 'NoneType' object has no attribute 'id'
-[2026-07-03 22:24:02] [ERROR   ] discord.client: Ignoring exception in on_message
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
-    await coro(*args, **kwargs)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 69, in on_message
-    await testing.on_message(client, message)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\testing.py", line 60, in on_message
-    if message.guild.id != 1521507251565756447:
-       ^^^^^^^^^^^^^^^^
-AttributeError: 'NoneType' object has no attribute 'id'
-[2026-07-03 22:28:50] [WARNING ] discord.gateway: Shard ID None heartbeat blocked for more than 10 seconds.
-Loop thread traceback (most recent call last):
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 124, in <module>
-    asyncio.run(main())
-  File "C:\Users\pisc639\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\runners.py", line 204, in run
-    return runner.run(main)
-  File "C:\Users\pisc639\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\runners.py", line 127, in run
-    return self._loop.run_until_complete(task)
-  File "C:\Users\pisc639\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\base_events.py", line 706, in run_until_complete
-    self.run_forever()
-  File "C:\Users\pisc639\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\base_events.py", line 677, in run_forever
-    self._run_once()
-  File "C:\Users\pisc639\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\base_events.py", line 2046, in _run_once
-    handle._run()
-  File "C:\Users\pisc639\AppData\Local\Python\pythoncore-3.14-64\Lib\asyncio\events.py", line 94, in _run
-    self._context.run(self._callback, *self._args)
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
-    await coro(*args, **kwargs)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 69, in on_message
-    await testing.on_message(client, message)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\testing.py", line 111, in on_message
+    raise e
   File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\testing.py", line 75, in on_message
     await message.reply(view=old_exam.SearchLayoutView(keyword=keyword))
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 417, in __init__
+                             ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 432, in __init__
     self.results = search(keyword, as_json=True)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 218, in search
-    files = filter_files(files, term, period, ep)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 207, in filter_files
-    return [f for f in file_paths if filter_file(f, term, period, ep)]
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 190, in filter_file
-    file_info = get_file_info(file_path)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 170, in get_file_info
-    res["fsize"] = file["fsize"].upper() if isinstance(file, dict) and "fsize" in file else str(file_path.stat().st_size)
-  File "C:\Users\pisc639\AppData\Local\Python\pythoncore-3.14-64\Lib\pathlib\__init__.py", line 654, in stat
-    return os.stat(self, follow_symlinks=follow_symlinks)
+                   ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 250, in search
+    raise e
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 230, in search
+    query = standardize_text(query)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 91, in standardize_text
+    return replacer(query)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 44, in <lambda>
+    return lambda text: master_regex.sub(
+                        ^^^^^^^^^^^^
+NameError: cannot access free variable 'master_regex' where it is not associated with a value in enclosing scope
+[2026-07-06 17:03:19] [ERROR   ] discord.app_commands.tree: Ignoring exception in command 'exam'
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 858, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 207, in _search
+    await interaction.followup.send(view=old_exam.SearchLayoutView(keyword=keyword))
+                                         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 432, in __init__
+    self.results = search(keyword, as_json=True)
+                   ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 250, in search
+    raise e
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 230, in search
+    query = standardize_text(query)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 91, in standardize_text
+    return replacer(query)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 44, in <lambda>
+    return lambda text: master_regex.sub(
+                        ^^^^^^^^^^^^
+NameError: cannot access free variable 'master_regex' where it is not associated with a value in enclosing scope
 
-[2026-07-03 22:29:03] [ERROR   ] discord.client: Ignoring exception in on_message
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\tree.py", line 1302, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 877, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'exam' raised an exception: NameError: cannot access free variable 'master_regex' where it is not associated with a value in enclosing scope
+[2026-07-06 20:55:19] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 67213e911442701e6c420ad2daf854f0.
+[2026-07-06 22:20:12] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 67213e911442701e6c420ad2daf854f0.
+[2026-07-07 01:47:05] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 67213e911442701e6c420ad2daf854f0.
+[2026-07-07 03:34:13] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 67213e911442701e6c420ad2daf854f0.
+[2026-07-07 04:43:54] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 67213e911442701e6c420ad2daf854f0.
+[2026-07-07 05:39:28] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 67213e911442701e6c420ad2daf854f0.
+[2026-07-07 09:24:56] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 67213e911442701e6c420ad2daf854f0.
+[2026-07-07 10:23:33] [ERROR   ] discord.client: Attempting a reconnect in 0.27s
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1574, in _create_direct_connection
+    hosts = await self._resolve_host(host, port, traces=traces)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1190, in _resolve_host
+    return await asyncio.shield(resolved_host_task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1221, in _resolve_host_with_throttle
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\resolver.py", line 40, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 936, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Python314\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Python314\Lib\socket.py", line 987, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 1087, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 788, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 742, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 672, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1251, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1580, in _create_direct_connection
+    raise ClientConnectorDNSError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorDNSError: Cannot connect to host gateway-us-east1-d.discord.gg:443 ssl:default [getaddrinfo failed]
+[2026-07-07 10:23:35] [ERROR   ] discord.client: Attempting a reconnect in 3.19s
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1574, in _create_direct_connection
+    hosts = await self._resolve_host(host, port, traces=traces)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1190, in _resolve_host
+    return await asyncio.shield(resolved_host_task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1221, in _resolve_host_with_throttle
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\resolver.py", line 40, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 936, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Python314\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Python314\Lib\socket.py", line 987, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 1087, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 788, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 742, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 672, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1251, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1580, in _create_direct_connection
+    raise ClientConnectorDNSError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorDNSError: Cannot connect to host gateway-us-east1-d.discord.gg:443 ssl:default [getaddrinfo failed]
+[2026-07-07 10:23:38] [ERROR   ] discord.client: Attempting a reconnect in 0.47s
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1574, in _create_direct_connection
+    hosts = await self._resolve_host(host, port, traces=traces)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1190, in _resolve_host
+    return await asyncio.shield(resolved_host_task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1221, in _resolve_host_with_throttle
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\resolver.py", line 40, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 936, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Python314\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Python314\Lib\socket.py", line 987, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11004] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 1087, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 788, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 742, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 672, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1251, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1580, in _create_direct_connection
+    raise ClientConnectorDNSError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorDNSError: Cannot connect to host gateway-us-east1-d.discord.gg:443 ssl:default [getaddrinfo failed]
+[2026-07-07 10:23:39] [ERROR   ] discord.client: Attempting a reconnect in 14.81s
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1574, in _create_direct_connection
+    hosts = await self._resolve_host(host, port, traces=traces)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1190, in _resolve_host
+    return await asyncio.shield(resolved_host_task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1221, in _resolve_host_with_throttle
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\resolver.py", line 40, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 936, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Python314\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Python314\Lib\socket.py", line 987, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11004] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 1087, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 788, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 742, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 672, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1251, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1580, in _create_direct_connection
+    raise ClientConnectorDNSError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorDNSError: Cannot connect to host gateway-us-east1-d.discord.gg:443 ssl:default [getaddrinfo failed]
+[2026-07-07 10:23:54] [ERROR   ] discord.client: Attempting a reconnect in 3.32s
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1574, in _create_direct_connection
+    hosts = await self._resolve_host(host, port, traces=traces)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1190, in _resolve_host
+    return await asyncio.shield(resolved_host_task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1221, in _resolve_host_with_throttle
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\resolver.py", line 40, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 936, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Python314\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Python314\Lib\socket.py", line 987, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11004] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 1087, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 788, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 742, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 672, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1251, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1580, in _create_direct_connection
+    raise ClientConnectorDNSError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorDNSError: Cannot connect to host gateway-us-east1-d.discord.gg:443 ssl:default [getaddrinfo failed]
+[2026-07-07 10:23:57] [ERROR   ] discord.client: Attempting a reconnect in 51.25s
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1574, in _create_direct_connection
+    hosts = await self._resolve_host(host, port, traces=traces)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1190, in _resolve_host
+    return await asyncio.shield(resolved_host_task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1221, in _resolve_host_with_throttle
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\resolver.py", line 40, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 936, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Python314\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Python314\Lib\socket.py", line 987, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11004] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 1087, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 788, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 742, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 672, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1251, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1580, in _create_direct_connection
+    raise ClientConnectorDNSError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorDNSError: Cannot connect to host gateway-us-east1-d.discord.gg:443 ssl:default [getaddrinfo failed]
+[2026-07-07 10:24:48] [ERROR   ] discord.client: Attempting a reconnect in 2.83s
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1574, in _create_direct_connection
+    hosts = await self._resolve_host(host, port, traces=traces)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1190, in _resolve_host
+    return await asyncio.shield(resolved_host_task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1221, in _resolve_host_with_throttle
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\resolver.py", line 40, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 936, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Python314\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Python314\Lib\socket.py", line 987, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11004] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 1087, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 788, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 742, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 672, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1251, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1580, in _create_direct_connection
+    raise ClientConnectorDNSError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorDNSError: Cannot connect to host gateway-us-east1-d.discord.gg:443 ssl:default [getaddrinfo failed]
+[2026-07-07 10:24:51] [ERROR   ] discord.client: Attempting a reconnect in 144.90s
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1574, in _create_direct_connection
+    hosts = await self._resolve_host(host, port, traces=traces)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1190, in _resolve_host
+    return await asyncio.shield(resolved_host_task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1221, in _resolve_host_with_throttle
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\resolver.py", line 40, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 936, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Python314\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Python314\Lib\socket.py", line 987, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11004] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 1087, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 788, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 742, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 672, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1251, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1580, in _create_direct_connection
+    raise ClientConnectorDNSError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorDNSError: Cannot connect to host gateway-us-east1-d.discord.gg:443 ssl:default [getaddrinfo failed]
+[2026-07-07 10:27:18] [INFO    ] discord.gateway: Shard ID None session has been invalidated.
+[2026-07-07 10:27:25] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 7d1ebecd5c5402550027ee2b9378cf63).
+[2026-07-07 13:23:05] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 7d1ebecd5c5402550027ee2b9378cf63.
+[2026-07-07 14:33:58] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 7d1ebecd5c5402550027ee2b9378cf63.
+[2026-07-07 17:01:17] [ERROR   ] discord.client: Attempting a reconnect in 1.59s
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1574, in _create_direct_connection
+    hosts = await self._resolve_host(host, port, traces=traces)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1190, in _resolve_host
+    return await asyncio.shield(resolved_host_task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1221, in _resolve_host_with_throttle
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\resolver.py", line 40, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 936, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Python314\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Python314\Lib\socket.py", line 987, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 1087, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 788, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 742, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 672, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1251, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1580, in _create_direct_connection
+    raise ClientConnectorDNSError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorDNSError: Cannot connect to host gateway-us-east1-d.discord.gg:443 ssl:default [getaddrinfo failed]
+[2026-07-07 17:01:19] [ERROR   ] discord.client: Attempting a reconnect in 0.63s
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1310, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohappyeyeballs\impl.py", line 122, in start_connection
+    raise first_exception
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohappyeyeballs\impl.py", line 73, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohappyeyeballs\impl.py", line 208, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "C:\Python314\Lib\asyncio\proactor_events.py", line 728, in sock_connect
+    return await self._proactor.connect(sock, address)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 600, in finish_connect
+    ov.getresult()
+    ~~~~~~~~~~~~^^
+PermissionError: [WinError 5] Access is denied
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 1087, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 788, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 742, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 672, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1251, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1623, in _create_direct_connection
+    raise last_exc
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1592, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1333, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host gateway-us-east1-d.discord.gg:443 ssl:default [Access is denied]
+[2026-07-07 17:01:20] [ERROR   ] discord.client: Attempting a reconnect in 5.50s
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1310, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohappyeyeballs\impl.py", line 122, in start_connection
+    raise first_exception
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohappyeyeballs\impl.py", line 73, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohappyeyeballs\impl.py", line 208, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "C:\Python314\Lib\asyncio\proactor_events.py", line 728, in sock_connect
+    return await self._proactor.connect(sock, address)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 600, in finish_connect
+    ov.getresult()
+    ~~~~~~~~~~~~^^
+PermissionError: [WinError 5] Access is denied
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 1087, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 788, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 742, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 672, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1251, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1623, in _create_direct_connection
+    raise last_exc
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1592, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1333, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host gateway-us-east1-d.discord.gg:443 ssl:default [Access is denied]
+[2026-07-07 17:01:25] [ERROR   ] discord.client: Attempting a reconnect in 1.46s
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1310, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohappyeyeballs\impl.py", line 122, in start_connection
+    raise first_exception
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohappyeyeballs\impl.py", line 73, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohappyeyeballs\impl.py", line 208, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "C:\Python314\Lib\asyncio\proactor_events.py", line 728, in sock_connect
+    return await self._proactor.connect(sock, address)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 600, in finish_connect
+    ov.getresult()
+    ~~~~~~~~~~~~^^
+PermissionError: [WinError 5] Access is denied
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 1087, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 788, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 742, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 672, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1251, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1623, in _create_direct_connection
+    raise last_exc
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1592, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1333, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host gateway-us-east1-d.discord.gg:443 ssl:default [Access is denied]
+[2026-07-07 17:01:27] [ERROR   ] discord.client: Attempting a reconnect in 28.52s
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1310, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohappyeyeballs\impl.py", line 122, in start_connection
+    raise first_exception
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohappyeyeballs\impl.py", line 73, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohappyeyeballs\impl.py", line 208, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "C:\Python314\Lib\asyncio\proactor_events.py", line 728, in sock_connect
+    return await self._proactor.connect(sock, address)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 600, in finish_connect
+    ov.getresult()
+    ~~~~~~~~~~~~^^
+PermissionError: [WinError 5] Access is denied
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 1087, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 788, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 742, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 672, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1251, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1623, in _create_direct_connection
+    raise last_exc
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1592, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1333, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host gateway-us-east1-d.discord.gg:443 ssl:default [Access is denied]
+[2026-07-07 17:01:57] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 7d1ebecd5c5402550027ee2b9378cf63.
+[2026-07-07 19:24:59] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 7d1ebecd5c5402550027ee2b9378cf63.
+[2026-07-07 21:24:37] [WARNING ] discord.gateway: Can't keep up, shard ID None websocket is 10.6s behind.
+[2026-07-07 21:24:37] [WARNING ] discord.gateway: Can't keep up, shard ID None websocket is 20.5s behind.
+[2026-07-07 21:31:10] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 7d1ebecd5c5402550027ee2b9378cf63.
+[2026-07-07 21:53:45] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 7d1ebecd5c5402550027ee2b9378cf63.
+[2026-07-08 00:39:33] [ERROR   ] discord.client: Attempting a reconnect in 0.94s
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1310, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohappyeyeballs\impl.py", line 122, in start_connection
+    raise first_exception
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohappyeyeballs\impl.py", line 73, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohappyeyeballs\impl.py", line 208, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "C:\Python314\Lib\asyncio\proactor_events.py", line 728, in sock_connect
+    return await self._proactor.connect(sock, address)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 600, in finish_connect
+    ov.getresult()
+    ~~~~~~~~~~~~^^
+PermissionError: [WinError 5] Access is denied
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 1087, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 788, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 742, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 672, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1251, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1623, in _create_direct_connection
+    raise last_exc
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1592, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1333, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host gateway-us-east1-d.discord.gg:443 ssl:default [Access is denied]
+[2026-07-08 00:39:34] [ERROR   ] discord.client: Attempting a reconnect in 3.38s
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1310, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohappyeyeballs\impl.py", line 122, in start_connection
+    raise first_exception
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohappyeyeballs\impl.py", line 73, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohappyeyeballs\impl.py", line 208, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "C:\Python314\Lib\asyncio\proactor_events.py", line 728, in sock_connect
+    return await self._proactor.connect(sock, address)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 600, in finish_connect
+    ov.getresult()
+    ~~~~~~~~~~~~^^
+PermissionError: [WinError 5] Access is denied
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 1087, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 788, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 742, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 672, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1251, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1623, in _create_direct_connection
+    raise last_exc
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1592, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1333, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host gateway-us-east1-d.discord.gg:443 ssl:default [Access is denied]
+[2026-07-08 00:39:38] [ERROR   ] discord.client: Attempting a reconnect in 4.21s
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1310, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohappyeyeballs\impl.py", line 122, in start_connection
+    raise first_exception
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohappyeyeballs\impl.py", line 73, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohappyeyeballs\impl.py", line 208, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "C:\Python314\Lib\asyncio\proactor_events.py", line 728, in sock_connect
+    return await self._proactor.connect(sock, address)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 600, in finish_connect
+    ov.getresult()
+    ~~~~~~~~~~~~^^
+PermissionError: [WinError 5] Access is denied
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 1087, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 788, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 742, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 672, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1251, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1623, in _create_direct_connection
+    raise last_exc
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1592, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1333, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host gateway-us-east1-d.discord.gg:443 ssl:default [Access is denied]
+[2026-07-08 00:39:42] [ERROR   ] discord.client: Attempting a reconnect in 15.29s
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1310, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohappyeyeballs\impl.py", line 122, in start_connection
+    raise first_exception
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohappyeyeballs\impl.py", line 73, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohappyeyeballs\impl.py", line 208, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "C:\Python314\Lib\asyncio\proactor_events.py", line 728, in sock_connect
+    return await self._proactor.connect(sock, address)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 600, in finish_connect
+    ov.getresult()
+    ~~~~~~~~~~~~^^
+PermissionError: [WinError 5] Access is denied
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 1087, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 788, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 742, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 672, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1251, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1623, in _create_direct_connection
+    raise last_exc
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1592, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1333, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host gateway-us-east1-d.discord.gg:443 ssl:default [Access is denied]
+[2026-07-08 00:39:59] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 7d1ebecd5c5402550027ee2b9378cf63.
+[2026-07-08 03:38:08] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 7d1ebecd5c5402550027ee2b9378cf63.
+[2026-07-08 04:57:46] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 7d1ebecd5c5402550027ee2b9378cf63.
+[2026-07-08 06:23:58] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 7d1ebecd5c5402550027ee2b9378cf63.
+[2026-07-08 08:38:18] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 7d1ebecd5c5402550027ee2b9378cf63.
+[2026-07-08 09:50:54] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 7d1ebecd5c5402550027ee2b9378cf63.
+[2026-07-08 10:05:10] [ERROR   ] discord.client: Attempting a reconnect in 1.29s
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1574, in _create_direct_connection
+    hosts = await self._resolve_host(host, port, traces=traces)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1190, in _resolve_host
+    return await asyncio.shield(resolved_host_task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1221, in _resolve_host_with_throttle
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\resolver.py", line 40, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 936, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Python314\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Python314\Lib\socket.py", line 987, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11004] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 1087, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 788, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 742, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 672, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1251, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1580, in _create_direct_connection
+    raise ClientConnectorDNSError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorDNSError: Cannot connect to host gateway-us-east1-d.discord.gg:443 ssl:default [getaddrinfo failed]
+[2026-07-08 10:05:11] [ERROR   ] discord.client: Attempting a reconnect in 2.32s
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1574, in _create_direct_connection
+    hosts = await self._resolve_host(host, port, traces=traces)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1190, in _resolve_host
+    return await asyncio.shield(resolved_host_task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1221, in _resolve_host_with_throttle
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\resolver.py", line 40, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 936, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Python314\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Python314\Lib\socket.py", line 987, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11004] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 1087, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 788, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 742, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 672, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1251, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1580, in _create_direct_connection
+    raise ClientConnectorDNSError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorDNSError: Cannot connect to host gateway-us-east1-d.discord.gg:443 ssl:default [getaddrinfo failed]
+[2026-07-08 10:05:14] [ERROR   ] discord.client: Attempting a reconnect in 2.61s
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1574, in _create_direct_connection
+    hosts = await self._resolve_host(host, port, traces=traces)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1190, in _resolve_host
+    return await asyncio.shield(resolved_host_task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1221, in _resolve_host_with_throttle
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\resolver.py", line 40, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 936, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Python314\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Python314\Lib\socket.py", line 987, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11004] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 1087, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 788, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 742, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 672, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1251, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1580, in _create_direct_connection
+    raise ClientConnectorDNSError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorDNSError: Cannot connect to host gateway-us-east1-d.discord.gg:443 ssl:default [getaddrinfo failed]
+[2026-07-08 10:05:16] [ERROR   ] discord.client: Attempting a reconnect in 1.00s
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1574, in _create_direct_connection
+    hosts = await self._resolve_host(host, port, traces=traces)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1190, in _resolve_host
+    return await asyncio.shield(resolved_host_task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1221, in _resolve_host_with_throttle
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\resolver.py", line 40, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 936, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Python314\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Python314\Lib\socket.py", line 987, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11004] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 1087, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 788, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 742, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 672, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1251, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1580, in _create_direct_connection
+    raise ClientConnectorDNSError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorDNSError: Cannot connect to host gateway-us-east1-d.discord.gg:443 ssl:default [getaddrinfo failed]
+[2026-07-08 10:05:17] [ERROR   ] discord.client: Attempting a reconnect in 1.48s
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1574, in _create_direct_connection
+    hosts = await self._resolve_host(host, port, traces=traces)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1190, in _resolve_host
+    return await asyncio.shield(resolved_host_task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1221, in _resolve_host_with_throttle
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\resolver.py", line 40, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+    )
+    ^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 936, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        None, getaddr_func, host, port, family, type, proto, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\concurrent\futures\thread.py", line 86, in run
+    result = ctx.run(self.task)
+  File "C:\Python314\Lib\concurrent\futures\thread.py", line 73, in run
+    return fn(*args, **kwargs)
+  File "C:\Python314\Lib\socket.py", line 987, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11004] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 1087, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 788, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 742, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 672, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1251, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1580, in _create_direct_connection
+    raise ClientConnectorDNSError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorDNSError: Cannot connect to host gateway-us-east1-d.discord.gg:443 ssl:default [getaddrinfo failed]
+[2026-07-08 10:05:19] [ERROR   ] discord.client: Attempting a reconnect in 15.50s
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1310, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohappyeyeballs\impl.py", line 122, in start_connection
+    raise first_exception
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohappyeyeballs\impl.py", line 73, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohappyeyeballs\impl.py", line 208, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "C:\Python314\Lib\asyncio\proactor_events.py", line 728, in sock_connect
+    return await self._proactor.connect(sock, address)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 600, in finish_connect
+    ov.getresult()
+    ~~~~~~~~~~~~^^
+PermissionError: [WinError 5] Access is denied
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 1087, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 788, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 742, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 672, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1251, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1623, in _create_direct_connection
+    raise last_exc
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1592, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1333, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host gateway-us-east1-d.discord.gg:443 ssl:default [Access is denied]
+[2026-07-08 10:05:35] [ERROR   ] discord.client: Attempting a reconnect in 55.78s
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1310, in _wrap_create_connection
+    sock = await aiohappyeyeballs.start_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohappyeyeballs\impl.py", line 122, in start_connection
+    raise first_exception
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohappyeyeballs\impl.py", line 73, in start_connection
+    sock = await _connect_sock(
+           ^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohappyeyeballs\impl.py", line 208, in _connect_sock
+    await loop.sock_connect(sock, address)
+  File "C:\Python314\Lib\asyncio\proactor_events.py", line 728, in sock_connect
+    return await self._proactor.connect(sock, address)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 600, in finish_connect
+    ov.getresult()
+    ~~~~~~~~~~~~^^
+PermissionError: [WinError 5] Access is denied
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 728, in connect
+    self.ws = await asyncio.wait_for(coro, timeout=60.0)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\tasks.py", line 488, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\gateway.py", line 392, in from_client
+    socket = await client.http.ws_connect(str(url))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\http.py", line 571, in ws_connect
+    return await self.__session.ws_connect(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 1087, in _ws_connect
+    resp = await self.request(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 788, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 742, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 672, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1251, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1623, in _create_direct_connection
+    raise last_exc
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1592, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\connector.py", line 1333, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host gateway-us-east1-d.discord.gg:443 ssl:default [Access is denied]
+[2026-07-08 10:06:31] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 7d1ebecd5c5402550027ee2b9378cf63.
+[2026-07-08 11:16:09] [WARNING ] discord.gateway: Can't keep up, shard ID None websocket is 22.1s behind.
+[2026-07-08 11:16:11] [WARNING ] discord.gateway: Can't keep up, shard ID None websocket is 25.8s behind.
+[2026-07-08 13:46:47] [ERROR   ] discord.app_commands.tree: Ignoring exception in command 'exam'
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 858, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 207, in _search
+    await interaction.followup.send(view=old_exam.SearchLayoutView(keyword=keyword))
+                                         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 432, in __init__
+    self.results = search(keyword, as_json=True)
+                   ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 250, in search
+    raise e
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 230, in search
+    query = standardize_text(query)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 91, in standardize_text
+    return replacer(query)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 44, in <lambda>
+    return lambda text: master_regex.sub(
+                        ^^^^^^^^^^^^
+NameError: cannot access free variable 'master_regex' where it is not associated with a value in enclosing scope
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\tree.py", line 1302, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 877, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'exam' raised an exception: NameError: cannot access free variable 'master_regex' where it is not associated with a value in enclosing scope
+[2026-07-08 13:50:04] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 7d1ebecd5c5402550027ee2b9378cf63.
+[2026-07-08 13:53:08] [ERROR   ] discord.client: Ignoring exception in on_message
 Traceback (most recent call last):
   File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
     await coro(*args, **kwargs)
@@ -244,7 +2421,7 @@ Traceback (most recent call last):
     if message.guild.id != 1521507251565756447:
        ^^^^^^^^^^^^^^^^
 AttributeError: 'NoneType' object has no attribute 'id'
-[2026-07-03 22:29:08] [ERROR   ] discord.client: Ignoring exception in on_message
+[2026-07-08 13:53:25] [ERROR   ] discord.client: Ignoring exception in on_message
 Traceback (most recent call last):
   File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
     await coro(*args, **kwargs)
@@ -254,7 +2431,7 @@ Traceback (most recent call last):
     if message.guild.id != 1521507251565756447:
        ^^^^^^^^^^^^^^^^
 AttributeError: 'NoneType' object has no attribute 'id'
-[2026-07-03 22:29:17] [ERROR   ] discord.client: Ignoring exception in on_message
+[2026-07-08 13:53:43] [ERROR   ] discord.client: Ignoring exception in on_message
 Traceback (most recent call last):
   File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
     await coro(*args, **kwargs)
@@ -264,7 +2441,7 @@ Traceback (most recent call last):
     if message.guild.id != 1521507251565756447:
        ^^^^^^^^^^^^^^^^
 AttributeError: 'NoneType' object has no attribute 'id'
-[2026-07-03 22:29:44] [ERROR   ] discord.client: Ignoring exception in on_message
+[2026-07-08 14:05:00] [ERROR   ] discord.client: Ignoring exception in on_message
 Traceback (most recent call last):
   File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
     await coro(*args, **kwargs)
@@ -274,24 +2451,131 @@ Traceback (most recent call last):
     if message.guild.id != 1521507251565756447:
        ^^^^^^^^^^^^^^^^
 AttributeError: 'NoneType' object has no attribute 'id'
-[2026-07-03 22:29:56] [ERROR   ] discord.client: Ignoring exception in on_interaction
+[2026-07-08 14:05:05] [ERROR   ] discord.client: Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 69, in on_message
+    await testing.on_message(client, message)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\testing.py", line 60, in on_message
+    if message.guild.id != 1521507251565756447:
+       ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'id'
+[2026-07-08 14:07:45] [ERROR   ] discord.client: Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 69, in on_message
+    await testing.on_message(client, message)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\testing.py", line 60, in on_message
+    if message.guild.id != 1521507251565756447:
+       ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'id'
+[2026-07-08 14:07:46] [ERROR   ] discord.client: Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 69, in on_message
+    await testing.on_message(client, message)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\testing.py", line 60, in on_message
+    if message.guild.id != 1521507251565756447:
+       ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'id'
+[2026-07-08 14:09:09] [ERROR   ] discord.client: Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 69, in on_message
+    await testing.on_message(client, message)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\testing.py", line 60, in on_message
+    if message.guild.id != 1521507251565756447:
+       ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'id'
+[2026-07-08 14:09:10] [ERROR   ] discord.client: Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 69, in on_message
+    await testing.on_message(client, message)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\testing.py", line 60, in on_message
+    if message.guild.id != 1521507251565756447:
+       ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'id'
+[2026-07-08 14:26:35] [ERROR   ] discord.client: Ignoring exception in on_interaction
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 211, in on_interaction
+    importlib.reload(old_exam)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Python314\Lib\importlib\__init__.py", line 129, in reload
+    _bootstrap._exec(spec, module)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 869, in _exec
+  File "<frozen importlib._bootstrap_external>", line 755, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 893, in get_code
+  File "<frozen importlib._bootstrap_external>", line 823, in source_to_code
+  File "<frozen importlib._bootstrap>", line 491, in _call_with_frames_removed
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 344
+    file.
+SyntaxError: expected 'except' or 'finally' block
+[2026-07-08 14:26:40] [ERROR   ] discord.client: Ignoring exception in on_interaction
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 211, in on_interaction
+    importlib.reload(old_exam)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Python314\Lib\importlib\__init__.py", line 129, in reload
+    _bootstrap._exec(spec, module)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 869, in _exec
+  File "<frozen importlib._bootstrap_external>", line 755, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 893, in get_code
+  File "<frozen importlib._bootstrap_external>", line 823, in source_to_code
+  File "<frozen importlib._bootstrap>", line 491, in _call_with_frames_removed
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 344
+    file.
+SyntaxError: expected 'except' or 'finally' block
+[2026-07-08 14:26:46] [ERROR   ] discord.client: Ignoring exception in on_interaction
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 211, in on_interaction
+    importlib.reload(old_exam)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Python314\Lib\importlib\__init__.py", line 129, in reload
+    _bootstrap._exec(spec, module)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 869, in _exec
+  File "<frozen importlib._bootstrap_external>", line 755, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 893, in get_code
+  File "<frozen importlib._bootstrap_external>", line 823, in source_to_code
+  File "<frozen importlib._bootstrap>", line 491, in _call_with_frames_removed
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 344
+    file.
+SyntaxError: expected 'except' or 'finally' block
+[2026-07-08 14:41:38] [ERROR   ] discord.client: Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 69, in on_message
+    await testing.on_message(client, message)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\testing.py", line 60, in on_message
+    if message.guild.id != 1521507251565756447:
+       ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'id'
+[2026-07-08 14:41:49] [ERROR   ] discord.client: Ignoring exception in on_interaction
 Traceback (most recent call last):
   File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
     await coro(*args, **kwargs)
   File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 212, in on_interaction
     await old_exam.on_interaction_handler(interaction)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 246, in on_interaction_handler
-    await interaction.response.defer(thinking=True, ephemeral=True)
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\interactions.py", line 892, in defer
-    response = await adapter.create_interaction_response(
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    ...<6 lines>...
-    )
-    ^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\webhook\async_.py", line 224, in request
-    raise NotFound(response, data)
-discord.errors.NotFound: 404 Not Found (error code: 10062): Unknown interaction
-[2026-07-03 22:29:57] [ERROR   ] discord.client: Ignoring exception in on_message
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 333, in on_interaction_handler
+    text = f"## {file.filename}"
+                 ^^^^
+UnboundLocalError: cannot access local variable 'file' where it is not associated with a value
+[2026-07-08 14:41:49] [ERROR   ] discord.client: Ignoring exception in on_message
 Traceback (most recent call last):
   File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
     await coro(*args, **kwargs)
@@ -301,7 +2585,7 @@ Traceback (most recent call last):
     if message.guild.id != 1521507251565756447:
        ^^^^^^^^^^^^^^^^
 AttributeError: 'NoneType' object has no attribute 'id'
-[2026-07-03 22:30:06] [ERROR   ] discord.client: Ignoring exception in on_message
+[2026-07-08 14:53:53] [ERROR   ] discord.client: Ignoring exception in on_message
 Traceback (most recent call last):
   File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
     await coro(*args, **kwargs)
@@ -311,7 +2595,7 @@ Traceback (most recent call last):
     if message.guild.id != 1521507251565756447:
        ^^^^^^^^^^^^^^^^
 AttributeError: 'NoneType' object has no attribute 'id'
-[2026-07-03 22:30:10] [ERROR   ] discord.client: Ignoring exception in on_message
+[2026-07-08 14:53:54] [ERROR   ] discord.client: Ignoring exception in on_message
 Traceback (most recent call last):
   File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
     await coro(*args, **kwargs)
@@ -321,7 +2605,7 @@ Traceback (most recent call last):
     if message.guild.id != 1521507251565756447:
        ^^^^^^^^^^^^^^^^
 AttributeError: 'NoneType' object has no attribute 'id'
-[2026-07-03 22:30:29] [ERROR   ] discord.client: Ignoring exception in on_message
+[2026-07-08 14:55:25] [ERROR   ] discord.client: Ignoring exception in on_message
 Traceback (most recent call last):
   File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
     await coro(*args, **kwargs)
@@ -331,7 +2615,7 @@ Traceback (most recent call last):
     if message.guild.id != 1521507251565756447:
        ^^^^^^^^^^^^^^^^
 AttributeError: 'NoneType' object has no attribute 'id'
-[2026-07-03 22:30:29] [ERROR   ] discord.client: Ignoring exception in on_message
+[2026-07-08 14:55:36] [ERROR   ] discord.client: Ignoring exception in on_message
 Traceback (most recent call last):
   File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
     await coro(*args, **kwargs)
@@ -341,168 +2625,4 @@ Traceback (most recent call last):
     if message.guild.id != 1521507251565756447:
        ^^^^^^^^^^^^^^^^
 AttributeError: 'NoneType' object has no attribute 'id'
-[2026-07-03 22:30:38] [ERROR   ] discord.client: Ignoring exception in on_message
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
-    await coro(*args, **kwargs)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 69, in on_message
-    await testing.on_message(client, message)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\testing.py", line 60, in on_message
-    if message.guild.id != 1521507251565756447:
-       ^^^^^^^^^^^^^^^^
-AttributeError: 'NoneType' object has no attribute 'id'
-[2026-07-03 22:30:38] [ERROR   ] discord.client: Ignoring exception in on_message
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
-    await coro(*args, **kwargs)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 69, in on_message
-    await testing.on_message(client, message)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\testing.py", line 60, in on_message
-    if message.guild.id != 1521507251565756447:
-       ^^^^^^^^^^^^^^^^
-AttributeError: 'NoneType' object has no attribute 'id'
-[2026-07-03 22:30:40] [ERROR   ] discord.client: Ignoring exception in on_message
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
-    await coro(*args, **kwargs)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 69, in on_message
-    await testing.on_message(client, message)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\testing.py", line 60, in on_message
-    if message.guild.id != 1521507251565756447:
-       ^^^^^^^^^^^^^^^^
-AttributeError: 'NoneType' object has no attribute 'id'
-[2026-07-03 22:30:41] [ERROR   ] discord.client: Ignoring exception in on_message
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
-    await coro(*args, **kwargs)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 69, in on_message
-    await testing.on_message(client, message)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\testing.py", line 60, in on_message
-    if message.guild.id != 1521507251565756447:
-       ^^^^^^^^^^^^^^^^
-AttributeError: 'NoneType' object has no attribute 'id'
-[2026-07-03 22:31:30] [ERROR   ] discord.app_commands.tree: Ignoring exception in command 'exam'
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 858, in _do_call
-    return await self._callback(self.binding, interaction, **params)  # type: ignore
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 205, in _search
-    await interaction.response.defer(thinking=True)
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\interactions.py", line 892, in defer
-    response = await adapter.create_interaction_response(
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    ...<6 lines>...
-    )
-    ^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\webhook\async_.py", line 224, in request
-    raise NotFound(response, data)
-discord.errors.NotFound: 404 Not Found (error code: 10062): Unknown interaction
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\tree.py", line 1302, in _call
-    await command._invoke_with_namespace(interaction, namespace)
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
-    return await self._do_call(interaction, transformed_values)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 877, in _do_call
-    raise CommandInvokeError(self, e) from e
-discord.app_commands.errors.CommandInvokeError: Command 'exam' raised an exception: NotFound: 404 Not Found (error code: 10062): Unknown interaction
-[2026-07-03 22:31:41] [ERROR   ] discord.app_commands.tree: Ignoring exception in command 'exam'
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 858, in _do_call
-    return await self._callback(self.binding, interaction, **params)  # type: ignore
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 205, in _search
-    await interaction.response.defer(thinking=True)
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\interactions.py", line 892, in defer
-    response = await adapter.create_interaction_response(
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    ...<6 lines>...
-    )
-    ^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\webhook\async_.py", line 224, in request
-    raise NotFound(response, data)
-discord.errors.NotFound: 404 Not Found (error code: 10062): Unknown interaction
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\tree.py", line 1302, in _call
-    await command._invoke_with_namespace(interaction, namespace)
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
-    return await self._do_call(interaction, transformed_values)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 877, in _do_call
-    raise CommandInvokeError(self, e) from e
-discord.app_commands.errors.CommandInvokeError: Command 'exam' raised an exception: NotFound: 404 Not Found (error code: 10062): Unknown interaction
-[2026-07-03 22:31:41] [ERROR   ] discord.app_commands.tree: Ignoring exception in command 'exam'
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 858, in _do_call
-    return await self._callback(self.binding, interaction, **params)  # type: ignore
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 205, in _search
-    await interaction.response.defer(thinking=True)
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\interactions.py", line 892, in defer
-    response = await adapter.create_interaction_response(
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    ...<6 lines>...
-    )
-    ^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\webhook\async_.py", line 224, in request
-    raise NotFound(response, data)
-discord.errors.NotFound: 404 Not Found (error code: 10062): Unknown interaction
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\tree.py", line 1302, in _call
-    await command._invoke_with_namespace(interaction, namespace)
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
-    return await self._do_call(interaction, transformed_values)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 877, in _do_call
-    raise CommandInvokeError(self, e) from e
-discord.app_commands.errors.CommandInvokeError: Command 'exam' raised an exception: NotFound: 404 Not Found (error code: 10062): Unknown interaction
-[2026-07-03 22:31:41] [ERROR   ] discord.app_commands.tree: Ignoring exception in command 'exam'
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 858, in _do_call
-    return await self._callback(self.binding, interaction, **params)  # type: ignore
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 205, in _search
-    await interaction.response.defer(thinking=True)
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\interactions.py", line 892, in defer
-    response = await adapter.create_interaction_response(
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    ...<6 lines>...
-    )
-    ^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\webhook\async_.py", line 224, in request
-    raise NotFound(response, data)
-discord.errors.NotFound: 404 Not Found (error code: 10062): Unknown interaction
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\tree.py", line 1302, in _call
-    await command._invoke_with_namespace(interaction, namespace)
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
-    return await self._do_call(interaction, transformed_values)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 877, in _do_call
-    raise CommandInvokeError(self, e) from e
-discord.app_commands.errors.CommandInvokeError: Command 'exam' raised an exception: NotFound: 404 Not Found (error code: 10062): Unknown interaction
-[2026-07-03 23:03:39] [ERROR   ] discord.client: Ignoring exception in on_message
-Traceback (most recent call last):
-  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
-    await coro(*args, **kwargs)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 69, in on_message
-    await testing.on_message(client, message)
-  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\testing.py", line 60, in on_message
-    if message.guild.id != 1521507251565756447:
-       ^^^^^^^^^^^^^^^^
-AttributeError: 'NoneType' object has no attribute 'id'
-[2026-07-03 23:06:35] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 3ba45329eabb4be5595d04b3c940f2f4.
-[2026-07-03 23:07:02] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 3ba45329eabb4be5595d04b3c940f2f4.
-[2026-07-04 00:08:22] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 3ba45329eabb4be5595d04b3c940f2f4.
+[2026-07-08 15:04:29] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 7d1ebecd5c5402550027ee2b9378cf63.

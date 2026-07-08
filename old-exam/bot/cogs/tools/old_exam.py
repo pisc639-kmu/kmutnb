@@ -1,11 +1,10 @@
 import json
-import sys
 import os
 from pathlib import Path
-import posixpath
 import re
 import ast
 
+import asyncio
 import discord
 
 base_path = Path("D:\\kmutnb\\old-exam\\")
@@ -24,11 +23,21 @@ def create_regex_replacer(mapping):
     group_to_target = {f"g{i}": target for i, (_, target) in enumerate(flat)}
     
     # Inject word boundaries \b around every sub-pattern and compile with re.IGNORECASE
-    master_regex = re.compile(
-        # "|".join(f"(?P<g{i}>\\b{p}\\b)" for i, (p, _) in enumerate(flat)), 
-        "|".join(f"(?P<g{i}>{p})" for i, (p, _) in enumerate(flat)), 
-        flags=re.IGNORECASE
-    )
+    try:
+        master_regex = re.compile(
+            # "|".join(f"(?P<g{i}>\\b{p}\\b)" for i, (p, _) in enumerate(flat)), 
+            "|".join(f"(?P<g{i}>{p})" for i, (p, _) in enumerate(flat)), 
+            flags=re.IGNORECASE
+        )
+    except re.error as e:
+        print(f"Error compiling regex: {e}")
+        # test each to find which is causing error
+        for i, (p, _) in enumerate(flat):
+            try:
+                re.compile(f"(?P<g{i}>{p})")
+            except re.error as e:
+                print(f"Error compiling regex: {e}")
+                print(f"Pattern causing error: {p}")
     
     # Return the dynamic replacer function
     return lambda text: master_regex.sub(
@@ -47,28 +56,28 @@ mapping = {
     
     # 2. Main Course Subjects
     "mathematics": [r"math(s)?", r"mathe?"],
-    "mechanics": [r"phys(ics)?", r"mech(anics)?"],
+    "mechanics": [r"phys(ics?)?", r"mech(anics?)?"],
     "chemistry": r"chem(istry)?",
-    "computer": r"comp(ut)?",
+    "computer": r"comp?(ut)?e?r?",
     
     # 3. Common Context Modifiers & Abbreviations
-    "engineering": r"eng(ineer)?",
-    "introduction to": r"intro(duction)?",
+    "engineering": r"eng(ineer)?i?n?g?",
+    "introduction to": r"intro(duct)?(ion)?s?",
     "fundamental": r"fund(amental)?",
-    "systems": "sys",
-    "materials": "mat",
-    "communicative": "comm",
-    "programming": "prog",
-    "circuit": "circ(uit)?s?",
+    "systems": r"sys(tem)?s?",
+    "materials": r"mat(erial)?s?",
+    "communicative": r"comm",
+    "programming": r"prog(ramm?)?i?n?g?",
+    "circuit": r"circ(uit)?s?",
     
     # 4. Computer-aided acronym extensions
     "computer-aided design": "cad",
     "computer-aided manufacturing": "cam",
 
     # 5. Popular Course Abbreviations
-    "electrical": "elect?r?i?c?a?l?",
+    "electrical": r"elect?r?i?c?(a?l?|c?i?t?y?)?s?",
     "phenomena": "pheno?m?e?n?a?",
-    "drawing": "draw?",
+    "drawing": "draw?i?n?g?",
 }
 
 # # Example usage:
@@ -96,7 +105,8 @@ def format_query2(query:str) -> str:
 
 def check_query(query:str, line:str) -> bool:
     # print("q", format_query2(query))
-    return format_query2(standardize_text(query)) in format_query2(standardize_text(line))
+    # return format_query2(standardize_text(query)) in format_query2(standardize_text(line))
+    return query in format_query2(standardize_text(line))
 
 def search_files(query:str, in_database=True, limit=250):
     files = []
@@ -105,6 +115,9 @@ def search_files(query:str, in_database=True, limit=250):
         with open(Path(__file__).parents[3] / "files.csv", "r", encoding="utf-8") as f:
             lines = f.readlines()[1:-1]
             # print(len(lines))
+            query_formatted1 = format_query(query, removequotes=False)
+            query_formatted2 = format_query(query, removequotes=True)
+            query_formatted3 = format_query2(standardize_text(query))
             for line in lines:
                 line = line.lower()
                 # print(line)
@@ -115,11 +128,12 @@ def search_files(query:str, in_database=True, limit=250):
                         print(line[170:])
                     is_match = False
 
-                    if check_query(re.sub(r"[\'\"]+", '"', (format_query(query, removequotes=False) + '"')), line) or query in str(fpath):
+                    # if check_query(re.sub(r"[\'\"]+", '"', (query_formatted1 + '"')), line) or query in str(fpath):
+                    if check_query(query_formatted3, line) or query in str(fpath):
                         is_match = True
                     
                     # print(query, line)
-                    if format_query(query).isdigit() and format_query(query) in line:
+                    if query_formatted2.isdigit() and query_formatted2 in line:
                         is_match = True
                         # print(1)
 
@@ -240,6 +254,7 @@ async def on_interaction_handler(interaction: discord.Interaction):
     if interaction.type != discord.InteractionType.component:
         return
     print(f"Interaction data: {interaction.data}")
+    print(f"Interaction author: {interaction.user}")
     
     custom_id = interaction.data.get("custom_id", "")
     if custom_id.startswith("download:"):
@@ -280,15 +295,35 @@ async def on_interaction_handler(interaction: discord.Interaction):
         except discord.errors.NotFound:
             loading_message = await interaction.message.reply(view=loading_view, files=loading_files)
 
+        dm_channel = None
+        dm_message = None
+
+        try:
+            user = interaction.user
+            dm_channel = user.dm_channel
+            if dm_channel is None:
+                try:
+                    dm_channel = await user.create_dm()
+                except discord.Forbidden:
+                    dm_channel = None
+            if dm_channel:
+                dm_message = await dm_channel.send(view=loading_view, files=loading_files)
+        except Exception as e:
+            print(e)
         print(text)
         
 
         # Handle the download logic here
         # await interaction.response.send_message(f"Downloading file from: {safe_path}", ephemeral=True)
-        if custom_file_name:
-            file = discord.File(safe_path, filename=custom_file_name)
-        else:
-            file = discord.File(safe_path)
+        with open(safe_path, "rb") as f:
+            file_bytes = f.read()
+            file_name
+            if custom_file_name:
+                file_res = discord.File(safe_path, filename=custom_file_name)
+                file_dm = discord.File(safe_path, filename=custom_file_name)
+            else:
+                file_res = discord.File(safe_path)
+                file_dm = discord.File(safe_path)
 
 
         main_view = discord.ui.LayoutView()
@@ -296,13 +331,28 @@ async def on_interaction_handler(interaction: discord.Interaction):
         main_container = discord.ui.Container()
         main_view.add_item(main_container)
 
-        text = f"## {file.filename}"
+        text = f"## {file_name}"
 
         main_container.add_item(discord.ui.TextDisplay(text))
         main_container.add_item(seperator)
-        main_container.add_item(discord.ui.File(f"attachment://{file.filename}"))
+        main_container.add_item(discord.ui.File(f"attachment://{file_res.filename}"))
         if isinstance(loading_message, discord.Message):
-            await loading_message.edit(view=main_view, attachments=[file])
+            tasks = [loading_message.edit(view=main_view, attachments=[file_res])]
+            if dm_message:
+                tasks.append(dm_message.edit(view=main_view, attachments=[file_dm]))
+            results = await asyncio.gather(*tasks, return_exceptions=True)
+
+            dm_result = results[1]
+            int_result = results[0]
+            if isinstance(dm_result, discord.Forbidden):
+                print("Failed to edit DM: User blocked the bot or closed DMs.")
+            elif isinstance(dm_result, Exception):
+                print(f"DM edit failed due to another error: {dm_result}")
+            else:
+                print("DM edit successful!")
+            
+            if isinstance(int_result, Exception):
+                print(f"Interaction edit failed: {int_result}")
         else:
             try:
                 await interaction.edit_original_response(view=main_view, attachments=[file])
