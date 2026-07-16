@@ -1,13 +1,5 @@
-import subprocess
-import sys
-
-target = "cp.py"
-cmd = [sys.executable, target] + sys.argv[1:]
-
-try:
-    result = subprocess.run(cmd, check=True)
-except KeyboardInterrupt:
-    sys.exit()
-except subprocess.CalledProcessError as e:
-    print(f"Error occorred while running {target}: {e}")
-    sys.exit(e.returncode)
+B='cp.py'
+import subprocess as C,sys as A
+try:E=C.run([A.executable,B]+A.argv[1:],check=True)
+except KeyboardInterrupt:A.exit()
+except C.CalledProcessError as D:print(f"Error occorred while running {B}: {D}");A.exit(D.returncode)

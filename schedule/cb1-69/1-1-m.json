@@ -210,7 +210,7 @@
                 "name-th": "วงจรไฟฟ้า",
                 "from": "8",
                 "to": "10",
-                "room": "",
+                "room": "90-501",
                 "section": "S.1",
                 "instructor": [
                     {
@@ -227,7 +227,7 @@
                 "name-th": "คณิตศาสตร์ 1",
                 "from": "8",
                 "to": "10",
-                "room": "",
+                "room": "90-501",
                 "section": "S.13",
                 "instructor": [
                     {
@@ -239,13 +239,13 @@
         ],
         "Wednesday 5 Aug": [
             {
-                "code": "031001131",
-                "name-en": "Mathematics 1",
-                "name-th": "คณิตศาสตร์ 1",
+                "code": "031001133",
+                "name-en": "Mathematics III",
+                "name-th": "คณิตศาสตร์ 3",
                 "from": "8",
                 "to": "10",
-                "room": "",
-                "section": "S.13",
+                "room": "90-408",
+                "section": "S.15",
                 "instructor": [
                     {
                         "name-en": "Ajarn.PICHAYA JARUTATROD",

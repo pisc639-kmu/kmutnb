@@ -315,15 +315,54 @@ async def on_interaction_handler(interaction: discord.Interaction):
 
         # Handle the download logic here
         # await interaction.response.send_message(f"Downloading file from: {safe_path}", ephemeral=True)
-        with open(safe_path, "rb") as f:
-            file_bytes = f.read()
-            file_name
-            if custom_file_name:
-                file_res = discord.File(safe_path, filename=custom_file_name)
-                file_dm = discord.File(safe_path, filename=custom_file_name)
+        try:
+            with open(safe_path, "rb") as f:
+                file_bytes = f.read()
+                file_name
+                if custom_file_name:
+                    file_res = discord.File(safe_path, filename=custom_file_name)
+                    file_dm = discord.File(safe_path, filename=custom_file_name)
+                else:
+                    file_res = discord.File(safe_path)
+                    file_dm = discord.File(safe_path)
+        except FileNotFoundError:
+            # When Drive D: SSD is "NOT CONNECTED" to the pc
+            main_view = discord.ui.LayoutView()
+
+            main_container = discord.ui.Container()
+            main_view.add_item(main_container)
+
+            text = f"## {file_name}"
+
+            main_container.add_item(discord.ui.TextDisplay(text))
+            main_container.add_item(seperator)
+            # main_container.add_item(discord.ui.TextDisplay("**\u26A0\uFE0F Error:** Database is not connected. Please try again later."))
+            main_container.add_item(discord.ui.TextDisplay("### **[Error]**: Database is not connected. Please try again later."))
+
+            if isinstance(loading_message, discord.Message):
+                tasks = [loading_message.edit(view=main_view)]
+                if dm_channel:
+                    tasks.append(dm_message.delete())
+                    tasks.append(dm_channel.send(view=main_view))
+                results = await asyncio.gather(*tasks, return_exceptions=True)
+
+                dm_result = results[1]
+                int_result = results[0]
+                if isinstance(dm_result, discord.Forbidden):
+                    print("Failed to edit DM: User blocked the bot or closed DMs.")
+                elif isinstance(dm_result, Exception):
+                    print(f"DM edit failed due to another error: {dm_result}")
+                else:
+                    print("DM edit successful!")
+                
+                if isinstance(int_result, Exception):
+                    print(f"Interaction edit failed: {int_result}")
             else:
-                file_res = discord.File(safe_path)
-                file_dm = discord.File(safe_path)
+                try:
+                    await interaction.edit_original_response(view=main_view, attachments=[file_res])
+                except discord.errors.NotFound:
+                    await interaction.message.reply(file=file_res)
+            return
 
 
         main_view = discord.ui.LayoutView()
@@ -355,10 +394,10 @@ async def on_interaction_handler(interaction: discord.Interaction):
                 print(f"Interaction edit failed: {int_result}")
         else:
             try:
-                await interaction.edit_original_response(view=main_view, attachments=[file])
+                await interaction.edit_original_response(view=main_view, attachments=[file_res])
                 # when timed out
             except discord.errors.NotFound:
-                await interaction.message.reply(file=file)
+                await interaction.message.reply(file=file_res)
 
         print(text)
 

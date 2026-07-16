@@ -31,7 +31,7 @@ D:\kmutnb\old-exam\2567\term 2\midterm\031001124 s15-18.pdf
 D:\kmutnb\old-exam\2568\term 2\midterm\031001124 s15-17.pdf
 """
 department = "ee"
-term_code = "2-2-m"
+term_code = "1-1-m"
 
 term = "-".join(term_code.split("-")[:2])
 with open("subjects.json", "r", encoding="utf-8") as f:
