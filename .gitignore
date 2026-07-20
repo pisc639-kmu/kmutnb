@@ -11,6 +11,7 @@ __pycache__
 storage
 *.db
 *.sqlite
+*.log
 
 #wrangler files
 .wrangler
