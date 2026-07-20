@@ -216,6 +216,24 @@
             });
 
             exam.appendChild(examtbody);
+
+            // <p class="text-center text-gray-600 dark:text-gray-300 text-sm">This timetable is provided for informational purposes only and is not an official source. It may contain errors or outdated information. Please verify the official timetable<a class="underline ml-1" href="https://vichakarn.cit.kmutnb.ac.th/room.html" target="_blank" rel="noopener">here</a>.</p>
+            const disclaimer_p = document.createElement('p');
+            disclaimer_p.classList.add('text-center', 'text-gray-600', 'dark:text-gray-300', 'text-sm');
+
+            const disclaimer_text_begin = document.createTextNode("This timetable is provided for informational purposes only and is not an official source. It may contain errors or outdated information. Please verify the official timetable");
+
+            const disclaimer_a = document.createElement('a');
+            disclaimer_a.classList.add('underline', 'ml-1');
+            disclaimer_a.setAttribute('href', 'https://vichakarn.cit.kmutnb.ac.th/room.html');
+            disclaimer_a.setAttribute('target', '_blank');
+            disclaimer_a.setAttribute('rel', 'noopener');
+            disclaimer_a.textContent = "here";
+
+            const disclaimer_text_end = document.createTextNode('.');
+
+            disclaimer_p.appendChild(disclaimer_text_begin, disclaimer_a, disclaimer_text_end);
+            exam.parentElement.appendChild(disclaimer_p);
         } else {
             document.getElementById('exams').classList.add('hidden');
         }
