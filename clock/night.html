@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E25 - Clock</title>
+    {% include "head.html" %}
+</head>
+<body class="dark bg-gray-100 dark:bg-black">
+    {% include "nav.html" %}
+    <!-- <div class="flex items-center justify-center space-x-4 mt-16">
+        <h1 class="text-4xl font-bold mb-4 text-gray-800 dark:text-white">Clock</h1>
+    </div> -->
+    
+    <!-- <div id="screen" class="bg-black h-full flex flex-col items-center justify-center bg-[url(https://cdn.wallpapersafari.com/53/78/P1BRkw.jpg)] bg-cover bg-center"> -->
+    <div id="screen" class="bg-black h-full flex flex-col items-center justify-center">
+        <span class="scale-[45%] md:scale-[80%] lg:scale-[100%] flex flex-col items-center justify-center">
+            <div id="main" class="mt-16 flex relative space-x-6 justify-center">
+                <!-- <div class="digit hidden">
+                    <div class="row flex">
+                        <div class="clock">
+                            <div class="hand"></div>
+                            <div class="hand"></div>
+                        </div>
+                        <div class="clock">
+                            <div class="hand"></div>
+                            <div class="hand"></div>
+                        </div>
+                    </div>
+                    <div class="row flex">
+                        <div class="clock">
+                            <div class="hand"></div>
+                            <div class="hand"></div>
+                        </div>
+                        <div class="clock">
+                            <div class="hand"></div>
+                            <div class="hand"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="digit grid grid-cols-3 w-[9rem] hidden">
+                    <div class="clock">
+                        <div class="hand">1</div>
+                        <div class="hand"></div>
+                    </div>
+                    <div class="clock">
+                        <div class="hand">2</div>
+                        <div class="hand"></div>
+                    </div>
+                    <div class="clock">
+                        <div class="hand">3</div>
+                        <div class="hand"></div>
+                    </div>
+                    <div class="clock">
+                        <div class="hand">4</div>
+                        <div class="hand"></div>
+                    </div>
+                </div> -->
+            </div>
+            <h1 id="time-text" class="text-6xl font-bold text-white mt-10 lg:mb-4 lg:mt-16"></h1>
+            <div id="time" class="mt-0 flex relative space-x-6 justify-center" style="scale: 0.5;">
+        </span>
+    </div>
+
+    <style>
+        #time-text {
+            font-family: "Fredoka", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            font-variation-settings:
+                "wdth" 100;
+        }
+        /* #main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        } */
+
+        .clock {
+            width: 2rem;
+            height: 2rem;
+            /* background: oklch(20% 0 0);
+            border: 0.125rem solid oklch(30% 0 0); */
+            background: oklch(0% 0 0);
+            border: 0.125rem solid oklch(0% 0 0);
+            position: relative;
+        }
+
+        .hand {
+            height: 0.1875rem;
+            /* height: 0.09375rem; */
+            /* background: oklch(0.9475 0.1916 119.15); */
+            background: oklch(100% 0 0); 
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            translate: 0% -50%;
+            width: 50%;
+            transform-origin: center left;
+            opacity: 1;
+            /* transition: opacity 250ms ease-in-out; */
+            transition: rotate 0.5s linear, opacity 250ms ease-in-out;
+            rotate: 45deg;
+        }
+
+        .hand:nth-child(1) {
+            z-index: 1;
+        }
+
+        .hand:nth-child(2) {
+            z-index: 2;
+        }
+    </style>
+    
+    <script>
+        function createDigitElement(parent) {
+            const digit = document.createElement('div');
+            // digit.classList.add('digit');
+            // for (let i = 0; i < 5; i++) {
+            //     const row = document.createElement('div');
+            //     row.classList.add('row', 'flex');
+            //     for (let j = 0; j < 3; j++) {
+            //         const clock = document.createElement('div');
+            //         clock.classList.add('clock');
+            //         for (let k = 0; k < 2; k++) {
+            //             const hand = document.createElement('div');
+            //             hand.classList.add('hand');
+            //             clock.appendChild(hand);
+            //         }
+            //         row.appendChild(clock);
+            //     }
+            //     digit.appendChild(row);
+            // }
+            digit.classList.add('digit', 'grid', 'grid-cols-4', 'w-[8rem]');
+            for (let i = 0; i < 24; i++) {
+                const clock = document.createElement('div');
+                clock.classList.add('clock');
+                for (let k = 0; k < 2; k++) {
+                    const hand = document.createElement('div');
+                    hand.classList.add('hand');
+                    hand.style.rotate = '45deg';
+                    clock.appendChild(hand);
+                }
+                digit.appendChild(clock);
+            }
+            parent.appendChild(digit);
+        }
+        function createNumberElement(parent, digits) {
+            const number = document.createElement('div');
+            number.classList.add('number', 'flex', 'relative');
+            for (let i = 0; i < digits; i++) {
+                createDigitElement(number);
+            }
+            parent.appendChild(number);
+        }
+        for (let i = 0; i < 3; i++) {
+            createNumberElement(document.getElementById('main'), 2);
+        }
+
+        const angles = {
+            "┌": [0, 90],
+            "┐": [90, 180],
+            "┘": [180, 270],
+            "└": [270, 360],
+            "-": [0, 180],
+            "|": [90, 270],
+            " ": [135, 315],
+            "a": [90, 90],
+            "b": [270, 270],
+            "c": [45, 180],
+            "d": [90, 225],
+            "e": [45, 270],
+            "f": [0, 225],
+            "g": [0, 135],
+            "h": [270, 135],
+            "i": [90, 45],
+            "j": [90, 135],
+            "k": [90, 315],
+            "l": [270, 315],
+            "m": [270, 225],
+            "n": [315, 180],
+            "o": [90, 215],
+        };
+
+        const digits = {
+            "0": `
+┌--┐
+|┌┐|
+||||
+||||
+|└┘|
+└--┘
+            `,
+
+            "1": `
+┌-┐ 
+└┐| 
+ || 
+ || 
+┌┘└┐
+└--┘
+            `,
+
+            "2": `
+┌--┐
+└-┐|
+┌-┘|
+|┌-┘
+|└-┐
+└--┘
+            `,
+
+            "3": `
+┌--┐
+└-┐|
+ ┌┘|
+ └┐|
+┌-┘|
+└--┘
+            `,
+
+            "4": `
+┌┐┌┐
+||||
+|└┘|
+└-┐|
+  ||
+  └┘
+            `,
+
+            "5": `
+┌--┐
+|┌-┘
+|└-┐
+└-┐|
+┌-┘|
+└--┘
+            `,
+
+            "6": `
+┌--┐
+|┌-┘
+|└-┐
+|┌┐|
+|└┘|
+└--┘
+            `,
+
+            "7": `
+┌--┐
+└-┐|
+  ||
+  ||
+  ||
+  └┘
+            `,
+
+            "8": `
+┌--┐
+|┌┐|
+|└┘|
+|┌┐|
+|└┘|
+└--┘
+            `,
+
+            "9": `
+┌--┐
+|┌┐|
+|└┘|
+└-┐|
+┌-┘|
+└--┘
+            `,
+
+            "S": `
+┌--┐
+|┌-┘
+|└-┐
+└-┐|
+┌-┘|
+└--┘
+            `,
+
+            "U": `
+┌┐┌┐
+||||
+||||
+||||
+|└┘|
+└--┘
+            `,
+
+            "N": `
+┌c┌┐
+| d|
+|a||
+||b|
+|e |
+└┘f┘
+            `,
+
+            "M": `
+┌┐┌┐
+|eh|
+|ij|
+||||
+||||
+└┘└┘
+            `,
+
+            "O": `
+┌--┐
+|┌┐|
+||||
+||||
+|└┘|
+└--┘
+            `,
+
+            "T": `
+┌--┐
+└┐┌┘
+ || 
+ || 
+ || 
+ └┘ 
+            `,
+
+            "E": `
+┌--┐
+|┌-┘
+|└┐ 
+|┌┘ 
+|└-┐
+└--┘ 
+            `,
+
+            "W": `
+┌┐┌┐
+||||
+||||
+|lm|
+|kd|
+└┘└┘
+            `,
+
+            "D": `
+┌-c 
+|┌┐d
+||||
+||||
+|└┘h
+└-n 
+            `,
+
+            "H": `
+┌┐┌┐
+||||
+|└┘|
+|┌┐|
+||||
+└┘└┘
+            `,
+
+            "R": `
+┌-c 
+|┌┐d
+|└┘|
+|┌┐|
+||||
+└┘└┘
+            `,
+
+            "F": `
+┌--┐
+|┌-┘
+|└┐ 
+|┌┘ 
+||  
+└┘  
+            `,
+
+            "I": `
+┌--┐
+└┐┌┘
+ || 
+ || 
+┌┘└┐
+└--┘
+            `,
+
+            "A": `
+ gc 
+k┌┐d
+|└┘|
+|┌┐|
+||||
+└┘└┘
+            `,
+
+            "!": `
+abcd
+efgh
+ijkl
+mno 
+    
+    
+            `,
+        };
+        // digits = digits.map(digit => digit.slice(1,25));
+        Object.keys(digits).forEach(key => digits[key] = digits[key].replace(/[\r\n]+/gm, '').slice(0, 24).split(''));
+
+        function setDigit(element, digit) {
+            for (let [cellIndex, cell] of Array.from(element.children).entries()) {
+                const hands = cell.children;
+                if (hands[0].style.transition !== angles[digits[digit][cellIndex]][0]) {
+                    hands[0].style.transition = `rotate ${Math.abs(Number(hands[0].style.rotate.slice(0, -3)) - angles[digits[digit][cellIndex]][0]) / 360 / 0.5 * (0.2 + Math.random() * 0.1)}s ease-in, opacity 250ms ease-in-out`;
+                    // hands[0].style.transition = `rotate 0.5s linear, opacity 250ms ease-in-out`;
+                    hands[0].style.rotate = `${angles[digits[digit][cellIndex]][0]}deg`;
+                    hands[0].style.opacity = `${digits[digit][cellIndex] === " " ? 1 : 1}`;
+                };
+                if (hands[1].style.transition !== angles[digits[digit][cellIndex]][1]) {
+                    hands[1].style.transition = `rotate ${Math.abs(Number(hands[1].style.rotate.slice(0, -3)) - angles[digits[digit][cellIndex]][1]) / 360 / 0.5 * (0.2 + Math.random() * 0.1)}s ease-in, opacity 250ms ease-in-out`;
+                    // hands[1].style.transition = `rotate 0.5s linear, opacity 250ms ease-in-out`;
+                    hands[1].style.rotate = `${angles[digits[digit][cellIndex]][1]}deg`;
+                    hands[1].style.opacity = `${digits[digit][cellIndex] === " " ? 1 : 1}`;
+                };
+                const delay = cellIndex / digits[digit].length / 4
+                hands[0].style.transitionDelay = `${delay}s, ${delay}s`;
+                hands[1].style.transitionDelay = `${delay}s, ${delay}s`;
+            }
+        }
+
+        function setNumber(element, number) {
+            for (let [Index, digit] of Array.from(element.children).entries()) {
+                setDigit(digit, String(number).padStart(2, '0').split('')[Index]);
+            }
+        }
+
+        // createDigitElement(document.getElementById('main'));
+        // createDigitElement(document.getElementById('main'));
+        // setTimeout(() => {
+        //     setDigit(
+        //         document.getElementById('main').children[3],
+        //         'I'
+        //     );
+        // }, 1)
+        // setDigit(document.getElementById('main').children[4], '!');
+        createNumberElement(document.getElementById('time'), 3);
+        createNumberElement(document.getElementById('time'), 2);
+        createNumberElement(document.getElementById('time'), 2);
+        createNumberElement(document.getElementById('time'), 4);
+
+        // const digit = document.getElementById('main').children[0];
+        // for(let [index, row] of digit.children.entries()) {
+        //     for(let [cellIndex, cell] of row.children.entries()) {
+        //         const hands = cell.children;
+        //         hands[0].style.rotate = `${angles[index][0]}deg`;
+        //         hands[1].style.rotate = `${angles[index][1]}deg`;
+        //     }
+        // }
+        // for(let [cellIndex, cell] of Array.from(digit.children).entries()) {
+        //     const hands = cell.children;
+        //     hands[0].style.rotate = `${angles[digits[2][cellIndex]][0]}deg`;
+        //     hands[1].style.rotate = `${angles[digits[2][cellIndex]][1]}deg`;
+        // }
+
+        function tick() {
+            const main = document.getElementById('main');
+            // for (const number of main.children) {
+            //     setNumber(number, Math.floor(Math.random() * 100));
+            // }
+            setNumber(main.children[0], new Date().getHours());
+            setNumber(main.children[1], new Date().getMinutes());
+            setNumber(main.children[2], new Date().getSeconds());
+            // for (let [cellIndex, cell] of Array.from(digit.children).entries()) {
+            //     const hands = cell.children;
+            //     hands[0].style.rotate = `${angles[digits[3][cellIndex]][0]}deg`;
+            //     hands[1].style.rotate = `${angles[digits[3][cellIndex]][1]}deg`;
+            // }
+            const timeText = document.getElementById('time-text');
+            // timeText.textContent = new Date().toLocaleTimeString();
+            const Days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            const Months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            timeText.textContent = `${Days[new Date().getDay()]}, ${new Date().getDate()} ${Months[new Date().getMonth()]} ${new Date().getFullYear()}`;
+
+            const timeElement = document.getElementById('time');
+            setNumber(timeElement.children[0], Days[new Date().getDay()].slice(0, 3).toUpperCase());
+            setNumber(timeElement.children[1], new Date().getDate());
+            setNumber(timeElement.children[2], new Date().getMonth());
+            setNumber(timeElement.children[3], new Date().getFullYear());
+        }
+        
+        // tick()
+        setInterval(() => {
+            tick()
+        }, 50);
+        // setTimeout(() => {
+        //     const main = document.getElementById('main');
+        //     // main.requestFullscreen();
+        //     if (main.requestFullscreen) {
+        //         main.requestFullscreen();
+        //     } else if (main.webkitRequestFullscreen) { /* Safari */
+        //         main.webkitRequestFullscreen();
+        //     } else if (main.mozRequestFullScreen) { /* Firefox */
+        //         main.mozRequestFullScreen();
+        //     } else if (main.msRequestFullscreen) { /* IE11 */
+        //         main.msRequestFullscreen();
+        //     }
+        // }, 1000);
+        document.getElementById('screen').addEventListener('click', () => {
+            const main = document.getElementById('screen');
+            // main.requestFullscreen();
+            if (document.fullscreenElement) {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) { /* Safari */
+                    document.webkitExitFullscreen();
+                } else if (document.mozCancelFullScreen) { /* Firefox */
+                    document.mozCancelFullScreen();
+                } else if (document.msExitFullscreen) { /* IE11 */
+                    document.msExitFullscreen();
+                }
+            } else {
+                if (main.requestFullscreen) {
+                    main.requestFullscreen();
+                } else if (main.webkitRequestFullscreen) { /* Safari */
+                    main.webkitRequestFullscreen();
+                } else if (main.mozRequestFullScreen) { /* Firefox */
+                    main.mozRequestFullScreen();
+                } else if (main.msRequestFullscreen) { /* IE11 */
+                    main.msRequestFullscreen();
+                }
+            }
+        });
+        // document.getElementById('screen').addEventListener('wheel', (e) => {
+        //     const main = document.getElementById('screen');
+        //     if (e.deltaY < 0) {
+        //         main.style.scale /= 0.95;
+        //     } else if (e.deltaY > 0) {
+        //         main.style.scale *= 0.95;
+        //     }
+        // });
+    </script>
+
+    <script src="https://src.kmu.pisc.cc/script.min.js"></script>
+</body>
+</html>
+

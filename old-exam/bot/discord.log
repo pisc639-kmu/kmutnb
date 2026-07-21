@@ -1,4 +1,102 @@
-[2026-07-20 18:19:46] [INFO    ] discord.client: logging in using static token
-[2026-07-20 18:19:48] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 1702b747a6f0ae85ccd0da108e666b09).
-[2026-07-20 19:24:59] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 1702b747a6f0ae85ccd0da108e666b09.
-[2026-07-20 19:47:22] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 1702b747a6f0ae85ccd0da108e666b09.
+[2026-07-21 13:38:15] [INFO    ] discord.client: logging in using static token
+[2026-07-21 13:38:17] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 76605366e5ba5d53d67d5b3e68719874).
+[2026-07-21 13:42:02] [ERROR   ] discord.ui.view: Ignoring exception in view <SearchLayoutView timeout=180.0 children=1> for item <Button style=<ButtonStyle.primary: 1> url=None disabled=False label='>' emoji=None row=None sku_id=None id=None>
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\ui\view.py", line 598, in _scheduled_task
+    await item.callback(interaction)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 606, in right_button_callback
+    await interaction.response.edit_message(view=self)
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\interactions.py", line 1234, in edit_message
+    data = await adapter.create_interaction_response(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\webhook\async_.py", line 226, in request
+    raise HTTPException(response, data)
+discord.errors.HTTPException: 400 Bad Request (error code: 50035): Invalid Form Body
+In data.components.0.components.3.accessory.custom_id: Must be between 1 and 100 in length.
+[2026-07-21 13:42:09] [WARNING ] discord.ui.view: View interaction referencing unknown view for item <Button style=<ButtonStyle.primary: 1> url=None disabled=False label='>' emoji=None row=None sku_id=None id=None>. Discarding
+[2026-07-21 13:44:09] [ERROR   ] discord.ui.view: Ignoring exception in view <SearchLayoutView timeout=180.0 children=1> for item <Button style=<ButtonStyle.primary: 1> url=None disabled=False label='>' emoji=None row=None sku_id=None id=None>
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\ui\view.py", line 598, in _scheduled_task
+    await item.callback(interaction)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\tools\old_exam.py", line 606, in right_button_callback
+    await interaction.response.edit_message(view=self)
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\interactions.py", line 1234, in edit_message
+    data = await adapter.create_interaction_response(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\webhook\async_.py", line 226, in request
+    raise HTTPException(response, data)
+discord.errors.HTTPException: 400 Bad Request (error code: 50035): Invalid Form Body
+In data.components.0.components.3.accessory.custom_id: Must be between 1 and 100 in length.
+[2026-07-21 13:44:13] [WARNING ] discord.ui.view: View interaction referencing unknown view for item <Button style=<ButtonStyle.primary: 1> url=None disabled=False label='>' emoji=None row=None sku_id=None id=None>. Discarding
+[2026-07-21 13:46:36] [ERROR   ] discord.app_commands.tree: Ignoring exception in command 'exam'
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 858, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 207, in _search
+    await interaction.followup.send(view=old_exam.SearchLayoutView(keyword=keyword))
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\webhook\async_.py", line 1909, in send
+    data = await adapter.execute_webhook(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\webhook\async_.py", line 226, in request
+    raise HTTPException(response, data)
+discord.errors.HTTPException: 400 Bad Request (error code: 50035): Invalid Form Body
+In components.0.components.6.accessory.custom_id: Must be between 1 and 100 in length.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\tree.py", line 1302, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 877, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'exam' raised an exception: HTTPException: 400 Bad Request (error code: 50035): Invalid Form Body
+In components.0.components.6.accessory.custom_id: Must be between 1 and 100 in length.
+[2026-07-21 14:06:35] [ERROR   ] discord.app_commands.tree: Ignoring exception in command 'exam'
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 858, in _do_call
+    return await self._callback(self.binding, interaction, **params)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\cogs\main_commands.py", line 207, in _search
+    await interaction.followup.send(view=old_exam.SearchLayoutView(keyword=keyword))
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\webhook\async_.py", line 1909, in send
+    data = await adapter.execute_webhook(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+    )
+    ^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\webhook\async_.py", line 226, in request
+    raise HTTPException(response, data)
+discord.errors.HTTPException: 400 Bad Request (error code: 50035): Invalid Form Body
+In components.0.components.6.accessory.custom_id: Must be between 1 and 100 in length.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\tree.py", line 1302, in _call
+    await command._invoke_with_namespace(interaction, namespace)
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 884, in _invoke_with_namespace
+    return await self._do_call(interaction, transformed_values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\app_commands\commands.py", line 877, in _do_call
+    raise CommandInvokeError(self, e) from e
+discord.app_commands.errors.CommandInvokeError: Command 'exam' raised an exception: HTTPException: 400 Bad Request (error code: 50035): Invalid Form Body
+In components.0.components.6.accessory.custom_id: Must be between 1 and 100 in length.
+[2026-07-21 15:29:00] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 76605366e5ba5d53d67d5b3e68719874.
+[2026-07-21 15:32:26] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 76605366e5ba5d53d67d5b3e68719874.
+[2026-07-21 19:28:03] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 76605366e5ba5d53d67d5b3e68719874.
+[2026-07-21 21:02:50] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 76605366e5ba5d53d67d5b3e68719874.
+[2026-07-21 23:04:23] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 76605366e5ba5d53d67d5b3e68719874.
+[2026-07-21 23:31:37] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 76605366e5ba5d53d67d5b3e68719874.

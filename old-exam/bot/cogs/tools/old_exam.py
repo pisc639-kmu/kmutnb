@@ -3,6 +3,7 @@ import os
 from pathlib import Path
 import re
 import ast
+import typing
 
 import asyncio
 import discord
@@ -38,6 +39,7 @@ def create_regex_replacer(mapping):
             except re.error as e:
                 print(f"Error compiling regex: {e}")
                 print(f"Pattern causing error: {p}")
+        master_regex = re.compile("|".join(re.escape(p) for p, _ in flat), flags=re.IGNORECASE)
     
     # Return the dynamic replacer function
     return lambda text: master_regex.sub(
@@ -61,7 +63,8 @@ mapping = {
     "computer": r"comp?(ut)?e?r?",
     
     # 3. Common Context Modifiers & Abbreviations
-    "engineering": r"eng(ineer)?i?n?g?",
+    "engi": r"engi(ne?e?r)?i?n?g?",
+    "engl": r"engl?(ish)?",
     "introduction to": r"intro(duct)?(ion)?s?",
     "fundamental": r"fund(amental)?",
     "systems": r"sys(tem)?s?",
