@@ -11,7 +11,7 @@ id: 1509399323107131422
 name: CB11
 description: None
 owner: pisc_639
-member count: 26
+member count: 27
 boost count: 0
 raid detected: False
 dm spam detected: False
@@ -29,7 +29,7 @@ id: 1522600384714113197
 name: ข้อสอบเก่า
 description: None
 owner: pisc_639
-member count: 3
+member count: 4
 boost count: 0
 raid detected: False
 dm spam detected: False

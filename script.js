@@ -158,7 +158,7 @@ function createClockForm() {
     document.body.appendChild(clockForm);
 }
 
-// createClockForm();
+createClockForm();
 
 document.body.setAttribute('class', '');
 // $('body').removeClass();
