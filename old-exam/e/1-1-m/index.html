@@ -12,49 +12,9 @@
         <h1 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Old Exam Year 1 Term 1 Midterm</h1>
     </div>
 
-    <div class="container mx-auto mt-8 overflow-x-auto shadow-md shadow-gray-400 dark:shadow-gray-800 hover:shadow-gray-500 dark:hover:shadow-gray-950">
-        <table id="subject-table" class="w-full border-collapse border border-gray-300 dark:border-gray-700">
-            <thead>
-                <tr class="border-x border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white">
-                    <th class="px-5 py-3">Subject</th>
-                    <th class="px-5 py-3">2010</th>
-                    <th class="px-5 py-3">2011</th>
-                    <th class="px-5 py-3">2012</th>
-                    <th class="px-5 py-3">2013</th>
-                    <th class="px-5 py-3">2014</th>
-                    <th class="px-5 py-3">2015</th>
-                    <th class="px-5 py-3">2016</th>
-                    <th class="px-5 py-3">2017</th>
-                    <th class="px-5 py-3">2018</th>
-                    <th class="px-5 py-3">2019</th>
-                    <th class="px-5 py-3">2020</th>
-                    <th class="px-5 py-3">2021</th>
-                    <th class="px-5 py-3">2022</th>
-                    <th class="px-5 py-3">2023</th>
-                    <th class="px-5 py-3">2024</th>
-                    <th class="px-5 py-3">2025</th>
-                </tr>
-            </thead>
-            <tbody id="table-body">
-            </tbody>
-        </table>
-    </div>
+    {% include "oldexamtable.html" %}
     <br><br>
-    <div id="iframe-container" class="container mx-auto display-none">
-        <h2 class="text-xl text-center font-bold mb-4 text-gray-800 dark:text-white flex flex-row items-center justify-center space-x-4">
-            <span class="flex flex-row items-center space-x-4">
-                <h2 class="text-xl font-bold text-gray-800 dark:text-white" id="iframe-title"></h2>
-            </span>
-            <a onclick="download_file();" class="items-center space-x-2 text-black dark:text-white hover:text-blue-500 dark:hover:text-blue-400">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8">
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                    <polyline points="7 10 12 15 17 10"/>
-                    <line x1="12" y1="15" x2="12" y2="3"/>
-                </svg>
-            </a>
-        </h2>
-        <iframe src="" frameborder="0" width="100%" height="" id="FileFrame" class="hidden md:hidden border border-gray-300 dark:border-gray-300"></iframe>
-    </div>
+    {% include "oldexamdownload.html" %}
     <script src="https://src.kmu.pisc.cc/script.min.js"></script>
     <script>
         const SubjectsFull = [

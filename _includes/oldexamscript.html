@@ -1,7 +1,7 @@
 <script>
     // window.addEventListener('scroll', function(event) {
     //     const navHeight = document.querySelector('nav').offsetHeight;
-    //     const iframe = document.getElementById('FileFrame');
+    //     const iframe = document.getElementById('file-frame');
     //     const iframeContainer = document.getElementById('iframe-container');
     //     const rect = iframe.getBoundingClientRect();
     //     if (rect.top <= window.innerHeight - navHeight && rect.bottom >= 0) {
@@ -16,8 +16,9 @@
     // });
 
     function download_file() {
-        const FileFrame = document.getElementById('FileFrame');
-        const rawUrl = FileFrame.getAttribute('raw');
+        const fileFrame = document.getElementById('file-frame');
+        const rawUrl = fileFrame.getAttribute('raw');
+        const downloadButton = document.getElementById('download-btn');
         
         // Safety check in case the attribute is missing
         if (!rawUrl) return; 
@@ -37,6 +38,7 @@
         
         document.body.appendChild(a);
         a.click();
+        downloadButton.href = a.href;
         document.body.removeChild(a);
     };
 
@@ -59,13 +61,13 @@
 
     function getFileUrl(path) {
         const [, , seg2, seg3] = new URL(window.location.href).pathname.split('/');
-        var Url = new URL(`https://api.kmu.pisc.cc/file/old-exam/${seg2}/${seg3}/${path}`);
+        var Url = new URL(`https://api.kmu.pisc.cc/download/old-exam/${seg2}/${seg3}/${path}`);
         return Url;
     };
 
     function openFile(path) {
         var source = getFileUrl(path);
-        const FrameElement = document.getElementById("FileFrame");
+        const FrameElement = document.getElementById("file-frame");
         const sourceStr = source ? String(source) : "";
         const cacheBuster = sourceStr.includes('?') ? `&cb=${Date.now()}` : `?cb=${Date.now()}`;
         const finalSource = sourceStr + cacheBuster;
@@ -82,10 +84,10 @@
         var navHeight = document.querySelector('nav').offsetHeight;
         FrameElement.style.height = `calc(100vh - ${navHeight}px)`;
         FrameElement.style.width = '100%';
-        // window.location.href = "#FileFrame";
+        // window.location.href = "#file-frame";
         FrameElement.addEventListener("load", () => {
             // window.scrollTo(0,document.body.scrollHeight);
-            document.getElementById("FileFrame")?.scrollIntoView({ behavior: "smooth" });
+            document.getElementById("file-frame")?.scrollIntoView({ behavior: "smooth" });
         })
 
         const IFrameTitle = document.getElementById("iframe-title");
