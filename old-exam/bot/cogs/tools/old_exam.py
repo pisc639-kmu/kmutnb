@@ -23,11 +23,10 @@ def create_regex_replacer(mapping):
     # Map group names like 'g0', 'g1' to targets
     group_to_target = {f"g{i}": target for i, (_, target) in enumerate(flat)}
     
-    # Inject word boundaries \b around every sub-pattern and compile with re.IGNORECASE
+    # Wrap each pattern with word boundaries \b
     try:
         master_regex = re.compile(
-            # "|".join(f"(?P<g{i}>\\b{p}\\b)" for i, (p, _) in enumerate(flat)), 
-            "|".join(f"(?P<g{i}>{p})" for i, (p, _) in enumerate(flat)), 
+            "|".join(f"(?P<g{i}>\\b(?:{p})\\b)" for i, (p, _) in enumerate(flat)), 
             flags=re.IGNORECASE
         )
     except re.error as e:
@@ -35,11 +34,11 @@ def create_regex_replacer(mapping):
         # test each to find which is causing error
         for i, (p, _) in enumerate(flat):
             try:
-                re.compile(f"(?P<g{i}>{p})")
+                re.compile(f"(?P<g{i}>\\b(?:{p})\\b)")
             except re.error as e:
                 print(f"Error compiling regex: {e}")
                 print(f"Pattern causing error: {p}")
-        master_regex = re.compile("|".join(re.escape(p) for p, _ in flat), flags=re.IGNORECASE)
+        master_regex = re.compile("|".join(r"\b" + re.escape(p) + r"\b" for p, _ in flat), flags=re.IGNORECASE)
     
     # Return the dynamic replacer function
     return lambda text: master_regex.sub(
@@ -49,12 +48,12 @@ def create_regex_replacer(mapping):
 
 mapping = {
     # 1. Roman Numerals Standardizations
-    "i": "1",
-    "ii": "2",
-    "iii": "3",
-    "iv": "4",
-    "v": "5",
-    "vi": "6",
+    "#iii": ["3", r"iii"],
+    "#ii": ["2", r"ii"],
+    "#iv": ["4", r"iv"],
+    "#vi": ["6", r"vi"],
+    "#v": ["5", r"v"],
+    "#i": ["1", r"i"],
     
     # 2. Main Course Subjects
     "mathematics": [r"math(s)?", r"mathe?"],
@@ -68,7 +67,7 @@ mapping = {
     "introduction to": r"intro(duct)?(ion)?s?",
     "fundamental": r"fund(amental)?",
     "systems": r"sys(tem)?s?",
-    "materials": r"mat(erial)?s?",
+    "materials": r"mate?r(ial)?s?",
     "communicative": r"comm",
     "programming": r"prog(ramm?)?i?n?g?",
     "circuit": r"circ(uit)?s?",
@@ -78,9 +77,11 @@ mapping = {
     "computer-aided manufacturing": "cam",
 
     # 5. Popular Course Abbreviations
-    "electrical": r"elect?r?i?c?(a?l?|c?i?t?y?)?s?",
+    "electrical": r"elect?r?o?n?i?c?(a?l?|c?i?t?y?)?s?",
     "phenomena": "pheno?m?e?n?a?",
     "drawing": "draw?i?n?g?",
+
+    # "#": r"#+",
 }
 
 # # Example usage:
@@ -90,7 +91,7 @@ mapping = {
 
 replacer = create_regex_replacer(mapping)
 def standardize_text(query:str):
-    return replacer(query)
+    return replacer(query).lower().strip()
 
 def format_query(query:str, removequotes=True) -> str:
     query = query.lower().strip()
@@ -104,6 +105,7 @@ def format_query2(query:str) -> str:
     query = re.sub(r'^"|".{0,2}$|^\,|,\s*,?', '', query)
     query = re.sub(r'[\s,\^\"\'-_]', '', query)
     query = re.sub(r'[s]', '', query)
+    query = re.sub(r'#+', '#', query)
     return query
 
 def check_query(query:str, line:str) -> bool:
@@ -111,59 +113,50 @@ def check_query(query:str, line:str) -> bool:
     # return format_query2(standardize_text(query)) in format_query2(standardize_text(line))
     return query in format_query2(standardize_text(line))
 
-def search_files(query:str, in_database=True, limit=250):
+def search_files(query:str, limit=250):
     files = []
     length = 0  
-    if in_database:
-        with open(Path(__file__).parents[3] / "files.csv", "r", encoding="utf-8") as f:
-            lines = f.readlines()[1:-1]
-            # print(len(lines))
-            query_formatted1 = format_query(query, removequotes=False)
-            query_formatted2 = format_query(query, removequotes=True)
-            query_formatted3 = format_query2(standardize_text(query))
-            for line in lines:
-                line = line.lower()
-                # print(line)
+    with open(Path(__file__).parents[3] / "files.csv", "r", encoding="utf-8") as f:
+        lines = f.readlines()[1:-1]
+        # print(len(lines))
+        query_formatted1 = format_query(query, removequotes=False)
+        query_formatted2 = format_query(query, removequotes=True)
+        query_formatted3 = format_query2(standardize_text(query))
+        print(f"Query: {query_formatted3}")
+        for line in lines:
+            line = line.lower()
+            # print(line)
+            try:
                 try:
-                    try:
-                        fpath = Path(base_path) / Path(ast.literal_eval(re.search(r"\"[^\"]+\"", line[155:]).group(0)))
-                    except:
-                        print(line[170:])
-                    is_match = False
-
-                    # if check_query(re.sub(r"[\'\"]+", '"', (query_formatted1 + '"')), line) or query in str(fpath):
-                    if check_query(query_formatted3, line) or query in str(fpath):
-                        is_match = True
-                    
-                    # print(query, line)
-                    if query_formatted2.isdigit() and query_formatted2 in line:
-                        is_match = True
-                        # print(1)
-
-                    if is_match:
-                        files.append({
-                            "path": str(fpath),
-                            "fsize": line.split(",")[-1].strip(),
-                        })
-                        length += 1
-                        if length >= limit:
-                            break
+                    fpath = Path(base_path) / Path(ast.literal_eval(re.search(r"\"[^\"]+\"", line[155:]).group(0)))
                 except:
-                    import traceback
-                    traceback.print_exc()
-                    # sys.exit()
-    else:
-        for root, dirs, files in os.walk(base_path):
-            for file in files:
-                if query in os.path.join(root, file):
-                    print(f"\"{os.path.join(root, file)}\"")
+                    print(line[170:])
+                is_match = False
+
+                # if check_query(re.sub(r"[\'\"]+", '"', (query_formatted1 + '"')), line) or query in str(fpath):
+                if check_query(query_formatted3, line) or query in str(fpath):
+                    is_match = True
+                # if "Mathematics III".lower()     in line:
+                #     print(query_formatted3, line, format_query2(standardize_text(line)))
+                #     break
+
+                # print(query, line)
+                if query_formatted2.isdigit() and query_formatted2 in line:
+                    is_match = True
+                    # print(1)
+
+                if is_match:
                     files.append({
-                        "path": str(os.path.join(root, file)),
-                        "fsize": os.path.getsize(os.path.join(root, file)),
+                        "path": str(fpath),
+                        "fsize": line.split(",")[-1].strip(),
                     })
                     length += 1
                     if length >= limit:
                         break
+            except:
+                import traceback
+                traceback.print_exc()
+                # sys.exit()
     return files
 
 def file_is_ep(file_path):
@@ -340,7 +333,7 @@ async def on_interaction_handler(interaction: discord.Interaction):
             main_container.add_item(discord.ui.TextDisplay(text))
             main_container.add_item(seperator)
             # main_container.add_item(discord.ui.TextDisplay("**\u26A0\uFE0F Error:** Database is not connected. Please try again later."))
-            main_container.add_item(discord.ui.TextDisplay("### **[Error]**: Database is not connected. Please try again later."))
+            main_container.add_item(discord.ui.TextDisplay("### **[\u26a0 Error]**: File Source is not connected. Please try again later, or contact @pisc_639"))
 
             if isinstance(loading_message, discord.Message):
                 tasks = [loading_message.edit(view=main_view)]

@@ -6,6 +6,7 @@ import datetime
 import os
 import importlib
 from cogs.tools import old_exam
+from cogs.tools.lib import unlock
 
 # class DownloadButton(discord.ui.Button):
 #     def __init__(self, file_path: str, custom_file_name: str = None):
@@ -145,6 +146,27 @@ from cogs.tools import old_exam
 #         self.make_view()
 #         await interaction.response.edit_message(view=self)
 
+class TextView(discord.ui.LayoutView):
+    def __init__(self, text:str):
+        loading_container = discord.ui.Container()
+
+        text_header = discord.ui.TextDisplay(
+            "# Library SmartRooom Protocol"
+        )
+        
+        divider = discord.ui.Separator(
+            spacing=discord.SeparatorSpacing.large, 
+            visible=True
+        )
+        
+        text_content = discord.ui.TextDisplay(text)
+        
+        super().__init__(timeout=60)
+        loading_container.add_item(text_header)
+        loading_container.add_item(divider)
+        loading_container.add_item(text_content)
+        self.add_item(loading_container)
+
 class MainCommands(commands.Cog):
     "Main Commands Related to Old Exam"
     def __init__(self, client: commands.Bot):
@@ -152,6 +174,7 @@ class MainCommands(commands.Cog):
 
     group = app_commands.Group(name="group", description="Comamnds Group.", guild_ids=[1521507251565756447])
     search_group = app_commands.Group(name="search", description="Search Commands Group.")
+    library_group = app_commands.Group(name="library", description="Library Commands Group.")
 
     @group.command(name="name", description="descriptzion")
     @app_commands.describe()
@@ -210,6 +233,21 @@ class MainCommands(commands.Cog):
     async def on_interaction(self, interaction: discord.Interaction):
         importlib.reload(old_exam)
         await old_exam.on_interaction_handler(interaction)
+
+    rooms = ["401", "402", "501", "502", "601", "602", "603", "604", "605", "606", "607", "701", "702", "703", "704", "705", "706", "707", "708", "709", "710", "711", "712", "713", "201", "202", "203", "204", "701", "702", "703", "704", "705", "706", "707", "708", "709", "710", "711", "712", "VR", "SmartBoard1", "SmartBoard2", "608", "609", "610"]
+    @library_group.command(name="list", description="List All Rooms")
+    async def _list(self, interaction: discord.Interaction):
+        await interaction.response.send_message(view=TextView("\n".join(["## Room List", "```", *[f'- {room}' for room in self.rooms], "```"])))
+
+    @library_group.command(name="lock", description="Lock Room")
+    @app_commands.describe(room="Room to Lock")
+    async def _lock(self, interaction: discord.Interaction, room: str):
+        await unlock.control_door_discord(room_code=room, status=0, interaction=interaction)
+
+    @library_group.command(name="unlock", description="Unlock Room")
+    @app_commands.describe(room="Room to Unlock")
+    async def _unlock(self, interaction: discord.Interaction, room: str):
+        await unlock.control_door_discord(room_code=room, status=1, interaction=interaction)
 
 
 async def setup(client: commands.Bot):
