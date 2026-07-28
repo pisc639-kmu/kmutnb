@@ -3,11 +3,11 @@ const _w = window;
 const _document = document;
 const _document_body = _document.body
 const _querySelector = (element, selector) => element.querySelector(selector);
-const _querySelectorAll = (element, selector) => element.querySelectorAll(selector);
-const _getElementById = (element, id) => element.getElementById(id);
+// const _querySelectorAll = (element, selector) => element.querySelectorAll(selector);
+// const _getElementById = (element, id) => {return element.getElementById(id)};
 const _document_querySelector = (selector) => _querySelector(_document, selector);
-const _document_querySelectorAll = (selector) => _querySelectorAll(_document, selector);
-const _document_getElementById = (id) => _getElementById(_document, id);
+// const _document_querySelectorAll = (selector) => _querySelectorAll(_document, selector);
+// const _document_getElementById = (id) => _getElementById(_document, id);
 const _document_createElement = (element) => _document.createElement(element);
 const _classList = (element) => element.classList;
 const _classList_add = (element, ...className) => _classList(element).add(...className);
@@ -54,10 +54,10 @@ const _addEventListener = (element, event, callback) => element.addEventListener
 
     // // insertNav();
 
-const mobileMenuButton = _getElementById('mobile-menu-button');
-const mobileMenu = _getElementById('mobile-menu');
-const menuIconOpen = _getElementById('menu-icon-open');
-const menuIconClose = _getElementById('menu-icon-close');
+const mobileMenuButton = _document_querySelector('#mobile-menu-button');
+const mobileMenu = _document_querySelector('#mobile-menu');
+const menuIconOpen = _document_querySelector('#menu-icon-open');
+const menuIconClose = _document_querySelector('#menu-icon-close');
 
 _addEventListener(mobileMenuButton, 'click', () => {
     _classList_toggle(mobileMenu, 'hidden');
@@ -189,7 +189,7 @@ function createClockForm() {
 
     const parser = new DOMParser();
     const doc = parser.parseFromString(clockFormHtml, 'text/html');
-    const clockForm = _getElementById(doc, 'clock-form');
+    const clockForm = _querySelector(doc, '#clock-form');
     _appendChild(_document_body, clockForm);
 }
 
