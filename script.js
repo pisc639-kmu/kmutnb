@@ -174,7 +174,7 @@ function createClockForm() {
     //                 stroke-linecap="round"
     //                 stroke-linejoin="round"
     //                 stroke-width="1"
-    //                 d="M6 1A1 1 0 006 11A1 1 0 006 1ZM6 3 6 6 8 7"
+    //                 d="M6 1A1 1 0 006 11A1 1 0 006 1M4 5 6 6 9 4"
     //                 ></path>
     //             </svg>
     //         </button>
@@ -183,7 +183,7 @@ function createClockForm() {
     // `;
 
     
-    const clockFormHtml = '<div><form id="clock-form" action="/clock" emthod="get"><button id="clock-page-button" class="bg-white dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 border border-neutral-200 dark:border-neutral-700 shadow-md w-12 h-12 rounded-lg flex items-center justify-center p-2 bottom-4 right-4 fixed"><svg class="transform transition-transform duration-300 justify-center" fill="none" stroke="currentColor" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path id="" class="" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M6 1A1 1 0 006 11A1 1 0 006 1ZM6 3 6 6 8 7"></path></svg></button></form></div>';
+    const clockFormHtml = '<div><form id="clock-form" action="/clock" emthod="get"><button id="clock-page-button" class="bg-white dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 border border-neutral-200 dark:border-neutral-700 shadow-md w-12 h-12 rounded-lg flex items-center justify-center p-2 bottom-4 right-4 fixed"><svg class="transform transition-transform duration-300 justify-center" fill="none" stroke="currentColor" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path id="" class="" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M6 1A1 1 0 006 11A1 1 0 006 1M4 5 6 6 9 4"></path></svg></button></form></div>';
 
     // const clockFormHtml = clockFormDiv();
 
