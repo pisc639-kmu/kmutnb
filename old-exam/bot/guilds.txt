@@ -11,7 +11,7 @@ id: 1509399323107131422
 name: CB11
 description: None
 owner: pisc_639
-member count: 32
+member count: 34
 boost count: 0
 raid detected: False
 dm spam detected: False
