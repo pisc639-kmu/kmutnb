@@ -165,7 +165,7 @@ _addEventListener(_w, 'resize', () => {
 function createClockForm() {
     // const clockFormHtml = `
     // <div>
-    //     <form id="clock-form" action="../clock" emthod="get">
+    //     <form id="clock-form" action="clock" emthod="get">
     //         <button id="clock-page-button" class="bg-white dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 border border-neutral-200 dark:border-neutral-700 shadow-md w-12 h-12 rounded-lg flex items-center justify-center p-2 bottom-4 right-4 fixed">
     //             <svg class="transform transition-transform duration-300 justify-center" fill="none" stroke="currentColor" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
     //                 <path
@@ -183,7 +183,7 @@ function createClockForm() {
     // `;
 
     
-    const clockFormHtml = '<div><form id="clock-form" action="../clock" emthod="get"><button id="clock-page-button" class="bg-white dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 border border-neutral-200 dark:border-neutral-700 shadow-md w-12 h-12 rounded-lg flex items-center justify-center p-2 bottom-4 right-4 fixed"><svg class="transform transition-transform duration-300 justify-center" fill="none" stroke="currentColor" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path id="" class="" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M 6 1 A 1 1 0 0 0 6 11 A 1 1 0 0 0 6 1 Z M 6 3 L 6 6 L 8 7"></path></svg></button></form></div>';
+    const clockFormHtml = '<div><form id="clock-form" action="clock"><button id="clock-page-button" class="bg-white dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 border border-neutral-200 dark:border-neutral-700 shadow-md w-12 h-12 rounded-lg flex items-center justify-center p-2 bottom-4 right-4 fixed"><svg class="transform transition-transform duration-300 justify-center" fill="none" stroke="currentColor" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path id="" class="" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M 6 1 A 1 1 0 0 0 6 11 A 1 1 0 0 0 6 1 Z M 6 3 L 6 6 L 8 7"></path></svg></button></form></div>';
 
     // const clockFormHtml = clockFormDiv();
 
