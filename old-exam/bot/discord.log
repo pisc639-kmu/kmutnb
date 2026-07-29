@@ -542,3 +542,88 @@ aiohttp.client_exceptions.ClientConnectorDNSError: Cannot connect to host gatewa
 [2026-07-28 08:54:50] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
 [2026-07-28 09:12:19] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
 [2026-07-28 10:07:58] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
+[2026-07-28 13:22:51] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
+[2026-07-28 13:57:10] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
+[2026-07-28 13:59:47] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
+[2026-07-28 14:00:20] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
+[2026-07-28 14:15:45] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
+[2026-07-28 14:24:34] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
+[2026-07-28 15:41:29] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
+[2026-07-28 16:09:20] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
+[2026-07-28 16:35:07] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
+[2026-07-28 16:38:31] [ERROR   ] discord.client: Attempting a reconnect in 1.13s
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 731, in connect
+    await self.ws.poll_event()
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\gateway.py", line 644, in poll_event
+    await self.received_message(msg.data)
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\gateway.py", line 549, in received_message
+    await self.send_as_json(beat)
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\gateway.py", line 681, in send_as_json
+    await self.send(utils._to_json(data))
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\gateway.py", line 677, in send
+    await self.socket.send_str(data)
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\client_ws.py", line 245, in send_str
+    await self._writer.send_frame(
+        data.encode("utf-8"), WSMsgType.TEXT, compress=compress
+    )
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\_websocket\writer.py", line 83, in send_frame
+    self._write_websocket_frame(message, opcode, 0)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\_websocket\writer.py", line 151, in _write_websocket_frame
+    raise ClientConnectionResetError("Cannot write to closing transport")
+aiohttp.client_exceptions.ClientConnectionResetError: Cannot write to closing transport
+[2026-07-28 16:38:31] [WARNING ] discord.gateway: Shard ID None heartbeat blocked for more than 10 seconds.
+Loop thread traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\_websocket\writer.py", line 119, in send_frame
+    if self._output_size > self._limit:
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\_websocket\writer.py", line 172, in _write_websocket_frame
+    self._output_size += header_len + msg_length
+  File "C:\Python314\Lib\asyncio\sslproto.py", line 222, in write
+    self._ssl_protocol._write_appdata((data,))
+  File "C:\Python314\Lib\asyncio\sslproto.py", line 697, in _write_appdata
+    self._do_write()
+
+[2026-07-28 16:38:34] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
+[2026-07-28 17:09:54] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
+[2026-07-28 17:16:47] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
+[2026-07-28 17:19:51] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
+[2026-07-28 17:36:44] [WARNING ] discord.gateway: Shard ID None heartbeat blocked for more than 10 seconds.
+Loop thread traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\_websocket\writer.py", line 119, in send_frame
+    if self._output_size > self._limit:
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\aiohttp\_websocket\writer.py", line 172, in _write_websocket_frame
+    self._output_size += header_len + msg_length
+  File "C:\Python314\Lib\asyncio\sslproto.py", line 222, in write
+    self._ssl_protocol._write_appdata((data,))
+  File "C:\Python314\Lib\asyncio\sslproto.py", line 697, in _write_appdata
+    self._do_write()
+  File "C:\Python314\Lib\asyncio\sslproto.py", line 716, in _do_write
+    self._process_outgoing()
+  File "C:\Python314\Lib\asyncio\sslproto.py", line 723, in _process_outgoing
+    self._control_app_writing()
+  File "C:\Python314\Lib\asyncio\proactor_events.py", line 366, in write
+    self._loop_writing(data=bytes(data))
+  File "C:\Python314\Lib\asyncio\proactor_events.py", line 410, in _loop_writing
+    if self._empty_waiter is not None and self._write_fut is None:
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 543, in send
+    ov.WSASend(conn.fileno(), buf, flags)
+
+[2026-07-28 17:36:45] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
+[2026-07-28 17:38:18] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
+[2026-07-28 17:56:07] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
+[2026-07-28 18:17:44] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
+[2026-07-28 18:36:45] [ERROR   ] asyncio: Unclosed connection
+client_connection: Connection<ConnectionKey(host='gateway-us-east1-d.discord.gg', port=443, is_ssl=True, ssl=True, proxy=None, proxy_auth=None, proxy_headers_hash=None)>
+[2026-07-28 20:55:24] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
+[2026-07-28 22:31:38] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
+[2026-07-29 02:00:10] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
+[2026-07-29 03:03:01] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
+[2026-07-29 05:28:03] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
+[2026-07-29 06:09:12] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
+[2026-07-29 07:30:16] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
+[2026-07-29 08:47:42] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
+[2026-07-29 12:32:56] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
+[2026-07-29 13:22:02] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
+[2026-07-29 13:45:44] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
+[2026-07-29 15:11:36] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
