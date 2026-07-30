@@ -627,3 +627,105 @@ client_connection: Connection<ConnectionKey(host='gateway-us-east1-d.discord.gg'
 [2026-07-29 13:22:02] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
 [2026-07-29 13:45:44] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
 [2026-07-29 15:11:36] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
+[2026-07-29 16:37:15] [ERROR   ] discord.client: Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 71, in on_message
+    if message.guild.id == 1521507251565756447:
+       ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'id'
+[2026-07-29 16:39:47] [ERROR   ] discord.client: Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 71, in on_message
+    if message.guild.id == 1521507251565756447:
+       ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'id'
+[2026-07-29 16:39:49] [ERROR   ] discord.client: Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 71, in on_message
+    if message.guild.id == 1521507251565756447:
+       ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'id'
+[2026-07-29 16:39:49] [ERROR   ] discord.client: Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 71, in on_message
+    if message.guild.id == 1521507251565756447:
+       ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'id'
+[2026-07-29 18:05:31] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
+[2026-07-29 19:06:41] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
+[2026-07-29 21:14:25] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
+[2026-07-29 23:49:49] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
+[2026-07-30 02:03:37] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
+[2026-07-30 03:00:28] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
+[2026-07-30 03:23:51] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
+[2026-07-30 03:53:35] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
+[2026-07-30 07:09:36] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
+[2026-07-30 07:32:56] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
+[2026-07-30 09:04:21] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
+[2026-07-30 10:29:54] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
+[2026-07-30 12:14:13] [ERROR   ] discord.client: Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 71, in on_message
+    if message.guild.id == 1521507251565756447:
+       ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'id'
+[2026-07-30 12:14:14] [ERROR   ] discord.client: Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 71, in on_message
+    if message.guild.id == 1521507251565756447:
+       ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'id'
+[2026-07-30 12:14:28] [ERROR   ] discord.client: Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 71, in on_message
+    if message.guild.id == 1521507251565756447:
+       ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'id'
+[2026-07-30 12:14:30] [ERROR   ] discord.client: Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 71, in on_message
+    if message.guild.id == 1521507251565756447:
+       ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'id'
+[2026-07-30 12:14:30] [ERROR   ] discord.client: Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 71, in on_message
+    if message.guild.id == 1521507251565756447:
+       ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'id'
+[2026-07-30 12:14:50] [ERROR   ] discord.client: Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 71, in on_message
+    if message.guild.id == 1521507251565756447:
+       ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'id'
+[2026-07-30 12:14:51] [ERROR   ] discord.client: Ignoring exception in on_message
+Traceback (most recent call last):
+  File "C:\Users\pisc639\AppData\Roaming\Python\Python314\site-packages\discord\client.py", line 508, in _run_event
+    await coro(*args, **kwargs)
+  File "C:\Users\pisc639\Documents\kmutnb\old-exam\bot\bot.py", line 71, in on_message
+    if message.guild.id == 1521507251565756447:
+       ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'id'
+[2026-07-30 13:16:23] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.
+[2026-07-30 14:18:26] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a6df0c778517f1bccc9a73751367649e.

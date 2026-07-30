@@ -115,14 +115,17 @@ def file_is_ep(file_path):
     return 0 # Not EP
 
 def get_file_info(file_path):
-    file_path = Path(file_path)
-    res = {}
-    res["name"] = file_path.stem
-    res["ids"] = [int(i.strip()) for i in re.split(r'[,\s]+', file_path.stem) if i.strip() != "" and i.strip().isdigit()]
-    res['year'] = int(Path(file_path).parts[3])
-    res["term"] = (int(Path(file_path).parts[4][-1]), Path(file_path).parts[5][0])
-    res['ep'] = file_is_ep(file_path)
-
+    try:
+        file_path = Path(file_path)
+        res = {}
+        res["name"] = file_path.stem
+        res["ids"] = [int(i.strip()) for i in re.split(r'[,\s]+', file_path.stem) if i.strip() != "" and i.strip().isdigit()]
+        res['year'] = int(Path(file_path).parts[3])
+        res["term"] = (int(Path(file_path).parts[4][-1]), Path(file_path).parts[5][0])
+        res['ep'] = file_is_ep(file_path)
+    except:
+        with open("o.log", "a", encoding="utf-8") as f:
+            f.write(f"erro/r on fp {file_path}\n")
     return res
 
 def filter_file(file_path, term=None, period=None, ep=None):
