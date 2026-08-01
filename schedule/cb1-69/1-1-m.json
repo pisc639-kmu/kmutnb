@@ -218,6 +218,21 @@
                         "name-th": "อาจารย์นนทวัฒน์ แดนเวียง"
                     }
                 ]
+            },
+            {
+                "code": "031001151",
+                "name-en": "Thai I",
+                "name-th": "ภาษาไทย 1",
+                "from": "13",
+                "to": "15",
+                "room": "90-507, 90-508",
+                "section": "S.13",
+                "instructor": [
+                    {
+                        "name-en": "Ajarn Dr.PRATCHAYAPORN THONGPRASIT",
+                        "name-th": "อาจารย์ อ.ดร.ปรัชญาพร ทองประสิทธิ์"
+                    }
+                ]
             }
         ],
         "Tuesday 4 Aug": [
@@ -255,6 +270,21 @@
             }
         ],
         "Thursday 6 Aug": [
+            {
+                "code": "031001141",
+                "name-en": "Foundation English I",
+                "name-th": "ภาษาอังกฤษ 1",
+                "from": "8",
+                "to": "10",
+                "room": "90-506",
+                "section": "S.16",
+                "instructor": [
+                    {
+                        "name-en": "Ajarn.PICHAYA JARUTATROD",
+                        "name-th": "อาจารย์พิชายา จารุทัศน์โรจน์"
+                    }
+                ]
+            }
         ],
         "Friday 7 Aug": [
             {
