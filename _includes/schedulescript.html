@@ -232,7 +232,7 @@
 
             const disclaimer_text_end = document.createTextNode('.');
 
-            disclaimer_p.appendChild(disclaimer_text_begin, disclaimer_a, disclaimer_text_end);
+            disclaimer_p.append(disclaimer_text_begin, disclaimer_a, disclaimer_text_end);
             exam.parentElement.appendChild(disclaimer_p);
         } else {
             document.getElementById('exams').classList.add('hidden');

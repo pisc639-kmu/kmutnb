@@ -21,7 +21,7 @@ storage
 !.env.example
 
 # old-exam/bot folder
-old-exam/bot/
+old-exam/bot
 # old-exam/bot/guilds.txt
 # old-exam/bot/.env
 # old-exam/bot/discord.log
