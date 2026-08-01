@@ -1,8 +1,8 @@
 username.txt
 utils
-old-exam\1-2-m\Measurement 2022.pdf
-old-exam\old\*
-old-exam\res
+old-exam/1-2-m/Measurement 2022.pdf
+old-exam/old
+old-exam/res
 old-unused-others
 api
 ignore
@@ -20,10 +20,9 @@ storage
 .env*
 !.env.example
 
-ignore
+# old-exam/bot folder
 old-exam/bot/
-
-old-exam/bot/guilds.txt
-old-exam/bot/.env
-old-exam/bot/discord.log
-old-exam/bot/cogs/tools/lib
+# old-exam/bot/guilds.txt
+# old-exam/bot/.env
+# old-exam/bot/discord.log
+# old-exam/bot/cogs/tools/lib
