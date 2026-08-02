@@ -55,17 +55,17 @@ async def main():
     # ]
     classroom_list = list(filter(lambda x: pattern.match(x), [f.name for f in Path(__file__).parents[1].iterdir()]))
     print(classroom_list)
-    # task = []
-    # for classroom in classroom_list:
-    #     print(f"Processing classroom: {classroom}")
-    #     task.append(capture_playwright_element(
-    #         url=f"https://kmu.pisc.cc/schedule/{classroom}/",
-    #         element_id="timetable",
-    #         output_path=Path(__file__).resolve().parent / classroom / "table.png",
-    #         # output_path=Path(__file__).resolve() / f"{classroom}.png",
-    #         dark_mode=True
-    #     ))
-    # await asyncio.gather(*task)
+    task = []
+    for classroom in classroom_list:
+        print(f"Processing classroom: {classroom}")
+        task.append(capture_playwright_element(
+            url=f"https://kmu.pisc.cc/schedule/{classroom}/",
+            element_id="timetable",
+            output_path=Path(__file__).resolve().parent / classroom / "table.png",
+            # output_path=Path(__file__).resolve() / f"{classroom}.png",
+            dark_mode=True
+        ))
+    await asyncio.gather(*task)
 
 
     classroom_list = [

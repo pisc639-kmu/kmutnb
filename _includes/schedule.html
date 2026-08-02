@@ -1,186 +1,50 @@
-<script>
-    async function downloadFileFromURL(url, filename) {
-        try {
-            const response = await fetch(url);
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            const blob = await response.blob();
-            const blobUrl = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = blobUrl;
-            a.download = filename || url.split('/').pop();
-            a.style.display = 'none';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            setTimeout(() => URL.revokeObjectURL(blobUrl), 100);
-
-        } catch (error) {
-            console.error('Download failed:', error);
-            alert('Could not download the file. Check console for details.' + error);
-        }
-    }
-
-    function isDarkMode() {
-        if (window.matchMedia) {
-            return window.matchMedia('(prefers-color-scheme: dark)').matches;
-        }
-        return false;
-    };
-
-    function getTableUrl() {
-        var Url = location.href;
-        Url += 'table.png'
-        const newBase = "https://dl.kmu.pisc.cc";
-        Url = Url.replace(/^https?:\/\/[^\/]+/, newBase);
-        return Url
-    }
-
-    function download_image() {
-        var download_url = getTableUrl();
-
-        var a = document.createElement('a');
-        a.href = download_url;
-        a.download = download_url;
-
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-    };
-
-    // async function getLatestScheduleUrl(classId) {
-    //     const apiUrl = `https://con.kmu.pisc.cc/schedule/${classId}/`;
-
-    //     try {
-    //         // 1. Fetch the data from the API
-    //         const response = await fetch(apiUrl);
-    //         if (!response.ok) {
-    //             throw new Error(`Network response was not ok: ${response.status}`);
-    //         }
-    //         const files = await response.json();
-
-    //         // 2. Filter files matching your exact regex pattern
-    //         const regex = /^[123]-[12]-[mf]\.json$/;
-    //         const filteredFiles = files.filter(file => regex.test(file.name));
-
-    //         if (filteredFiles.length === 0) {
-    //             throw new Error("No matching schedule files found.");
-    //         }
-
-    //         // 3. Sort to find the latest file chronologically
-    //         filteredFiles.sort((a, b) => {
-    //             const [yearA, semA, typeA] = a.name.replace('.json', '').split('-');
-    //             const [yearB, semB, typeB] = b.name.replace('.json', '').split('-');
-
-    //             // Compare Year first
-    //             if (yearA !== yearB) return parseInt(yearA) - parseInt(yearB);
-
-    //             // Compare Semester second
-    //             if (semA !== semB) return parseInt(semA) - parseInt(semB);
-
-    //             // Compare Exam Type (Assuming 'm' = Midterm, 'f' = Final)
-    //             // This ensures Final ('f') is treated as later than Midterm ('m')
-    //             const typeWeight = { 'm': 1, 'f': 2 };
-    //             return typeWeight[typeA] - typeWeight[typeB];
-    //         });
-
-    //         // 4. Get the last element (the latest file)
-    //         const latestFile = filteredFiles[filteredFiles.length - 1];
-
-    //         // 5. Construct and return the target URL
-    //         return `https://src.kmu.pisc.cc/schedule/${classId}/${latestFile.name}`;
-
-    //     } catch (error) {
-    //         console.error("Error processing schedule:", error);
-    //         return null;
-    //     }
-    // };
-
-    function getLatestScheduleUrl(classId) {
-        try {
-            return `https://src.kmu.pisc.cc/schedule/${classId}/${70-classId.split("-")[1]}-1-m.json`;
-        } catch (error) {
-            console.error("Error processing schedule:", error);
-            return null;
-        }
-    };
-
-    async function screenshot() {
-        (async () => {
-            // 1. Dynamically load html2canvas if it isn't already on the page
-            if (!window.html2canvas) {
-                console.log('Loading html2canvas library...');
-                await new Promise((resolve, reject) => {
-                    const script = document.createElement('script');
-                    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
-                    script.onload = resolve;
-                    script.onerror = reject;
-                    document.head.appendChild(script);
-                });
-                console.log('Library loaded successfully.');
-            }
-    
-            // 2. TARGET YOUR ELEMENT HERE (e.g., '.classname', 'div.header', '#id')
-            const element = document.querySelector('#timetable');
-    
-            if (!element) {
-                console.error('Element not found! Make sure your selector is correct.');
-                return;
-            }
-    
-            try {
-                console.log('Generating high-res screenshot...');
-    
-                // 3. Render the element to a canvas
-                const canvas = await html2canvas(element, {
-                    scale: 3,         // 3x device scale for crystal-clear, high-DPI quality
-                    useCORS: true,    // Allows loading external images safely
-                    logging: false
-                });
-    
-                // 4. Convert canvas to a link and auto-click to download
-                const downloadLink = document.createElement('a');
-                downloadLink.href = canvas.toDataURL('image/png');
-                downloadLink.download = 'table.png';
-                downloadLink.click();
-    
-                console.log('Screenshot downloaded successfully!');
-            } catch (error) {
-                console.error('Screenshot failed:', error);
-            }
-        })();
-    };
-
-</script>
-<div class="container mx-auto mt-8 overflow-x-auto shadow-md shadow-gray-400 dark:shadow-gray-800 hover:shadow-gray-500 dark:hover:shadow-gray-950">
-    <table id="timetable" class="text-[0.6rem] [&_thead]:text-xs [&>*>tr>*:first-child]:text-sm
-        md:text-[0.8rem] md:[&_thead]:text-sm md:[&>*>tr>*:first-child]:text-md
-        [&>*>tr>*:first-child]:font-bold
-        w-full border-collapse border border-gray-300 dark:border-gray-700">
-    </table>
-</div>
-
-<span id="exams">
+    {% include "schedulescripttop.html" %}
     <div class="flex items-center text-center justify-center space-x-4 mt-16">
-        <h1 class="text-4xl font-bold my-4 text-gray-800 dark:text-white">Exam Schedule</h1>
+        <h1 class="text-4xl font-bold my-4 text-gray-800 dark:text-white">Study Schedule</h1>
+        <a onclick="download_image();" class="items-center space-x-2 text-black dark:text-white hover:text-blue-500 dark:hover:text-blue-400">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+        </a>
     </div>
-
     <div class="container mx-auto mt-8 overflow-x-auto shadow-md shadow-gray-400 dark:shadow-gray-800 hover:shadow-gray-500 dark:hover:shadow-gray-950">
-        <table id="exam" class="text-[0.6rem] [&_thead]:text-xs [&>*>tr>*:first-child]:text-sm
+        <table id="timetable" class="text-[0.6rem] [&_thead]:text-xs [&>*>tr>*:first-child]:text-sm
             md:text-[0.8rem] md:[&_thead]:text-sm md:[&>*>tr>*:first-child]:text-md
             [&>*>tr>*:first-child]:font-bold
             w-full border-collapse border border-gray-300 dark:border-gray-700">
-            <thead class="">
-                <tr class="bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white shadow-md">
-                    <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">Day</th>
-                </tr>
-            </thead>
-            <tbody class="">
-                <tr class="bg-white dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-white"></tr>
-            </tbody>
         </table>
     </div>
-</span>
 
-<script src="https://src.kmu.pisc.cc/script.min.js"></script>
+    <span id="exams">
+        <div class="flex items-center text-center justify-center space-x-4 mt-16">
+            <h1 class="text-4xl font-bold my-4 text-gray-800 dark:text-white">Exam Schedule</h1>
+            <a onclick="download_image('exam');" class="items-center space-x-2 text-black dark:text-white hover:text-blue-500 dark:hover:text-blue-400">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+            </a>
+        </div>
+
+        <div class="container mx-auto mt-8 overflow-x-auto shadow-md shadow-gray-400 dark:shadow-gray-800 hover:shadow-gray-500 dark:hover:shadow-gray-950">
+            <table id="exam" class="text-[0.6rem] [&_thead]:text-xs [&>*>tr>*:first-child]:text-sm
+                md:text-[0.8rem] md:[&_thead]:text-sm md:[&>*>tr>*:first-child]:text-md
+                [&>*>tr>*:first-child]:font-bold
+                w-full border-collapse border border-gray-300 dark:border-gray-700">
+                <thead class="">
+                    <tr class="bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white shadow-md">
+                        <th class="px-3 py-2 border-x border border-gray-300 dark:border-gray-700">Day</th>
+                    </tr>
+                </thead>
+                <tbody class="">
+                    <tr class="bg-white dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-white"></tr>
+                </tbody>
+            </table>
+        </div>
+    </span>
+
+    <script src="https://src.kmu.pisc.cc/script.min.js"></script>
+    {% include "schedulescriptbottom.html" %}
