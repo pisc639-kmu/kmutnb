@@ -1,20 +1,23 @@
 <span>
     <!-- Navbar -->
     <!-- <nav class="bg-white dark:bg-neutral-800 shadow-md shadow-neutral-300 p-4 sticky top-0 z-50 transition-colors duration-300 dark:shadow-neutral-700"> -->
-    <nav class="border-b border-neutral-700 border-neutral p-4 sticky top-0 z-50 transition-colors duration-300 dark bg-neutral-50 dark:bg-neutral-950">
+    <!-- <nav class="border-b border-neutral-700 border-neutral p-4 sticky top-0 z-50 transition-colors duration-300 dark bg-neutral-50 dark:bg-neutral-950"> -->
+    <nav class="p-4 sticky top-0 z-50 transition-colors duration-300 bg-transparent">
+        <div class="absolute inset-0 -z-10 backdrop-blur-2xl backdrop-brightness-[0.5]"></div>
         <div class="container mx-auto flex justify-between items-center">
             <!-- Logo -->
             <a href="/" class="flex items-center space-x-2">
                 <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-500 dark:text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
                 </svg> -->
-                <img src="https://src.kmu.pisc.cc/images/logo-nobg.png" alt="EP" sizes="100vw" class="w-8 h-8">
+                <img src="/images/logo-nobg.png" alt="EP" sizes="100vw" class="w-8 h-8">
                 <span class="text-xl font-bold text-neutral-800 dark:text-white">E25 La Retire</span>
             </a>
 
             <!-- Mobile Menu Button -->
             <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-300 focus:outline-none focus:ring-2 focus:ring-neutral-300 rounded-md p-2 transition-transform duration-300 hover:bg-neutral-200 dark:hover:bg-neutral-700 shadow-lg">
+                <!-- <button id="mobile-menu-button" class="text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-300 focus:outline-none focus:ring-2 focus:ring-neutral-300 rounded-md p-2 transition-transform duration-300 hover:bg-neutral-200 dark:hover:bg-neutral-700 shadow-lg"> -->
+                <button id="mobile-menu-button" class="text-neutral-500 dark:text-neutral-400 hover:text-neutral-700 dark:hover:text-neutral-300 focus:outline-none focus:ring-2 focus:ring-neutral-300 rounded-md p-2 transition-transform duration-300">
                     <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path id="menu-icon-open" class="transition-opacity duration-300" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 6h16M4 12h16m-7 6h7"></path>
                         <path id="menu-icon-close" class="opacity-0 transition-opacity duration-300" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M6 18L18 6M6 6l12 12"></path>
@@ -38,13 +41,23 @@
     </nav>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden shadow-md rounded-md m-4 transition-all duration-300 ease-in-out bg-neutral-100 dark:bg-neutral-800">
+    <!-- <div id="mobile-menu" class="hidden md:hidden shadow-md rounded-md m-4 transition-all duration-300 ease-in-out bg-neutral-100 dark:bg-neutral-800">
         <div class="p-4 flex flex-col space-y-2
         [&>*]
         ">
             <a href="/" class="bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-300 dark:hover:bg-neutral-600 text-neutral-600 dark:text-neutral-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-300 rounded-md py-2 px-3">Home</a>
             <a href="/schedule" class="bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-300 dark:hover:bg-neutral-600 text-neutral-600 dark:text-neutral-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-300 rounded-md py-2 px-3">Class Schedule</a>
             <a href="/old-exam" class="bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-300 dark:hover:bg-neutral-600 text-neutral-600 dark:text-neutral-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-300 rounded-md py-2 px-3">Old Exam</a>
+        </div>
+    </div> -->
+    <!-- <div id="mobile-menu" class="hidden md:hidden shadow-md rounded-md transition-all duration-300 ease-in-out"> -->
+    <div id="mobile-menu" class="hidden md:hidden shadow-md rounded-md transition-all duration-300 ease-in-out">
+        <div class="px-4 flex flex-col
+        [&>*]
+        ">
+            <a href="/" class="text-neutral-600 dark:text-neutral-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-300 rounded-md py-2 px-3">Home</a>
+            <a href="/schedule" class="text-neutral-600 dark:text-neutral-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-300 rounded-md py-2 px-3">Class Schedule</a>
+            <a href="/old-exam" class="text-neutral-600 dark:text-neutral-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-300 rounded-md py-2 px-3">Old Exam</a>
         </div>
     </div>
 </span>

@@ -6,55 +6,13 @@
     <title>E25 - Clock</title>
     {% include "head.html" %}
 </head>
-<body class="dark bg-gray-100 dark:bg-black">
+<body class="dark bg-gray-100 dark:bg-black overflow-y-hidden">
     {% include "nav.html" %}
-    <!-- <div class="flex items-center justify-center space-x-4 mt-16">
-        <h1 class="text-4xl font-bold mb-4 text-gray-800 dark:text-white">Clock</h1>
-    </div> -->
-    
-    <div id="screen" class="bg-black h-full flex flex-col items-center justify-center bg-[url(https://cdn.wallpapersafari.com/53/78/P1BRkw.jpg)] bg-cover bg-center">
-        <span class="scale-[45%] md:scale-[80%] lg:scale-[100%] flex flex-col items-center justify-center">
-            <div id="main" class="mt-16 flex relative space-x-6 justify-center">
-                <!-- <div class="digit hidden">
-                    <div class="row flex">
-                        <div class="clock">
-                            <div class="hand"></div>
-                            <div class="hand"></div>
-                        </div>
-                        <div class="clock">
-                            <div class="hand"></div>
-                            <div class="hand"></div>
-                        </div>
-                    </div>
-                    <div class="row flex">
-                        <div class="clock">
-                            <div class="hand"></div>
-                            <div class="hand"></div>
-                        </div>
-                        <div class="clock">
-                            <div class="hand"></div>
-                            <div class="hand"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="digit grid grid-cols-3 w-[9rem] hidden">
-                    <div class="clock">
-                        <div class="hand">1</div>
-                        <div class="hand"></div>
-                    </div>
-                    <div class="clock">
-                        <div class="hand">2</div>
-                        <div class="hand"></div>
-                    </div>
-                    <div class="clock">
-                        <div class="hand">3</div>
-                        <div class="hand"></div>
-                    </div>
-                    <div class="clock">
-                        <div class="hand">4</div>
-                        <div class="hand"></div>
-                    </div>
-                </div> -->
+    <div id="screen" class="h-[calc(100vh-5rem)] flex flex-col items-center justify-center">
+        <div class="fixed inset-0 -z-10 bg-[url('https://i.pinimg.com/1200x/fd/b2/1c/fdb21c0e4f3dbb6ccd9a63c68fce8645.jpg')] bg-cover bg-center bg-no-repeat"></div>
+        <div class="fixed inset-0 -z-10 backdrop-blur-3xl backdrop-brightness-[0.5] bg-black/10"></div>
+        <span class="flex flex-col items-center justify-center">
+            <div id="main" class="mt-16 flex relative space-0 justify-center">
             </div>
             <h1 id="time-text" class="text-6xl font-bold text-white mt-10 lg:mb-4 lg:mt-16"></h1>
             <div id="time" class="mt-0 flex relative space-x-6 justify-center" style="scale: 0.5;">
@@ -62,7 +20,7 @@
     </div>
 
     <div class="flex justify-center space-x-4 md:space-x-8 mt-4">
-        <a href="night" class="bg-gradient-to-br from-blue-600 to-indigo-600 dark:from-blue-950 dark:to-indigo-900 hover:from-blue-700 hover:to-indigo-700 dark:hover:from-blue-900 dark:hover:to-indigo-800 text-white font-medium py-2 px-4 rounded-md border border-blue-500 duration-300 shadow-md shadow-blue-600/25 hover:shadow-lg hover:shadow-blue-700/40 dark:hover:shadow-blue-900/50 active:scale-[0.98] transition-all duration-200 hover:shadow-blue-500 text-center">Night Mode</a>
+        <a id="night" href="night" class="bg-gradient-to-br from-blue-600 to-indigo-600 dark:from-blue-950 dark:to-indigo-900 hover:from-blue-700 hover:to-indigo-700 dark:hover:from-blue-900 dark:hover:to-indigo-800 text-white font-medium py-2 px-4 rounded-md border border-blue-500 duration-300 shadow-md shadow-blue-600/25 hover:shadow-lg hover:shadow-blue-700/40 dark:hover:shadow-blue-900/50 active:scale-[0.98] transition-all duration-200 hover:shadow-blue-500 text-center">Night Mode</a>
     </div>
 
     <style>
@@ -74,12 +32,6 @@
             font-variation-settings:
                 "wdth" 100;
         }
-        /* #main {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-        } */
 
         .clock {
             width: 2rem;
@@ -87,20 +39,26 @@
             background: oklch(20% 0 0);
             border: 0.125rem solid oklch(30% 0 0);
             position: relative;
+            border-radius: 50%;
         }
 
         .hand {
             height: 0.1875rem;
             /* height: 0.09375rem; */
-            background: oklch(0.9475 0.1916 119.15); 
+            /* background: oklch(0.9475 0.1916 119.15);  */
+            background: oklch(100% 0 0); 
             position: absolute;
             top: 50%;
-            left: 50%;
-            translate: 0% -50%;
+            
+            border-radius: 20px;
+            corner-shape: bevel;
+        
+            left: 40%;
             width: 50%;
-            transform-origin: center left;
+            translate: 20% -50%;
+            transform-origin: 0% 50%;
+
             opacity: 1;
-            /* transition: opacity 250ms ease-in-out; */
             transition: rotate 0.5s linear, opacity 250ms ease-in-out;
             rotate: 45deg;
         }
@@ -114,24 +72,27 @@
         }
     </style>
     <script>
+        const opacity = (element, digit) => {element.style.opacity = digit === " " ? 0.2 : 1};
+        function createSeperatorElement(parent) {
+            const seperator = document.createElement('div');
+            seperator.classList.add('seperator', 'grid', 'grid-cols-1', 'w-[2rem]');
+            for (let i = 0; i < 6; i++){
+                const clock = document.createElement('div');
+                clock.classList.add('clock');
+                for (let k = 0; k < 2; k++) {
+                    const hand = document.createElement('div');
+                    hand.classList.add('hand');
+                    hand.style.rotate = k == 0 ? 45 : 45 + 'deg';
+                    opacity(hand, " ");
+                    // hand.style.opacity = 0.2;
+                    clock.appendChild(hand);
+                }
+                seperator.appendChild(clock);
+            }
+            parent.appendChild(seperator);
+        }
         function createDigitElement(parent) {
             const digit = document.createElement('div');
-            // digit.classList.add('digit');
-            // for (let i = 0; i < 5; i++) {
-            //     const row = document.createElement('div');
-            //     row.classList.add('row', 'flex');
-            //     for (let j = 0; j < 3; j++) {
-            //         const clock = document.createElement('div');
-            //         clock.classList.add('clock');
-            //         for (let k = 0; k < 2; k++) {
-            //             const hand = document.createElement('div');
-            //             hand.classList.add('hand');
-            //             clock.appendChild(hand);
-            //         }
-            //         row.appendChild(clock);
-            //     }
-            //     digit.appendChild(row);
-            // }
             digit.classList.add('digit', 'grid', 'grid-cols-4', 'w-[8rem]');
             for (let i = 0; i < 24; i++) {
                 const clock = document.createElement('div');
@@ -140,6 +101,7 @@
                     const hand = document.createElement('div');
                     hand.classList.add('hand');
                     hand.style.rotate = '45deg';
+                    opacity(hand, " ");
                     clock.appendChild(hand);
                 }
                 digit.appendChild(clock);
@@ -156,6 +118,9 @@
         }
         for (let i = 0; i < 3; i++) {
             createNumberElement(document.getElementById('main'), 2);
+            if (i < 2) {
+                createSeperatorElement(document.getElementById('main'));
+            }
         }
 
         const angles = {
@@ -409,27 +374,21 @@ mno
     
             `,
         };
-        // digits = digits.map(digit => digit.slice(1,25));
         Object.keys(digits).forEach(key => digits[key] = digits[key].replace(/[\r\n]+/gm, '').slice(0, 24).split(''));
 
         function setDigit(element, digit) {
             for (let [cellIndex, cell] of Array.from(element.children).entries()) {
                 const hands = cell.children;
-                if (hands[0].style.transition !== angles[digits[digit][cellIndex]][0]) {
-                    hands[0].style.transition = `rotate ${Math.abs(Number(hands[0].style.rotate.slice(0, -3)) - angles[digits[digit][cellIndex]][0]) / 360 / 0.5 * (0.2 + Math.random() * 0.1)}s ease-in, opacity 250ms ease-in-out`;
-                    // hands[0].style.transition = `rotate 0.5s linear, opacity 250ms ease-in-out`;
-                    hands[0].style.rotate = `${angles[digits[digit][cellIndex]][0]}deg`;
-                    hands[0].style.opacity = `${digits[digit][cellIndex] === " " ? 1 : 1}`;
-                };
-                if (hands[1].style.transition !== angles[digits[digit][cellIndex]][1]) {
-                    hands[1].style.transition = `rotate ${Math.abs(Number(hands[1].style.rotate.slice(0, -3)) - angles[digits[digit][cellIndex]][1]) / 360 / 0.5 * (0.2 + Math.random() * 0.1)}s ease-in, opacity 250ms ease-in-out`;
-                    // hands[1].style.transition = `rotate 0.5s linear, opacity 250ms ease-in-out`;
-                    hands[1].style.rotate = `${angles[digits[digit][cellIndex]][1]}deg`;
-                    hands[1].style.opacity = `${digits[digit][cellIndex] === " " ? 1 : 1}`;
-                };
-                const delay = cellIndex / digits[digit].length / 4
-                hands[0].style.transitionDelay = `${delay}s, ${delay}s`;
-                hands[1].style.transitionDelay = `${delay}s, ${delay}s`;
+                [0, 1].forEach(i => {
+                    if (hands[i].style.transition !== angles[digits[digit][cellIndex]][i]) {
+                        hands[i].style.transition = `rotate ${Math.abs(Number(hands[i].style.rotate.slice(0, -3)) - angles[digits[digit][cellIndex]][i]) / 360 / 0.3 * (0.2 + Math.random() * 0.1)}s ease-in, opacity 250ms ease-in-out`;
+                        
+                        setTimeout(() => {
+                            hands[i].style.rotate = `${angles[digits[digit][cellIndex]][i]}deg`;
+                        }, cellIndex / digits[digit].length / 4 * 1000);
+                        opacity(hands[i], digits[digit][cellIndex]);
+                    };
+                })
             }
         }
 
@@ -438,50 +397,36 @@ mno
                 setDigit(digit, String(number).padStart(2, '0').split('')[Index]);
             }
         }
+        function initSeparator(separator) {
+            for (let [cellIndex, cell] of Array.from(separator.children).entries()) {
+                for (let [k, hand] of Array.from(cell.children).entries()) {
+                    hand.style.rotate = '45deg';
+                    const target = k == 0 ? 135 : 315;
+                    hand.style.transition = `rotate ${Math.abs(target - 45) / 360 / 0.3 * (0.2 + Math.random() * 0.1)}s ease-in, opacity 250ms ease-in-out`;
+                    setTimeout(() => {
+                        hand.style.rotate = target + 'deg';
+                    }, cellIndex / separator.children.length / 4 * 1000);
+                    opacity(hand, " ");
+                }
+            }
+        }
 
-        // createDigitElement(document.getElementById('main'));
-        // createDigitElement(document.getElementById('main'));
-        // setTimeout(() => {
-        //     setDigit(
-        //         document.getElementById('main').children[3],
-        //         'I'
-        //     );
-        // }, 1)
-        // setDigit(document.getElementById('main').children[4], '!');
-        createNumberElement(document.getElementById('time'), 3);
-        createNumberElement(document.getElementById('time'), 2);
-        createNumberElement(document.getElementById('time'), 2);
-        createNumberElement(document.getElementById('time'), 4);
+        const time = document.getElementById('time');
+        createNumberElement(time, 3);
+        createNumberElement(time, 2);
+        createNumberElement(time, 2);
+        createNumberElement(time, 4);
 
-        // const digit = document.getElementById('main').children[0];
-        // for(let [index, row] of digit.children.entries()) {
-        //     for(let [cellIndex, cell] of row.children.entries()) {
-        //         const hands = cell.children;
-        //         hands[0].style.rotate = `${angles[index][0]}deg`;
-        //         hands[1].style.rotate = `${angles[index][1]}deg`;
-        //     }
-        // }
-        // for(let [cellIndex, cell] of Array.from(digit.children).entries()) {
-        //     const hands = cell.children;
-        //     hands[0].style.rotate = `${angles[digits[2][cellIndex]][0]}deg`;
-        //     hands[1].style.rotate = `${angles[digits[2][cellIndex]][1]}deg`;
-        // }
+        document.querySelectorAll('.seperator').forEach(separator => initSeparator(separator));
 
         function tick() {
             const main = document.getElementById('main');
-            // for (const number of main.children) {
-            //     setNumber(number, Math.floor(Math.random() * 100));
-            // }
-            setNumber(main.children[0], new Date().getHours());
-            setNumber(main.children[1], new Date().getMinutes());
-            setNumber(main.children[2], new Date().getSeconds());
-            // for (let [cellIndex, cell] of Array.from(digit.children).entries()) {
-            //     const hands = cell.children;
-            //     hands[0].style.rotate = `${angles[digits[3][cellIndex]][0]}deg`;
-            //     hands[1].style.rotate = `${angles[digits[3][cellIndex]][1]}deg`;
-            // }
+            const number = main.querySelectorAll('.number');
+            setNumber(number[0], new Date().getHours());
+            setNumber(number[1], new Date().getMinutes());
+            setNumber(number[2], new Date().getSeconds());
+
             const timeText = document.getElementById('time-text');
-            // timeText.textContent = new Date().toLocaleTimeString();
             const Days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
             const Months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
             timeText.textContent = `${Days[new Date().getDay()]}, ${new Date().getDate()} ${Months[new Date().getMonth()]} ${new Date().getFullYear()}`;
@@ -493,59 +438,49 @@ mno
             setNumber(timeElement.children[3], new Date().getFullYear());
         }
         
-        // tick()
-        setInterval(() => {
-            tick()
-        }, 50);
-        // setTimeout(() => {
-        //     const main = document.getElementById('main');
-        //     // main.requestFullscreen();
-        //     if (main.requestFullscreen) {
-        //         main.requestFullscreen();
-        //     } else if (main.webkitRequestFullscreen) { /* Safari */
-        //         main.webkitRequestFullscreen();
-        //     } else if (main.mozRequestFullScreen) { /* Firefox */
-        //         main.mozRequestFullScreen();
-        //     } else if (main.msRequestFullscreen) { /* IE11 */
-        //         main.msRequestFullscreen();
-        //     }
-        // }, 1000);
+        const now = () => Date.now()/1000|0;
+        const startTime = now();
+        tick()
+        const IntervalId = setInterval(() => {
+            if (now() - startTime >= 1) {
+                console.log('Ticking...');
+                clearInterval(IntervalId);
+                tick();
+                setTimeout(() => setInterval(tick, 1000), 1);
+            }
+        }, 1);
         document.getElementById('screen').addEventListener('click', () => {
             const main = document.getElementById('screen');
-            // main.requestFullscreen();
+            const night = document.getElementById('night');
             if (document.fullscreenElement) {
                 if (document.exitFullscreen) {
                     document.exitFullscreen();
-                } else if (document.webkitExitFullscreen) { /* Safari */
+                } else if (document.webkitExitFullscreen) {
                     document.webkitExitFullscreen();
-                } else if (document.mozCancelFullScreen) { /* Firefox */
+                } else if (document.mozCancelFullScreen) {
                     document.mozCancelFullScreen();
-                } else if (document.msExitFullscreen) { /* IE11 */
+                } else if (document.msExitFullscreen) {
                     document.msExitFullscreen();
-                }
+                };
+                night.classList.remove('display-none');
+                document.body.style.cursor = 'default';
             } else {
                 if (main.requestFullscreen) {
                     main.requestFullscreen();
-                } else if (main.webkitRequestFullscreen) { /* Safari */
+                } else if (main.webkitRequestFullscreen) {
                     main.webkitRequestFullscreen();
-                } else if (main.mozRequestFullScreen) { /* Firefox */
+                } else if (main.mozRequestFullScreen) {
                     main.mozRequestFullScreen();
-                } else if (main.msRequestFullscreen) { /* IE11 */
+                } else if (main.msRequestFullscreen) {
                     main.msRequestFullscreen();
                 }
+                night.classList.add('display-none');
+                document.body.style.cursor = 'none';
             }
         });
-        // document.getElementById('screen').addEventListener('wheel', (e) => {
-        //     const main = document.getElementById('screen');
-        //     if (e.deltaY < 0) {
-        //         main.style.scale /= 0.95;
-        //     } else if (e.deltaY > 0) {
-        //         main.style.scale *= 0.95;
-        //     }
-        // });
     </script>
 
-    <script src="https://src.kmu.pisc.cc/script.min.js"></script>
+    <script src="/script.min.js"></script>
 </body>
 </html>
 

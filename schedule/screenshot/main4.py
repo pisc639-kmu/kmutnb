@@ -4,11 +4,13 @@ from pathlib import Path
 from playwright.async_api import async_playwright, Browser
 
 # 1. Pass the single browser instance to the worker function
-async def capture_playwright_element(browser: Browser, url: str, element_id: str, output_path: Path, dark_mode: bool = False):
+async def capture_playwright_element(browser: Browser, url: str, element_id: str, output_path: Path, dark_mode: bool = False, viewport: tuple = (1296, 1080)):
     # Use separate contexts so they run concurrently without interfering with each other
     context = await browser.new_context(
-        viewport={"width": 1920, "height": 1080},
-        device_scale_factor=3.0,
+        # viewport={"width": 1920, "height": 1080},
+        # viewport={"width": 1200, "height": 1000},
+        viewport={"width": viewport[0], "height": viewport[1]},
+        device_scale_factor=3,
         color_scheme="dark" if dark_mode else "light"
     )
     page = await context.new_page()
@@ -21,11 +23,13 @@ async def capture_playwright_element(browser: Browser, url: str, element_id: str
         
         selector = f"#{element_id}"
         await page.wait_for_selector(selector)
+        await page.wait_for_timeout(100)
         element = page.locator(selector)
         
         # Ensure the directory exists
         output_path.parent.mkdir(parents=True, exist_ok=True)
-        
+
+        await page.locator("#clock-form").evaluate("el => el.remove()")
         await element.screenshot(path=str(output_path))
         print(f"High-quality screenshot saved successfully to {output_path}")
     except Exception as e:
@@ -55,7 +59,7 @@ async def main():
                     url=url,
                     element_id="timetable",
                     output_path=output_path,
-                    dark_mode=True
+                    dark_mode=True,
                 )
             )
 
@@ -68,9 +72,10 @@ async def main():
                 capture_playwright_element(
                     browser=browser,
                     url=url,
-                    element_id="timetable",
+                    element_id="exam",
                     output_path=output_path,
-                    dark_mode=True
+                    dark_mode=True,
+                    viewport=(864, 1080),
                 )
             )
         
