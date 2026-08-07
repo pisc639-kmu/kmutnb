@@ -15,7 +15,7 @@
     //     }
     // });
 
-    function download_file() {
+    function download_file(preview = false) {
         const fileFrame = document.getElementById('file-frame');
         const rawUrl = fileFrame.getAttribute('raw');
         const downloadButton = document.getElementById('download-btn');
@@ -26,8 +26,12 @@
         // Safety fallback check if the iframe hasn't loaded a URL yet
         if (!rawUrl || rawUrl === window.location.href) return;
 
-        const url = new URL(rawUrl);
+        let url = new URL(rawUrl);
         // url.host = "dl.kmu.pisc.cc";
+        if (preview) {
+            // url = url.origin+['/file',...url.pathname.split('/').slice(2)].join('/')
+            url.pathname = '/file'+url.pathname.replace(/(\/[^\/]*){1}/,'')
+        }
         
         const a = document.createElement('a');
         a.href = decodeURI(url.href);
@@ -38,7 +42,8 @@
         
         document.body.appendChild(a);
         a.click();
-        downloadButton.href = a.href;
+        // downloadButton.href = a.href;
+        downloadButton.href = decodeURI(url.href);
         document.body.removeChild(a);
     };
 
@@ -72,7 +77,9 @@
         const cacheBuster = sourceStr.includes('?') ? `&cb=${Date.now()}` : `?cb=${Date.now()}`;
         const finalSource = sourceStr + cacheBuster;
         FrameElement.setAttribute("sandbox", "allow-scripts allow-same-origin");
-        FrameElement.src = "https://docs.google.com/viewerng/viewer?embedded=true&url=" + encodeURIComponent(finalSource);
+        const iframeSrc = "https://docs.google.com/viewerng/viewer?embedded=true&url=" + encodeURIComponent(finalSource);
+        if (frameElement?.src === iframeSrc) return;
+        FrameElement.src = iframeSrc;
         // FrameElement.src = "https://docs.google.com/viewerng/viewer?embedded=true&url=" + encodeURIComponent(source);
         FrameElement.setAttribute("raw", source);
         if (FrameElement.classList.contains("hidden")){
@@ -81,14 +88,20 @@
         if (FrameElement.classList.contains("md:hidden")){
             FrameElement.classList.remove("md:hidden");
         }
-        var navHeight = document.querySelector('nav').offsetHeight;
-        FrameElement.style.height = `calc(100vh - ${navHeight}px)`;
+        // var navHeight = document.querySelector('nav').offsetHeight;
+        // FrameElement.style.height = `calc(100vh - ${navHeight}px)`;
+        FrameElement.style.height = `calc(100vh - 10rem)`;
         FrameElement.style.width = '100%';
         // window.location.href = "#file-frame";
         FrameElement.addEventListener("load", () => {
             // window.scrollTo(0,document.body.scrollHeight);
-            document.getElementById("file-frame")?.scrollIntoView({ behavior: "smooth" });
         })
+        // FrameElement.addEventListener('visibilitychange', () => {
+        setTimeout(() => {
+            if (document.visibilityState === 'visible') {
+                document.getElementById("file-frame")?.scrollIntoView({ behavior: "smooth" })
+            }
+        }, 10);
 
         const IFrameTitle = document.getElementById("iframe-title");
         IFrameTitle.textContent = path;
@@ -99,7 +112,65 @@
         }
     };
 
+    // function applyXScroll(t){let e=t.scrollLeft,l=t.scrollLeft,a=!1;function n(){l+=.1*(e-l),t.scrollLeft=l,Math.abs(e-l)>.5?requestAnimationFrame(n):(a=!1,l=e)}t.addEventListener("wheel",l=>{if(Math.abs(l.deltaX)>Math.abs(l.deltaY))return;l.preventDefault(),e+=1*l.deltaY;const r=t.scrollWidth-t.clientWidth;e=Math.max(0,Math.min(e,r)),a||(a=!0,requestAnimationFrame(n))},{passive:!1}),t.addEventListener("scroll",()=>{a||(e=t.scrollLeft,l=t.scrollLeft)})};
+    function applyXScroll(container) {
+        let targetX = container.scrollLeft;
+        let currentX = container.scrollLeft;
+        const ease = 0.1; // Smoothness factor (Lower = smoother/slower, Higher = snappier)
+        let isMoving = false;
+        
+        // 1. Capture the mouse wheel input
+        container.addEventListener('wheel', (e) => {
+            // Check if the user is using a trackpad (horizontal delta exists)
+            // If they are on a trackpad, let the browser handle it natively
+            if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+                return; 
+            }
+            
+            e.preventDefault();
+            
+            // Calculate where the scroll should ideally land
+            // Multiply e.deltaY to increase or decrease scroll distance per tick
+            targetX += e.deltaY * 1; 
+            
+            // Keep target boundaries clamped within the container limits
+            const maxScroll = container.scrollWidth - container.clientWidth;
+            targetX = Math.max(0, Math.min(targetX, maxScroll));
+            
+            // Start the animation loop if it isn't running
+            if (!isMoving) {
+                isMoving = true;
+                requestAnimationFrame(smoothAnimation);
+            }
+        }, { passive: false });
+        
+        // 2. The Animation Loop (Lerp engine)
+        function smoothAnimation() {
+            // Linear Interpolation calculation
+            currentX += (targetX - currentX) * ease;
+            
+            container.scrollLeft = currentX;
+            
+            // Keep animating until the difference is negligible
+            if (Math.abs(targetX - currentX) > 0.5) {
+                requestAnimationFrame(smoothAnimation);
+            } else {
+                isMoving = false;
+                currentX = targetX; // Snap exactly to target at the end
+            }
+        }
+        
+        // 3. Keep the target synced if the user drags the native scrollbar/swipes
+        container.addEventListener('scroll', () => {
+            if (!isMoving) {
+                targetX = container.scrollLeft;
+                currentX = container.scrollLeft;
+            }
+        });
+    };
+
     const table = document.getElementById("subject-table") || document.querySelector("table");
+    applyXScroll(table.parentElement);
     table.id = "subject-table";
     table.replaceChildren();
 

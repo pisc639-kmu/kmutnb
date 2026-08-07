@@ -9,9 +9,9 @@
 <body class="dark bg-gray-100 dark:bg-black overflow-y-hidden">
     {% include "nav.html" %}
     <div id="screen" class="h-[calc(100vh-5rem)] flex flex-col items-center justify-center">
-        <div class="fixed inset-0 -z-10 bg-[url('https://i.pinimg.com/1200x/fd/b2/1c/fdb21c0e4f3dbb6ccd9a63c68fce8645.jpg')] bg-cover bg-center bg-no-repeat"></div>
+        <div class="fixed inset-0 -z-10 bg-[url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRAQQ7ZjyZ5KNgxHPBBYi9WgCgBfJlS7KgFw9whV7-2EVHYJnOKFiUfhW6&s=10')] bg-cover bg-center bg-no-repeat invert dark:invert-0"></div>
         <div class="fixed inset-0 -z-10 backdrop-blur-3xl backdrop-brightness-[0.5] bg-black/10"></div>
-        <span class="flex flex-col items-center justify-center">
+        <span class="scale-[45%] md:scale-[80%] lg:scale-[100%] flex flex-col items-center justify-center">
             <div id="main" class="mt-16 flex relative space-0 justify-center">
             </div>
             <h1 id="time-text" class="text-6xl font-bold text-white mt-10 lg:mb-4 lg:mt-16"></h1>
@@ -383,10 +383,14 @@ mno
                     if (hands[i].style.transition !== angles[digits[digit][cellIndex]][i]) {
                         hands[i].style.transition = `rotate ${Math.abs(Number(hands[i].style.rotate.slice(0, -3)) - angles[digits[digit][cellIndex]][i]) / 360 / 0.3 * (0.2 + Math.random() * 0.1)}s ease-in, opacity 250ms ease-in-out`;
                         
+                        let row = Math.floor(cellIndex / 4);
+                        let col = cellIndex % 4;
+                        
                         setTimeout(() => {
+                            opacity(hands[i], digits[digit][cellIndex]);
                             hands[i].style.rotate = `${angles[digits[digit][cellIndex]][i]}deg`;
-                        }, cellIndex / digits[digit].length / 4 * 1000);
-                        opacity(hands[i], digits[digit][cellIndex]);
+                        // }, (cellIndex + col + row) / digits[digit].length / 4 * 1000);
+                        }, (row + col + (Math.random() - 0.5) * 3) / digits[digit].length * 2 * 1000);
                     };
                 })
             }
@@ -462,8 +466,8 @@ mno
                 } else if (document.msExitFullscreen) {
                     document.msExitFullscreen();
                 };
-                night.classList.remove('display-none');
-                document.body.style.cursor = 'default';
+                // night.classList.remove('display-none');
+                // document.body.style.cursor = 'default';
             } else {
                 if (main.requestFullscreen) {
                     main.requestFullscreen();
@@ -474,10 +478,24 @@ mno
                 } else if (main.msRequestFullscreen) {
                     main.msRequestFullscreen();
                 }
+                // night.classList.add('display-none');
+                // document.body.style.cursor = 'none';
+            }
+        });
+        document.addEventListener('fullscreenchange', () => {
+            // If document.fullscreenElement is null, the user has exited full screen
+            if (!document.fullscreenElement) {
+                console.log('Exited full screen mode.');
+                // Run your exit-specific logic here
+                night.classList.remove('display-none');
+                document.body.style.cursor = 'default';
+            } else {
+                console.log('Entered full screen mode.');
                 night.classList.add('display-none');
                 document.body.style.cursor = 'none';
             }
         });
+
     </script>
 
     <script src="/script.min.js"></script>
