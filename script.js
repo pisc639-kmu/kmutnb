@@ -144,6 +144,9 @@ _addEventListener(_w, 'resize', () => {
         closeMobileMenu();
     }
 });
+setTimeout(() => {
+    closeMobileMenu();
+}, 100);
 
 // function toggleContent(element) {
 //     element.classList.toggle('rotate-180');
