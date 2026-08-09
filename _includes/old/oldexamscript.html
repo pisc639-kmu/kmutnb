@@ -1,0 +1,253 @@
+<!-- <script>
+    // window.addEventListener('scroll', function(event) {
+    //     const navHeight = document.querySelector('nav').offsetHeight;
+    //     const iframe = document.getElementById('file-frame');
+    //     const iframeContainer = document.getElementById('iframe-container');
+    //     const rect = iframe.getBoundingClientRect();
+    //     if (rect.top <= window.innerHeight - navHeight && rect.bottom >= 0) {
+    //         iframe.style.height = `calc(100vh - ${navHeight}px)`;
+    //         iframe.style.width = '100%';
+    //         iframe.classList.remove('hidden');
+    //     } else {
+    //         iframe.style.height = '';
+    //         iframe.style.width = '';
+    //         iframe.classList.add('hidden');
+    //     }
+    // });
+
+    function download_file(preview = false) {
+        const fileFrame = document.getElementById('file-frame');
+        const rawUrl = fileFrame.getAttribute('raw');
+        const downloadButton = document.getElementById('download-btn');
+        
+        // Safety check in case the attribute is missing
+        if (!rawUrl) return; 
+
+        // Safety fallback check if the iframe hasn't loaded a URL yet
+        if (!rawUrl || rawUrl === window.location.href) return;
+
+        let url = new URL(rawUrl);
+        // url.host = "dl.kmu.pisc.cc";
+        if (preview) {
+            // url = url.origin+['/file',...url.pathname.split('/').slice(2)].join('/')
+            url.pathname = '/file'+url.pathname.replace(/(\/[^\/]*){1}/,'')
+        }
+        
+        const a = document.createElement('a');
+        a.href = decodeURI(url.href);
+        
+        // Extract the actual filename from the end of the pathname
+        const filename = url.pathname.split('/').pop() || 'download';
+        a.download = decodeURIComponent(filename) || filename;
+        
+        document.body.appendChild(a);
+        a.click();
+        // downloadButton.href = a.href;
+        downloadButton.href = decodeURI(url.href);
+        document.body.removeChild(a);
+    };
+
+    function isIOS() {
+        const userAgent = navigator.userAgent;
+        const platform = navigator.platform;
+
+        // Check for common iOS user agent strings
+        if (/iPad|iPhone|iPod/.test(userAgent)) {
+            return true;
+        }
+
+        // Specific check for iPad on iOS 13+ which might report as 'MacIntel' platform
+        if (platform === 'MacIntel' && navigator.maxTouchPoints > 1) {
+            return true;
+        }
+
+        return false;
+    };
+
+    function getFileUrl(path) {
+        const [, , seg2, seg3] = new URL(window.location.href).pathname.split('/');
+        var Url = new URL(`https://api.kmu.pisc.cc/download/old-exam/${seg2}/${seg3}/${path}`);
+        return Url;
+    };
+
+    function openFile(path) {
+        var source = getFileUrl(path);
+        const FrameElement = document.getElementById("file-frame");
+        const sourceStr = source ? String(source) : "";
+        const cacheBuster = sourceStr.includes('?') ? `&cb=${Date.now()}` : `?cb=${Date.now()}`;
+        const finalSource = sourceStr + cacheBuster;
+        FrameElement.setAttribute("sandbox", "allow-scripts allow-same-origin");
+        const iframeSrc = "https://docs.google.com/viewerng/viewer?embedded=true&url=" + encodeURIComponent(finalSource);
+        if (frameElement?.src === iframeSrc) return;
+        FrameElement.src = iframeSrc;
+        // FrameElement.src = "https://docs.google.com/viewerng/viewer?embedded=true&url=" + encodeURIComponent(source);
+        FrameElement.setAttribute("raw", source);
+        if (FrameElement.classList.contains("hidden")){
+            FrameElement.classList.remove("hidden");
+        }
+        if (FrameElement.classList.contains("md:hidden")){
+            FrameElement.classList.remove("md:hidden");
+        }
+        // var navHeight = document.querySelector('nav').offsetHeight;
+        // FrameElement.style.height = `calc(100vh - ${navHeight}px)`;
+        FrameElement.style.height = `calc(100vh - 10rem)`;
+        FrameElement.style.width = '100%';
+        // window.location.href = "#file-frame";
+        FrameElement.addEventListener("load", () => {
+            // window.scrollTo(0,document.body.scrollHeight);
+        })
+        // FrameElement.addEventListener('visibilitychange', () => {
+        setTimeout(() => {
+            if (document.visibilityState === 'visible') {
+                document.getElementById("file-frame")?.scrollIntoView({ behavior: "smooth" })
+            }
+        }, 10);
+
+        const IFrameTitle = document.getElementById("iframe-title");
+        IFrameTitle.textContent = path;
+
+        const iframeContainer = document.getElementById('iframe-container');
+        if (iframeContainer.classList.contains('display-none')) {
+            iframeContainer.classList.remove('display-none');
+        }
+    };
+
+    // function applyXScroll(t){let e=t.scrollLeft,l=t.scrollLeft,a=!1;function n(){l+=.1*(e-l),t.scrollLeft=l,Math.abs(e-l)>.5?requestAnimationFrame(n):(a=!1,l=e)}t.addEventListener("wheel",l=>{if(Math.abs(l.deltaX)>Math.abs(l.deltaY))return;l.preventDefault(),e+=1*l.deltaY;const r=t.scrollWidth-t.clientWidth;e=Math.max(0,Math.min(e,r)),a||(a=!0,requestAnimationFrame(n))},{passive:!1}),t.addEventListener("scroll",()=>{a||(e=t.scrollLeft,l=t.scrollLeft)})};
+    function applyXScroll(container) {
+        let targetX = container.scrollLeft;
+        let currentX = container.scrollLeft;
+        const ease = 0.1; // Smoothness factor (Lower = smoother/slower, Higher = snappier)
+        let isMoving = false;
+        
+        // 1. Capture the mouse wheel input
+        container.addEventListener('wheel', (e) => {
+            // Check if the user is using a trackpad (horizontal delta exists)
+            // If they are on a trackpad, let the browser handle it natively
+            if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+                return; 
+            }
+            
+            e.preventDefault();
+            
+            // Calculate where the scroll should ideally land
+            // Multiply e.deltaY to increase or decrease scroll distance per tick
+            targetX += e.deltaY * 1; 
+            
+            // Keep target boundaries clamped within the container limits
+            const maxScroll = container.scrollWidth - container.clientWidth;
+            targetX = Math.max(0, Math.min(targetX, maxScroll));
+            
+            // Start the animation loop if it isn't running
+            if (!isMoving) {
+                isMoving = true;
+                requestAnimationFrame(smoothAnimation);
+            }
+        }, { passive: false });
+        
+        // 2. The Animation Loop (Lerp engine)
+        function smoothAnimation() {
+            // Linear Interpolation calculation
+            currentX += (targetX - currentX) * ease;
+            
+            container.scrollLeft = currentX;
+            
+            // Keep animating until the difference is negligible
+            if (Math.abs(targetX - currentX) > 0.5) {
+                requestAnimationFrame(smoothAnimation);
+            } else {
+                isMoving = false;
+                currentX = targetX; // Snap exactly to target at the end
+            }
+        }
+        
+        // 3. Keep the target synced if the user drags the native scrollbar/swipes
+        container.addEventListener('scroll', () => {
+            if (!isMoving) {
+                targetX = container.scrollLeft;
+                currentX = container.scrollLeft;
+            }
+        });
+    };
+
+    const table = document.getElementById("subject-table") || document.querySelector("table");
+    applyXScroll(table.parentElement);
+    table.id = "subject-table";
+    table.replaceChildren();
+
+    const thead = document.createElement("thead");
+
+    const headerRow = document.createElement("tr");
+    headerRow.classList.add("border-x", "border", "border-gray-300", "dark:border-gray-700", "text-gray-900", "dark:text-white", "bg-gray-200/60", "dark:bg-gray-800/60", "shadow-md");
+
+    const headerSubject = document.createElement("th");
+    headerSubject.classList.add("px-5", "py-3");
+    headerSubject.textContent = "Subject";
+    headerRow.appendChild(headerSubject);
+
+    for (let i = 2010; i <= 2025; i++) {
+        const headerYear = document.createElement("th");
+        headerYear.classList.add("px-5", "py-3");
+        headerYear.textContent = i;
+        headerRow.appendChild(headerYear);
+    };
+
+    thead.appendChild(headerRow);
+    table.appendChild(thead);
+
+    // const tbody = document.getElementById("table-body");
+    const tbody = document.createElement("tbody");
+    tbody.id = "table-body";
+    table.appendChild(tbody);
+
+    for (let i = 0; i < SubjectsFull.length; i++) {
+        const row = document.createElement("tr");
+        // row.classList.add("bg-white", "dark:bg-gray-800", "hover:bg-gray-100", "dark:hover:bg-gray-700", "border-x", "border", "border-gray-300", "dark:border-gray-700", "text-gray-900", "dark:text-white");
+        row.classList.add("bg-transparent", "hover:bg-gray-100/30", "hover:dark:bg-gray-800/30", "border-x", "border", "border-gray-300", "dark:border-gray-700", "text-gray-900", "dark:text-white");
+        const subjectName = document.createElement("th");
+        subjectName.classList.add("px-5", "py-3");
+        subjectName.textContent = SubjectsFull[i];
+        row.appendChild(subjectName);
+        for (let j = 2010; j <= 2025; j++) {
+            const column = document.createElement("th");
+            column.classList.add("px-5", "py-3");
+            row.appendChild(column);
+        };
+        tbody.appendChild(row);
+    };
+
+    function addFileButton(row, column, file, name) {
+        console.log(row, column, file, name);
+        var tbody = document.getElementById("table-body");
+        var rowElement = tbody.children[row];
+        var columnElement = rowElement.children[column + 1];
+        var button = document.createElement("button");
+        button.type = "button";
+        button.classList.add("text-blue-600", "dark:text-blue-400", "hover:underline");
+        // button.href = file;
+        button.onclick = function() {
+            openFile(file);
+        };
+        button.textContent = name;
+        columnElement.appendChild(button);
+    };
+    function addFile(file) {
+        var name = file.split(".")[0].split(",")[0];
+        var subject = name.split(" ").slice(0, -1).join(" ");
+        if (!Subjects.includes(subject)) {return;};
+        var row = parseInt(Subjects.indexOf(subject), 10);
+        var year = parseInt(name.split(" ").at(-1), 10);
+        var column = year - 2010;
+        // if (year != 2024) {
+        addFileButton(row, column, file, name);
+        // }
+    };
+    // fetch(`${window.location.protocol}//con.${window.location.host}${window.location.pathname}`).then(a => a.json()).then(files => {
+    fetch(`${window.location.protocol}//api.kmu.pisc.cc/list${window.location.pathname}`).then(a => a.json()).then(files => {
+        files.items.forEach(file => {
+            if (file.name != "index.html" && file.type == "File") {
+                addFile(file.name);
+            };
+        });
+    });
+</script> -->
+<script src="/old-exam-script.min.js"></script>

@@ -58,42 +58,90 @@ const mobileMenuButton = _document_querySelector('#mobile-menu-button');
 const mobileMenu = _document_querySelector('#mobile-menu');
 const menuIconOpen = _document_querySelector('#menu-icon-open');
 const menuIconClose = _document_querySelector('#menu-icon-close');
+const menuIcon = _document_querySelector('#menu-icon');
 
-_addEventListener(mobileMenuButton, 'click', () => {
-    _classList_toggle(mobileMenu, 'hidden');
-    const isHidden = _classList(mobileMenu).contains('hidden');
+// _addEventListener(mobileMenuButton, 'click', () => {
+//     _classList_toggle(mobileMenu, 'hidden');
+//     const isHidden = _classList(mobileMenu).contains('hidden');
 
-    if (isHidden) {
-        // Menu is closed, show hamburger icon
-        _classList_remove(menuIconOpen, 'opacity-0');
-        _classList_add(menuIconClose, 'opacity-0');
+//     if (isHidden) {
+//         // Menu is closed, show hamburger icon
+//         _classList_remove(menuIconOpen, 'opacity-0');
+//         _classList_add(menuIconClose, 'opacity-0');
         
+//     } else {
+//         // Menu is open, show close icon
+//         _classList_add(menuIconOpen, 'opacity-0');
+//         _classList_remove(menuIconClose, 'opacity-0');
+        
+//         // _w.scrollTo(0, 1000);
+//         _w.scrollTo({ top: 0, behavior: "smooth" });
+//     }
+// });
+
+// // Close the mobile menu when a link is clicked
+// const mobileLinks = mobileMenu.querySelectorAll('a');
+// mobileLinks.forEach(link => {
+//     _addEventListener(link, 'click', () => {
+//         _classList_add(mobileMenu, 'hidden');
+//         _classList_remove(menuIconOpen, 'opacity-0');
+//         _classList_add(menuIconClose, 'opacity-0');
+//     });
+// });
+
+// // Close the mobile menu on _w resize if screen becomes desktop size
+// _addEventListener(_w, 'resize', () => {
+//     if (_w.innerWidth >= 768) {
+//         _classList_add(mobileMenu, 'hidden');
+//         _classList_remove(menuIconOpen, 'opacity-0');
+//         _classList_add(menuIconClose, 'opacity-0');
+//     }
+// });
+
+const menuIconPath = _document_querySelector('#menu-icon-path');
+
+function closeMobileMenu() {
+    _classList_remove(mobileMenu, 'visible-menu');
+    _classList_add(mobileMenu, 'hidden-menu');
+    _classList_remove(mobileMenuButton, 'is-active');
+    setTimeout(() => {
+        if (menuIconPath) _setAttribute(menuIconPath, 'd', 'M4 8h16M4 16h16');
+    }, 150);
+}
+
+function openMobileMenu() {
+    _classList_remove(mobileMenu, 'hidden-menu');
+    _classList_add(mobileMenu, 'visible-menu');
+    _classList_add(mobileMenuButton, 'is-active');
+    setTimeout(() => {
+        if (menuIconPath) _setAttribute(menuIconPath, 'd', 'M6 18L18 6M6 6l12 12');
+    }, 150);
+}
+
+_addEventListener(mobileMenuButton, 'click', (e) => {
+    e.stopPropagation();
+    if (_classList(mobileMenu).contains('hidden-menu')) {
+        openMobileMenu();
     } else {
-        // Menu is open, show close icon
-        _classList_add(menuIconOpen, 'opacity-0');
-        _classList_remove(menuIconClose, 'opacity-0');
-        
-        // _w.scrollTo(0, 1000);
-        _w.scrollTo({ top: 0, behavior: "smooth" });
+        closeMobileMenu();
     }
 });
 
-// Close the mobile menu when a link is clicked
-const mobileLinks = mobileMenu.querySelectorAll('a');
-mobileLinks.forEach(link => {
-    _addEventListener(link, 'click', () => {
-        _classList_add(mobileMenu, 'hidden');
-        _classList_remove(menuIconOpen, 'opacity-0');
-        _classList_add(menuIconClose, 'opacity-0');
-    });
+mobileMenu.querySelectorAll('a').forEach(link => {
+    _addEventListener(link, 'click', closeMobileMenu);
 });
 
-// Close the mobile menu on _w resize if screen becomes desktop size
+_addEventListener(_document, 'click', (e) => {
+    if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+        if (_classList(mobileMenu).contains('visible-menu')) {
+            closeMobileMenu();
+        }
+    }
+});
+
 _addEventListener(_w, 'resize', () => {
     if (_w.innerWidth >= 768) {
-        _classList_add(mobileMenu, 'hidden');
-        _classList_remove(menuIconOpen, 'opacity-0');
-        _classList_add(menuIconClose, 'opacity-0');
+        closeMobileMenu();
     }
 });
 
@@ -184,7 +232,8 @@ function createClockForm() {
 
     
     // const clockFormHtml = '<div><form id="clock-form" action="/clock" emthod="get"><button id="clock-page-button" class="bg-white dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 border border-neutral-200 dark:border-neutral-700 shadow-md w-12 h-12 rounded-lg flex items-center justify-center p-2 bottom-4 right-4 fixed"><svg class="transform transition-transform duration-300 justify-center" fill="none" stroke="currentColor" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path id="" class="" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M6 1A1 1 0 006 11A1 1 0 006 1M4 5 6 6 9 4"></path></svg></button></form></div>';
-    const clockFormHtml = '<div><form id="clock-form" action="/clock" emthod="get"><button id="clock-page-button" class="w-12 h-12 rounded-lg flex items-center justify-center p-2 bottom-4 right-4 fixed backdrop-blur-md backdrop-brightness-[0.95] dark:backdrop-brightness-[0.8] shadow shadow-lg text-neutral-500""><svg class="transform transition-transform duration-300 justify-center" fill="none" stroke="currentColor" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path id="" class="" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M6 1A1 1 0 006 11A1 1 0 006 1M4 5 6 6 9 4"></path></svg></button></form></div>';
+    // const clockFormHtml = '<div><form id="clock-form" action="/clock" emthod="get"><button id="clock-page-button" class="w-12 h-12 rounded-lg flex items-center justify-center p-2 bottom-4 right-4 fixed backdrop-blur-md backdrop-brightness-[0.95] dark:backdrop-brightness-[0.8] shadow shadow-lg text-neutral-500""><svg class="transform transition-transform duration-300 justify-center" fill="none" stroke="currentColor" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path id="" class="" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M6 1A1 1 0 006 11A1 1 0 006 1M4 5 6 6 9 4"></path></svg></button></form></div>';
+    const clockFormHtml = '<div><form id="clock-form" action="/clock" emthod="get"><button id="clock-page-button" class="w-12 h-12 rounded-lg flex items-center justify-center p-2 bottom-4 right-4 fixed backdrop-blur-md backdrop-brightness-[0.95] dark:backdrop-brightness-[0.8] shadow shadow-lg text-neutral-500 !text-lg"><span class="material-symbols-outlined">schedule</span></button></form></div>';
 
     // const clockFormHtml = clockFormDiv();
 
@@ -199,4 +248,68 @@ createClockForm();
 _setAttribute(_document_body, 'class', '');
 // $('body').removeClass();
 _classList_add(_document_body, "dark", "bg-gray-50", "dark:bg-gray-950", "min-h-screen")
+
+
+// // Define full, uninterrupted class strings
+// const Gradients = [
+//   'from-slate-900 to-indigo-950',
+//   'from-zinc-900 to-purple-950',
+//   'from-stone-950 to-emerald-950',
+//   'from-neutral-900 to-gray-950'    
+// ];
+
+// const coloredGradients = [
+//   // Warm & Sunset Vibe
+//   'from-amber-400 to-pink-500',
+//   'from-orange-500 to-red-600',
+//   'from-yellow-400 to-orange-500',
+//   'from-rose-400 to-orange-300',
+//   'from-amber-300 to-rose-500',
+//   'from-red-500 to-pink-500',
+  
+//   // Cool & Aquatic
+//   'from-blue-500 to-teal-400',
+//   'from-cyan-400 to-blue-600',
+//   'from-sky-400 to-indigo-500',
+//   'from-teal-300 to-emerald-500',
+//   'from-cyan-500 to-blue-500',
+//   'from-sky-500 to-indigo-600',
+
+//   // Rich Purples & Pinks
+//   'from-purple-500 to-pink-500',
+//   'from-indigo-500 to-purple-500',
+//   'from-fuchsia-500 to-pink-500',
+//   'from-violet-600 to-indigo-600',
+//   'from-pink-400 to-rose-600',
+//   'from-purple-400 to-fuchsia-600',
+
+//   // Nature & Earthy Greens
+//   'from-emerald-400 to-cyan-500',
+//   'from-green-400 to-teal-500',
+//   'from-lime-400 to-emerald-500',
+//   'from-green-500 to-emerald-600',
+//   'from-lime-300 to-green-500',
+
+//   // Vibrant Multi-Color Combinations
+//   'from-pink-500 via-red-500 to-yellow-500',
+//   'from-fuchsia-600 via-pink-600 to-orange-500',
+//   'from-cyan-400 via-teal-500 to-emerald-600',
+//   'from-indigo-500 via-purple-500 to-pink-500',
+//   'from-blue-400 via-indigo-500 to-purple-500',
+//   'from-yellow-300 via-orange-400 to-red-500',
+
+//   // Soft Pastels
+//   'from-sky-200 to-pink-200',
+//   'from-teal-200 to-lime-200',
+//   'from-rose-300 to-purple-300',
+//   'from-amber-200 to-pink-300',
+//   'from-indigo-200 to-cyan-200'
+// ];
+
+// function getRandomDarkGradient() {
+//   const randomIndex = Math.floor(Math.random() * coloredGradients.length);
+//   return coloredGradients[randomIndex];
+// }
+
+// document.body.classList.add('bg-gradient-to-br', ...getRandomDarkGradient().split(' '));
 })();
