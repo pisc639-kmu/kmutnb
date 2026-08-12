@@ -381,6 +381,7 @@ mno
                 const hands = cell.children;
                 [0, 1].forEach(i => {
                     if (hands[i].style.transition !== angles[digits[digit][cellIndex]][i]) {
+                        // hands[i].style.transition = `rotate 0.1s ease-in, opacity 250ms ease-in-out`;
                         hands[i].style.transition = `rotate ${Math.abs(Number(hands[i].style.rotate.slice(0, -3)) - angles[digits[digit][cellIndex]][i]) / 360 / 0.3 * (0.2 + Math.random() * 0.1)}s ease-in, opacity 250ms ease-in-out`;
                         
                         let row = Math.floor(cellIndex / 4);
@@ -390,6 +391,7 @@ mno
                             opacity(hands[i], digits[digit][cellIndex]);
                             hands[i].style.rotate = `${angles[digits[digit][cellIndex]][i]}deg`;
                         // }, (cellIndex + col + row) / digits[digit].length / 4 * 1000);
+                        // }, );
                         }, (row + col + (Math.random() - 0.5) * 3) / digits[digit].length * 2 * 1000);
                     };
                 })
@@ -450,6 +452,7 @@ mno
                 console.log('Ticking...');
                 clearInterval(IntervalId);
                 tick();
+                // setTimeout(() => setInterval(tick, 100), 1);
                 setTimeout(() => setInterval(tick, 1000), 1);
             }
         }, 1);

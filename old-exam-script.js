@@ -31,6 +31,15 @@ const _setAttribute = (element, attribute, value) => element.setAttribute(attrib
 //     }
 // });
 
+function get_file_url(url, preview = false) {
+    url = new URL(url);
+    if (preview) {
+        url.pathname = '/file'+url.pathname.replace(/(\/[^\/]*){1}/,'')
+    }
+    
+    return decodeURI(url.href);
+}
+
 function download_file(preview = false) {
 
     const fileFrame = _document_getElementById('file-frame');
@@ -129,6 +138,11 @@ function openFile(path) {
         // iframeContainer.classList.remove('display-none');
         _classList_toggle(iframeContainer, "display-none");
     }
+
+    const previewButton = _document_getElementById('preview-btn');
+    const downloadButton = _document_getElementById('download-btn');
+    previewButton.href = get_file_url(source, true);
+    downloadButton.href = get_file_url(source);
 };
 
 // function applyXScroll(t){let e=t.scrollLeft,l=t.scrollLeft,a=!1;function n(){l+=.1*(e-l),t.scrollLeft=l,Math.abs(e-l)>.5?requestAnimationFrame(n):(a=!1,l=e)}t.addEventListener("wheel",l=>{if(Math.abs(l.deltaX)>Math.abs(l.deltaY))return;l.preventDefault(),e+=1*l.deltaY;const r=t.scrollWidth-t.clientWidth;e=Math.max(0,Math.min(e,r)),a||(a=!0,requestAnimationFrame(n))},{passive:!1}),t.addEventListener("scroll",()=>{a||(e=t.scrollLeft,l=t.scrollLeft)})};
