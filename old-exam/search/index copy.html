@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Old Exam Search</title>
+    {% include "head.html" %}
+</head>
+<body class="dark bg-white dark:bg-black min-h-screen">
+    <span class="block h-screen max-h-screen">
+        {% include "nav.html" %}
+        <div class="flex items-center justify-center space-x-4 mt-16">
+            <h1 class="text-4xl text-center font-bold mb-4 text-gray-800 dark:text-white">Old Exam Search</h1>
+        </div>
+        
+        <div class="grid grid-cols-1 gap-y-4 max-w-4xl mx-auto px-4 transition-colors duration-300">
+            <div class="w-full mx-auto mt-8 rounded-md border border-neutral-500">
+                <div class="flex justify-between items-center w-full text-white font-medium rounded-t-md bg-neutral-500 dark:bg-neutral-800 outline-none focus:outline-none focus:ring-0 focus:border-neutral-700 dark:focus:border-neutral-300">
+                    <input 
+                        type="text" 
+                        id="search" 
+                        placeholder="Search..." 
+                        class="w-full py-2.5 px-4 bg-transparent text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 outline-none text-sm font-medium"
+                    />
+                    <button class="material-symbols-outlined p-2 text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-200 transition-colors flex items-center justify-center">
+                        close
+                    </button>
+                </div>
+                <div class="h-auto w-full rounded-md bg-neutral-600 dark:bg-neutral-900 text-white font-medium pb-4 px-4 overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none]">
+                    <div class="exam-table grid grid-cols-1 gap-y-4 mx-auto max-h-[calc(100vh-19rem)]">
+                        <div class="grid grid-cols-2 gap-4 pt-4">
+                            Nigga
+                        </div>
+                        <!-- <div class="grid grid-cols-2 gap-4 pt-4 relative before:content-[''] before:absolute before:top-0 before:left-1/2 before:-translate-x-1/2 before:w-[95%] before:border-t before:border-neutral-500">
+                            Nigger
+                        </div> -->
+                        <div class="grid grid-cols-2 gap-4 pt-4 sep">
+                            NIGGEAR 
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 pt-4 sep">
+                            Nigger
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 pt-4 sep">
+                            NIGGEAR 
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 pt-4 sep">
+                            Nigger
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 pt-4 sep">
+                            NIGGEAR 
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 pt-4 sep">
+                            Nigger
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 pt-4 sep">
+                            NIGGEAR 
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 pt-4 sep">
+                            Nigger
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 pt-4 sep">
+                            NIGGEAR 
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 pt-4 sep">
+                            Nigger
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 pt-4 sep">
+                            NIGGEAR 
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 pt-4 sep">
+                            Nigger
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 pt-4 sep">
+                            NIGGEAR 
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 pt-4 sep">
+                            Nigger
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 pt-4 sep">
+                            NIGGEAR 
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 pt-4 sep">
+                            Nigger
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 pt-4 sep">
+                            NIGGEAR 
+                        </div>
+                    </div>
+                    <script>
+                        const sep = document.querySelectorAll('.sep');
+                        sep.forEach(e => {
+                            // relative before:content-[''] before:absolute before:top-0 before:left-1/2 before:-translate-x-1/2 before:w-[80%] before:border-t before:border-neutral-500
+                            e.classList.add('relative', 'before:content-[""]', 'before:absolute', 'before:top-0', 'before:left-1/2', 'before:-translate-x-1/2', 'before:w-[95%]', 'before:border-t', 'before:border-neutral-500');
+                        })
+
+                        const examTable = document.querySelector('.exam-table');
+                        function createRows(fname) {
+                            
+                        }
+                    </script>
+                </div>
+            </div> 
+        </div>
+            <!-- <div class="grid grid-cols-2 gap-4">
+                <a href="1-1-m" class="bg-gradient-to-br from-blue-600 to-indigo-600 dark:from-blue-950 dark:to-indigo-900 hover:from-blue-700 hover:to-indigo-700 dark:hover:from-blue-900 dark:hover:to-indigo-800 text-white font-medium py-2 px-4 rounded-md border border-blue-500 duration-300 shadow-md shadow-blue-600/25 hover:shadow-lg hover:shadow-blue-700/40 dark:hover:shadow-blue-900/50 active:scale-[0.98] transition-all duration-200 hover:shadow-blue-500 text-center">Year 1 Term 1 Midterm</a>
+                <a href="1-1-f" class="bg-neutral-600 hover:bg-neutral-700 dark:bg-neutral-900 dark:hover:bg-neutral-700 text-white font-medium py-2 px-4 rounded-md border border-neutral-500 text-center">Year 1 Term 1 Final</a>
+            </div> -->
+    </span>
+    {% include "bottom.html" %}
+</body>
+</html>

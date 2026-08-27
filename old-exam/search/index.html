@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Old Exam Search</title>
+    {% include "head.html" %}
+</head>
+
+<body class="dark bg-white dark:bg-black min-h-screen">
+    <span class="block h-screen max-h-screen">
+        {% include "nav.html" %}
+        <div class="flex items-center justify-center space-x-4 mt-16">
+            <h1 class="text-4xl text-center font-bold mb-4 text-gray-800 dark:text-white">Old Exam Search</h1>
+        </div>
+
+        <div class="grid grid-cols-1 gap-y-4 max-w-4xl mx-auto px-4 transition-colors duration-300">
+            <div class="w-full mx-auto mt-8 rounded-md border border-neutral-500">
+                <div
+                    class="flex justify-between items-center w-full text-white font-medium rounded-t-md bg-neutral-200/60 dark:bg-neutral-900/100 shadow-md outline-none focus:outline-none focus:ring-0 focus:border-neutral-700 dark:focus:border-neutral-300">
+                    <input type="text" id="search" placeholder="Search..."
+                        class="w-full py-2.5 px-4 bg-transparent text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 outline-none text-sm font-medium" />
+                    <span
+                        class="material-symbols-outlined p-2 text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-200 transition-colors flex items-center justify-center">
+                        close
+                    </span>
+                </div>
+                <!-- <div
+                    class="h-auto w-full rounded-md bg-neutral-600 dark:bg-neutral-900 text-white font-medium pb-4 px-4 overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none]">
+                    <div class="exam-table grid grid-cols-1 gap-y-4 mx-auto max-h-[calc(100vh-19rem)]">
+                        <th class="grid grid-cols-2 gap-4 pt-4">
+                            Nigga
+                        </th>
+                    </div>
+                </div> -->
+                <div class="overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none]">
+                    <table id="exam-table" class="border-collapse border border-gray-300 dark:border-gray-700 w-full overflow-x-auto no-scrollbar">
+                        <thead>
+                            <tr class="border-x border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-neutral-400 bg-neutral-200/60 dark:bg-neutral-800/60 shadow-md">
+                                <th class="px-3 py-3">Subject</th>
+                                <th class="px-3 py-3">Year</th>
+                                <th class="px-3 py-3">Term</th>
+                                <!-- <th class="px-3 py-3">Period</th> -->
+                                <th class="px-3 py-3">EP</th>
+                                <th class="px-3 py-3"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body" class="last:rounded-b-md">
+                            <tr
+                                class="bg-neutral-600 dark:bg-neutral-900 hover:bg-gray-100/30 hover:dark:bg-gray-800/30 border-x border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white">
+                                <!-- <th class="px-5 py-3">Math 1</th> -->
+                                <th class="px-5 py-3 hover:cursor-pointer">
+                                    <span
+                                        class="text-blue-600 dark:text-blue-400 hover:underline hover:cursor-pointer">
+                                        Math 1
+                                    </span>
+                                </th>
+                                <th class="px-5 py-3">2012</th>
+                                <th class="px-5 py-3 hover:cursor-pointer">
+                                    <span
+                                        class="text-blue-600 dark:text-blue-400 hover:underline hover:cursor-pointer">
+                                        Math1 2013
+                                    </span>
+                                </th>
+                                <th class="px-5 py-3 hover:cursor-pointer">
+                                    <span
+                                    class="text-blue-600 dark:text-blue-400 hover:underline hover:cursor-pointer">
+                                    Math1 2014
+                                </span>
+                                <th class="px-3 py-3">
+                                    <span class="material-symbols-outlined">download</span></th>
+                                </th>
+                            </tr>
+                            <tr
+                                class="bg-neutral-600 dark:bg-neutral-900 hover:bg-gray-100/30 hover:dark:bg-gray-800/30 border-x border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white">
+                                <!-- <th class="px-5 py-3">Math 3</th> -->
+                                <th class="px-5 py-3 hover:cursor-pointer">
+                                    <span
+                                        class="text-neutral-600 dark:text-blue-400 hover:underline hover:cursor-pointer">
+                                        Math 3
+                                    </span>
+                                </th>
+                                <th class="px-5 py-3"></th>
+                                <th class="px-5 py-3"></th>
+                                <th class="px-5 py-3">
+                                    <span
+                                        class="text-blue-600 dark:text-blue-400 hover:underline hover:cursor-pointer">
+                                        Math3 2014
+                                    </span>
+                                </th>
+                                <th class="px-3 py-3">
+                                    <span class="material-symbols-outlined">download</span></th>
+                                </th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="grid grid-cols-2 gap-4">
+                <a href="1-1-m" class="bg-gradient-to-br from-blue-600 to-indigo-600 dark:from-blue-950 dark:to-indigo-900 hover:from-blue-700 hover:to-indigo-700 dark:hover:from-blue-900 dark:hover:to-indigo-800 text-white font-medium py-2 px-4 rounded-md border border-blue-500 duration-300 shadow-md shadow-blue-600/25 hover:shadow-lg hover:shadow-blue-700/40 dark:hover:shadow-blue-900/50 active:scale-[0.98] transition-all duration-200 hover:shadow-blue-500 text-center">Year 1 Term 1 Midterm</a>
+                <a href="1-1-f" class="bg-neutral-600 hover:bg-neutral-700 dark:bg-neutral-900 dark:hover:bg-neutral-700 text-white font-medium py-2 px-4 rounded-md border border-neutral-500 text-center">Year 1 Term 1 Final</a>
+            </div> -->
+        <!-- <script>
+            const sep = document.querySelectorAll('.sep');
+            sep.forEach(e => {
+                // relative before:content-[''] before:absolute before:top-0 before:left-1/2 before:-translate-x-1/2 before:w-[80%] before:border-t before:border-neutral-500
+                e.classList.add('relative', 'before:content-[""]', 'before:absolute', 'before:top-0', 'before:left-1/2', 'before:-translate-x-1/2', 'before:w-[95%]', 'before:border-t', 'before:border-neutral-500');
+            })
+
+            const examTable = document.querySelector('.exam-table');
+
+            function createRow(fname) {
+                const row = document.createElement('th');
+                // grid grid-cols-2 gap-4 pt-4 relative before:content-[''] before:absolute before:top-0 before:left-1/2 before:-translate-x-1/2 before:w-[95%] before:border-t before:border-neutral-500
+                row.classList.add('grid', 'grid-cols-2', 'gap-4', 'pt-4', 'relative', 'before:content-[""]', 'before:absolute', 'before:top-0', 'before:left-1/2', 'before:-translate-x-1/2', 'before:w-[95%]', 'before:border-t', 'before:border-neutral-500');
+                row.textContent = fname;
+
+                examTable.appendChild(row);
+            }
+
+            createRow('1-1-m');
+        </script> -->
+    </span>
+    <script>
+// 1. Compile mapping and master regex once at module initialization
+const MAPPING = {
+    "#iii#": ["3", "iii"],
+    "#ii#": ["2", "ii"],
+    "#iv#": ["4", "iv"],
+    "#vi#": ["6", "vi"],
+    "#v#": ["5", "v"],
+    "#i#": ["1", "i"],
+    "mathematics": ["math(s)?", "mathe?"],
+    "mechanics": ["phys(ics?)?", "mech(anics?)?"],
+    "chemistry": "chem(istry)?",
+    "computer": "comp?(ut)?e?r?",
+    "engi": "engi(ne?e?r)?i?n?g?",
+    "engl": "engl?(ish)?",
+    "introduction to": "intro(duct)?(ion)?s?",
+    "fundamental": "fund(amental)?",
+    "systems": "sys(tem)?s?",
+    "materials": "mate?r(ial)?s?",
+    "communicative": "comm",
+    "programming": "prog(ramm?)?i?n?g?",
+    "circuit": "circ(uit)?s?",
+    "computer-aided design": "cad",
+    "computer-aided manufacturing": "cam",
+    "electri": "electric?(a?l?|c?i?t?y?)?s?",
+    "electro": "electron?i?c?s?",
+    "phenomena": "pheno?m?e?n?a?",
+    "drawing": "draw?i?n?g?"
+};
+
+const FLAT_MAPPING = [];
+for (const [target, src] of Object.entries(MAPPING)) {
+    const sources = Array.isArray(src) ? src : [src];
+    for (const p of sources) {
+        FLAT_MAPPING.push({ pattern: p, target });
+    }
+}
+
+const MASTER_REGEX = new RegExp(
+    FLAT_MAPPING.map(({ pattern }) => `(\\b(?:${pattern})\\b)`).join("|"),
+    "gi"
+);
+
+// 2. High-performance function to run per CSV line
+function formatAndStandardizeQuery(query) {
+    let text = query.replace(MASTER_REGEX, (...args) => {
+        for (let i = 0; i < FLAT_MAPPING.length; i++) {
+            if (args[i + 1] !== undefined) {
+                return FLAT_MAPPING[i].target;
+            }
+        }
+        return args[0];
+    });
+
+    return text.toLowerCase().trim()
+        .replace(/^"|".{0,2}$|^\,|,\s*,?/g, '')
+        .replace(/[\s,\^\"\'\-_]/g, '')
+        .replace(/s/g, '')
+        .replace(/#+/g, '#');
+}
+
+async function fetchAndParseCSV() {
+    try {
+        const response = await fetch('files.csv');
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const csvData = await response.text();
+
+        // Split by newline and map each non-empty row to its comma-separated columns
+        const rows = csvData
+            .split('\n')
+            .filter(row => row.trim() !== '') // Remove empty trailing lines
+            .map(row => row.split(',').map(a => a.trim()))
+            .slice(1);
+
+        return rows;
+
+    } catch (error) {
+        console.error('Error fetching the CSV file:', error);
+        return []; // Return an empty array in case of an error
+    }
+}
+
+// fetchAndParseCSV();
+
+    </script>
+    {% include "bottom.html" %}
+</body>
+
+</html>

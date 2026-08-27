@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <link rel="preconnect" href="https://challenges.cloudflare.com" />
+    <script
+        src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+        async
+        defer
+    ></script>
+    {% include "head.html" %}
+</head>
+<body class="dark bg-white dark:bg-black min-h-screen">
+    {% include "nav.html" %}
+    <div class="flex items-center justify-center mt-4">
+        <h1 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Feedback</h1>
+    </div>
+    <div class="w-[calc(100%-2rem)] mx-4 flex flex-col items-center justify-center">
+        <form class="w-full max-w-4xl mx-4 p-4 bg-neutral-100 dark:bg-neutral-900 rounded-md border border-neutral-600" action="/feedback/send" method="POST">
+            <div class="flex flex-row gap-x-4">
+                <label class="text-gray-800 dark:text-white p-2">Type</label>
+                <select name="type" id="report-type" class="w-full p-2 *:bg-neutral-200 *:text-black *:dark:bg-neutral-800 *:dark:text-white bg-neutral-200 dark:bg-neutral-800 text-black dark:text-white rounded-md border border-neutral-600" required>
+                    <option value="" disabled selected hidden>Choose an option...</option>
+                    <option value="error">Report an Error</option>
+                    <option value="suggestion">Submit a Suggestion</option>
+                    <option value="update">Request an Update</option>
+                    <!-- <option value=""></option> -->
+                </select>
+            </div>
+            <textarea name="message" id="message" cols="30" placeholder="Message..." class="flex w-full h-auto p-2 mt-4 bg-neutral-200 dark:bg-neutral-800 text-black dark:text-white rounded-md border border-neutral-600 google-sans resize-none overflow-y-auto max-h-[16rem] box-border" required></textarea>
+            <!-- Submit -->
+            <div class="flex flex-row gap-x-4 mt-4">
+                <label class="text-gray-800 dark:text-white p-2">Contact</label>
+                <input type="text" name="contact" id="contact" placeholder="Your contact info... (Optional)" class="w-full p-2 *:bg-neutral-200 *:text-black *:dark:bg-neutral-800 *:dark:text-white bg-neutral-200 dark:bg-neutral-800 text-black dark:text-white rounded-md border border-neutral-600">
+            </div>
+            <div class="flex justify-center w-full max-h-[81px] [&>div>div]:mt-4">
+            <!-- <div class="flex justify-center w-full max-h-[89px] [&>div>div]:mt-5"> -->
+                <div id="cf-turnstile" class="cf-turnstile" data-sitekey="0x4AAAAAAEdwIFADT2Iz_oLO" required></div>
+            </div>
+            <button type="submit" id="submit" class="flex w-full text-end bg-blue-600 hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-800 rounded border border-blue-400 text-white font-bold py-2 px-3 mt-4">Submit</button>
+        </form>
+    </div>
+    <script>
+        const reportType = document.getElementById("report-type");
+        const textarea = document.getElementById("message");
+        const contact = document.getElementById("contact");
+        const submitButton = document.getElementById("submit");
+        const scrollYClassList = ["overflow-y-auto", "[scrollbar-width:none]", "[&::-webkit-scrollbar]:hidden", "[-ms-overflow-style:none]"]
+
+        contact.addEventListener("input", () => {
+            studentID
+        });
+
+        reportType.addEventListener("change", () => {
+            textarea.classList.remove("hidden");
+
+            // if (reportType.value === "error") {
+            //     window.location.href = "/feedback/error";
+            // } else if (reportType.value === "suggestion") {
+            //     window.location.href = "/feedback/suggestion";
+            // }
+        });
+
+        textarea.addEventListener('input', function () {
+            // Reset height to compute true scrollHeight
+            this.style.height = 'auto';
+            // Set new height based on content
+            this.style.height = this.scrollHeight + 'px';
+            if (this.scrollHeight > 16 * 16) {
+                this.classList.remove(...scrollYClassList);
+            } else {
+                this.classList.add(...scrollYClassList);
+            }
+
+            submitButton.classList.remove("hidden");
+        });
+
+
+        function onTurnstileSuccess(token) {
+            console.log("Turnstile success:", token);
+            document.getElementById("submit-btn").disabled = false;
+        }
+        function onTurnstileError(errorCode) {
+            console.error("Turnstile error:", errorCode);
+            document.getElementById("submit-btn").disabled = true;
+        }
+        function onTurnstileExpired() {
+            console.warn("Turnstile token expired");
+            document.getElementById("submit-btn").disabled = true;
+            turnstile.reset();
+        }
+    </script>
+    {% include "bottom.html" %}
+</body>
+</html>

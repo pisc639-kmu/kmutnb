@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Old Exam Year 2 Term 2 Midterm</title>
+    {% include "head.html" %}
+</head>
+<body class="dark bg-white dark:bg-black min-h-screen">
+    {% include "nav.html" %}
+    <div class="flex items-center justify-center space-x-4 mt-16">
+        <h1 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Old Exam Year 2 Term 2 Midterm</h1>
+    </div>
+
+    {% include "oldexammain.html" %}
+    {% include "bottom.html" %}
+    <script>
+        const SubjectsFull = [
+            "Mathematics 4",
+            "Writing",
+            "Electrical Phenomena",
+            "Electronic Circuits 2"
+        ];
+        const Subjects = [
+            "Math",
+            "Writing",
+            "Physics",
+            "Circuit"
+        ];
+    </script>
+    {% include "oldexamscript.html" %}
+</body>
+</html>
