@@ -5,9 +5,11 @@
 <!-- Inter Font -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@300..700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="/style.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.min.css">
 <!-- jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <style>
@@ -16,7 +18,7 @@
     }
 </style>
 <script>
-  if (window.location.hostname !== 'localhost') {
+  if (!['localhost', '127.0.0.1', '[::1]'].includes(window.location.hostname)) {
     fetch('https://analytics.pisc.cc', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

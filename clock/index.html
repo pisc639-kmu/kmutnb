@@ -9,13 +9,14 @@
 <body class="dark bg-gray-100 dark:bg-black overflow-y-hidden">
     {% include "nav.html" %}
     <div id="screen" class="h-[calc(100vh-5rem)] flex flex-col items-center justify-center">
-        <div class="fixed inset-0 -z-10 bg-[url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRAQQ7ZjyZ5KNgxHPBBYi9WgCgBfJlS7KgFw9whV7-2EVHYJnOKFiUfhW6&s=10')] bg-cover bg-center bg-no-repeat invert dark:invert-0"></div>
-        <div class="fixed inset-0 -z-10 backdrop-blur-3xl backdrop-brightness-[0.5] bg-black/10"></div>
+        <!-- <div class="fixed inset-0 -z-10 bg-[url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRAQQ7ZjyZ5KNgxHPBBYi9WgCgBfJlS7KgFw9whV7-2EVHYJnOKFiUfhW6&s=10')] bg-cover bg-center bg-no-repeat invert dark:invert-0"></div>
+        <div class="fixed inset-0 -z-10 backdrop-blur-3xl backdrop-brightness-[0.5] bg-black/10"></div> -->
+        {% include "background.html" %}
         <span class="scale-[45%] md:scale-[80%] lg:scale-[100%] flex flex-col items-center justify-center">
             <div id="main" class="mt-16 flex relative space-0 justify-center">
             </div>
-            <h1 id="time-text" class="text-6xl font-bold text-white mt-10 lg:mb-4 lg:mt-16"></h1>
-            <div id="time" class="mt-0 flex relative space-x-6 justify-center" style="scale: 0.5;">
+            <h1 id="time-text" class="text-6xl font-bold text-black dark:text-white mt-10 lg:mb-4 lg:mt-16"></h1>
+            <div id="time" class="mt-0 flex relative justify-center" style="scale: 0.5;">
         </span>
     </div>
 
@@ -36,8 +37,8 @@
         .clock {
             width: 2rem;
             height: 2rem;
-            background: oklch(20% 0 0);
-            border: 0.125rem solid oklch(30% 0 0);
+            /* background: oklch(20% 0 0); */
+            /* border: 0.125rem solid oklch(30% 0 0); */
             position: relative;
             border-radius: 50%;
         }
@@ -46,7 +47,7 @@
             height: 0.1875rem;
             /* height: 0.09375rem; */
             /* background: oklch(0.9475 0.1916 119.15);  */
-            background: oklch(100% 0 0); 
+            /* background: oklch(100% 0 0);  */
             position: absolute;
             top: 50%;
             
@@ -78,10 +79,10 @@
             seperator.classList.add('seperator', 'grid', 'grid-cols-1', 'w-[2rem]');
             for (let i = 0; i < 6; i++){
                 const clock = document.createElement('div');
-                clock.classList.add('clock');
+                clock.classList.add('clock', 'bg-white/50', 'dark:bg-[oklch(20%_0_0)]', 'border-[0.125rem]', 'border-solid', 'border-[oklch(80%_0_0)]', 'dark:border-[oklch(30%_0_0)]');
                 for (let k = 0; k < 2; k++) {
                     const hand = document.createElement('div');
-                    hand.classList.add('hand');
+                    hand.classList.add('hand', 'bg-black', 'dark:bg-white');
                     hand.style.rotate = k == 0 ? 45 : 45 + 'deg';
                     opacity(hand, " ");
                     // hand.style.opacity = 0.2;
@@ -96,10 +97,10 @@
             digit.classList.add('digit', 'grid', 'grid-cols-4', 'w-[8rem]');
             for (let i = 0; i < 24; i++) {
                 const clock = document.createElement('div');
-                clock.classList.add('clock');
+                clock.classList.add('clock', 'bg-white/50', 'dark:bg-[oklch(20%_0_0)]', 'border-[0.125rem]', 'border-solid', 'border-[oklch(80%_0_0)]', 'dark:border-[oklch(30%_0_0)]');
                 for (let k = 0; k < 2; k++) {
                     const hand = document.createElement('div');
-                    hand.classList.add('hand');
+                    hand.classList.add('hand', 'bg-black', 'dark:bg-white');
                     hand.style.rotate = '45deg';
                     opacity(hand, " ");
                     clock.appendChild(hand);
@@ -419,8 +420,11 @@ mno
 
         const time = document.getElementById('time');
         createNumberElement(time, 3);
+        createSeperatorElement(time);
         createNumberElement(time, 2);
+        createSeperatorElement(time);
         createNumberElement(time, 2);
+        createSeperatorElement(time);
         createNumberElement(time, 4);
 
         document.querySelectorAll('.seperator').forEach(separator => initSeparator(separator));
@@ -439,9 +443,9 @@ mno
 
             const timeElement = document.getElementById('time');
             setNumber(timeElement.children[0], Days[new Date().getDay()].slice(0, 3).toUpperCase());
-            setNumber(timeElement.children[1], new Date().getDate());
-            setNumber(timeElement.children[2], new Date().getMonth());
-            setNumber(timeElement.children[3], new Date().getFullYear());
+            setNumber(timeElement.children[2], new Date().getDate());
+            setNumber(timeElement.children[4], new Date().getMonth());
+            setNumber(timeElement.children[6], new Date().getFullYear());
         }
         
         const now = () => Date.now()/1000|0;
@@ -501,7 +505,7 @@ mno
 
     </script>
 
-    <script src="/script.min.js"></script>
+    {% include "bottom.html" %}
 </body>
 </html>
 

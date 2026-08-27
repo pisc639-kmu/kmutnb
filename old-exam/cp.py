@@ -9,29 +9,64 @@ import shutil
 
 
 paths_string = r"""
-D:\kmutnb\old-exam\2555\term 2\midterm\394174.pdf
-D:\kmutnb\old-exam\2556\term 2\midterm\ep\394174 ep.pdf
-D:\kmutnb\old-exam\2557\term 2\midterm\394174 ep.pdf
-D:\kmutnb\old-exam\2558\term 2\midterm\394174 ep.pdf
-D:\kmutnb\old-exam\2560\term 2\midterm\6 mar 61\ep\394174.pdf
-D:\kmutnb\old-exam\2561\term 2\midterm\ep\394174.pdf
-D:\kmutnb\old-exam\2562\term 2\midterm\21 jan 63\ep\394174.pdf
-D:\kmutnb\old-exam\2567\term 2\midterm\031001134 s15-18.pdf
-D:\kmutnb\old-exam\2568\term 2\midterm\031001134 s15-17.pdf
+D:\kmutnb\old-exam\2555\term 1\final\394171.pdf
+D:\kmutnb\old-exam\2556\term 1\final\394171.pdf
+D:\kmutnb\old-exam\2557\term 1\final\394171.pdf
+D:\kmutnb\old-exam\2558\term 1\final\394171.pdf
+D:\kmutnb\old-exam\2560\term 1\final\394171.pdf
+D:\kmutnb\old-exam\2561\term 1\final\27 nov 2561\27 nov 61\394171.pdf
+D:\kmutnb\old-exam\2562\term 1\final\394171.pdf
+D:\kmutnb\old-exam\2563\term 1\final\28 oct 63\394171.pdf
+D:\kmutnb\old-exam\2567\term 1\final\031001131 s1-14.pdf
+D:\kmutnb\old-exam\2568\term 1\final\031001131 s1-14.pdf
 
-D:\kmutnb\old-exam\2555\term 2\midterm\392154.pdf
-D:\kmutnb\old-exam\2556\term 2\midterm\ep\392154 ep.pdf
-D:\kmutnb\old-exam\2557\term 2\midterm\392154 ep.pdf
-D:\kmutnb\old-exam\2558\term 2\midterm\392154 ep.pdf
-D:\kmutnb\old-exam\2560\term 2\midterm\7 mar 61\ep\392154.pdf
-D:\kmutnb\old-exam\2561\term 2\midterm\ep\392154.pdf
-D:\kmutnb\old-exam\2562\term 2\midterm\22 jan 63\ep\392154-1.pdf
-D:\kmutnb\old-exam\2562\term 2\midterm\22 jan 63\ep\392154-2.pdf
-D:\kmutnb\old-exam\2567\term 2\midterm\031001124 s15-18.pdf
-D:\kmutnb\old-exam\2568\term 2\midterm\031001124 s15-17.pdf
+D:\kmutnb\old-exam\2556\term 1\final\394173.pdf
+D:\kmutnb\old-exam\2557\term 1\final\394173.pdf
+D:\kmutnb\old-exam\2558\term 1\final\394173.pdf
+D:\kmutnb\old-exam\2560\term 1\final\394173.pdf
+D:\kmutnb\old-exam\2561\term 1\final\28 nov 61\394173.pdf
+D:\kmutnb\old-exam\2562\term 1\final\394173.pdf
+D:\kmutnb\old-exam\2563\term 1\final\27 oct 63\394173.pdf
+D:\kmutnb\old-exam\2567\term 1\final\031001133 s1-14.pdf
+D:\kmutnb\old-exam\2568\term 1\final\031001133 s1-14.pdf
+
+D:\kmutnb\old-exam\2555\term 1\final\393141.pdf
+D:\kmutnb\old-exam\2556\term 1\final\393141.pdf
+D:\kmutnb\old-exam\2557\term 1\final\393141.pdf
+D:\kmutnb\old-exam\2558\term 1\final\393141.pdf
+D:\kmutnb\old-exam\2560\term 1\final\393141.pdf
+D:\kmutnb\old-exam\2561\term 1\final\30 nov 61\393141.pdf
+D:\kmutnb\old-exam\2562\term 1\final\393141.pdf
+D:\kmutnb\old-exam\2563\term 1\final\26 oct 63\393141.pdf
+D:\kmutnb\old-exam\2567\term 1\final\031001141 s1-14.pdf
+D:\kmutnb\old-exam\2568\term 1\final\031001141 s1-17.pdf
+
+D:\kmutnb\old-exam\2555\term 1\final\392131.pdf
+D:\kmutnb\old-exam\2556\term 1\final\392131.pdf
+D:\kmutnb\old-exam\2557\term 1\final\392131.pdf
+D:\kmutnb\old-exam\2558\term 1\final\392131.pdf
+D:\kmutnb\old-exam\2560\term 1\final\392131.pdf
+D:\kmutnb\old-exam\2561\term 1\final\28 nov 61\392131.pdf
+D:\kmutnb\old-exam\2562\term 1\final\392131.pdf
+D:\kmutnb\old-exam\2563\term 1\final\29 oct 63\392131.pdf
+D:\kmutnb\old-exam\2567\term 1\final\031001111 s1-14.pdf
+D:\kmutnb\old-exam\2568\term 1\final\031001111 s1-14.pdf
+
+D:\kmutnb\old-exam\2556\term 1\final\393161.pdf
+D:\kmutnb\old-exam\2557\term 1\final\393161.pdf
+D:\kmutnb\old-exam\2558\term 1\final\393161.pdf
+D:\kmutnb\old-exam\2560\term 1\final\393161.pdf
+D:\kmutnb\old-exam\2561\term 1\final\26 nov 2561\393161.pdf
+D:\kmutnb\old-exam\2563\term 1\final\30 oct 63\393161.pdf
+D:\kmutnb\old-exam\2567\term 1\final\031001151 s1-18.pdf
+D:\kmutnb\old-exam\2568\term 1\final\031001151 s1-14.pdf
 """
-department = "ee"
-term_code = "1-1-m"
+department = "cb"
+term_code = "1-1-f"
+from_onedrive = True
+
+if from_onedrive:
+    paths_string = paths_string.replace(r"D:\kmutnb\old-exam", r"C:\Users\pisc639\OneDrive\KMU\old-exam\raw")
 
 term = "-".join(term_code.split("-")[:2])
 with open("subjects.json", "r", encoding="utf-8") as f:
@@ -80,7 +115,12 @@ def main():
         else:
             subject = subject_id
 
-        year = int(Path(path[0]).parts[3]) - 543
+        print(Path(path[0]))
+
+        year = int(Path(path[0]).parts[7 if from_onedrive else 3]) - 543
+        print(year)
+        if year in [2015]:
+            continue
         file_name = Path(f"{subject} {year}.pdf")
         if len(path) == 1:
             path = path[0]

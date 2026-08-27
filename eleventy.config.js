@@ -3,6 +3,7 @@ const atImport = require("postcss-import");
 const tailwindcss = require("@tailwindcss/postcss");
 const { transform } = require("lightningcss");
 const { minify } = require("terser");
+const htmlmin = require("html-minifier-terser");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.ignores.add("README.md");
@@ -12,11 +13,12 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.ignores.add("old-unused-others/**");
   eleventyConfig.ignores.add("ignore/**");
 
+  eleventyConfig.addPassthroughCopy("**/*.csv");
   eleventyConfig.addPassthroughCopy("images/**");
   eleventyConfig.addPassthroughCopy("schedule/**/*.json");
   eleventyConfig.addPassthroughCopy({ "404.html": "404.html" });
-  eleventyConfig.addPassthroughCopy({ "script.min.js": "script.min.js" });
-  eleventyConfig.addPassthroughCopy({ "old-exam-script.js": "old-exam-script.min.js" });
+  // eleventyConfig.addPassthroughCopy({ "script.min.js": "script.min.js" });
+  // eleventyConfig.addPassthroughCopy({ "old-exam-script.js": "old-exam-script.min.js" });
 
   eleventyConfig.addTemplateFormats("css");
   eleventyConfig.addExtension("css", {
@@ -71,6 +73,31 @@ module.exports = function (eleventyConfig) {
       minify: true,
     });
     return output.toString();
+  });
+
+  // HTML Transform to strip comments & minify inline scripts without mangling names
+  eleventyConfig.addTransform("htmlmin", async function (content, outputPath) {
+    if (outputPath && outputPath.endsWith(".html")) {
+      return await htmlmin.minify(content, {
+        removeComments: true,
+        collapseWhitespace: true,
+        minifyJS: {
+          mangle: true, // Keeps original variable and function names
+        },
+        minifyCSS: function (text) {
+          try {
+            const { code } = transform({
+              code: Buffer.from(text),
+              minify: true,
+            });
+            return code.toString();
+          } catch (e) {
+            return text; // Fallback if parsing fails
+          }
+        },
+      });
+    }
+    return content;
   });
 
   return {
