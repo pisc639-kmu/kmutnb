@@ -7,6 +7,7 @@ const htmlmin = require("html-minifier-terser");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.ignores.add("README.md");
+  eleventyConfig.ignores.add("*.md");
   eleventyConfig.ignores.add("functions");
   eleventyConfig.ignores.add("src/**");
   eleventyConfig.ignores.add("static/**");

@@ -367,8 +367,8 @@
             "R": `
 ┌-c 
 |┌┐d
-|└┘|
-|┌┐|
+|└┘h
+|┌┐o
 ||||
 └┘└┘
             `,
@@ -452,6 +452,7 @@ mno
         createNumberElement(document.getElementById('time'), 2);
         createNumberElement(document.getElementById('time'), 2);
         createNumberElement(document.getElementById('time'), 4);
+        // createNumberElement(document.getElementById('time'), 2);
 
         // const digit = document.getElementById('main').children[0];
         // for(let [index, row] of digit.children.entries()) {
@@ -491,6 +492,7 @@ mno
             setNumber(timeElement.children[1], new Date().getDate());
             setNumber(timeElement.children[2], new Date().getMonth());
             setNumber(timeElement.children[3], new Date().getFullYear());
+            // setNumber(timeElement.children[4], "!R");
         }
         
         // tick()

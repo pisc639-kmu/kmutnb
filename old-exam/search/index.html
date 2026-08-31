@@ -32,7 +32,7 @@
                     </div>
                 </div> -->
                 <div class="overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none]">
-                    <table id="exam-table" class="border-collapse border border-gray-300 dark:border-gray-700 w-full overflow-x-auto no-scrollbar">
+                    <table id="exam-table" class="border-collapse border border-gray-300 dark:border-gray-700 w-full max-h-[calc(100vh-19rem)] overflow-x-auto no-scrollbar">
                         <thead>
                             <tr class="border-x border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-neutral-400 bg-neutral-200/60 dark:bg-neutral-800/60 shadow-md">
                                 <th class="px-3 py-3">Subject</th>
@@ -130,32 +130,45 @@ const MAPPING = {
     "#vi#": ["6", "vi"],
     "#v#": ["5", "v"],
     "#i#": ["1", "i"],
-    "mathematics": ["math(s)?", "mathe?"],
+    "mathematics": ["mat?h?(s)?", "mat?h?e?", "ma?t?h?e?m?a?t?i?c?s?"],
     "mechanics": ["phys(ics?)?", "mech(anics?)?"],
-    "chemistry": "chem(istry)?",
-    "computer": "comp?(ut)?e?r?",
-    "engi": "engi(ne?e?r)?i?n?g?",
-    "engl": "engl?(ish)?",
-    "introduction to": "intro(duct)?(ion)?s?",
-    "fundamental": "fund(amental)?",
+    "chemistry": "che?m?(i?s?t?r?y?)?",
+    // "computer": "comp?(ut)?e?r?",
+    "computer": "com",
+    "engineer": "engi(ne?e?r)?i?n?g?",
+    // "engineer": "eng[ine]",
+    // "english": "engl?(ish)?",
+    "english": "engl",
+    // "introduction to": "intro(duct)?(ion)?s?",
+    "introduction": "intro(duct)?(ion)?s?",
+    // "fundamental": "fund(amental)?",
+    "fundamental": "fund(a?m?e?n?t?a?l?)?",
+    // "fundamental": "fund",
     "systems": "sys(tem)?s?",
+    // "systems": "sys",
     "materials": "mate?r(ial)?s?",
-    "communicative": "comm",
+    "communicative": "com[mun]",
     "programming": "prog(ramm?)?i?n?g?",
+    // "programming": "prog",
     "circuit": "circ(uit)?s?",
-    "computer-aided design": "cad",
-    "computer-aided manufacturing": "cam",
+    // "computer-aided design": "cad",
+    // "computer-aided manufacturing": "cam",
     "electri": "electric?(a?l?|c?i?t?y?)?s?",
+    // "electric": "electri",
     "electro": "electron?i?c?s?",
+    // "electron": "electro",
+    // "elec": ["electric?(a?l?|c?i?t?y?)?s?", "electron?i?c?s?"],
     "phenomena": "pheno?m?e?n?a?",
+    // "phenomena": "pheno",
     "drawing": "draw?i?n?g?"
 };
 
+// Object.fromEntries(Object.entries(MAPPING).map((([k, v]) => {if (Array.isArray(v)) {return [k, v.map(a => a.replaceAll('(', '(?:'))]} else {return [k, v.replaceAll('(', '(?:')]}})))
 const FLAT_MAPPING = [];
 for (const [target, src] of Object.entries(MAPPING)) {
     const sources = Array.isArray(src) ? src : [src];
     for (const p of sources) {
-        FLAT_MAPPING.push({ pattern: p, target });
+        FLAT_MAPPING.push({ pattern: p.replaceAll('(', '(?:'), target });
     }
 }
 
@@ -243,7 +256,7 @@ function createRow(name, { year, term, period, ep = null, path } = {}) {
     tr.appendChild(thEP);
 
     const thDownload = document.createElement('th');
-    thDownload.classList.add('px-3', 'py-3');
+    thDownload.classList.add('px-3', 'py-3', 'text-blue');
     // <span class="material-symbols-outlined">download</span></th>
     const a = document.createElement('a');
     // a.href = `files/${name}.pdf`;
