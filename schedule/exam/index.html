@@ -109,7 +109,7 @@
     const menu = document.getElementById('menu')
     classData.forEach((year, index) => {
         const yearDiv = document.createElement('div')
-        yearDiv.className = "ml-4 mx-auto relative max-w-screen justify-center space-x-4 md:space-x-8 mt-4 md:mt-8"
+        yearDiv.className = "flex flex-wrap justify-center items-center ml-4 relative max-w-screen justify-center space-x-4 md:space-x-8 mt-4 md:mt-8"
         year.forEach((classItem, classIndex) => {
             const button = document.createElement('button')
             button.className = "bg-gradient-to-br from-blue-600 to-indigo-600 dark:from-blue-950 dark:to-indigo-900 hover:from-blue-700 hover:to-indigo-700 dark:hover:from-blue-900 dark:hover:to-indigo-800 text-white font-medium mt-4 py-2 px-2 rounded-md border border-blue-500 duration-300 shadow-md shadow-blue-600/25 hover:shadow-lg hover:shadow-blue-700/40 dark:hover:shadow-blue-900/50 active:scale-[0.98] transition-all duration-200 hover:shadow-blue-500 text-center"
@@ -236,20 +236,22 @@ async function getExamSchedule(year, field, classNum) {
     async function getExamScheduleEach(year, field, classNum, idNum) {
         const result = await getExamScheduleWithId(year, field, classNum, idNum);
         if (result.result.studentfound && result.result.schedulefound) {
-            return result;
+            return result.schedule;
         } else {
-            throw new Error(`Student not found: ${year} ${field} ${classNUm} ${idNum}`);
+            throw new Error(`Student not found: ${year} ${field} ${classNum} ${idNum}`);
         }
     }
     console.log(getStudentId(year, field, classNum, 1));
-    const results = await Promise.any([
+    let results = await Promise.allSettled([
         getExamScheduleEach(year, field, classNum, 1),
         getExamScheduleEach(year, field, classNum, 2),
         getExamScheduleEach(year, field, classNum, 3),
         getExamScheduleEach(year, field, classNum, 4),
         getExamScheduleEach(year, field, classNum, 5),
     ]).catch(e => {return null;});
-
+    results = results.filter(r => r.status === "fulfilled");
+    results = results.map(r => r.value);
+    results = [...new Map(results.flat().map(item => [item.subjectId, item])).values()];
     console.log(results);
     
     return results;
@@ -329,7 +331,8 @@ function create_empty_cell() {
 async function generateSchedule(room) {
     // const rawSchedule = (await getExamSchedule(68, "E", true, 6)).schedule;
     // const rawSchedule = (await getExamSchedule(...roomToInfo("CB11"))).schedule;
-    const rawSchedule = (await getExamSchedule(...roomToInfo(room))).schedule;
+    // const rawSchedule = (await getExamSchedule(...roomToInfo(room))).schedule;
+    const rawSchedule = await getExamSchedule(...roomToInfo(room));
 
     // 1. Group items by date using a standard Map or temporary object
     const groupedByDate = new Map();
