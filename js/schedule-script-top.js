@@ -1,3 +1,12 @@
+function getYearOffset() {
+    // new Date(new Date() - 1000 * 60 * 60 * 24 * 30 * 5).getUTCFullYear() - 1956
+    const current = new Date();
+    current.setMonth(current.getUTCMonth() - 5);
+    return current.getUTCFullYear() - 1956;
+}
+
+const yearOffset = getYearOffset();
+
 async function downloadFileFromURL(url, filename) {
     try {
         const response = await fetch(url);
@@ -49,7 +58,7 @@ function getTableUrl(type) {
 //     var a = document.createElement('a');
 //     a.href = download_url;
 //     // a.download = type.split(".").slice(0,-1).join(".");
-//     a.download = ((a => a.split("-")[0].toUpperCase() + String(70 - parseInt(a.split("-")[1])))((a => a.substring(a.lastIndexOf('/') + 1))(window.location.pathname.replace(/\/$/, "")))) + " " + (type.charAt(0).toUpperCase() + type.slice(1)) + ".png";
+//     a.download = ((a => a.split("-")[0].toUpperCase() + String(yearOffset - parseInt(a.split("-")[1])))((a => a.substring(a.lastIndexOf('/') + 1))(window.location.pathname.replace(/\/$/, "")))) + " " + (type.charAt(0).toUpperCase() + type.slice(1)) + ".png";
 
 //     document.body.appendChild(a);
 //     a.click();
@@ -60,7 +69,7 @@ async function download_image(type = 'table') {
     var download_url = getTableUrl(type);
 
     // 1. Generate your custom filename
-    var customFileName = ((a => a.split("-")[0].toUpperCase() + String(70 - parseInt(a.split("-")[1])))
+    var customFileName = ((a => a.split("-")[0].toUpperCase() + String(yearOffset - parseInt(a.split("-")[1])))
         ((a => a.substring(a.lastIndexOf('/') + 1))(window.location.pathname.replace(/\/$/, "")))) 
         + " " + (type.charAt(0).toUpperCase() + type.slice(1)) + ".png";
 
@@ -138,7 +147,7 @@ async function download_image(type = 'table') {
 
 function getLatestScheduleUrl(classId) {
     try {
-        return `/schedule/${classId}/${70-classId.split("-")[1]}-1-m.json`;
+        return `/schedule/${classId}/${yearOffset-classId.split("-")[1]}-1-m.json`;
     } catch (error) {
         console.error("Error processing schedule:", error);
         return null;

@@ -13,6 +13,8 @@
         "deploy": "npm run build && npx wrangler deploy"
     },
     "dependencies": {
+        "global": "^4.4.0",
+        "jsdom": "^30.0.1",
         "lightningcss": "^1.33.0",
         "terser": "^5.49.2"
     }

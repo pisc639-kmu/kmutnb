@@ -6,6 +6,11 @@ const { minify } = require("terser");
 const htmlmin = require("html-minifier-terser");
 
 module.exports = function (eleventyConfig) {
+  eleventyConfig.setUseGitIgnore(false);
+
+  // eleventyConfig.addWatchTarget("schedule/exam/index.html");
+  // eleventyConfig.addWatchTarget("**/*.{css,html,js}");
+
   eleventyConfig.ignores.add("README.md");
   eleventyConfig.ignores.add("*.md");
   eleventyConfig.ignores.add("functions");
@@ -14,10 +19,16 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.ignores.add("node_modules/**");
   eleventyConfig.ignores.add("old-unused-others/**");
   eleventyConfig.ignores.add("ignore/**");
+  eleventyConfig.ignores.add("**/ignore/**");
+  eleventyConfig.ignores.add("**/archive/**");
+  eleventyConfig.ignores.add("**/node_modules/**");
 
+
+  eleventyConfig.addPassthroughCopy("*.zip");
+  eleventyConfig.addPassthroughCopy("**/*.zip");
   eleventyConfig.addPassthroughCopy("**/*.csv");
   eleventyConfig.addPassthroughCopy("images/**");
-  eleventyConfig.addPassthroughCopy("schedule/**/*.json");
+  eleventyConfig.addPassthroughCopy("schedule/*/*.json");
   eleventyConfig.addPassthroughCopy({ "404.html": "404.html" });
   // eleventyConfig.addPassthroughCopy({ "script.min.js": "script.min.js" });
   // eleventyConfig.addPassthroughCopy({ "old-exam-script.js": "old-exam-script.min.js" });
