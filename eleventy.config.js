@@ -8,9 +8,6 @@ const htmlmin = require("html-minifier-terser");
 module.exports = function (eleventyConfig) {
   eleventyConfig.setUseGitIgnore(false);
 
-  // eleventyConfig.addWatchTarget("schedule/exam/index.html");
-  // eleventyConfig.addWatchTarget("**/*.{css,html,js}");
-
   eleventyConfig.ignores.add("README.md");
   eleventyConfig.ignores.add("*.md");
   eleventyConfig.ignores.add("functions");
@@ -24,8 +21,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.ignores.add("**/node_modules/**");
 
 
-  eleventyConfig.addPassthroughCopy("*.zip");
-  eleventyConfig.addPassthroughCopy("**/*.zip");
+  // eleventyConfig.addPassthroughCopy("*.zip");
+  // eleventyConfig.addPassthroughCopy("**/*.zip");
   eleventyConfig.addPassthroughCopy("**/*.csv");
   eleventyConfig.addPassthroughCopy("images/**");
   eleventyConfig.addPassthroughCopy("schedule/*/*.json");
