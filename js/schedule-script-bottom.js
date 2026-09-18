@@ -56,7 +56,7 @@ $.getJSON(scheduleDataUrl, function(alldata) {
     }
     timetable.appendChild(tbody);
 
-    if (alldata['exam']) {
+    if (alldata['exam'] && false) {
         // Exam Schedule
         // const exam_data = alldata['exam'];
         // console.log(exam_data);
