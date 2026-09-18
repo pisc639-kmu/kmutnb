@@ -8,6 +8,8 @@ const htmlmin = require("html-minifier-terser");
 module.exports = function (eleventyConfig) {
   eleventyConfig.setUseGitIgnore(false);
 
+  eleventyConfig.addWatchTarget("./schedule/**");
+
   eleventyConfig.ignores.add("README.md");
   eleventyConfig.ignores.add("*.md");
   eleventyConfig.ignores.add("functions");
