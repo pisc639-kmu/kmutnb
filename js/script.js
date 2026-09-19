@@ -1,22 +1,36 @@
 (()=>{
-const _w = window;
-const _document = document;
-const _document_body = _document.body
-const _querySelector = (element, selector) => element.querySelector(selector);
-// const _querySelectorAll = (element, selector) => element.querySelectorAll(selector);
-// const _getElementById = (element, id) => {return element.getElementById(id)};
-const _document_querySelector = (selector) => _querySelector(_document, selector);
-// const _document_querySelectorAll = (selector) => _querySelectorAll(_document, selector);
-// const _document_getElementById = (id) => _getElementById(_document, id);
-const _document_createElement = (element) => _document.createElement(element);
-const _classList = (element) => element.classList;
-const _classList_add = (element, ...className) => _classList(element).add(...className);
-const _classList_remove = (element, ...className) => _classList(element).remove(...className);
-const _classList_toggle = (element, ...className) => _classList(element).toggle(...className);
-const _setAttribute = (element, attribute, value) => element.setAttribute(attribute, value);
-const _innerHTML = (element, html) => element.innerHTML = html;
-const _appendChild = (element, child) => element.appendChild(child);
-const _addEventListener = (element, event, callback) => element.addEventListener(event, callback);
+    const _w = window;
+    const _document = document;
+    const _document_body = _document.body
+    const _querySelector = (element, selector) => element.querySelector(selector);
+    const _querySelectorAll = (element, selector) => element.querySelectorAll(selector);
+    // const _getElementById = (element, id) => {return element.getElementById(id)};
+    const _document_querySelector = (selector) => _querySelector(_document, selector);
+    // const _document_querySelectorAll = (selector) => _querySelectorAll(_document, selector);
+    // const _document_getElementById = (id) => _getElementById(_document, id);
+    // const _document_createElement = (element) => _document.createElement(element);
+    const _classList = (element) => element.classList;
+    const _classList_add = (element, ...className) => _classList(element).add(...className);
+    const _classList_remove = (element, ...className) => _classList(element).remove(...className);
+    // const _classList_toggle = (element, ...className) => _classList(element).toggle(...className);
+    const _setAttribute = (element, attribute, value) => element.setAttribute(attribute, value);
+    // const _innerHTML = (element, html) => element.innerHTML = html;
+    const _appendChild = (element, child) => element.appendChild(child);
+    const _addEventListener = (element, event, callback) => element.addEventListener(event, callback);
+    const _forEach = (array, callback) => array.forEach(callback);
+
+    function watchDocument(callback) {
+        const observer = new MutationObserver(callback);
+        observer.observe(document.documentElement, {
+            childList: true,
+            subtree: true,
+            attributes: false,
+            characterData: false
+        });
+        return () => observer.disconnect();
+    }
+
+
 
     // function insertNav() {
     //     nav = `
@@ -56,9 +70,9 @@ const _addEventListener = (element, event, callback) => element.addEventListener
 
 const mobileMenuButton = _document_querySelector('#mobile-menu-button');
 const mobileMenu = _document_querySelector('#mobile-menu');
-const menuIconOpen = _document_querySelector('#menu-icon-open');
-const menuIconClose = _document_querySelector('#menu-icon-close');
-const menuIcon = _document_querySelector('#menu-icon');
+// const menuIconOpen = _document_querySelector('#menu-icon-open');
+// const menuIconClose = _document_querySelector('#menu-icon-close');
+// const menuIcon = _document_querySelector('#menu-icon');
 
 // _addEventListener(mobileMenuButton, 'click', () => {
 //     _classList_toggle(mobileMenu, 'hidden');
@@ -127,7 +141,7 @@ _addEventListener(mobileMenuButton, 'click', (e) => {
     }
 });
 
-mobileMenu.querySelectorAll('a').forEach(link => {
+_forEach(_querySelectorAll(mobileMenu, 'a'), link => {
     _addEventListener(link, 'click', closeMobileMenu);
 });
 
@@ -253,15 +267,15 @@ _setAttribute(_document_body, 'class', '');
 _classList_add(_document_body, "dark", "bg-gray-50", "dark:bg-gray-950", "min-h-screen");
 
 
-[...document.querySelectorAll('a')].forEach(a=>{if(/\d+-\d+-[mf]$/.test(a.href)){a.classList.remove('btn-black','btn-blurple');a.classList.add(/\d+-1-f$/.test(a.href)?'btn-blurple':'btn-black')}});
+_forEach([..._querySelectorAll(_document, 'a')], a=>{if(/\d+-\d+-[mf]$/.test(a.href)){_classList_remove(a, 'btn-black', 'btn-blurple');_classList_add(a, /\d+-1-f$/.test(a.href)?'btn-blurple':'btn-black')}});
 
 const classShort = {
     '.btn-black': "bg-neutral-600 hover:bg-neutral-700 dark:bg-neutral-900 dark:hover:bg-neutral-700 text-white font-medium py-2 px-4 rounded-md border border-neutral-500 transition-colors duration-300 text-center",
     '.btn-blurple': "bg-gradient-to-br from-blue-600 to-indigo-600 dark:from-blue-950 dark:to-indigo-900 hover:from-blue-700 hover:to-indigo-700 dark:hover:from-blue-900 dark:hover:to-indigo-800 text-white font-medium py-2 px-4 rounded-md border border-blue-500 duration-300 shadow-md shadow-blue-600/25 hover:shadow-lg hover:shadow-blue-700/40 dark:hover:shadow-blue-900/50 active:scale-[0.98] transition-all duration-200 hover:shadow-blue-500 text-center",
 };
 for (const[selector, value] of Object.entries(classShort)) {
-    document.querySelectorAll(selector).forEach(a=>{
-        a.classList.add(...value.split(' '))
+    _forEach(_querySelectorAll(document, selector), a=>{
+        _classList_add(a, ...value.split(' '))
     })
 };
 
@@ -327,4 +341,47 @@ for (const[selector, value] of Object.entries(classShort)) {
 // }
 
 // document.body.classList.add('bg-gradient-to-br', ...getRandomDarkGradient().split(' '));
+
+const _localStorage = window.localStorage;
+const [_localStorage_getItem, _localStorage_setItem] = [_localStorage.getItem.bind(_localStorage), _localStorage.setItem.bind(_localStorage)];
+
+function updateLanguage(toggle = true) {
+    console.log('updateLanguage');
+    ['en', 'th'].includes(_localStorage_getItem('lang')) || _localStorage_setItem('lang', 'en');
+    // if (!['en', 'th'].contains(_localStorage_getItem('lang'))) {
+    //     _localStorage_setItem('lang', 'en');
+    // }
+    if (toggle) {
+        _localStorage_setItem('lang',_localStorage_getItem('lang') === 'en' ? 'th' : 'en');
+    };
+    const lang = _localStorage_getItem('lang');
+    const elements_en = _querySelectorAll(_document, 'l-en');
+    const elements_th = _querySelectorAll(_document, 'l-th');
+
+    // const hide = (element) => element.classList.add('hidden');
+    // const show = (element) => element.classList.remove('hidden');
+
+    const hide = (element) => _classList_add(element, 'hidden');
+    const show = (element) => _classList_remove(element, 'hidden');
+    
+    // if (lang === 'en') {
+    //     // elements_en.classList.remove('hidden');
+    //     // elements_th.classList.add('hidden');
+    //     elements_en.forEach(show);
+    //     elements_th.forEach(hide);
+    // } else {
+    //     // elements_en.classList.add('hidden');
+    //     // elements_th.classList.remove('hidden');
+    //     elements_en.forEach(hide);
+    //     elements_th.forEach(show);
+    // }
+
+    _forEach(lang === 'en' ? elements_en : elements_th, show);
+    _forEach(lang === 'en' ? elements_th : elements_en, hide);
+};
+
+console.log(_querySelectorAll(_document, '.language-toggle'));
+_querySelectorAll(_document, '.language-toggle').forEach(e => _addEventListener(e, 'click', updateLanguage));
+updateLanguage(false);
+watchDocument(() => updateLanguage(false));
 })();

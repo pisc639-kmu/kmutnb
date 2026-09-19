@@ -1,18 +1,18 @@
 @import "tailwindcss";
-@source "..";
-
 
 /* @import url('https://fonts.googleapis.com/css2?family=Itim:wght@300;500;700&display=swap'); */
 /* @import url('https://fonts.googleapis.com/css2?family=prompt:wght@300;500;700&display=swap'); */
 /* @import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Dongle:wght@300;400;700&family=Fredoka:wght@400&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Dongle:wght@300;400;700&family=Fredoka:wght@400&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700');
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300..700');
 
 .google-sans {
-  font-family: "Google Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  font-variation-settings:
+    font-family: "Google Sans Flex", "prompt", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
     "GRAD" 0;
 }
 
@@ -21,7 +21,8 @@ body {
 }
 
 body, * {
-    font-family: 'comfortaa', 'prompt', sans-serif;
+    /* font-family: 'comfortaa', 'prompt', sans-serif; */
+    font-family: "comfortaa", "prompt", sans-serif;
     transition: background-color 0.3s, color 0.3s;
 }
 .dark {
@@ -52,11 +53,11 @@ body, * {
 }
 
 .rotate-icon {
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.4s ease-in-out;
 }
 
 .is-active .rotate-icon {
-    transform: rotate(90deg);
+    transform: rotate(180deg);
 }
 
 .menu-link {

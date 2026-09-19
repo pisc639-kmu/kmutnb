@@ -18,30 +18,42 @@
                 <span class="text-xl text-neutral-800 dark:text-white">E25 La Retire</span>
             </a>
 
-            <!-- Mobile Menu Button -->
-            <span class ="md:hidden">
-                <button id="mobile-menu-button" aria-label="Toggle menu" class="text-neutral-600 dark:text-neutral-300 hover:text-neutral-800 dark:hover:text-white focus:outline-none p-2 rounded-md transition-transform duration-500 ease-in-out">
-                    <svg id="menu-icon" class="w-7 h-7 rotate-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path id="menu-icon-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 8h16M4 16h16" />
-                    </svg>
-                </button>
-            </span>
-
             <!-- Desktop Navigation Links -->
             <!-- <div class="hidden md:space-x-8 md:flex flex items-center justify-center space-x-4 font-medium transition-colors">
                 <a href="../" class="text-neutral-600 dark:text-neutral-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-neutral-200 dark:hover:bg-neutral-700">Home</a>
                 <a href="../schedule" class="text-neutral-600 dark:text-neutral-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-neutral-200 dark:hover:bg-neutral-700">Class Schedule</a>
                 <a href="../old-exam" class="text-neutral-600 dark:text-neutral-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-neutral-200 dark:hover:bg-neutral-700">Old Exam</a>
             </div> -->
-            <div class="hidden md:space-x-8 md:flex flex items-center justify-center space-x-4 font-medium transition-colors text-xl">
-                <a href="/" class="text-neutral-600 dark:text-neutral-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-neutral-200 dark:hover:bg-neutral-700">Home</a>
-                <!-- <a href="riotclient://launch-app=valorant" class="text-neutral-600 dark:text-neutral-300 hover:text-red-500 dark:hover:text-red-400 duration-300 rounded-md py-2 px-3 hover:bg-neutral-200 dark:hover:bg-neutral-700 val-btn">Launch Valorant</a> -->
-                <a href="/schedule" class="text-neutral-600 dark:text-neutral-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-neutral-200 dark:hover:bg-neutral-700">Class Schedule</a>
-                <a href="/old-exam" class="text-neutral-600 dark:text-neutral-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-neutral-200 dark:hover:bg-neutral-700">Old Exam</a>
-                <a href="/feedback" class="material-symbols-outlined  [font-variation-settings:'FILL'_0] hover:[font-variation-settings:'FILL'_1] text-neutral-600 dark:text-neutral-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-2 hover:bg-neutral-200 dark:hover:bg-neutral-700 hover:cursor-pointer" style="font-variation-settings: 'wght' 300;">feedback</a>
+            <div class="hidden md:space-x-4 lg:space-x-8 md:flex flex items-center justify-center space-x-4 font-medium transition-colors text-xl">
+                <a href="/" class="text-neutral-600 dark:text-neutral-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-neutral-200 dark:hover:bg-neutral-700 material-symbol">home</a>
+                <!-- <a href="riotclient://launch-app=valorant" class="text-neutral-600 dark:text-neutral-300 hover:text-red-500 dark:hover:text-red-400 duration-300 rounded-md py-2 px-3 hover:bg-neutral-200 dark:hover:bg-neutral-700 val-btn"><l-en>Launch Valorant(if installed)</l-en><l-th>เปิดวาโล(ถ้ามี)</l-th></a> -->
+                <a href="/schedule" class="text-neutral-600 dark:text-neutral-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-neutral-200 dark:hover:bg-neutral-700"><l-en>Class Schedule</l-en><l-th>ตารางเรียน</l-th></a>
+                <a href="/old-exam" class="text-neutral-600 dark:text-neutral-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-neutral-200 dark:hover:bg-neutral-700"><l-en>Old Exam</l-en><l-th>ข้อสอบเก่า</l-th></a>
+                <!-- <a href="/feedback" class="text-neutral-600 dark:text-neutral-300 hover:text-blue-500 dark:hover:text-blue-40  0 duration-300 rounded-md py-2 px-2 hover:bg-neutral-200 dark:hover:bg-neutral-700 material-symbols-outlined"><span class="material-symbols-outlined [font-variation-settings:'FILL'_0] hover:[font-variation-settings:'FILL'_1] hover:cursor-pointer" style="font-variation-settings: 'wght' 300;">feedback</span></a> -->
+                <a href="/feedback" class="text-neutral-600 dark:text-neutral-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-neutral-200 dark:hover:bg-neutral-700 material-symbol">feedback</a>
+                <button class="language-toggle flex justify end text-neutral-600 dark:text-neutral-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-neutral-200 dark:hover:bg-neutral-700 material-symbol">language</button>
             </div>
+
+
+            <!-- Mobile Menu Button -->
+            <span class="md:hidden">
+                <button class="language-toggle flex justify-end text-neutral-600 dark:text-neutral-300 hover:text-blue-500 dark:hover:text-blue-400 duration-300 rounded-md py-2 px-3 hover:bg-neutral-200 dark:hover:bg-neutral-700 material-symbol">language</button>
+                <button id="mobile-menu-button" aria-label="Toggle menu" class="text-neutral-600 dark:text-neutral-300 hover:text-neutral-800 dark:hover:text-white focus:outline-none p-2 rounded-md transition-transform duration-500 ease-in-out">
+                    <svg id="menu-icon" class="w-7 h-7 rotate-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path id="menu-icon-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 8h16M4 16h16" />
+                    </svg>
+                </button>
+            </span>
         </div>
     </nav>
+    <script>
+        document.querySelectorAll(".material-symbol").forEach(el => {
+            el.classList.remove("px-3", "text-neutral-600", "dark:text-neutral-300")
+            el.classList.add("px-2", "text-black", "dark:text-white", "material-symbols-outlined", "[font-variation-settings:'FILL'_0]", "hover:[font-variation-settings:'FILL'_1]", "hover:cursor-pointer");
+            el.style.fontVariationSettings = "'wght' 300";
+            el.style.fontSize = "1.5rem";
+        });
+    </script>
 
     <!-- Mobile Menu -->
     <!-- <div id="mobile-menu" class="hidden md:hidden shadow-md rounded-md m-4 transition-all duration-300 ease-in-out bg-neutral-100 dark:bg-neutral-800">
@@ -62,15 +74,17 @@
             <a href="/" class="text-neutral-600 dark:text-neutral-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-300 rounded-md py-2 px-3">Home</a>
             <a href="/schedule" class="text-neutral-600 dark:text-neutral-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-300 rounded-md py-2 px-3">Class Schedule</a>
             <a href="/old-exam" class="text-neutral-600 dark:text-neutral-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-300 rounded-md py-2 px-3">Old Exam</a>
+            <a href="/feedback" class="text-neutral-600 dark:text-neutral-300 hover:text-blue-500 dark:hover:text-blue-400 font-medium transition-colors duration-300 rounded-md py-2 px-3">Feedback</a>
         </div>
     </div> -->
-    <div id="mobile-menu" class="fixed top-20 right-0 h-[calc(100vh-5rem)] hidden-menu border-l border-neutral-200/20 dark:border-white/10 z-40 shadow-2xl backdrop-blur-2xl bg-white/70 dark:bg-black/70 md:hidden flex flex-col">
+    <div id="mobile-menu" class="fixed top-[76px] right-0 h-[calc(100vh-5rem)] hidden-menu border-l border-neutral-200/20 dark:border-white/10 z-40 shadow-2xl backdrop-blur-2xl bg-white/70 dark:bg-black/70 md:hidden flex flex-col">
         <div class="menu-bg-container"></div>
 
         <div class="flex flex-col px-8 pt-8 space-y-6 text-2xl font-semibold text-right">
-            <a href="/" class="menu-link text-neutral-700 dark:text-neutral-300 hover:text-blue-500 dark:hover:text-white" style="transition-delay: 0.1s;">Home</a>
-            <a href="/schedule" class="menu-link text-neutral-700 dark:text-neutral-300 hover:text-blue-500 dark:hover:text-white" style="transition-delay: 0.2s;">Class Schedule</a>
-            <a href="/old-exam" class="menu-link text-neutral-700 dark:text-neutral-300 hover:text-blue-500 dark:hover:text-blue-400" style="transition-delay: 0.3s;">Old Exam</a>
+            <a href="/" class="menu-link text-neutral-700 dark:text-neutral-300 hover:text-blue-500 dark:hover:text-white" style="transition-delay: 0.05s;"><l-en>Home</l-en><l-th>หน้าหลัก</l-th></a>
+            <a href="/schedule" class="menu-link text-neutral-700 dark:text-neutral-300 hover:text-blue-500 dark:hover:text-white" style="transition-delay: 0.1s;"><l-en>Class Schedule</l-en><l-th>ตารางเรียน</l-th></a>
+            <a href="/old-exam" class="menu-link text-neutral-700 dark:text-neutral-300 hover:text-blue-500 dark:hover:text-blue-400" style="transition-delay: 0.15s;"><l-en>Old Exam</l-en><l-th>ข้อสอบเก่า</l-th></a>
+            <a href="/feedback" class="menu-link text-neutral-700 dark:text-neutral-300 hover:text-blue-500 dark:hover:text-blue-400" style="transition-delay: 0.2s;"><l-en>Feedback</l-en><l-th>ข้อคิดเห็น</l-th></a>
         </div>
     </div>
 </span>

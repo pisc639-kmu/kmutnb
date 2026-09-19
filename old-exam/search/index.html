@@ -12,7 +12,7 @@
     <span class="block h-screen max-h-screen">
         {% include "nav.html" %}
         <div class="flex items-center justify-center space-x-4 mt-16">
-            <h1 class="text-4xl text-center font-bold mb-4 text-gray-800 dark:text-white">Old Exam Search</h1>
+            <h1 class="text-4xl text-center font-bold mb-4 text-gray-800 dark:text-white"><l-en>Old Exam Search</l-en><l-th>ค้นหาข้อสอบเก่า</l-th></h1>
         </div>
 
         <div class="grid grid-cols-1 gap-y-4 max-w-4xl mx-auto px-4 transition-colors duration-300">
@@ -35,11 +35,11 @@
                     <table id="exam-table" class="border-collapse border border-gray-300 dark:border-gray-700 w-full max-h-[calc(100vh-19rem)] overflow-x-auto no-scrollbar">
                         <thead>
                             <tr class="border-x border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-neutral-400 bg-neutral-200/60 dark:bg-neutral-800/60 shadow-md">
-                                <th class="px-3 py-3">Subject</th>
-                                <th class="px-3 py-3">Year</th>
-                                <th class="px-3 py-3">Term</th>
+                                <th class="px-3 py-3"><l-en>Subject</l-en><l-th>วิชา</l-th></th>
+                                <th class="px-3 py-3"><l-en>Year</l-en><l-th>ปี</l-th></th>
+                                <th class="px-3 py-3"><l-en>Term</l-en><l-th>ตัวประมาณ</l-th></th>
                                 <!-- <th class="px-3 py-3">Period</th> -->
-                                <th class="px-3 py-3">EP</th>
+                                <th class="px-3 py-3"><l-en>EP</l-en><l-th>ห้อง EP</l-th></th>
                                 <th class="px-3 py-3"></th>
                             </tr>
                         </thead>
@@ -239,15 +239,15 @@ function createRow(name, { year, term, period, ep = null, path } = {}) {
 
     let fullPeriod = ""
     if (period[0].toLowerCase() == "m") {
-        fullPeriod = "Midterm"
+        fullPeriod = "<l-en>Midterm</l-en><l-th>กลางภาค</l-th>"
     } else if (period[0].toLowerCase() == "f") {
-        fullPeriod = "Final"
+        fullPeriod = "<l-en>Final</l-en><l-th>ปลายภาค</l-th>"
     } else {
         fullPeriod = ""
     }
     const thTermPeriod = document.createElement('th');
     thTermPeriod.classList.add('py-3');
-    thTermPeriod.textContent = `Term ${term} ${fullPeriod}`;
+    thTermPeriod.innerHTML = `<l-en>Term</l-en><l-th>เทอม</l-th> ${term} ${fullPeriod}`;
     tr.appendChild(thTermPeriod);
 
     const thEP = document.createElement('th');

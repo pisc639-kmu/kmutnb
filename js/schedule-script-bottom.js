@@ -12,7 +12,7 @@ timetable.innerHTML = '';
 const thead = document.createElement('thead');
 const thead_tr = document.createElement('tr');
 thead_tr.classList.add("bg-gray-200", "dark:bg-gray-800", "text-gray-900", "dark:text-white", "shadow-md")
-thead_tr.appendChild(make_cell('th', 'Day'));
+thead_tr.appendChild(make_cell('th', '<l-en>Day</l-en><l-th>วัน</l-th>'));
 for (let i = 0; i < 10; i++) {
     thead_tr.appendChild(make_cell('th', `${i + 8}:00 - ${i + 9}:00`));
 }
@@ -32,10 +32,11 @@ $.getJSON(scheduleDataUrl, function(alldata) {
         return empty
     }
     const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+    const days_th = ['จันทร์', 'อังคาร', 'พุธ', 'พฤหัสบดี', 'ศุกร์'];
     for (let i = 0; i < days.length; i++) {
         const tr = document.createElement('tr');
         tr.classList.add("bg-white", "dark:bg-gray-900", "hover:bg-gray-100", "dark:hover:bg-gray-800", "text-gray-800", "dark:text-white", "text-center");
-        tr.appendChild(make_cell('td', days[i]));
+        tr.appendChild(make_cell('td', `<l-en>${days[i]}</l-en><l-th>${days_th[i]}</l-th>`));
         
         let j = 8;
         for (let k = 0; k < data[days[i].toLowerCase()].length; k++) {
@@ -44,7 +45,7 @@ $.getJSON(scheduleDataUrl, function(alldata) {
                 tr.appendChild(create_empty_cell());
                 j++;
             }
-            const td = make_cell('td', `<b>${data[days[i].toLowerCase()][k]['name-en']}</b><br><span class="text-lg md:text-base">${data[days[i].toLowerCase()][k]['room']}</span><br><b>${data[days[i].toLowerCase()][k]['code']} (${data[days[i].toLowerCase()][k]['section']})</b><br>${data[days[i].toLowerCase()][k]['instructor'].map(instructor => instructor['name-th']).join('<br>')}`, {colspan: data[days[i].toLowerCase()][k]['to'] - data[days[i].toLowerCase()][k]['from']});
+            const td = make_cell('td', `<b><l-en>${data[days[i].toLowerCase()][k]['name-en']}</l-en><l-th>${data[days[i].toLowerCase()][k]['name-th']}</l-tn></b><br><span class="text-lg md:text-base">${data[days[i].toLowerCase()][k]['room']}</span><br><b>${data[days[i].toLowerCase()][k]['code']} (${data[days[i].toLowerCase()][k]['section']})</b><br>${data[days[i].toLowerCase()][k]['instructor'].map(instructor => instructor['name-th']).join('<br>')}`, {colspan: data[days[i].toLowerCase()][k]['to'] - data[days[i].toLowerCase()][k]['from']});
             tr.appendChild(td);
             // j = data[days[i].toLowerCase()][k]['to'];
             j += data[days[i].toLowerCase()][k]['to'] - data[days[i].toLowerCase()][k]['from'];
