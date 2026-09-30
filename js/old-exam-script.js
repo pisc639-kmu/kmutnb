@@ -285,4 +285,40 @@ fetch(`${window.location.protocol}//api.kmu.pisc.cc/list${window.location.pathna
     });
 });
 
+(async () => {
+    const [year, term, period] = function() {
+        const path = location.pathname;
+        const len = path.length;
+        const end3 = path.charCodeAt(len - 1) === 47 ? len - 1 : len;
+        const idx2 = path.lastIndexOf('-', end3 - 1);
+        const idx1 = path.lastIndexOf('-', idx2 - 1);
+        const idx0 = path.lastIndexOf('/', idx1 - 1);
+        
+        return [
+            path.substring(idx0 + 1, idx1),
+            path.substring(idx1 + 1, idx2),
+            path.substring(idx2 + 1, end3)
+        ];
+    }();
+    const text = [
+        `Old Exam Year ${year} Term ${term} ${period == "f" ? "Final" : "Midterm"}`,
+        `ข้อสอบเก่าปี ${year} เทอม ${term} ${period == "f" ? "ปลายภาค" : "กลางภาค"}`,
+    ];
+    const textHTML = `<l-en>${text[0]}</l-en><l-th>${text[1]}</l-th>`;
+
+    const pageTitle = document.querySelector("h1");
+    pageTitle.innerHTML = textHTML;
+
+    const title = document.querySelector("title");
+    function updatePageTitle() {
+        const langMode = localStorage.lang || "en";
+        title.textContent = text[langMode === "en" ? 0 : 1];
+    };
+    updatePageTitle();
+    window.addEventListener('storage', (event) => {
+        // if (event.key === 'lang') {
+            updatePageTitle();
+        // }
+    })
+})();
 })();

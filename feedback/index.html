@@ -15,12 +15,12 @@
 <body class="dark bg-white dark:bg-black min-h-screen">
     {% include "nav.html" %}
     <div class="flex items-center justify-center mt-4">
-        <h1 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Feedback</h1>
+        <h1 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white"><l-en>Feedback</l-en><l-th>ส่งความคิดเห็น</l-th></h1>
     </div>
     <div class="w-[calc(100%-2rem)] mx-4 flex flex-col items-center justify-center">
         <form class="w-full max-w-4xl mx-4 p-4 bg-neutral-100 dark:bg-neutral-900 rounded-md border border-neutral-600" action="https://feedback.kmu.pisc.cc/" method="POST">
             <div class="flex flex-row gap-x-4">
-                <label class="text-gray-800 dark:text-white p-2">Type</label>
+                <label class="text-gray-800 dark:text-white p-2"><l-en>Type</l-en><l-th>ประเภท</l-th></label>
                 <select name="type" id="report-type" class="w-full p-2 *:bg-neutral-200 *:text-black *:dark:bg-neutral-800 *:dark:text-white bg-neutral-200 dark:bg-neutral-800 text-black dark:text-white rounded-md border border-neutral-600" required>
                     <option value="" disabled selected hidden>Choose an option...</option>
                     <option value="error">Report an Error</option>
@@ -32,7 +32,7 @@
             <textarea name="message" id="message" cols="30" placeholder="Message..." class="flex w-full h-auto p-2 mt-4 bg-neutral-200 dark:bg-neutral-800 text-black dark:text-white rounded-md border border-neutral-600 google-sans resize-none overflow-y-auto max-h-[16rem] box-border" required></textarea>
             <!-- Submit -->
             <div class="flex flex-row gap-x-4 mt-4">
-                <label class="text-gray-800 dark:text-white p-2">Contact</label>
+                <label class="text-gray-800 dark:text-white p-2"><l-en>Contact</l-en><l-th>ติดต่อ</l-th></label>
                 <input type="text" name="contact" id="contact" placeholder="Your contact info... (Optional)" class="w-full p-2 *:bg-neutral-200 *:text-black *:dark:bg-neutral-800 *:dark:text-white bg-neutral-200 dark:bg-neutral-800 text-black dark:text-white rounded-md border border-neutral-600">
             </div>
             <div class="flex justify-center w-full max-h-[81px] [&>div>div]:mt-4">

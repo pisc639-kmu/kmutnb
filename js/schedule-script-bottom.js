@@ -45,7 +45,16 @@ $.getJSON(scheduleDataUrl, function(alldata) {
                 tr.appendChild(create_empty_cell());
                 j++;
             }
-            const td = make_cell('td', `<b><l-en>${data[days[i].toLowerCase()][k]['name-en']}</l-en><l-th>${data[days[i].toLowerCase()][k]['name-th']}</l-tn></b><br><span class="text-lg md:text-base">${data[days[i].toLowerCase()][k]['room']}</span><br><b>${data[days[i].toLowerCase()][k]['code']} (${data[days[i].toLowerCase()][k]['section']})</b><br>${data[days[i].toLowerCase()][k]['instructor'].map(instructor => instructor['name-th']).join('<br>')}`, {colspan: data[days[i].toLowerCase()][k]['to'] - data[days[i].toLowerCase()][k]['from']});
+            const subject = data[days[i].toLowerCase()][k];
+            let subjectName;
+            if (subject['name-en'] && subject['name-th']) {
+                subjectName = `<l-en>${subject['name-en']}</l-en><l-th>${subject['name-th']}</l-tn>`;
+            } else if (!subject['name-en'] && !subject['name-th']) {
+                subjectName = '-';
+            } else {
+                subjectName = subject['name-en'] || subject['name-th'];
+            }
+            const td = make_cell('td', `<b>${subjectName}</b><br><span class="text-lg md:text-base">${data[days[i].toLowerCase()][k]['room']}</span><br><b>${data[days[i].toLowerCase()][k]['code']} (${data[days[i].toLowerCase()][k]['section']})</b><br>${data[days[i].toLowerCase()][k]['instructor'].map(instructor => instructor['name-th']).join('<br>')}`, {colspan: data[days[i].toLowerCase()][k]['to'] - data[days[i].toLowerCase()][k]['from']});
             tr.appendChild(td);
             // j = data[days[i].toLowerCase()][k]['to'];
             j += data[days[i].toLowerCase()][k]['to'] - data[days[i].toLowerCase()][k]['from'];

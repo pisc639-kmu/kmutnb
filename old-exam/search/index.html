@@ -43,7 +43,8 @@
                                 <th class="px-3 py-3"></th>
                             </tr>
                         </thead>
-                        <tbody id="table-body" class="last:rounded-b-md">
+                        <!-- <tbody id="table-body" class="block overflow-y-auto max-h-screen last:rounded-b-md"> -->
+                        <tbody id="table-body" class="overflow-y-auto max-h-screen last:rounded-b-md">
                             <span class="hidden">
                                 <tr
                                     class="bg-neutral-600 dark:bg-neutral-900 hover:bg-gray-100/30 hover:dark:bg-gray-800/30 border-x border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white">
@@ -224,6 +225,7 @@ async function fetchAndParseCSV() {
 
 function createRow(name, { year, term, period, ep = null, path } = {}) {
     const tr = document.createElement('tr');
+    tr.classList.add(...'space-x-auto'.split(' '));
     tr.classList.add('bg-neutral-600', 'dark:bg-neutral-900', 'hover:bg-gray-100/30', 'hover:dark:bg-gray-800/30', 'border-x', 'border', 'border-gray-300', 'dark:border-gray-700', 'text-gray-900', 'dark:text-white')
 
     const thName = document.createElement('th');
@@ -255,17 +257,26 @@ function createRow(name, { year, term, period, ep = null, path } = {}) {
     thEP.textContent = ep;
     tr.appendChild(thEP);
 
-    const thDownload = document.createElement('th');
-    thDownload.classList.add('px-3', 'py-3', 'text-blue');
+    const thPreviewDownload = document.createElement('th');
+    thPreviewDownload.classList.add('px-3', 'py-3', 'text-blue', 'space-x-2');
+
+    const aPreview = document.createElement('a');
+    aPreview.href = `https://api.kmu.pisc.cc/file/old-exam/raw/${path}`;
+    aPreview.classList.add('material-symbols-outlined');
+    aPreview.textContent = "visibility ";
+    aPreview.target = "_blank";
+    thPreviewDownload.appendChild(aPreview);
+
     // <span class="material-symbols-outlined">download</span></th>
-    const a = document.createElement('a');
+    const aDownload = document.createElement('a');
     // a.href = `files/${name}.pdf`;
-    a.href = `https://api.kmu.pisc.cc/download/old-exam/raw/${path}`;
-    a.classList.add('material-symbols-outlined');
-    a.textContent = "download";
-    a.target = "_blank";
-    thDownload.appendChild(a);
-    tr.appendChild(thDownload);
+    aDownload.href = `https://api.kmu.pisc.cc/download/old-exam/raw/${path}`;
+    aDownload.classList.add('material-symbols-outlined');
+    aDownload.textContent = "download";
+    aDownload.target = "_blank";
+    thPreviewDownload.appendChild(aDownload);
+
+    tr.appendChild(thPreviewDownload);
 
     return tr
 }

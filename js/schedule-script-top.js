@@ -67,11 +67,21 @@ function getTableUrl(type) {
 
 async function download_image(type = 'table') {
     var download_url = getTableUrl(type);
+    let typeText = type.charAt(0).toUpperCase() + type.slice(1).toLowerCase();
 
     // 1. Generate your custom filename
-    var customFileName = ((a => a.split("-")[0].toUpperCase() + String(yearOffset - parseInt(a.split("-")[1])))
-        ((a => a.substring(a.lastIndexOf('/') + 1))(window.location.pathname.replace(/\/$/, "")))) 
-        + " " + (type.charAt(0).toUpperCase() + type.slice(1)) + ".png";
+        var customFileName = (
+            (a => 
+                a[0].toUpperCase() +
+                String(yearOffset - parseInt(a.split("-")[1])) +
+                a.split("-")[0].slice(1)
+            )(
+                (a => a.substring(a.lastIndexOf('/') + 1))
+                (window.location.pathname.replace(/\/$/, ""))
+            ) +
+            // " " + (typeText) + ".png"
+            ` ${typeText}.png`
+        );
 
     try {
         // 2. Fetch the image as a Blob (binary data)

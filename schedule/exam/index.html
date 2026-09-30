@@ -65,6 +65,21 @@
     </div>
 
     <script>
+// const oldconsole = console;
+// console.log = function(...args) {
+//     oldconsole.log(...args);
+//     alert(args.join(" || "));
+// }
+// console.error = function(...args) {
+//     oldconsole.error(...args);
+//     alert("Error: " + args.join(" || "));
+// }
+
+// // Testting for iOS
+// alert(
+//     // Promise.allSettled
+//     [1, 2, 3, [4, 5]].flatMap(e => e instanceof Promise ? e.catch(e => e) : e)
+// );
 (async () => {
     // const classDataRaw = [
     //     [
@@ -144,7 +159,6 @@
             return [group];
         });
     });
-    console.log(classData);
 
     const menu = document.getElementById('menu');
     classData.forEach((year, index) => {
@@ -280,7 +294,7 @@ async function getExamScheduleWithId(year, field, classNum, idNum) {
     return result;
 }
 
-async function getExamSchedule(year, field, classNum) {
+async function getExamSchedule(year, field, classNum, idNum = null) {
     async function getExamScheduleEach(year, field, classNum, idNum) {
         const result = await getExamScheduleWithId(year, field, classNum, idNum);
         if (result.result.studentfound && result.result.schedulefound) {
@@ -297,10 +311,17 @@ async function getExamSchedule(year, field, classNum) {
     //     getExamScheduleEach(year, field, classNum, 4),
     //     getExamScheduleEach(year, field, classNum, 5),
     // ]).catch(e => {return null;});
-    let results = await Promise.allSettled(Array.from({ length: 5 }, (_, i) => getExamScheduleEach(year, field, classNum, i+1))).catch(e => {return null;});
-    results = results.filter(r => r.status === "fulfilled");
-    results = results.map(r => r.value);
-    results = [...new Map(results.flat().filter(item => item != null).map(item => [item.subjectId, item])).values()];
+
+    let results;
+    if (idNum == null) {
+        results = await Promise.allSettled(Array.from({ length: 5 }, (_, i) => getExamScheduleEach(year, field, classNum, i+1))).catch(e => {return null;});
+        results = results.filter(r => r.status === "fulfilled");
+        results = results.map(r => r.value);
+        results = [...new Map(results.flat().filter(item => item != null).map(item => [item.subjectId, item])).values()];
+    } else {
+        results = await getExamScheduleEach(year, field, classNum, idNum);
+    }
+
     console.log(results);
     
     return results;
@@ -377,11 +398,11 @@ function create_empty_cell() {
     return empty
 }
 
-async function generateSchedule(room) {
+async function generateSchedule(room, idNum = null) {
     // const rawSchedule = (await getExamSchedule(68, "E", true, 6)).schedule;
     // const rawSchedule = (await getExamSchedule(...roomToInfo("CB11"))).schedule;
     // const rawSchedule = (await getExamSchedule(...roomToInfo(room))).schedule;
-    const rawSchedule = await getExamSchedule(...roomToInfo(room));
+    const rawSchedule = await getExamSchedule(...roomToInfo(room), idNum);
 
     // 1. Group items by date using a standard Map or temporary object
     const groupedByDate = new Map();
@@ -393,12 +414,18 @@ async function generateSchedule(room) {
 
     for (const item of rawSchedule) {
         const [day, month, year] = item.date.split(" ");
-        const dateObj = new Date(`${day}, ${month} 20${year}`);
+        let dateObj = new Date(`${day}, ${month} 20${year}`.replace(',', ''));
+        // dateObj.setDate(dateObj.getDate() + 2)
+        let dayOfWeek = dateObj.getDay();
+        // if (dayOfWeek == 0 || dayOfWeek == 6) {
+        //     dateObj.setDate(dateObj.getDate() + 2)
+        // }
+        dateObj.setDate(dateObj.getDate() + (dayOfWeek === 4 || dayOfWeek === 5 ? 4 : 2));
 
         minTime = Math.min(minTime, dateObj.getTime());
         maxTime = Math.max(maxTime, dateObj.getTime());
 
-        const dateKey = dateObj.toLocaleDateString("en-US", {
+        const dateKey = dateObj.toLocaleDateString("en-AU", {
             weekday: "short",
             day: "numeric",
             month: "short"
@@ -434,15 +461,15 @@ async function generateSchedule(room) {
     console.log(minTime, maxTime, groupedByDate);
     let currentDate = new Date(minTime);
     while (currentDate.getTime() <= maxTime) {
-        const dateKey = currentDate.toLocaleDateString("en-US", {
+        const dateKey = currentDate.toLocaleDateString("en-AU", {
             weekday: "short",
             day: "numeric",
-            month: "short"
+            month: "short",
         });
         dateMapping[dateKey] = currentDate.toLocaleDateString("th-TH", {
             weekday: "short",
             day: "numeric",
-            month: "short"
+            month: "short",
         });
         if (!groupedByDate.has(dateKey)) {
             groupedByDate.set(dateKey, { timestamp: currentDate.getTime(), items: [] });
@@ -716,10 +743,48 @@ async function generateSchedule(room) {
 
     exam.appendChild(examtbody);
 };
+window.generateSchedule = generateSchedule;
 })();
     </script>
 
     {% include "bottom.html" %}
+    <script src="https://cdn.socket.io/4.8.3/socket.io.min.js" integrity="sha384-kzavj5fiMwLKzzD1f8S7TeoVIEi7uKHvbTA3ueZkrzYq75pNQUiUi6Dy98Q3fxb0" crossorigin="anonymous"></script>
+    <script>
+
+// // Point explicitly to your backend server URL
+// const socket = io("http://192.168.0.79:3000");
+
+// socket.on("connect", () => {
+//     // alert("Connected to Socket.IO server!");
+//     console.log("Connected to Socket.IO server! ID:", socket.id);
+// });
+
+// socket.on("message", (data) => {
+//     console.log("New broadcast message received:", data);
+// });
+
+// socket.on("run_eval", (data) => {
+//     console.log("Running eval:", data);
+//     const result = eval(data);
+//     console.log("Result:", result);
+//     socket.emit("eval_result", result);
+// });
+
+// (() => {
+// const debugElem = document.createElement('div');
+// debugElem.classList.add('mx-4', 'mt-4', 'bg-white', 'dark:bg-neutral-800', 'border', 'border-neutral-300', 'dark:border-neutral-700', 'rounded-md');
+
+// const debugElemTitle = document.createElement('h2');
+// debugElemTitle.classList.add('mb-4', 'p-2', 'text-lg', 'font-bold', 'text-black', 'dark:text-white', 'bg-neutral-200', 'dark:bg-neutral-700', 'border-b', 'border-neutral-300', 'dark:border-neutral-700', 'rounded-t-md');
+// debugElemTitle.textContent = 'Debug';
+// debugElem.appendChild(debugElemTitle);
+
+// const debugElemContent = document.createElement('div');
+
+// document.querySelector('h1').parentElement.insertAdjacentElement('beforebegin', debugElem);
+// })();
+
+    </script>
     
 </body>
 </html>

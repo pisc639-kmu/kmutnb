@@ -344,44 +344,62 @@ for (const[selector, value] of Object.entries(classShort)) {
 
 const _localStorage = window.localStorage;
 const [_localStorage_getItem, _localStorage_setItem] = [_localStorage.getItem.bind(_localStorage), _localStorage.setItem.bind(_localStorage)];
+const oppositeLang = a => a === 'en' ? 'th' : 'en';
+
 
 function updateLanguage(toggle = true) {
-    console.log('updateLanguage');
+    // console.log('updateLanguage');
     ['en', 'th'].includes(_localStorage_getItem('lang')) || _localStorage_setItem('lang', 'en');
     // if (!['en', 'th'].contains(_localStorage_getItem('lang'))) {
     //     _localStorage_setItem('lang', 'en');
     // }
     if (toggle) {
-        _localStorage_setItem('lang',_localStorage_getItem('lang') === 'en' ? 'th' : 'en');
+        _localStorage_setItem('lang', oppositeLang(_localStorage_getItem('lang')));
     };
     const lang = _localStorage_getItem('lang');
-    const elements_en = _querySelectorAll(_document, 'l-en');
-    const elements_th = _querySelectorAll(_document, 'l-th');
+    // const elements_en = _querySelectorAll(_document, 'l-en');
+    // const elements_th = _querySelectorAll(_document, 'l-th');
 
-    // const hide = (element) => element.classList.add('hidden');
-    // const show = (element) => element.classList.remove('hidden');
+    // // const hide = (element) => element.classList.add('hidden');
+    // // const show = (element) => element.classList.remove('hidden');
 
-    const hide = (element) => _classList_add(element, 'hidden');
-    const show = (element) => _classList_remove(element, 'hidden');
+    // const hide = (element) => _classList_add(element, 'hidden');
+    // const show = (element) => _classList_remove(element, 'hidden');
     
-    // if (lang === 'en') {
-    //     // elements_en.classList.remove('hidden');
-    //     // elements_th.classList.add('hidden');
-    //     elements_en.forEach(show);
-    //     elements_th.forEach(hide);
-    // } else {
-    //     // elements_en.classList.add('hidden');
-    //     // elements_th.classList.remove('hidden');
-    //     elements_en.forEach(hide);
-    //     elements_th.forEach(show);
-    // }
+    // // if (lang === 'en') {
+    // //     // elements_en.classList.remove('hidden');
+    // //     // elements_th.classList.add('hidden');
+    // //     elements_en.forEach(show);
+    // //     elements_th.forEach(hide);
+    // // } else {
+    // //     // elements_en.classList.add('hidden');
+    // //     // elements_th.classList.remove('hidden');
+    // //     elements_en.forEach(hide);
+    // //     elements_th.forEach(show);
+    // // }
 
-    _forEach(lang === 'en' ? elements_en : elements_th, show);
-    _forEach(lang === 'en' ? elements_th : elements_en, hide);
+    // _forEach(lang === 'en' ? elements_en : elements_th, show);
+    // _forEach(lang === 'en' ? elements_th : elements_en, hide);
+    
+    let style = document.getElementById('lang-style');
+    if (!style) {
+        style = document.createElement('style');
+        style.id = 'lang-style';
+        document.head.appendChild(style);
+    }
+    // style.innerHTML = `
+    //     l-en {
+    //         ${lang === 'en' ? 'display: block' : 'display: none'};
+    //     }
+    //     l-th {
+    //         ${lang === 'th' ? 'display: block' : 'display: none'};
+    //     }
+    // `
+    style.innerHTML = `l-${oppositeLang(lang)}{display:none}`;
 };
 
-console.log(_querySelectorAll(_document, '.language-toggle'));
+// console.log(_querySelectorAll(_document, '.language-toggle'));
 _querySelectorAll(_document, '.language-toggle').forEach(e => _addEventListener(e, 'click', updateLanguage));
 updateLanguage(false);
-watchDocument(() => updateLanguage(false));
+// watchDocument(() => updateLanguage(false));
 })();
