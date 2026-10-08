@@ -15,7 +15,165 @@
     {% include "oldexammain.html" %}
     {% include "bottom.html" %}
     <!-- <script>
+        const SubjectsFull = [
+            "Mathematics 3",
+            "Thai 3",
+            "Chemistry 3",
+            "Reading",
+            "Wave Motion and Sound",
+            "Computer Programming",
+            "Electronic Circuits 1",
+            "Citizenship",
+        ];
+        const Subjects = [
+            "Math",
+            "Thai",
+            "Chemistry",
+            "Reading",
+            "Physics",
+            "Programming",
+            "Circuit",
+            "Citizenship",
+        ];
+    </script> -->
+    <!-- {% include "oldexamscript.html" %} -->
+    <!-- <script>
 (async () => {
+    function cleanString(str) {
+        // Check if it starts and ends with a double quote
+        if (str.startsWith('"') && str.endsWith('"')) {
+            try {
+                // JSON.parse removes the outer quotes and decodes all escape sequences
+                return JSON.parse(str);
+            } catch (e) {
+                // Fallback if the inner JSON is malformed
+                return str;
+            }
+        }
+        return str;
+    };
+
+    /**
+     * 0: Not EP, 1: EP, 2: Not sure
+     * @param {string} fpath
+     * @returns {number} 0 for Not EP, 1 for EP, 2 for Not sure 
+     */
+    function fileIsEP(fpath) {
+        if (fpath.toLowerCase().includes("ep")) {
+            return 1
+        } else if (/^(?=.*ep|.*?\bS(?!1\b)\d+\b)/i.test(fpath)) {
+            return 1
+        } else if (/^(?!.*ep)(?!.*?\bs\d+\b).*$/i.test(fpath)) {
+            return 2
+        } else {
+            return 0
+        }   
+    }
+
+    function findFiles(data, subjects, terms=[1, 2], periods=["midterm", "final"], ep=null) {
+        const filteredData = data.filter(item => 
+            subjects.includes(item.subjectId) &&
+            // terms.includes(parseInt(item.term)) &&
+            (Array.isArray(terms) ? terms.includes(+item.term) : parseInt(item.term) === terms) &&
+            Array.from(periods).map(p => p[0].toLowerCase()).includes(item.period[0].toLowerCase()) &&
+            // (ep === null || ([ep ? 1 : 0, 2]).includes(item.ep))
+            (ep === null || ([+ep, 2]).includes(item.ep))
+        );
+        let result = {};
+        for (let i = 0; i < filteredData.length; i++) {
+            const item = filteredData[i];
+            const year = item.year;
+            result[year] = result[year] || [];
+            result[year].push({
+                path: item.fullPath,
+                subjectId: item.subjectId,
+                term: item.term,
+                period: item.period,
+                ep: item.ep,
+            });
+        }
+        for (const [year, subjects] of Object.entries(result)) {
+            if (subjects.some(item => item.ep === +ep)) {
+                result[year] = subjects.filter(item => item.ep === +ep);
+            }
+            result[year] = result[year][0] || null;
+        }
+        return result;
+    }
+
+    const response = await fetch('/old-exam/files.csv');
+
+    if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const csvData = await response.text();
+
+    // Split by newline and map each non-empty row to its comma-separated columns
+    // const rows = csvData
+    // .split('\n')
+    // .slice(1)
+    // .filter(row => row.trim() !== '') // Remove empty trailing lines
+    // .map(row => row.split(',')
+    // .map(a => cleanString(a.trim())))
+    
+    const commasRegex = /\s*,\s*(?=(?:[^"]*"[^"]*")*[^"]*$)/g;
+    const data = csvData
+        .split('\n')
+        .slice(1)
+        .filter(row => row.trim() !== '')
+        // .reduce((acc, row) => {
+        //     const [fileName, year, term, period, subjectId, subjectName, fullpath, size] = row.split(commasRegex);
+        //     // acc.push({
+        //     //     year: year,
+        //     //     term: term,
+        //     //     period: period,
+        //     //     ep: ep,
+        //     //     path: path,
+        //     // });
+        //     const ep = fileIsEP(fullpath);
+        //     // if (subjectId == "031001114" && term == "1" && period == "final" && (ep == 0 || ep == 2)) {
+        //     if (subjectId == "031001114") {
+        //     // if (true) {
+        //         acc[year] = acc[year] || [];
+        //         acc[year].push({
+        //             term: term,
+        //             period: period,
+        //             ep: ep,
+        //             path: fullpath,
+        //             subjectId: subjectId,
+        //         });
+        //     }
+        //     return acc;
+        // }, {});
+        .map(row => {
+            const [fileName, year, term, period, subjectId, subjectName, fullPath, size] = row.split(commasRegex);
+            const ep = fileIsEP(fullPath);
+            return {
+                fullPath: cleanString(fullPath),
+                fileName: cleanString(fileName),
+                fileSize: size,
+                subjectId: subjectId,
+                subjectName: cleanString(subjectName),
+                year: year,
+                term: term,
+                period: period,
+                ep: ep,
+            };
+        });
+    
+
+
+    console.log(data);
+    // console.log(findFiles(data, ["392134", "031001114"], [1, 2], ["final"], false));
+    // console.log(findFiles(data, ["394174", "031001134"], [1, 2], "f", false));
+    console.log(findFiles(data, ["392133", "031001113"], 1, "f", true));
+    return data;
+})()
+    </script> -->
+    <script>
+(async () => {
+// Utility functions & Global exports
 function download_file(preview = false) {
     const fileFrame = document.getElementById('file-frame');
     const rawUrl = fileFrame?.getAttribute('raw');
@@ -47,14 +205,17 @@ function download_file(preview = false) {
 window.download_file = download_file;
 
 function getFileUrl(path) {
+    // const [, , seg2, seg3] = new URL(window.location.href).pathname.split('/');
+    // return new URL(`https://api.kmu.pisc.cc/download/old-exam/${seg2}/${seg3}/${path}`);
+    // return new URL(`https://oe.kmu.pisc.cc/old-exam/raw/${seg2}/${seg3}/${path}`);
     return new URL("https://api.kmu.pisc.cc/r2/file/old-exam/raw/" + path.replaceAll("\\", "/"));
 }
 
 function get_file_url(url, preview = false) {
     const parsedUrl = new URL(url);
-    if (!preview) {
-        parsedUrl.pathname = parsedUrl.pathname.match(/(\/[^\/]*){1}/)[0] + '/download' + parsedUrl.pathname.replace(/(\/[^\/]*){2}/, '');
-    }
+    // if (preview) {
+    //     parsedUrl.pathname = '/file' + parsedUrl.pathname.replace(/(\/[^\/]*){1}/, '');
+    // }
     return decodeURI(parsedUrl.href);
 }
 
@@ -63,7 +224,8 @@ function openFile(fileData, fileName = fileData.path) {
     const source = getFileUrl(fileData.path);
     console.log("Opening file:", fileData, "Source URL:", source);
     const sourceStr = source ? String(source) : "";
-
+    // const cacheBuster = sourceStr.includes('?') ? `&cb=${Date.now()}` : `?cb=${Date.now()}`;
+    // const finalSource = sourceStr + cacheBuster;
     const finalSource = sourceStr;
 
     frameElement.setAttribute("sandbox", "allow-scripts allow-same-origin");
@@ -145,6 +307,7 @@ function applyXScroll(container) {
     });
 }
 
+// Build Table UI
 const table = document.getElementById("subject-table") || document.querySelector("table");
 applyXScroll(table.parentElement);
 table.id = "subject-table";
@@ -292,6 +455,7 @@ function addRow(subjectFullName, subjectName, data) {
         const name = fileName.split(".")[0].split(",")[0];
         const subject = name.split(" ").slice(0, -1).join(" ");
         
+        // const year = parseInt(name.split(" ").at(-1), 10);
         const year = +fileData.year;
         const colIndex = year - 2010;
 
@@ -307,23 +471,112 @@ function addRow(subjectFullName, subjectName, data) {
     }
 }
 
-window.Table = function() {
-    return fetchCSVData().then(data => {
-        function Row(subjectFullName, subjectName, ...info) {
-            console.log(subjectFullName, subjectName, info);
-            if (info.length == 1) {
-                addRow(subjectFullName, subjectName, info[0]);
-            } else {
-                addRow(subjectFullName, subjectName, findFiles(data, info.slice(3), ...info.slice(0, 3)));
-            }
-        }
-        function Info(term, period, ep, subjects) {
-            return findFiles(data, subjects, term, period, ep);
-        }
-        return {Row, Info};
-    });
+// // Fetch Files List
+// fetch(`${window.location.protocol}//api.kmu.pisc.cc/list${window.location.pathname}`)
+//     .then(res => res.json())
+//     .then(files => {
+//         files.items.forEach(file => {
+//             if (file.name !== "index.html" && file.type === "File") {
+//                 addFile(file.name);
+//             }
+//         });
+//     }
+// );
+
+// const SubjectsFull = [
+//     "Mathematics 3",
+//     "Thai 3",
+//     "Chemistry 3",
+//     "Reading",
+//     "Wave Motion and Sound",
+//     "Computer Programming",
+//     "Electronic Circuits 1",
+//     "Citizenship",
+// ];
+// const Subjects = [
+//     "Math",
+//     "Thai",
+//     "Chemistry",
+//     "Reading",
+//     "Physics",
+//     "Programming",
+//     "Circuit",
+//     "Citizenship",
+// ];
+// const data = await fetchCSVData();
+// fetchCSVData().then(data => {
+// fetchCSVData().then(data => {
+//     // addRow(Subjects[0], SubjectsFull[0], findFiles(data, ["392134", "031001114"], [1, 2], ["final"], false));
+//     addRow("Mathematics 3", "Math", findFiles(data, ["394173", "031001133"], 1, 'f', true));
+//     addRow("Thai 3", "Thai", findFiles(data, ["393163", "031001153"], 1, 'f', true));
+//     addRow("Chemistry 3", "Chemistry", findFiles(data, ["392153", "031001123"], 1, 'f', true));
+//     addRow("Reading", "Reading", findFiles(data, ["393143", "031001143"], 1, "f", true));
+//     addRow("Wave Motion and Sound", "Physics", findFiles(data, ["392133", "031001113"], 1, "f", true));
+//     addRow("Computer Programming", "Programming", findFiles(data, ["350143", "031021341"], 1, "f", true));
+//     addRow("Electronic Circuits 1", "Circuit", findFiles(data, ["352152", "353152", "363152", "031021151"], 1, "f", true));
+//     addRow("Citizenship", "Citizenship", findFiles(data, ["031001164"], 1, "f", true));
+// });
+
+window.Table = fetchCSVData;
+// window.Row = addRow;
+// window.Info = findFiles;
+window.Row = function(data, subjectFullName, subjectName, term, period, ep, ...subjects) {
+    addRow(subjectFullName, subjectName, findFiles(data, subjects, term, period, ep));
 };
 
+// SubjectsFull.forEach((subject) => {
+//     const row = document.createElement("tr");
+//     row.classList.add("bg-transparent", "hover:bg-gray-100/30", "hover:dark:bg-gray-800/30", "border-x", "border", "border-gray-300", "dark:border-gray-700", "text-gray-900", "dark:text-white");
+    
+//     const subjectName = document.createElement("th");
+//     subjectName.classList.add("px-5", "py-3");
+//     subjectName.textContent = subject;
+//     row.appendChild(subjectName);
+
+//     for (let year = 2010; year <= 2025; year++) {
+//         const column = document.createElement("th");
+//         column.classList.add("px-5", "py-3");
+//         row.appendChild(column);
+//     }
+//     tbody.appendChild(row);
+// });
+
+// function addFileButton(rowIndex, colIndex, file, name) {
+//     const tbodyEl = document.getElementById("table-body");
+//     const rowElement = tbodyEl.children[rowIndex];
+//     const columnElement = rowElement.children[colIndex + 1];
+
+//     const button = document.createElement("button");
+//     button.type = "button";
+//     columnElement.classList.add("hover:cursor-pointer");
+//     button.classList.add("text-blue-600", "dark:text-blue-400", "hover:underline", "hover:cursor-pointer");
+    
+//     button.onclick = () => openFile(file);
+//     button.textContent = name;
+//     columnElement.appendChild(button);
+// }
+
+// function addFile(file) {
+//     const name = file.split(".")[0].split(",")[0];
+//     const subject = name.split(" ").slice(0, -1).join(" ");
+    
+//     if (!Subjects.includes(subject)) return;
+
+//     const rowIndex = Subjects.indexOf(subject);
+//     const year = parseInt(name.split(" ").at(-1), 10);
+//     const colIndex = year - 2010;
+
+//     addFileButton(rowIndex, colIndex, file, name);
+// }
+
+
+
+
+
+
+
+
+// Page Title Localization Async Setup
 (async () => {
     const path = location.pathname;
     const len = path.length;
@@ -360,18 +613,27 @@ window.Table = function() {
     });
 })();
 })();
-    </script> -->
-    {% include "oldexamscript2.html" %}
+    </script>
     <script>
-Table().then(({Row, Info}) => {
-    Row("Mathematics 3"        , "Math"       , Info(1, 'f', true, ["394173", "031001133"]));
-    Row("Thai 3"               , "Thai"       , Info(1, 'f', true, ["393163", "031001153"]));
-    Row("Chemistry 3"          , "Chemistry"  , Info(1, 'f', true, ["392153", "031001123"]));
-    Row("Reading"              , "Reading"    , Info(1, 'f', true, ["393143", "031001143"]));
-    Row("Wave Motion and Sound", "Physics"    , Info(1, 'f', true, ["392133", "031001113"]));
-    Row("Computer Programming" , "Programming", Info(1, 'f', true, ["350143", "031021341"]));
-    Row("Electronic Circuits 1", "Circuit"    , Info(1, 'f', true, ["352152", "353152", "363152", "031021151"]));
-    Row("Citizenship"          , "Citizenship", Info(1, 'f', true, ["031001164"]));
+// Table().then(data => {
+//     Row("Mathematics 3"        ,"Math"       ,Info(data, ["394173", "031001133"], 1, 'f', true));
+//     Row("Thai 3"               ,"Thai"       ,Info(data, ["393163", "031001153"], 1, 'f', true));
+//     Row("Chemistry 3"          ,"Chemistry"  ,Info(data, ["392153", "031001123"], 1, 'f', true));
+//     Row("Reading"              ,"Reading"    ,Info(data, ["393143", "031001143"], 1, "f", true));
+//     Row("Wave Motion and Sound","Physics"    ,Info(data, ["392133", "031001113"], 1, "f", true));
+//     Row("Computer Programming" ,"Programming",Info(data, ["350143", "031021341"], 1, "f", true));
+//     Row("Electronic Circuits 1","Circuit"    ,Info(data, ["352152", "353152", "363152", "031021151"], 1, "f", true));
+//     Row("Citizenship"          ,"Citizenship",Info(data, ["031001164"], 1, "f", true));
+// });
+Table().then(data => {
+    Row(data,"Mathematics 3"        ,"Math"       ,1,'f',true, "394173", "031001133");
+    Row(data,"Thai 3"               ,"Thai"       ,1,'f',true, "393163", "031001153");
+    Row(data,"Chemistry 3"          ,"Chemistry"  ,1,'f',true, "392153", "031001123");
+    Row(data,"Reading"              ,"Reading"    ,1,'f',true, "393143", "031001143");
+    Row(data,"Wave Motion and Sound","Physics"    ,1,'f',true, "392133", "031001113");
+    Row(data,"Computer Programming" ,"Programming",1,'f',true, "350143", "031021341");
+    Row(data,"Electronic Circuits 1","Circuit"    ,1,'f',true, "352152", "353152", "363152", "031021151");
+    Row(data,"Citizenship"          ,"Citizenship",1,'f',true, "031001164");
 });
     </script>
 </body>

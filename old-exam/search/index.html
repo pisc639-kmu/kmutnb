@@ -272,7 +272,7 @@ function createRow(name, { year, term, period, ep = null, path } = {}) {
     thPreviewDownload.classList.add('px-3', 'py-3', 'text-blue', 'space-x-2');
 
     const aPreview = document.createElement('a');
-    aPreview.href = `https://api.kmu.pisc.cc/file/old-exam/raw/${path}`;
+    aPreview.href = `https://api.kmu.pisc.cc/r2/file/old-exam/raw/${path}`;
     aPreview.classList.add('material-symbols-outlined');
     aPreview.textContent = "visibility ";
     aPreview.target = "_blank";

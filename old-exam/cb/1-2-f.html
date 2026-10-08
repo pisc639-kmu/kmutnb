@@ -14,22 +14,16 @@
 
     {% include "oldexammain.html" %}
     {% include "bottom.html" %}
+    {% include "oldexamscript2.html" %}
     <script>
-        const SubjectsFull = [
-            "Math 2",
-            "Math 4",
-            "Thai 2",
-            "English 2",
-            "Social Study 1"
-        ];
-        const Subjects = [
-            "Math2",
-            "Math4",
-            "Thai",
-            "English",
-            "Social"
-        ];
+Table().then(({Row, Info}) => {
+    Row("Mathematics 2"        , "Math2"  , Info(2, 'f', false, ["394172", "031001132"]));
+    Row("Mathematics 4"        , "Math4"  , Info(2, 'f', false, ["394174", "031001134"]));
+    Row("Thai 2"               , "Thai"   , Info(2, 'f', false, ["393162", "031001152"]));
+    Row("Electronics Circuit"  , "Circuit", Info(2, 'f', false, ["353153", "031021151", "031021342", "342359", "352152", "353152", "363152"]));
+    Row("Foundation English II", "English", Info(2, 'f', false, ["393142", "031001142"]));
+    Row("Social Study I"       , "Social" , Info(2, 'f', false, ["395181", "395182001", "031001161"]));
+});
     </script>
-    {% include "oldexamscript.html" %}
 </body>
 </html>

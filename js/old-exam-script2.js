@@ -1,20 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Old Exam Year 2 Term 1 Final</title>
-    {% include "head.html" %}
-</head>
-<body class="dark bg-white dark:bg-black min-h-screen">
-    {% include "nav.html" %}
-    <div class="flex items-center justify-center space-x-4 mt-16">
-        <h1 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Old Exam Year 2 Term 1 Final</h1>
-    </div>
-
-    {% include "oldexammain.html" %}
-    {% include "bottom.html" %}
-    <!-- <script>
 (async () => {
 function download_file(preview = false) {
     const fileFrame = document.getElementById('file-frame');
@@ -61,7 +44,7 @@ function get_file_url(url, preview = false) {
 const frameElement = document.getElementById("file-frame");
 function openFile(fileData, fileName = fileData.path) {
     const source = getFileUrl(fileData.path);
-    console.log("Opening file:", fileData, "Source URL:", source);
+    // console.log("Opening file:", fileData, "Source URL:", source);
     const sourceStr = source ? String(source) : "";
 
     const finalSource = sourceStr;
@@ -295,13 +278,13 @@ function addRow(subjectFullName, subjectName, data) {
         const year = +fileData.year;
         const colIndex = year - 2010;
 
-        console.log(rowElement, colIndex, fileData, fileName);
+        // console.log(rowElement, colIndex, fileData, fileName);
         addFileButton(rowElement, colIndex, fileData, fileName);
     }
 
     for (const [year, fileData] of Object.entries(data)) {
         if (fileData) {
-            console.log(fileData);
+            // console.log(fileData);
             addFile(row, subjectName + ' ' + year, fileData);
         }
     }
@@ -310,7 +293,7 @@ function addRow(subjectFullName, subjectName, data) {
 window.Table = function() {
     return fetchCSVData().then(data => {
         function Row(subjectFullName, subjectName, ...info) {
-            console.log(subjectFullName, subjectName, info);
+            // console.log(subjectFullName, subjectName, info);
             if (info.length == 1) {
                 addRow(subjectFullName, subjectName, info[0]);
             } else {
@@ -360,19 +343,3 @@ window.Table = function() {
     });
 })();
 })();
-    </script> -->
-    {% include "oldexamscript2.html" %}
-    <script>
-Table().then(({Row, Info}) => {
-    Row("Mathematics 3"        , "Math"       , Info(1, 'f', true, ["394173", "031001133"]));
-    Row("Thai 3"               , "Thai"       , Info(1, 'f', true, ["393163", "031001153"]));
-    Row("Chemistry 3"          , "Chemistry"  , Info(1, 'f', true, ["392153", "031001123"]));
-    Row("Reading"              , "Reading"    , Info(1, 'f', true, ["393143", "031001143"]));
-    Row("Wave Motion and Sound", "Physics"    , Info(1, 'f', true, ["392133", "031001113"]));
-    Row("Computer Programming" , "Programming", Info(1, 'f', true, ["350143", "031021341"]));
-    Row("Electronic Circuits 1", "Circuit"    , Info(1, 'f', true, ["352152", "353152", "363152", "031021151"]));
-    Row("Citizenship"          , "Citizenship", Info(1, 'f', true, ["031001164"]));
-});
-    </script>
-</body>
-</html>
