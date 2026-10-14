@@ -402,4 +402,20 @@ function updateLanguage(toggle = true) {
 _querySelectorAll(_document, '.language-toggle').forEach(e => _addEventListener(e, 'click', updateLanguage));
 updateLanguage(false);
 // watchDocument(() => updateLanguage(false));
+
+
+const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+const style = document.createElement('style');
+style.id = 'ios-style';
+
+if (isIOS) {
+    style.textContent = 'nd-ios{display:none!important;}';
+} else {
+    style.textContent = 'd-ios{display:none!important;}';
+}
+
+document.head.appendChild(style);
+
 })();

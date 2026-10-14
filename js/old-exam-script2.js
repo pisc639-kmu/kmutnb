@@ -266,7 +266,7 @@ function addRow(subjectFullName, subjectName, data) {
         columnElement.classList.add("hover:cursor-pointer");
         button.classList.add("text-blue-600", "dark:text-blue-400", "hover:underline", "hover:cursor-pointer");
         
-        button.onclick = () => openFile(fileData, name);
+        button.onclick = () => openFile(fileData, fileData.subjectId + ' ' + name);
         button.textContent = name;
         columnElement.appendChild(button);
     }
@@ -289,6 +289,127 @@ function addRow(subjectFullName, subjectName, data) {
         }
     }
 }
+
+// async function share(fileUrl, fileName = null) {
+//     // const shareStatus = document.getElementById('share-status');
+    
+//     // shareStatus.textContent = "Initializing Sharing...";
+//     try {
+//         const response = await fetch(fileUrl);
+//         if (!response.ok) {
+//             throw new Error(`HTTP error! Status: ${response.status}`);
+//         }
+//         const blob = await response.blob();
+
+//         const file = new File([blob], fileName || fileUrl.split('/').pop(), { type: blob.type });
+//         const filesArray = [file];
+
+//         if (navigator.canShare && navigator.canShare({ files: filesArray })) {
+//             // shareStatus.textContent = "Sharing...";
+//             await navigator.share({
+//                 files: [file],
+//                 title: fileName || fileUrl.split('/').pop(),
+//                 text: "Check out this file I shared!",
+//             });
+//             // shareStatus.textContent = "Shared!";
+//         } else {
+//             // shareStatus.textContent = "Sharing not supported on this device.";
+//         }
+//     } catch (error) {
+//         console.error('Error sharing file:', error);
+//         // shareStatus.textContent = "Error sharing file: " + error.message;
+//     }
+// }
+// /**
+//  * Shares a file using the native Web Share API.
+//  * @param {string} fileUrl - The URL of the file to share.
+//  * @param {string|null} [filename=null] - Optional custom name for the shared file.
+//  * @returns {Promise<boolean>} Resolves to true if shared successfully, false otherwise.
+//  */
+// async function shareFile(fileUrl, filename = null) {
+//   // 1. Check if the browser supports file sharing
+//   if (!navigator.canShare) {
+//     console.error("Web Share API is not supported in this browser.");
+//     return false;
+//   }
+
+//   try {
+//     // 2. Fetch the file data
+//     const response = await fetch(fileUrl);
+//     if (!response.ok) throw new Error("Network response was not ok");
+//     const blob = await response.blob();
+
+//     // 3. Determine the filename and extension
+//     const finalFilename = filename || fileUrl.substring(fileUrl.lastIndexOf("/") + 1) || "shared-file";
+
+//     // 4. Create a File object
+//     const file = new File([blob], finalFilename, { type: blob.type });
+
+//     // 5. Verify the browser can share this specific file type
+//     if (!navigator.canShare({ files: [file] })) {
+//       console.error("This browser does not support sharing this file type.");
+//       return false;
+//     }
+
+//     // 6. Trigger the native share sheet
+//     await navigator.share({
+//       files: [file],
+//       title: finalFilename,
+//     });
+
+//     return true;
+//   } catch (error) {
+//     console.error("Error sharing file:", error);
+//     return false;
+//   }
+// }
+
+async function share(fileUrl, filename = null) {
+    if (!navigator.canShare) {
+        console.error("Web Share API is not supported in this browser.");
+        return false;
+    }
+
+    try {
+        const response = await fetch(fileUrl);
+        if (!response.ok) throw new Error("Network response was not ok");
+        const blob = await response.blob();
+
+        const finalFilename = filename || fileUrl.substring(fileUrl.lastIndexOf("/") + 1) || "shared-file";
+
+        const file = new File([blob], finalFilename, { type: blob.type });
+
+        if (!navigator.canShare({ files: [file] })) {
+            console.error("This browser does not support sharing this file type.");
+            return false;
+        }
+
+        await navigator.share({
+            files: [file],
+            title: finalFilename,
+        });
+
+        return true;
+    } catch (error) {
+        console.error("Error sharing file:", error);
+        return false;
+    }
+}
+
+
+document.getElementById('copy-btn').addEventListener('click', () => {
+    const text = document.getElementById('download-btn').href;
+    navigator.clipboard.writeText(text);
+    // console.log("Copied to clipboard");
+});
+document.getElementById('share-btn').addEventListener('click', async () => {
+    const text = document.getElementById('download-btn').href;
+    const title = document.getElementById('iframe-title').textContent;
+
+    await share(text, title + ".pdf");
+    // console.log("Shared!");
+    // alert("Shared!");
+});
 
 window.Table = function() {
     return fetchCSVData().then(data => {

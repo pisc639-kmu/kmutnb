@@ -11,6 +11,8 @@
     <div class="flex items-center justify-center space-x-4 mt-16">
         <h1 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Old Exam Year 2 Term 1 Final</h1>
     </div>
+    <!-- <button id="share-btn-test" class="p-2 text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-200 transition-colors flex items-center justify-center" onclick="share()"><d-ios><span class="material-symbols-outlined">ios_share</span></d-ios><nd-ios><span class="material-symbols-outlined">share</span></nd-ios></button>
+    <p id="share-status"></p> -->
 
     {% include "oldexammain.html" %}
     {% include "bottom.html" %}
@@ -361,7 +363,11 @@ window.Table = function() {
 })();
 })();
     </script> -->
-    {% include "oldexamscript2.html" %}
+    <!-- {% include "oldexamscript2.html" %} -->
+    <!-- <script>
+        {% include "old/old-exam-script2.js" %}
+    </script> -->
+    <script src="/js/old-exam-script2.min.js"></script>
     <script>
 Table().then(({Row, Info}) => {
     Row("Mathematics 3"        , "Math"       , Info(1, 'f', true, ["394173", "031001133"]));
@@ -371,8 +377,62 @@ Table().then(({Row, Info}) => {
     Row("Wave Motion and Sound", "Physics"    , Info(1, 'f', true, ["392133", "031001113"]));
     Row("Computer Programming" , "Programming", Info(1, 'f', true, ["350143", "031021341"]));
     Row("Electronic Circuits 1", "Circuit"    , Info(1, 'f', true, ["352152", "353152", "363152", "031021151"]));
+    Row("Electrical Machines 1", "Machine"    , Info(1, 'f', true, ["341154", "031021124"]));
     Row("Citizenship"          , "Citizenship", Info(1, 'f', true, ["031001164"]));
 });
+    </script>
+    <script>
+(async () => {
+    // async function share(shareElement, fileUrl, fileName = null) {
+    async function share(fileUrl, fileName = null) {
+        const shareStatus = document.getElementById('share-status');
+        // alert(navigator.canShare)
+        // shareElement.onclick = async () => {
+        shareStatus.textContent = "Initializing Sharing...";
+        try {
+            const response = await fetch(fileUrl);
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            const blob = await response.blob();
+
+            const name = fileName || fileUrl.split('/').pop() || 'file.pdf';
+            const file = new File([blob], name, { type: blob.type || 'application/pdf' });
+            // const shareData = { files: [file] };
+
+            const shareData = {
+                title: fileName || fileUrl.split('/').pop(),
+                text: "Check out this file I shared!",
+                url: fileUrl // Shares the direct link to the file instead of downloading it
+            };
+
+            // if (navigator.canShare && navigator.canShare({ files: filesArray })) {
+            if (navigator.canShare && navigator.canShare(shareData)) {
+                shareStatus.textContent = "Sharing...";
+                // await navigator.share({
+                //     files: [file],
+                //     title: fileName || fileUrl.split('/').pop(),
+                //     text: "Check out this file I shared!",
+                // });
+                await navigator.share(shareData);
+                shareStatus.textContent = "Shared!";
+            } else {
+                shareStatus.textContent = "Sharing not supported on this device.";
+            }
+        } catch (error) {
+            console.error('Error sharing file:', error);
+            shareStatus.textContent = "Error sharing file: " + error.message;
+        }
+        
+        //     shareElement.onclick = null;
+        // }
+    }
+
+    // const shareBtn = document.getElementById('share-btn-test');
+
+    // // await share(shareBtn, "https://api.kmu.pisc.cc/r2/file/old-exam/raw/2568/term%201/final/031021341%20S5-6.pdf", "e.pdf");
+    // shareBtn.onclick = () => share("https://api.kmu.pisc.cc/r2/download/old-exam/raw/2568/term%201/final/031021341%20S5-6.pdf", "e.pdf");
+})();
     </script>
 </body>
 </html>

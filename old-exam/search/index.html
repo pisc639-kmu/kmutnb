@@ -361,7 +361,7 @@ search.addEventListener("input", async e => {
 
     const matchedRows = dataset
         .filter(item => item.searchTarget.includes(queryFormatted))
-        .slice(0, 100)
+        // .slice(0, 100)
         .map(item => createRow(item.name, item.meta));
 
     tableBody.append(...matchedRows);

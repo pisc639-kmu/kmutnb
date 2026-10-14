@@ -276,6 +276,39 @@ function addFile(file) {
     addFileButton(row, column, file, name);
     // }
 };
+
+async function share(fileUrl, fileName = null) {
+    try {
+        const response = await fetch(fileUrl);
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const blob = await response.blob();
+
+        const file = new File([blob], fileName || fileUrl.split('/').pop(), { type: blob.type });
+        const filesArray = [file];
+
+        if (navigator.canShare && navigator.canShare({ files: filesArray })) {
+            await navigator.share({
+                files: [file],
+                title: fileName || fileUrl.split('/').pop(),
+                text: "Check out this file I shared!",
+            });
+        }
+    } catch (error) {
+        console.error('Error sharing file:', error);
+    }
+}
+
+_document_getElementById('copy-btn').addEventListener('click', () => {
+    const text = _document_getElementById('download-btn').href;
+    navigator.clipboard.writeText(text);
+});
+_document_getElementById('share-btn').addEventListener('click', async () => {
+    const text = _document_getElementById('download-btn').href;
+    share(text);
+});
+
 // fetch(`${window.location.protocol}//con.${window.location.host}${window.location.pathname}`).then(a => a.json()).then(files => {
 fetch(`${window.location.protocol}//api.kmu.pisc.cc/list${window.location.pathname}`).then(a => a.json()).then(files => {
     files.items.forEach(file => {
