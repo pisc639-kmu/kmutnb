@@ -285,6 +285,7 @@ async function share(fileUrl, fileName = null) {
         }
         const blob = await response.blob();
 
+        fileName = fileName || decodeURIComponent(fileUrl.split('/').pop());
         const file = new File([blob], fileName || fileUrl.split('/').pop(), { type: blob.type });
         const filesArray = [file];
 

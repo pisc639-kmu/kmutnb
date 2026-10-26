@@ -250,3 +250,19 @@ $.getJSON(scheduleDataUrl, function(alldata) {
 //     })
 //     .catch(error => console.error(error));
 // });
+
+(async () => {
+    function getYearOffset() {
+        // new Date(new Date() - 1000 * 60 * 60 * 24 * 30 * 5).getUTCFullYear() - 1956
+        const current = new Date();
+        current.setMonth(current.getUTCMonth() - 5);
+        return current.getUTCFullYear() - 1956;
+    }
+
+    const yearOffset = getYearOffset();
+
+    const parts = window.location.pathname.split('/')[2].split('-');
+    const className = parts[0].slice(0,-1).toUpperCase() + (yearOffset - parts[1]) + parts[0].at(-1);
+
+    document.getElementById("classroom-name").textContent = ' ' + className;
+})();

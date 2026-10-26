@@ -267,7 +267,12 @@ _setAttribute(_document_body, 'class', '');
 _classList_add(_document_body, "dark", "bg-gray-50", "dark:bg-gray-950", "min-h-screen");
 
 
-_forEach([..._querySelectorAll(_document, 'a')], a=>{if(/\d+-\d+-[mf]$/.test(a.href)){_classList_remove(a, 'btn-black', 'btn-blurple');_classList_add(a, /\d+-1-f$/.test(a.href)?'btn-blurple':'btn-black')}});
+const periodRegex = /\d+-\d+-[mf]$/;
+const currentExam = "2-m";
+// const currentExamRegex = new RegExp(`\\b${currentExam}\\b`);
+const currentExamRegex = new RegExp(String.raw`\d+-${currentExam}$`);
+// _forEach([..._querySelectorAll(_document, 'a')], a=>{if(/\d+-\d+-[mf]$/.test(a.href)){_classList_remove(a, 'btn-black', 'btn-blurple');_classList_add(a, /\d+-1-f$/.test(a.href)?'btn-blurple':'btn-black')}});
+_forEach([..._querySelectorAll(_document, 'a')], a=>{if(periodRegex.test(a.href)){_classList_remove(a, 'btn-black', 'btn-blurple');_classList_add(a, currentExamRegex.test(a.href)?'btn-blurple':'btn-black')}});
 
 const classShort = {
     '.btn-black': "bg-neutral-600 hover:bg-neutral-700 dark:bg-neutral-900 dark:hover:bg-neutral-700 text-white font-medium py-2 px-4 rounded-md border border-neutral-500 transition-colors duration-300 text-center",

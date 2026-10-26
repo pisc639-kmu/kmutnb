@@ -157,7 +157,7 @@ async function download_image(type = 'table') {
 
 function getLatestScheduleUrl(classId) {
     try {
-        return `/schedule/${classId}/${yearOffset-classId.split("-")[1]}-1-m.json`;
+        return `/schedule/${classId}/${yearOffset-classId.split("-")[1]}-2.json`;
     } catch (error) {
         console.error("Error processing schedule:", error);
         return null;

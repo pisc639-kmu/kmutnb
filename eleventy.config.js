@@ -26,6 +26,7 @@ module.exports = function (eleventyConfig) {
   // eleventyConfig.addPassthroughCopy("*.zip");
   // eleventyConfig.addPassthroughCopy("**/*.zip");
   eleventyConfig.addPassthroughCopy("**/*.csv");
+  eleventyConfig.addPassthroughCopy("**/*.json");
   eleventyConfig.addPassthroughCopy("images/**");
   eleventyConfig.addPassthroughCopy("schedule/*/*.json");
   eleventyConfig.addPassthroughCopy({ "404.html": "404.html" });

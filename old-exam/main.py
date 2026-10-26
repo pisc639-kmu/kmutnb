@@ -15,6 +15,9 @@ import pandas as pd
 import PIL
 from PIL import Image, ImageGrab
 
+import typing
+import shutil
+
 all_path = "D:\\kmutnb\\old-exam\\"
 
 class File:
@@ -249,6 +252,16 @@ def search_files(query, in_database=True):
             webbrowser.open(to_open)
     return first_file
 
+def copy_files(from_file:str, to_file:typing.Union[str, list[str]], overwrite:bool=False):
+    if isinstance(to_file, str):
+        to_file = [to_file]
+    for file in to_file:
+        if os.path.exists(file) and not overwrite:
+            print(f"File already exists: {file}")
+            continue
+        shutil.copyfile(from_file, file)
+        print(f"Copied file: {file}")
+
 def main():
     if len(sys.argv) > 1:
         query = sys.argv[1].lower().strip()
@@ -348,4 +361,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+    # copy_files
 
