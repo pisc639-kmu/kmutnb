@@ -1,0 +1,287 @@
+{
+    "timetable": {
+        "monday": [],
+        "tuesday": [
+            {
+                "code": "031001142",
+                "name-en": "Foundation English II",
+                "name-th": "ภาษาอังกฤษพื้นฐาน 2",
+                "from": "8",
+                "to": "10",
+                "room": "90 - 507",
+                "section": "S.13",
+                "instructor": [
+                    {
+                        "name-en": "Ajarn.ANCHALEE LAOWKLANG",
+                        "name-th": "อาจารย์วิมล ขุนทองจันทร์"
+                    }
+                ]
+            },
+            {
+                "code": "031001161",
+                "name-en": "Social Study I",
+                "name-th": "สังคมศึกษา 1",
+                "from": "10",
+                "to": "12",
+                "room": "90 - 304",
+                "section": "S.15",
+                "instructor": [
+                    {
+                        "name-en": "",
+                        "name-th": "อาจารย์ภาณุมาศ พุกพูลทรัพย์"
+                    }
+                ]
+            },
+            {
+                "code": "031001132",
+                "name-en": "Mathematics II",
+                "name-th": "คณิตศาสตร์ 2",
+                "from": "13",
+                "to": "16",
+                "room": "90 - 404",
+                "section": "S.13",
+                "instructor": [
+                    {
+                        "name-en": "",
+                        "name-th": "อาจารย์ อัครกฤษฎิ์ ไชยเมืองชื่น"
+                    }
+                ]
+            }
+        ],
+        "wednesday": [
+            {
+                "code": "031041114",
+                "name-en": "Electronics Circuits",
+                "name-th": "วงจรอิเล็กทรอนิกส์",
+                "from": "8",
+                "to": "10",
+                "room": "90 - 806",
+                "section": "S.1",
+                "instructor": [
+                    {
+                        "name-en": "Ajarn.NATINAN KUTTANAN",
+                        "name-th": "อาจารย์เนตินันท์ กุตนันท์"
+                    }
+                ]
+            },
+            {
+                "code": "031041215",
+                "name-en": "Electronics Circuit Lab",
+                "name-th": "ปฏิบัติการวงจรอิเล็กทรอนิกส์",
+                "from": "10",
+                "to": "12",
+                "room": "90 - 806",
+                "section": "L.1",
+                "instructor": [
+                    {
+                        "name-en": "Ajarn.NATINAN KUTTANAN",
+                        "name-th": "อาจารย์เนตินันท์ กุตนันท์"
+                    },
+                    {
+                        "name-en": "Ajarn.THANATORN ROMJUMPA",
+                        "name-th": "อาจารย์ธนธรณ์ ร่มจำปา"
+                    }
+                ]
+            },
+            {
+                "code": "031001272",
+                "name-en": "Physical Education II",
+                "name-th": "พลศึกษา 2",
+                "from": "13",
+                "to": "15",
+                "room": "91 - fl.5",
+                "section": "L.4",
+                "instructor": [
+                    {
+                        "name-en": "Ajarn.WARAPONG KRAICHOMSOM",
+                        "name-th": "อ.วราพงศ์ ไกรชมสม"
+                    },
+                    {
+                        "name-en": "Ajarn.THANAWAT PRAIPHISUT",
+                        "name-th": "อ.ธนะวรรธน์ ไพรพิสุทธิ์"
+                    }
+                ]
+            },
+            {
+                "code": "031001382",
+                "name-en": "Extra-Curricular Activities II",
+                "name-th": "กิจกรรมเสริมหลักสูตร 2",
+                "from": "15",
+                "to": "17",
+                "room": "-",
+                "section": "-",
+                "instructor": []
+            }
+        ],
+        "thursday": [
+            {
+                "code": "031001152",
+                "name-en": "Thai II",
+                "name-th": "ภาษาไทย 2",
+                "from": "8",
+                "to": "10",
+                "room": "90 - 503",
+                "section": "S.13",
+                "instructor": [
+                    {
+                        "name-en": "Ajarn Dr.PRATCHAYAPORN THONGPRASIT",
+                        "name-th": "อาจารย์ อ.ดร.ปรัชญาพร ทองประสิทธิ์"
+                    }
+                ]
+            },
+            {
+                "code": "031001134",
+                "name-en": "Mathematics IV",
+                "name-th": "คณิตศาสตร์ 4",
+                "from": "12",
+                "to": "15",
+                "room": "90 - 502",
+                "section": "S.15",
+                "instructor": [
+                    {
+                        "name-en": "Ajarn.PARADORN SUKPAN",
+                        "name-th": "อาจารย์ภราดร สุขแป้น"
+                    }
+                ]
+            }
+        ],
+        "friday": [
+            {
+                "code": "031041333",
+                "name-en": "Object Oriented Programming",
+                "name-th": " การเขียนโปรแกรมเชิงวัตถุ ",
+                "from": "8",
+                "to": "12",
+                "room": "90 - 309",
+                "section": "S.1",
+                "instructor": [
+                    {
+                        "name-en": "Ajarn.DAMRONGKIAT LIM",
+                        "name-th": "อาจารย์ดำรงเกียรติ แซ่ลิ้ม"
+                    }
+                ]
+            }
+        ],
+        "saturday": [],
+        "sunday": [],
+        "ignore": [
+            {
+                "code": "031001152",
+                "name-en": "TTTTTTTTTTTTTTTt",
+                "name-th": "TTTTTTTTTTTTTTTt",
+                "from": "TTTTTTTTTTTTTTTt",
+                "to": "TTTTTTTTTTTTTTTt",
+                "room": "90 - TTTTTTTTTTTTTTTt",
+                "section": "TTTTTTTTTTTTTTTt",
+                "instructor": [
+                    {
+                        "name-en": "TTTTTTTTTTTTTTTt",
+                        "name-th": "TTTTTTTTTTTTTTTt"
+                    }
+                ]
+            }
+        ]
+    },
+    "exam": {
+        "Monday 3 Aug": [
+            {
+                "code": "031041111",
+                "name-en": "Electrical Circuits",
+                "name-th": "วงจรไฟฟ้า",
+                "from": "8",
+                "to": "10",
+                "room": "90-501",
+                "section": "S.1",
+                "instructor": [
+                    {
+                        "name-en": "Ajarn.NONTAWAT DAEWONG",
+                        "name-th": "อาจารย์นนทวัฒน์ แดนเวียง"
+                    }
+                ]
+            },
+            {
+                "code": "031001151",
+                "name-en": "Thai I",
+                "name-th": "ภาษาไทย 1",
+                "from": "13",
+                "to": "15",
+                "room": "90-507, 90-508",
+                "section": "S.13",
+                "instructor": [
+                    {
+                        "name-en": "Ajarn Dr.PRATCHAYAPORN THONGPRASIT",
+                        "name-th": "อาจารย์ อ.ดร.ปรัชญาพร ทองประสิทธิ์"
+                    }
+                ]
+            }
+        ],
+        "Tuesday 4 Aug": [
+            {
+                "code": "031001131",
+                "name-en": "Mathematics 1",
+                "name-th": "คณิตศาสตร์ 1",
+                "from": "8",
+                "to": "10",
+                "room": "90-501",
+                "section": "S.13",
+                "instructor": [
+                    {
+                        "name-en": "Ajarn.PICHAYA JARUTATROD",
+                        "name-th": "อาจารย์พิชายา จารุทัศน์โรจน์"
+                    }
+                ]
+            }
+        ],
+        "Wednesday 5 Aug": [
+            {
+                "code": "031001133",
+                "name-en": "Mathematics III",
+                "name-th": "คณิตศาสตร์ 3",
+                "from": "8",
+                "to": "10",
+                "room": "90-408",
+                "section": "S.15",
+                "instructor": [
+                    {
+                        "name-en": "Ajarn.PICHAYA JARUTATROD",
+                        "name-th": "อาจารย์พิชายา จารุทัศน์โรจน์"
+                    }
+                ]
+            }
+        ],
+        "Thursday 6 Aug": [
+            {
+                "code": "031001141",
+                "name-en": "Foundation English I",
+                "name-th": "ภาษาอังกฤษ 1",
+                "from": "8",
+                "to": "10",
+                "room": "90-506",
+                "section": "S.16",
+                "instructor": [
+                    {
+                        "name-en": "Ajarn.PICHAYA JARUTATROD",
+                        "name-th": "อาจารย์พิชายา จารุทัศน์โรจน์"
+                    }
+                ]
+            }
+        ],
+        "Friday 7 Aug": [
+            {
+                "code": "031001114",
+                "name-en": "Electrical Phenomena",
+                "name-th": "ปรากฏการณ์ทางไฟฟ้า",
+                "from": "8",
+                "to": "10",
+                "room": "90 - 306",
+                "section": "S.5",
+                "instructor": [
+                    {
+                        "name-en": "Ajarn.JIDAPA LUMPAPIWAT",
+                        "name-th": "อาจารย์จิดาภา ลัมพาภิวัฒน์"
+                    }
+                ]
+            }
+        ]
+    }
+}

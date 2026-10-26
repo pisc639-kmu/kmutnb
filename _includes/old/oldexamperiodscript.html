@@ -1,0 +1,22 @@
+<script>
+(() => {
+const currentExam = "2-m";
+
+// document.querySelectorAll('*[href$="1-m"]')
+// document.querySelectorAll('.grid>.grid>a[href$="1-m"]')
+// document.querySelectorAll('.grid>.grid>a:not([href$="1-m"])')
+
+const current = document.querySelectorAll(`.grid>.grid>a[href$="${currentExam}"]`);
+const notCurrent = document.querySelectorAll(`.grid>.grid>a:not([href$="${currentExam}"])`);
+
+current.forEach(el => {
+    el.classList.remove('btn-black');
+    el.classList.add('btn-blurple');
+});
+notCurrent.forEach(el => {
+    el.classList.remove('btn-blurple');
+    el.classList.add('btn-black');
+});
+
+})()
+</script>

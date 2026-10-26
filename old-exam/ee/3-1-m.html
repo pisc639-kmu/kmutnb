@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Old Exam Year 1 Term 2 Midterm</title>
+    {% include "head.html" %}
+</head>
+<body class="dark bg-white dark:bg-black min-h-screen">
+    {% include "nav.html" %}
+    <div class="flex items-center justify-center space-x-4 mt-16">
+        <h1 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Old Exam Year 1 Term 2 Midterm</h1>
+    </div>
+
+    {% include "oldexammain.html" %}
+    {% include "bottom.html" %}
+    {% include "oldexamscript2.html" %}
+    <script>
+Table().then(({Row, Info}) => {
+    Row(
+        "Mathematics 5", "Math5",
+        Info(1, 'm', true, ["394175", "031001135"])
+    );
+    Row(
+        "Chemistry 5", "Chemistry",
+        Info(1, 'm', true, ["392155", "031001125"])
+    );
+    Row(
+        "Mechanics of Fluid Solid and Gas", "Physics",
+        Info(1, 'm', true, ["392135", "031001115"])
+    )
+    Row(
+        "Listening and Speaking", "English",
+        Info(1, 'm', true, ["393145", "031001145"])
+    );
+    Row(
+        "Social Study 2", "Social",
+        Info(1, 'm', true, ["395182", "031001162"])
+    );
+    Row(
+        "Digital Circuits II", "Circuit",
+        Info(1, 'm', true, ["350152", "031021142"])
+    );
+    // Row(
+    //     "Electrical Machines II", "Machine",
+    //     Info(1, 'm', true, ["341154", "031021124"])
+    // );
+    Row(
+        "Electronic Drawing", "Drawing",
+        Info(1, 'm', true, ["353131", "031021351"])
+    );
+});
+    </script>
+</body>
+</html>
