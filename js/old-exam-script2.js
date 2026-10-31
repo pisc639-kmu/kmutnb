@@ -214,7 +214,7 @@ async function fetchCSVData() {
 function findFiles(data, subjects, terms=[1, 2], periods=["midterm", "final"], ep=null) {
     const filteredData = data.filter(item => 
         subjects.includes(item.subjectId) &&
-        (terms == null || (Array.isArray(terms) ? terms.includes(+item.term) : Array.from(String(terms), Number).includes(item.term))) &&
+        (terms == null || (Array.isArray(terms) ? terms.includes(+item.term) : Array.from(String(terms), Number).includes(+item.term))) &&
         (periods == null || Array.from(periods).map(p => p[0].toLowerCase()).includes(item.period[0].toLowerCase())) &&
         (ep === null || ([+ep, 2]).includes(item.ep))
     );

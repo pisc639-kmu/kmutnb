@@ -38,8 +38,16 @@ async def capture_playwright_element(browser: Browser, url: str, element_id: str
         await context.close()
 
 async def main():
-    classroom_list = ["cb1-69", "e3-68", "e5-68", "e5-69", "e6-68"]
-    classroom_list_exam = ["cb1-69"]
+    classroom_list = [
+        "cb1-69",
+        # "e3-68",
+        # "e5-68",
+        # "e5-69",
+        # "e6-68"
+    ]
+    classroom_list_exam = [
+        # "cb1-69"
+    ]
     base_dir = Path(__file__).resolve().parent  # Fix: Get the directory of the script
     
     # 3. Initialize Playwright and launch the browser ONCE
@@ -60,6 +68,7 @@ async def main():
                     element_id="timetable",
                     output_path=output_path,
                     dark_mode=True,
+                    viewport=(1296, 1080),
                 )
             )
 
