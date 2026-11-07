@@ -209,7 +209,7 @@ function formatAndStandardizeQuery(query) {
 
 async function fetchAndParseCSV() {
     try {
-        const response = await fetch('files.csv');
+        const response = await fetch('./files.csv');
         
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
