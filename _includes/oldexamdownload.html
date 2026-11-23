@@ -34,4 +34,36 @@
             </button>
         </h2>
         <iframe src="" frameborder="0" width="100%" height="" id="file-frame" class="hidden md:hidden border border-gray-300 dark:border-gray-300"></iframe>
+
+        <div id="pdf-viewer" style="height: 100vh; width: 100%;"></div>
+
+        <!-- <script type="module">
+            import EmbedPDF from 'https://cdn.jsdelivr.net/npm/@embedpdf/viewer@3/dist/embedpdf.js';
+
+            const pdfUrl = 'https://api.kmu.pisc.cc/r2/file/old-exam/raw/2568/term%202/midterm/031001114%20S15-17.pdf';
+            const container = document.getElementById('pdf-viewer');
+
+            // Detect if the user is browsing on iOS Safari (excluding Chrome/Firefox on iOS)
+            const ua = navigator.userAgent;
+            const isIOS = /iP(ad|hone|od)/.test(ua);
+            const isSafari = /^((?!chrome|android).)*safari/i.test(ua);
+
+            if (isIOS && isSafari) {
+                // Safari on iOS fails with heavy JS canvas/WASM viewers. 
+                // Force native Safari inline PDF rendering via iframe.
+                container.innerHTML = `
+                    <iframe src="${pdfUrl}" style="width:100%; height:100%; border:none;" title="PDF Viewer">
+                        <p>Your browser does not support embedded PDFs. <a href="${pdfUrl}" target="_blank">Download PDF</a></p>
+                    `;
+            } else {
+                // Use EmbedPDF for Desktop, Android, and iOS Chrome/Firefox
+                EmbedPDF.init({
+                    target: '#pdf-viewer',
+                    src: pdfUrl,
+                });
+            }
+        </script> -->
     </div>
+    <!-- <p>
+        api.kmu.pisc.cc/r2/file/old-exam/raw/2562/term%202/midterm/23%20Jan%2063/New%20folder/392134.pdf
+    </p> -->

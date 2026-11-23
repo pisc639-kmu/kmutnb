@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>GoodNotes-style Canvas</title>
+  <!-- <style>
+    body { margin: 0; overflow: hidden; background: #e5e5e5; font-family: sans-serif; }
+    #toolbar { position: fixed; top: 10px; left: 10px; z-index: 10; background: #fff; padding: 8px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    #page-container { position: relative; width: 800px; height: 1100px; margin: 60px auto; background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+    canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; touch-action: none; }
+  </style> -->
+</head>
+<body>
+
+<div id="pdf-viewer" style="height: 100vh"></div>
+
+<script type="module">
+  import EmbedPDF from 'https://cdn.jsdelivr.net/npm/@embedpdf/viewer@3/dist/embedpdf.js';
+
+  EmbedPDF.init({
+    target: '#pdf-viewer',
+    src: 'https://api.kmu.pisc.cc/r2/file/old-exam/raw/2568/term%202/midterm/031001114%20S15-17.pdf',
+  });
+</script>
+
+
+</body>
+</html>

@@ -1,6 +1,6 @@
 (async () => {
 function download_file(preview = false) {
-    const fileFrame = document.getElementById('file-frame');
+    const fileFrame = document.getElementById('pdf-viewer');
     const rawUrl = fileFrame?.getAttribute('raw');
     const downloadButton = document.getElementById('download-btn');
 
@@ -16,8 +16,11 @@ function download_file(preview = false) {
     a.target = '_blank';
     a.href = href;
 
-    const filename = url.pathname.split('/').pop() || 'download';
-    a.download = decodeURIComponent(filename) || filename;
+    // Get the title from #iframe-title (e.g., "Math 101 Midterm 2024") and add .pdf if missing
+    const iframeTitle = document.getElementById('iframe-title')?.textContent || 'download';
+    const filename = iframeTitle.endsWith('.pdf') ? iframeTitle : iframeTitle + '.pdf';
+    
+    a.download = decodeURIComponent(filename);
 
     document.body.appendChild(a);
     a.click();
@@ -41,39 +44,74 @@ function get_file_url(url, preview = false) {
     return decodeURI(parsedUrl.href);
 }
 
-const frameElement = document.getElementById("file-frame");
-function openFile(fileData, fileName = fileData.path) {
+const viewerContainer = document.getElementById("pdf-viewer");
+let embedPdfModulePromise = null;
+
+async function openFile(fileData, fileName = fileData.path) {
     const source = getFileUrl(fileData.path);
     // console.log("Opening file:", fileData, "Source URL:", source);
     const sourceStr = source ? String(source) : "";
 
-    const finalSource = sourceStr;
+    if (!sourceStr) return;
 
-    frameElement.setAttribute("sandbox", "allow-scripts allow-same-origin");
-    const iframeSrc = "https://docs.google.com/viewerng/viewer?embedded=true&url=" + encodeURIComponent(finalSource);
-    
-    if (frameElement.src === iframeSrc) return;
-    
-    frameElement.src = iframeSrc;
-    frameElement.setAttribute("raw", source.toString());
+    // Prevent reloading if the exact same file is already open
+    if (viewerContainer.getAttribute("raw") === sourceStr) return;
 
-    if (frameElement.classList.contains("hidden")) {
-        frameElement.classList.toggle("hidden");
+    viewerContainer.setAttribute("raw", sourceStr);
+    viewerContainer.classList.remove("hidden", "md:hidden");
+    viewerContainer.style.height = 'calc(100vh - 10rem)';
+    viewerContainer.style.width = '100%';
+
+    // Clear previous viewer instance/iframe cleanly
+    viewerContainer.replaceChildren();
+
+    // Detect iOS / iPadOS (including iPadOS 13+ requesting desktop sites)
+    const ua = navigator.userAgent;
+    const isIOS = /iP(ad|hone|od)/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    const isSafari = /^((?!chrome|android|crios|fxios).)*safari/i.test(ua);
+
+    if (isIOS && isSafari) {
+        // iOS Safari has built-in native PDF rendering inside iframes (with pinch-to-zoom)
+        viewerContainer.innerHTML = `
+            <iframe 
+                src="${sourceStr}" 
+                style="width: 100%; height: 100%; border: none;" 
+                title="${fileName}">
+            </iframe>
+        `;
+    } else {
+        // Desktop, Android, and iOS Chrome/Firefox:
+        // Dynamically load EmbedPDF once and initialize it into #pdf-viewer
+        try {
+            if (!embedPdfModulePromise) {
+                embedPdfModulePromise = import('https://cdn.jsdelivr.net/npm/@embedpdf/viewer@3/dist/embedpdf.js');
+            }
+            const { default: EmbedPDF } = await embedPdfModulePromise;
+            EmbedPDF.init({
+                target: '#pdf-viewer',
+                src: sourceStr,
+            });
+        } catch (err) {
+            console.error("EmbedPDF failed to initialize, falling back to iframe:", err);
+            viewerContainer.innerHTML = `
+                <iframe 
+                    src="${sourceStr}" 
+                    style="width: 100%; height: 100%; border: none;" 
+                    title="${fileName}">
+                </iframe>
+            `;
+        }
     }
-    if (frameElement.classList.contains("md:hidden")) {
-        frameElement.classList.toggle("md:hidden");
-    }
-
-    frameElement.style.height = 'calc(100vh - 10rem)';
-    frameElement.style.width = '100%';
 
     setTimeout(() => {
         if (document.visibilityState === 'visible') {
-            document.getElementById("file-frame")?.scrollIntoView({ behavior: "smooth" });
+            viewerContainer?.scrollIntoView({ behavior: "smooth" });
         }
     }, 10);
 
     const iframeTitle = document.getElementById("iframe-title");
+    console.log(fileName);
+    console.log(".pdf");
     if (iframeTitle) iframeTitle.textContent = fileName;
 
     const iframeContainer = document.getElementById('iframe-container');

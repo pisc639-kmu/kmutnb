@@ -5,7 +5,13 @@ function getYearOffset() {
     return current.getUTCFullYear() - 1956;
 }
 
+function getTerm() {
+    const current = new Date();
+    return 1 + ((current.getMonth() == 9 && current.getDate() > 15) || (current.getMonth() + 3) % 12 < 5);
+}
+
 const yearOffset = getYearOffset();
+const term = getTerm();
 
 async function downloadFileFromURL(url, filename) {
     try {
@@ -157,7 +163,7 @@ async function download_image(type = 'table') {
 
 function getLatestScheduleUrl(classId) {
     try {
-        return `/schedule/${classId}/${yearOffset-classId.split("-")[1]}-2.json`;
+        return `/schedule/${classId}/${yearOffset-classId.split("-")[1]}-${term}.json`;
     } catch (error) {
         console.error("Error processing schedule:", error);
         return null;

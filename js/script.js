@@ -1,23 +1,27 @@
 (()=>{
     const _w = window;
     const _document = document;
+    const _document_head = _document.head;
     const _document_body = _document.body
     const _querySelector = (element, selector) => element.querySelector(selector);
     const _querySelectorAll = (element, selector) => element.querySelectorAll(selector);
-    // const _getElementById = (element, id) => {return element.getElementById(id)};
+    const _getElementById = (element, id) => {return element.getElementById(id)};
     const _document_querySelector = (selector) => _querySelector(_document, selector);
     // const _document_querySelectorAll = (selector) => _querySelectorAll(_document, selector);
     // const _document_getElementById = (id) => _getElementById(_document, id);
-    // const _document_createElement = (element) => _document.createElement(element);
+    const _document_createElement = (element) => _document.createElement(element);
     const _classList = (element) => element.classList;
     const _classList_add = (element, ...className) => _classList(element).add(...className);
     const _classList_remove = (element, ...className) => _classList(element).remove(...className);
     // const _classList_toggle = (element, ...className) => _classList(element).toggle(...className);
     const _setAttribute = (element, attribute, value) => element.setAttribute(attribute, value);
-    // const _innerHTML = (element, html) => element.innerHTML = html;
+    const _innerHTML = (element, html) => element.innerHTML = html;
     const _appendChild = (element, child) => element.appendChild(child);
     const _addEventListener = (element, event, callback) => element.addEventListener(event, callback);
     const _forEach = (array, callback) => array.forEach(callback);
+    const _navigator = navigator;
+    const _setTimeout = setTimeout;
+    const _contains = (a, b) => a.contains(b);
 
     function watchDocument(callback) {
         const observer = new MutationObserver(callback);
@@ -114,27 +118,27 @@ const mobileMenu = _document_querySelector('#mobile-menu');
 
 const menuIconPath = _document_querySelector('#menu-icon-path');
 
-function closeMobileMenu() {
+const closeMobileMenu = () => {
     _classList_remove(mobileMenu, 'visible-menu');
     _classList_add(mobileMenu, 'hidden-menu');
     _classList_remove(mobileMenuButton, 'is-active');
-    setTimeout(() => {
+    _setTimeout(() => {
         if (menuIconPath) _setAttribute(menuIconPath, 'd', 'M4 8h16M4 16h16');
     }, 150);
 }
 
-function openMobileMenu() {
+const openMobileMenu = () => {
     _classList_remove(mobileMenu, 'hidden-menu');
     _classList_add(mobileMenu, 'visible-menu');
     _classList_add(mobileMenuButton, 'is-active');
-    setTimeout(() => {
+    _setTimeout(() => {
         if (menuIconPath) _setAttribute(menuIconPath, 'd', 'M6 18L18 6M6 6l12 12');
     }, 150);
 }
 
 _addEventListener(mobileMenuButton, 'click', (e) => {
     e.stopPropagation();
-    if (_classList(mobileMenu).contains('hidden-menu')) {
+    if (_contains(_classList(mobileMenu), 'hidden-menu')) {
         openMobileMenu();
     } else {
         closeMobileMenu();
@@ -146,8 +150,9 @@ _forEach(_querySelectorAll(mobileMenu, 'a'), link => {
 });
 
 _addEventListener(_document, 'click', (e) => {
-    if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
-        if (_classList(mobileMenu).contains('visible-menu')) {
+    e = e.target;
+    if (!_contains(mobileMenu, e) && !_contains(mobileMenuButton, e)) {
+        if (_contains(_classList(mobileMenu), 'visible-menu')) {
             closeMobileMenu();
         }
     }
@@ -158,7 +163,7 @@ _addEventListener(_w, 'resize', () => {
         closeMobileMenu();
     }
 });
-setTimeout(() => {
+_setTimeout(() => {
     closeMobileMenu();
 }, 100);
 
@@ -227,7 +232,7 @@ setTimeout(() => {
 //     return div;
 // }
 
-function createClockForm() {
+const createClockForm = () => {
     // const clockFormHtml = `
     // <div>
     //     <form id="clock-form" action="/clock" emthod="get">
@@ -274,13 +279,17 @@ const currentExamRegex = new RegExp(String.raw`\d+-${currentExam}$`);
 // _forEach([..._querySelectorAll(_document, 'a')], a=>{if(/\d+-\d+-[mf]$/.test(a.href)){_classList_remove(a, 'btn-black', 'btn-blurple');_classList_add(a, /\d+-1-f$/.test(a.href)?'btn-blurple':'btn-black')}});
 _forEach([..._querySelectorAll(_document, 'a')], a=>{if(periodRegex.test(a.href)){_classList_remove(a, 'btn-black', 'btn-blurple');_classList_add(a, currentExamRegex.test(a.href)?'btn-blurple':'btn-black')}});
 
+// const classShort = {
+//     '.btn-black': "bg-neutral-600 hover:bg-neutral-700 dark:bg-neutral-900 dark:hover:bg-neutral-700 border-neutral-500                                                                                                                                                                                                                                                    transition-colors duration-300 text-white font-medium py-2 px-4 rounded-md border text-center",
+//     '.btn-blurple': "bg-gradient-to-br from-blue-600 to-indigo-600 dark:from-blue-950 dark:to-indigo-900 hover:from-blue-700 hover:to-indigo-700 dark:hover:from-blue-900 dark:hover:to-indigo-800 border-blue-500 shadow-md shadow-blue-600/25 hover:shadow-lg hover:shadow-blue-700/40 dark:hover:shadow-blue-900/50 active:scale-[0.98] hover:shadow-blue-500 duration-200 transition-all duration-300 text-white font-medium py-2 px-4 rounded-md border text-center",
+// };
 const classShort = {
-    '.btn-black': "bg-neutral-600 hover:bg-neutral-700 dark:bg-neutral-900 dark:hover:bg-neutral-700 text-white font-medium py-2 px-4 rounded-md border border-neutral-500 transition-colors duration-300 text-center",
-    '.btn-blurple': "bg-gradient-to-br from-blue-600 to-indigo-600 dark:from-blue-950 dark:to-indigo-900 hover:from-blue-700 hover:to-indigo-700 dark:hover:from-blue-900 dark:hover:to-indigo-800 text-white font-medium py-2 px-4 rounded-md border border-blue-500 duration-300 shadow-md shadow-blue-600/25 hover:shadow-lg hover:shadow-blue-700/40 dark:hover:shadow-blue-900/50 active:scale-[0.98] transition-all duration-200 hover:shadow-blue-500 text-center",
+    '.btn-black': "bg-neutral-600 hover:bg-neutral-700 dark:bg-neutral-900 dark:hover:bg-neutral-700 border-neutral-500",
+    '.btn-blurple': "bg-gradient-to-br from-blue-600 to-indigo-600 dark:from-blue-950 dark:to-indigo-900 hover:from-blue-700 hover:to-indigo-700 dark:hover:from-blue-900 dark:hover:to-indigo-800 border-blue-500 shadow-md shadow-blue-600/25 hover:shadow-lg hover:shadow-blue-700/40 dark:hover:shadow-blue-900/50 active:scale-[0.98] hover:shadow-blue-500 duration-200",
 };
 for (const[selector, value] of Object.entries(classShort)) {
     _forEach(_querySelectorAll(document, selector), a=>{
-        _classList_add(a, ...value.split(' '))
+        _classList_add(a, ...(value + " transition-all duration-300 text-white font-medium py-2 px-4 rounded-md border text-center").split(' '))
     })
 };
 
@@ -347,12 +356,12 @@ for (const[selector, value] of Object.entries(classShort)) {
 
 // document.body.classList.add('bg-gradient-to-br', ...getRandomDarkGradient().split(' '));
 
-const _localStorage = window.localStorage;
+const _localStorage = _w.localStorage;
 const [_localStorage_getItem, _localStorage_setItem] = [_localStorage.getItem.bind(_localStorage), _localStorage.setItem.bind(_localStorage)];
 const oppositeLang = a => a === 'en' ? 'th' : 'en';
 
 
-function updateLanguage(toggle = true) {
+const updateLanguage = (toggle = true) => {
     // console.log('updateLanguage');
     ['en', 'th'].includes(_localStorage_getItem('lang')) || _localStorage_setItem('lang', 'en');
     // if (!['en', 'th'].contains(_localStorage_getItem('lang'))) {
@@ -385,12 +394,13 @@ function updateLanguage(toggle = true) {
 
     // _forEach(lang === 'en' ? elements_en : elements_th, show);
     // _forEach(lang === 'en' ? elements_th : elements_en, hide);
-    
-    let style = document.getElementById('lang-style');
+
+    // let style = _getElementById(_document, 'lang-style');
+    let style = _document_querySelector('#lang-style');
     if (!style) {
-        style = document.createElement('style');
+        style = _document_createElement('style');
         style.id = 'lang-style';
-        document.head.appendChild(style);
+        _appendChild(_document_head, style);
     }
     // style.innerHTML = `
     //     l-en {
@@ -400,27 +410,31 @@ function updateLanguage(toggle = true) {
     //         ${lang === 'th' ? 'display: block' : 'display: none'};
     //     }
     // `
-    style.innerHTML = `l-${oppositeLang(lang)}{display:none}`;
+    _innerHTML(style, `l-${oppositeLang(lang)}{display:none}`);
 };
 
 // console.log(_querySelectorAll(_document, '.language-toggle'));
-_querySelectorAll(_document, '.language-toggle').forEach(e => _addEventListener(e, 'click', updateLanguage));
+_forEach(_querySelectorAll(_document, '.language-toggle'), e => _addEventListener(e, 'click', updateLanguage));
 updateLanguage(false);
 // watchDocument(() => updateLanguage(false));
 
+const isIOS = /iPad|iPhone|iPod/.test(_navigator.userAgent) || 
+    (_navigator.platform === 'MacIntel' && _navigator.maxTouchPoints > 1);
 
-const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
-    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-
-const style = document.createElement('style');
+const style = _document_createElement('style');
 style.id = 'ios-style';
 
-if (isIOS) {
-    style.textContent = 'nd-ios{display:none!important;}';
-} else {
-    style.textContent = 'd-ios{display:none!important;}';
-}
+// if (isIOS) {
+    
+//     _innerHTML(style, 'nd-ios{display:none!important;}');
+// } else {
+//     _innerHTML(style, 'd-ios{display:none!important;}');
+// }
 
-document.head.appendChild(style);
+_innerHTML(style, (isIOS ? 'n' : '') + "d-ios{display:none!important;}"   );
+
+_appendChild(_document_head, style);
 
 })();
+
+

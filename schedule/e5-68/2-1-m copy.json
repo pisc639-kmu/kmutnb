@@ -1,0 +1,216 @@
+{
+    "timetable": {
+        "monday": [
+            {
+                "code": "031021341",
+                "name-en": "Computer Programming",
+                "name-th": "การโปรแกรมคอมพิวเตอร์",
+                "from": "8",
+                "to": "11",
+                "room": "90 - 602",
+                "section": "5",
+                "instructor": [
+                    {
+                        "name-en": "",
+                        "name-th": "ผศ.ดร.ปาลีรัตน์"
+                    },
+                    {
+                        "name-en": "",
+                        "name-th": "ผศ.ดร.เลอสรรค์"
+                    }
+                ]
+            },
+            {
+                "code": "031021123",
+                "name-en": "Electrical Machines I",
+                "name-th": "",
+                "from": "12",
+                "to": "14",
+                "room": "90 - 605",
+                "section": "5",
+                "instructor": [
+                    {
+                        "name-en": "",
+                        "name-th": "ผศ.ดร.สาธิต"
+                    }
+                ]
+            },
+            {
+                "code": "031001123",
+                "name-en": "Chemistry III",
+                "name-th": "เคมี 3",
+                "from": "14",
+                "to": "16",
+                "room": "90 - 602",
+                "section": "15",
+                "instructor": [
+                    {
+                        "name-en": "",
+                        "name-th": "รศ.ดร.สุกัญญา"
+                    }
+                ]
+            }
+        ],
+        "tuesday": [
+            {
+                "code": "031001153",
+                "name-en": "Thai III",
+                "name-th": "ภาษาไทย 3",
+                "from": "8",
+                "to": "10",
+                "room": "90 - 605",
+                "section": "15",
+                "instructor": [
+                    {
+                        "name-en": "",
+                        "name-th": "อ.จิตต์ศิริ"
+                    }
+                ]
+            },
+            {
+                "code": "031021151",
+                "name-en": "Electronics Circuits I",
+                "name-th": "วงจรอิเล็กทรอนิกส์ 1",
+                "from": "10",
+                "to": "12",
+                "room": "90 - 606",
+                "section": "5",
+                "instructor": [
+                    {
+                        "name-en": "Assoc.Prof.Dr.TITIPONG LERTWIRIYAPRAPA",
+                        "name-th": "รศ.ดร.ฐิติพงษ์ เลิศวิริยะประภา"
+                    }
+                ]
+            },
+            {
+                "code": "031001164",
+                "name-en": "Citizenship",
+                "name-th": "หน้าที่พลเมือง",
+                "from": "13",
+                "to": "15",
+                "room": "90 - 604",
+                "section": "15",
+                "instructor": [
+                    {
+                        "name-en": "",
+                        "name-th": "ผศ.ดร.พนิตา"
+                    }
+                ]
+            }
+        ],
+        "wednesday": [
+            {
+                "code": "031021227",
+                "name-en": "Electrical Measuring Instrument Practice",
+                "name-th": "ปฏิบัติงานเครื่องมือวัดไฟฟ้า",
+                "from": "8",
+                "to": "15",
+                "room": "90 - 601",
+                "section": "5",
+                "instructor": [
+                    {
+                        "name-en": "Dr.PRATCHAYAPORN THONGPRASIT",
+                        "name-th": "อ.ดร.ปรัชญาพร ทองประสิทธิ์"
+                    }
+                ]
+            },
+            {
+                "code": "031001383",
+                "name-en": "Extra-Curricular Activities III",
+                "name-th": "กิจกรรมเสริมหลักสูตร 3",
+                "from": "15",
+                "to": "17",
+                "room": "-",
+                "section": "",
+                "instructor": []
+            }
+        ],
+        "thursday": [
+            {
+                "code": "031001133",
+                "name-en": "Mathematics III",
+                "name-th": "คณิตศาสตร์ 3",
+                "from": "8",
+                "to": "11",
+                "room": "90 - 604",
+                "section": "16",
+                "instructor": [
+                    {
+                        "name-en": "",
+                        "name-th": "รศ.ดร.ศุภวัชร์"
+                    }
+                ]
+            },
+            {
+                "code": "031001113",
+                "name-en": "Wave Motion and Sound",
+                "name-th": "คลื่นและเสียง",
+                "from": "13",
+                "to": "15",
+                "room": "90 - 604",
+                "section": "15",
+                "instructor": [
+                    {
+                        "name-en": "",
+                        "name-th": "ผศ.ดร.อภิชาติ"
+                    }
+                ]
+            },
+            {
+                "code": "031001143",
+                "name-en": "Foundation English III",
+                "name-th": "ภาษาอังกฤษพื้นฐาน 3",
+                "from": "15",
+                "to": "17",
+                "room": "90 - 604",
+                "section": "15",
+                "instructor": [
+                    {
+                        "name-en": "MR. Asim Baris Orses",
+                        "name-th": "อ. Asim Baris Orses"
+                    }
+                ]
+            }
+        ],
+        "friday": [
+            {
+                "code": "031021222",
+                "name-en": "Electrical Machine Practice",
+                "name-th": "",
+                "from": "8",
+                "to": "15",
+                "room": "Shop 90 - 609",
+                "section": "3",
+                "instructor": [
+                    {
+                        "name-en": "",
+                        "name-th": "รศ.จุฑาทิพย์"
+                    },
+                    {
+                        "name-en": "NADIA AMEER",
+                        "name-th": "นางNADIA AMEER"
+                    }
+                ]
+            }
+        ],
+        "saturday": [],
+        "sunday": [],
+        "ignore": [
+            {
+                "code": "031001152",
+                "name-en": "TTTTTTTTTTTTTTTt",
+                "name-th": "TTTTTTTTTTTTTTTt",
+                "from": "TTTTTTTTTTTTTTTt",
+                "to": "TTTTTTTTTTTTTTTt",
+                "room": "90 - TTTTTTTTTTTTTTTt",
+                "section": "TTTTTTTTTTTTTTTt",
+                "instructor": [
+                    {
+                        "name-en": "TTTTTTTTTTTTTTTt",
+                        "name-th": "TTTTTTTTTTTTTTTt"
+                    }
+                ]
+            }
+        ]
+    }
+}
