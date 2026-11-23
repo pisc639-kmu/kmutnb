@@ -70,7 +70,7 @@ async function openFile(fileData, fileName = fileData.path) {
     const isIOS = /iP(ad|hone|od)/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
     const isSafari = /^((?!chrome|android|crios|fxios).)*safari/i.test(ua);
 
-    if (isIOS && isSafari) {
+    if (isIOS && isSafari && false) {
         // iOS Safari has built-in native PDF rendering inside iframes (with pinch-to-zoom)
         viewerContainer.innerHTML = `
             <iframe 
@@ -434,13 +434,21 @@ async function share(fileUrl, filename = null) {
     }
 }
 
+const ua = navigator.userAgent;
+const isIOS = /iP(ad|hone|od)/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
 document.getElementById('copy-btn').addEventListener('click', () => {
     const text = document.getElementById('download-btn').href;
     navigator.clipboard.writeText(text);
     // console.log("Copied to clipboard");
 });
-document.getElementById('share-btn').addEventListener('click', async () => {
+const shareBtn = document.getElementById('share-btn');
+// alert(1);
+if (!isIOS) {
+    // alert('ios');
+    shareBtn.classList.add('hidden');
+}
+shareBtn.addEventListener('click', async () => {
     const text = document.getElementById('download-btn').href;
     const title = document.getElementById('iframe-title').textContent;
 
