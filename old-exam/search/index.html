@@ -14,6 +14,11 @@
         <div class="flex items-center justify-center space-x-4 mt-16">
             <h1 class="text-4xl text-center font-bold mb-4 text-gray-800 dark:text-white"><l-en>Old Exam Search</l-en><l-th>ค้นหาข้อสอบเก่า</l-th></h1>
         </div>
+        
+        <div class="hidden max-w-[80rem] mx-auto px-8">
+            <div id="pdf-viewer" class="rounded-md border border-neutral-500 p-2" style="height: 100vh; width: 100%;"></div>
+        </div>
+
 
         <div class="grid grid-cols-1 gap-y-4 max-w-4xl mx-auto px-4 transition-colors duration-300">
             <div class="w-full mx-auto mt-8 rounded-md border border-neutral-500">
@@ -272,11 +277,29 @@ function createRow(name, { year, term, period, ep = null, path } = {}) {
     thPreviewDownload.classList.add('px-3', 'py-3', 'text-blue', 'space-x-2');
 
     const aPreview = document.createElement('a');
-    aPreview.href = `https://api.kmu.pisc.cc/r2/file/old-exam/raw/${path}`;
-    aPreview.classList.add('material-symbols-outlined');
-    aPreview.textContent = "visibility ";
-    aPreview.target = "_blank";
+    // aPreview.href = `https://api.kmu.pisc.cc/r2/file/old-exam/raw/${path}`;
+    aPreview.classList.add('material-symbols-outlined', 'cursor-pointer');
+    aPreview.textContent = "visibility";
+    // aPreview.target = "_blank";
+    aPreview.addEventListener('click', function (event) {
+        const pdfViewer = document.getElementById('pdf-viewer');
+        pdfViewer.parentNode.classList.remove('hidden');
+        pdfViewer.innerHTML = '';
+        EmbedPDF.init({
+            target: '#pdf-viewer',
+            // src: 'https://www.embedpdf.com/pdfs/welcome.pdf',
+            src: `https://api.kmu.pisc.cc/r2/file/old-exam/raw/${path}`,
+        });
+        pdfViewer?.scrollIntoView({ behavior: "smooth" });
+    });
     thPreviewDownload.appendChild(aPreview);
+
+    const aOpenNewTab = document.createElement('a');
+    aOpenNewTab.href = `https://api.kmu.pisc.cc/r2/file/old-exam/raw/${path}`;
+    aOpenNewTab.classList.add('material-symbols-outlined');
+    aOpenNewTab.textContent = "open_in_new";
+    aOpenNewTab.target = "_blank";
+    thPreviewDownload.appendChild(aOpenNewTab);
 
     // <span class="material-symbols-outlined">download</span></th>
     const aDownload = document.createElement('a');
@@ -361,12 +384,39 @@ search.addEventListener("input", async e => {
 
     const matchedRows = dataset
         .filter(item => item.searchTarget.includes(queryFormatted))
-        // .slice(0, 100)
+        .slice(0, 1000)
         .map(item => createRow(item.name, item.meta));
 
     tableBody.append(...matchedRows);
 });
 
+    </script>
+    <script type="module">
+        import EmbedPDF from 'https://cdn.jsdelivr.net/npm/@embedpdf/viewer@3/dist/embedpdf.js';
+
+        const pdfUrl = 'https://api.kmu.pisc.cc/r2/file/old-exam/raw/2568/term%202/midterm/031001114%20S15-17.pdf';
+        const container = document.getElementById('pdf-viewer');
+
+        // Detect if the user is browsing on iOS Safari (excluding Chrome/Firefox on iOS)
+        const ua = navigator.userAgent;
+        const isIOS = /iP(ad|hone|od)/.test(ua);
+        const isSafari = /^((?!chrome|android).)*safari/i.test(ua);
+
+        if (isIOS && isSafari) {
+            // Safari on iOS fails with heavy JS canvas/WASM viewers. 
+            // Force native Safari inline PDF rendering via iframe.
+            container.innerHTML = `
+                <iframe src="${pdfUrl}" style="width:100%; height:100%; border:none;" title="PDF Viewer">
+                    <p>Your browser does not support embedded PDFs. <a href="${pdfUrl}" target="_blank">Download PDF</a></p>
+                `;
+        } else {
+            // Use EmbedPDF for Desktop, Android, and iOS Chrome/Firefox
+            EmbedPDF.init({
+                target: '#pdf-viewer',
+                src: pdfUrl,
+            });
+        }
+        window.EmbedPDF = EmbedPDF;
     </script>
     {% include "bottom.html" %}
 </body>
